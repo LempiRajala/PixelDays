@@ -7,10 +7,11 @@
 import Sequelize from 'sequelize';
 
 import {
-  MYSQL_HOST, MYSQL_DATABASE, MYSQL_USER, MYSQL_PW, LOG_MYSQL,
+  MYSQL_HOST, MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, LOG_MYSQL,
 } from '../../core/config.js';
 
-const sequelize = new Sequelize(MYSQL_DATABASE, MYSQL_USER, MYSQL_PW, {
+console.log(MYSQL_HOST, MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD)
+const sequelize = new Sequelize(MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, {
   host: MYSQL_HOST,
   dialect: 'mysql',
   define: {

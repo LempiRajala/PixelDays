@@ -1,9 +1,15 @@
 import path from 'path';
-import { readFileSync } from 'fs';
+import { existsSync, readFileSync } from 'fs';
 
-const canvases = JSON.parse(readFileSync(
-  path.resolve(__dirname, './canvases.json'),
-));
+const bundlePath = path.resolve(__dirname, './canvases.json');
+const devPath = path.join(__dirname, '../canvases.json');
+
+let canvases;
+if(existsSync(bundlePath)) {
+  canvases = JSON.parse(readFileSync(bundlePath));
+} else {
+  canvases = JSON.parse(readFileSync(devPath));
+}
 
 export const defaultCanvasForCountry = {};
 (function populateDefaultCanvases() {

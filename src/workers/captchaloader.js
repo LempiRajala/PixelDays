@@ -12,7 +12,7 @@ import { isMainThread, parentPort } from 'worker_threads';
 import { getRandomString } from '../core/utils.js';
 import filter from '../funcs/captchaFilter.js';
 
-const FONT_FOLDER = path.resolve(__dirname, '..', 'captchaFonts');
+const FONT_FOLDER = path.resolve(__dirname, '..', '..', 'dist', 'captchaFonts');
 
 if (isMainThread) {
   throw new Error(

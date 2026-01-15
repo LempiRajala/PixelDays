@@ -1,0 +1,46 @@
+version: '3.8'
+
+services:
+  redis:
+    image: redis:6.2
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    restart: unless-stopped
+    env_file: ./.env
+
+  mysql:
+    build:
+      context: .
+      dockerfile: ./mysql/Dockerfile
+    env_file: ./.env
+    ports:
+      - "3306:3306"
+    volumes:
+      - mysql_data:/var/lib/mysql
+    restart: always
+
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    env_file:
+      - .env
+    environment:
+      - MYSQL_HOST=mysql
+      - HOST=0.0.0.0
+      - REDIS_URL=redis://redis:6379
+    ports:
+      - ${PORT}:${PORT}
+    depends_on:
+      - redis
+      - mysql
+    restart: always
+    volumes:
+      - tiles:/usr/src/app/dist/tiles
+
+volumes:
+  redis_data:
+  mysql_data:
+  tiles:

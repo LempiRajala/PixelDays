@@ -17,6 +17,7 @@ import createImages from './createImages.js';
 import zipDir from './zipDirectory.js';
 import serverConfig from '../webpack.config.server.js';
 import clientConfig from '../webpack.config.client.js';
+import 'dotenv/config';
 
 const __filename = import.meta.filename;
 const __dirname = import.meta.dirname;
@@ -201,7 +202,7 @@ function cleanUpBeforeBuild(doBuildServer, doBuildClient) {
       path.join('src', 'canvases.json'),
       path.join('deployment', 'ecosystem.yml'),
       path.join('deployment', 'ecosystem-backup.yml'),
-      path.join('deployment', 'config.ini'),
+      path.join('deployment', '.env'),
     ].forEach((f) => {
       fs.copyFileSync(
         path.join(parentDir, f),
@@ -346,7 +347,10 @@ async function build() {
   await Promise.all(promises);
 
   // decide which languages to build
-  let avlangs;
+  let avlangs = (
+    process.env.ENGLISH_ONLY === 'true' ?
+    ['en'] :
+    getAllAvailableLocals());
   if (!development && doBuildClient) {
     avlangs = getAllAvailableLocals();
     if (langs !== 'all') {

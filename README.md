@@ -52,7 +52,7 @@ Those are options you will most likely want to adjust:
 | REDIS_URL      | URL:PORT of redis server | "redis://localhost:6379"|
 | MYSQL_HOST     | MySql Host               | "localhost"             |
 | MYSQL_USER     | MySql User               | "pixelplanet"           |
-| MYSQL_PW       | MySql Password           | "sqlpassword"           |
+| MYSQL_PASSWORD | MySql Password           | "sqlpassword"           |
 | MYSQL_DATABASE | MySql Database           | "pixelplanet"           |
 
 #### Canvas Configuration

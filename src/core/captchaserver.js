@@ -11,6 +11,7 @@ import logger from './logger.js';
 import socketEvents from '../socket/socketEvents.js';
 import { getCaptchaFonts, setCaptchaFonts } from '../data/redis/captcha.js';
 import { DailyCron } from '../utils/cron.js';
+import { IS_BUNDLE } from './config.js';
 
 const MAX_WAIT = 30 * 1000;
 const FONT_FOLDER = path.resolve('captchaFonts');
@@ -18,7 +19,11 @@ const FONT_FOLDER = path.resolve('captchaFonts');
 /*
  * worker thread
  */
-const worker = new Worker(path.resolve('workers', 'captchaloader.js'));
+// const worker =
+//   IS_BUNDLE
+//   ? new Worker(path.resolve('workers', 'captchaloader.js'))
+//   : new Worker(path.resolve('src', 'workers', 'captchaloader.js'));
+const worker = new Worker(path.resolve('src', 'workers', 'captchaloader.js'));
 
 /*
  * set captcha fonts according to stored fonts in redis

@@ -17,6 +17,7 @@ import {
   TILE_ZOOM_LEVEL,
 } from './constants.js';
 import { mod, getMaxTiledZoom } from './utils.js';
+import { cwd } from 'process';
 
 
 const CanvasUpdaters = {};
@@ -24,7 +25,7 @@ const CanvasUpdaters = {};
 /*
  * worker thread
  */
-const worker = new Worker(path.resolve('workers', 'tilewriter.js'));
+const worker = new Worker(path.resolve(cwd(), 'src/workers/tilewriter.js'));
 
 /*
  * queue of tasks that is worked on in FIFO

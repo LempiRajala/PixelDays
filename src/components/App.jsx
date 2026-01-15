@@ -2,7 +2,7 @@
  * Main App
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
 import { IconContext } from 'react-icons';
@@ -16,6 +16,7 @@ import Menu from './Menu.jsx';
 import UI from './UI.jsx';
 import ExpandMenuButton from './buttons/ExpandMenuButton.jsx';
 import WindowManager from './WindowManager.jsx';
+import useLink from './hooks/link.js';
 
 const iconContextValue = { style: { verticalAlign: 'middle' } };
 
@@ -31,9 +32,23 @@ const App = () => (
       <ExpandMenuButton />
       <UI />
       <WindowManager />
+      <OnStartup />
     </IconContext.Provider>
   </>
 );
+
+function OnStartup() {
+  const link = useLink();
+
+  useEffect(() => {
+    if(localStorage.getItem('startup_window_showed')) return;
+    localStorage.setItem('startup_window_showed', 'true');
+
+    link('NEWBIE_INFO', { target: 'parent' });
+  }, []);
+
+  return null;
+}
 
 function renderApp(domParent, store) {
   const root = createRoot(domParent);

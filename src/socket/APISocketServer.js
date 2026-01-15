@@ -191,24 +191,14 @@ class APISocketServer {
         }
       });
     } else {
-      const frame = WebSocket.Sender.frame(data, {
-        readOnly: true,
-        mask: false,
-        rsv1: false,
-        opcode: 2,
-        fin: true,
-      });
       this.wss.clients.forEach((ws) => {
         if (ws.readyState === WebSocket.OPEN) {
           if (!filter || filter(ws)) {
-            frame.forEach((buffer) => {
-              try {
-                // eslint-disable-next-line no-underscore-dangle
-                ws._socket.write(buffer);
-              } catch (error) {
-                logger.error(`WebSocket broadcast error: ${error.message}`);
-              }
-            });
+            try {
+              ws.send(data, { binary: true }); // opcode 2 - бинарный фрейм
+            } catch (error) {
+              logger.error(`WebSocket broadcast error: ${error.message}`);
+            }
           }
         }
       });

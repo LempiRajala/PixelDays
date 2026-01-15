@@ -7,13 +7,18 @@ import path from 'path';
 import { Worker } from 'worker_threads';
 
 import logger from './logger.js';
+import { IS_BUNDLE } from './config.js';
 
 const MAX_WAIT = 30 * 1000;
 
 /*
  * worker thread
  */
-const worker = new Worker(path.resolve('workers', 'challengeloader.js'));
+// const worker =
+//   IS_BUNDLE
+//   ? new Worker(path.resolve('workers', 'challengeloader.js'))
+//   : new Worker(path.resolve('src', 'workers', 'challengeloader.js'));
+const worker =new Worker(path.resolve('src', 'workers', 'challengeloader.js'));
 
 /*
  * queue of challenge-generation tasks

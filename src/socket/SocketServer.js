@@ -284,40 +284,37 @@ class SocketServer {
    * @param data
    */
   static broadcastSelected(clients, data) {
-    let frames;
-
-    if (typeof data === 'string') {
-      frames = WebSocket.Sender.frame(Buffer.from(data), {
-        readOnly: false,
-        mask: false,
-        rsv1: false,
-        opcode: 1,
-        fin: true,
-      });
-    } else {
-      frames = WebSocket.Sender.frame(data, {
-        readOnly: false,
-        mask: false,
-        rsv1: false,
-        opcode: 2,
-        fin: true,
-      });
-    }
-
-    return clients.map((ws) => new Promise((resolve) => {
-      if (ws.readyState === WebSocket.OPEN) {
-        // eslint-disable-next-line no-underscore-dangle
-        ws._sender.sendFrame(frames, (err) => {
+    // Определяем опции один раз
+    const options = typeof data === 'string' 
+      ? {} 
+      : { binary: true };
+    
+    // Преобразуем в буфер только один раз для бинарных данных
+    const bufferToSend = typeof data !== 'string' && !Buffer.isBuffer(data)
+      ? Buffer.from(data)
+      : data;
+    
+    return clients
+      .filter(ws => ws.readyState === WebSocket.OPEN)
+      .map((ws) => new Promise((resolve) => {
+        const callback = (err) => {
           if (err) {
-            logger.error(
-              // eslint-disable-next-line max-len
-              `WebSocket broadcast error on ${ws.ip.ipString} : ${err.message}`,
-            );
+            const ip = ws._socket?.remoteAddress || 
+                      ws._socket?.remoteAddress || 
+                      'unknown';
+            logger.error(`WebSocket broadcast error on ${ip}: ${err.message}`);
           }
-        });
-      }
-      resolve();
-    }));
+          resolve();
+        };
+        
+        try {
+          ws.send(bufferToSend, options, callback);
+        } catch (err) {
+          const ip = ws._socket?.remoteAddress || 'unknown';
+          logger.error(`WebSocket broadcast sync error on ${ip}: ${err.message}`);
+          resolve(); // Все равно резолвим, чтобы не блокировать
+        }
+      }));
   }
 
   broadcast(data) {

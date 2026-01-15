@@ -109,7 +109,7 @@ msgstr ""
 msgid "Back"
 msgstr ""
 
-#: src/components/windows/index.js:23
+#: src/components/windows/index.js:25
 msgid "Badge Display"
 msgstr ""
 
@@ -210,7 +210,7 @@ msgstr ""
 msgid "Canvas"
 msgstr ""
 
-#: src/components/windows/index.js:20
+#: src/components/windows/index.js:22
 msgid "Canvas Archive"
 msgstr ""
 
@@ -223,7 +223,7 @@ msgid "Canvas Error"
 msgstr ""
 
 #: src/components/buttons/CanvasSwitchButton.jsx:20
-#: src/components/windows/index.js:19
+#: src/components/windows/index.js:21
 msgid "Canvas Selection"
 msgstr ""
 
@@ -260,7 +260,7 @@ msgstr ""
 msgid "Charts"
 msgstr ""
 
-#: src/components/windows/index.js:18
+#: src/components/windows/index.js:20
 msgid "Chat"
 msgstr ""
 
@@ -718,7 +718,7 @@ msgstr ""
 msgid "File"
 msgstr ""
 
-#: src/components/windows/index.js:22
+#: src/components/windows/index.js:24
 msgid "Fish Display"
 msgstr ""
 
@@ -830,7 +830,7 @@ msgstr ""
 
 #: src/components/BanInfo.jsx:80
 #: src/components/buttons/HelpButton.jsx:20
-#: src/components/windows/index.js:15
+#: src/components/windows/index.js:16
 msgid "Help"
 msgstr ""
 
@@ -840,7 +840,7 @@ msgid ""
 "currently only one."
 msgstr ""
 
-#: src/components/MdLink.jsx:110
+#: src/components/markdown/MdLink.jsx:110
 msgid "Hide Embed"
 msgstr ""
 
@@ -1099,6 +1099,14 @@ msgstr ""
 msgid "New Username"
 msgstr ""
 
+#: src/components/windows/index.js:17
+msgid "Newbie Info"
+msgstr ""
+
+#: src/components/buttons/NewbieInfoButton.jsx:20
+msgid "Newbie info"
+msgstr ""
+
 #: src/components/CanvasItem.jsx:45
 msgid "No"
 msgstr ""
@@ -1125,7 +1133,7 @@ msgstr ""
 msgid "Not allowed"
 msgstr ""
 
-#: src/components/windows/index.js:36
+#: src/components/windows/index.js:38
 msgid "OIDC LogIn"
 msgstr ""
 
@@ -1175,7 +1183,7 @@ msgstr ""
 msgid "Open Palette"
 msgstr ""
 
-#: src/components/MdLink.jsx:99
+#: src/components/markdown/MdLink.jsx:99
 msgid "Open in PopUp"
 msgstr ""
 
@@ -1293,7 +1301,7 @@ msgstr ""
 msgid "Play a sound when new chat messages arrive"
 msgstr ""
 
-#: src/components/windows/index.js:21
+#: src/components/windows/index.js:23
 msgid "Player"
 msgstr ""
 
@@ -1581,11 +1589,11 @@ msgid ""
 msgstr ""
 
 #: src/components/buttons/SettingsButton.jsx:21
-#: src/components/windows/index.js:16
+#: src/components/windows/index.js:18
 msgid "Settings"
 msgstr ""
 
-#: src/components/MdLink.jsx:116
+#: src/components/markdown/MdLink.jsx:116
 msgid "Show Embedded"
 msgstr ""
 
@@ -1880,7 +1888,7 @@ msgid "User Account"
 msgstr ""
 
 #: src/components/buttons/LogInButton.jsx:20
-#: src/components/windows/index.js:17
+#: src/components/windows/index.js:19
 msgid "User Area"
 msgstr ""
 
@@ -1940,6 +1948,10 @@ msgstr ""
 
 #: src/ui/PixelTransferController.js:176
 msgid "Weird"
+msgstr ""
+
+#: src/components/windows/NewbieInfo.jsx:9
+msgid "Welcome to PixelDays!"
 msgstr ""
 
 #: src/components/windows/Settings.jsx:174

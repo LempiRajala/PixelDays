@@ -8,7 +8,7 @@ import readline from 'readline';
 
 import { ensureBadgeExistence } from '../data/sql/Badge.js';
 import { assetWatcher } from './fsWatcher.js';
-import { ASSET_DIR } from './config.js';
+import { ASSET_DIR, IS_BUNDLE } from './config.js';
 
 const assetDir = path.join(__dirname, 'public', ASSET_DIR);
 /*
@@ -158,6 +158,10 @@ export function getThemeCssAssets() {
  * a file in the public directory...
  */
 (async () => {
+  // const file =
+  //   IS_BUNDLE
+  //   ? path.join(__dirname, 'public', 'badges', 'badges.txt')
+  //   : path.join(__dirname, '..', '..', 'public', 'badges', 'badges.txt');
   const file = path.join(__dirname, 'public', 'badges', 'badges.txt');
   if (!fs.existsSync(file)) {
     return;

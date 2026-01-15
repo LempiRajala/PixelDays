@@ -1,5 +1,5 @@
 {
-  "name": "pixelplanet",
+  "name": "pixeldays",
   "version": "2.0.1",
   "license": "AGPL-3.0-or-later",
   "private": true,
@@ -9,20 +9,16 @@
   "type": "module",
   "description": "Unlimited planet canvas for placing pixels",
   "homepage": "https://git.pixelplanet.fun/ppfun/pixelplanet",
-  "author": "HF <hf@pixelplanet.fun>",
-  "repository": {
-    "type": "git",
-    "url": "git+https://git.pixelplanet.fun/ppfun/pixelplanet.git"
-  },
+  "author": "FinalEclipse",
   "main": "server.js",
   "scripts": {
+    "backend:dev": "bun --watch src/server.js",
     "build": "node scripts/build.js",
     "build:parallel": "node scripts/build.js --parallel",
     "build:server": "node scripts/build.js --server",
     "build:client": "node scripts/build.js --client",
     "build:dev": "node scripts/build.js --dev",
     "update-browserlist": "browserslist --update-db",
-    "restart": "ssh pixelplanet /home/pixelpla/restart.sh",
     "deploy": "./deployment/deploy.sh",
     "deploy:server": "./deployment/deploy-server.sh",
     "minify-css": "node scripts/minifyCss.js",
@@ -35,6 +31,7 @@
     "not IE_Mob 11"
   ],
   "dependencies": {
+    "@types/ws": "^8.15.1",
     "arctic": "^3.7.0",
     "bcrypt": "^5.1.1",
     "busboy": "^1.6.0",
@@ -42,9 +39,11 @@
     "compression": "^1.7.3",
     "cookie": "^1.0.2",
     "core-js": "^3.34.0",
+    "dotenv": "^17.2.3",
     "etag": "^1.8.1",
     "express": "^5.1.0",
     "express-fileupload": "^1.5.1",
+    "hono": "^4.11.4",
     "image-q": "^4.0.0",
     "js-file-download": "^0.4.12",
     "morgan": "^1.10.0",

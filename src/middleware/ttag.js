@@ -6,11 +6,14 @@ import { TTag } from 'ttag';
 import { assetWatcher } from '../core/fsWatcher.js';
 import { getLangsOfJsAsset } from '../core/assets.js';
 import lccc from '../../i18n/lccc.json';
+import { cwd } from 'process';
+import path from 'node:path';
+import { readFileSync, readdirSync } from 'node:fs';
 
-const localeImports = import.meta.webpackContext('../../i18n', {
-  recursive: false,
-  regExp: /^\.[/\\]ssr-.+\.po$/,
-});
+// const localeImports = import.meta.webpackContext('../../i18n', {
+//   recursive: false,
+//   regExp: /^\.[/\\]ssr-.+\.po$/,
+// });
 
 const ttags = {};
 
@@ -21,7 +24,8 @@ const ttags = {};
 export const availableLangs = {};
 
 function loadTtags() {
-  const langs = localeImports.keys();
+  const i18nPath = path.join(cwd(), 'i18n');
+  const langs = readdirSync(i18nPath).filter(filename => filename.startsWith('ssr-') && filename.endsWith('.po'));
   const jsLangs = getLangsOfJsAsset('client');
   Object.keys(availableLangs).forEach((key) => delete availableLangs[key]);
 
@@ -41,7 +45,7 @@ function loadTtags() {
 
       if (!ttags[lang]) {
         const ttag = new TTag();
-        ttag.addLocale(lang, localeImports(file).default);
+        ttag.addLocale(lang, readFileSync(path.join(i18nPath, file)).default);
         ttag.useLocale(lang);
         ttags[lang] = ttag;
       }

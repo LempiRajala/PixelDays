@@ -2,8 +2,8 @@
  * general config that is also available from client code can be found in
  * src/core/constants.js
  */
-import fs from 'fs';
 import path from 'path';
+import 'dotenv/config';
 
 if (process.env.BROWSER) {
   throw new Error(
@@ -15,7 +15,7 @@ let config = {};
 
 (() => {
   const variables = [
-    ['ASSET_DIR', 'string', '/assets'],
+    ['ASSET_DIR', 'string', './assets'],
     ['PORT', 'int', 8080],
     ['HOST', 'string', '127.0.0.1'],
     ['USE_MAILER', 'bool', false],
@@ -40,7 +40,7 @@ let config = {};
     ['MYSQL_HOST', 'string', 'localhost'],
     ['MYSQL_DATABASE', 'string', 'pixelplanet'],
     ['MYSQL_USER', 'string', 'pixelplanet'],
-    ['MYSQL_PW', 'string', 'sqlpassword'],
+    ['MYSQL_PASSWORD', 'string', 'sqlpassword'],
     ['LOG_MYSQL', 'bool', false],
     ['CHAT_INVITE', 'string', 'https://www.guilded.gg/'],
     ['HOURLY_EVENT', 'bool', false],
@@ -70,38 +70,13 @@ let config = {};
     ['RATE_LIMIT_CMD', 'string', null],
     ['TIMEBLOCKS', 'array', null],
     ['OIDC_URL', 'string', null],
+    ['IS_BUNDLE', 'bool', false],
   ];
 
-  /*
-   * read all config file values
-   */
-  const configFileValues = {};
-  try {
-    const configFile = path.resolve('config.ini');
-    if (fs.existsSync(configFile)) {
-      fs.readFileSync(path.resolve('config.ini')).toString('utf8')
-        .split('\n').forEach((line) => {
-          line = line.trim();
-          if (line.startsWith('#')) {
-            return;
-          }
-          const seperator = line.indexOf('=');
-          // eslint-disable-next-line
-          if (seperator === -1 || seperator === 0 || seperator > line.length - 2) {
-            return;
-          }
-          const key = line.substring(0, seperator).trim();
-          let value = line.substring(seperator + 1).trim();
-          if ((value.startsWith('"') && value.endsWith('"'))
-            || (value.startsWith('\'') && value.endsWith('\''))
-          ) {
-            value = value.substring(1, value.length - 1);
-          }
-          configFileValues[key] = value;
-        });
+  for(const varProp in variables) {
+    if(varProp in process.env) {
+      variables[varProp] = process.env[varProp];
     }
-  } catch (error) {
-    console.error(`Couldn't read config file ${error.message}`);
   }
 
   /*
@@ -112,9 +87,6 @@ let config = {};
     const [key, type, def] = variables[i];
 
     let userValue = process.env[key];
-    if (!userValue) {
-      userValue = configFileValues[key];
-    }
     let value;
 
     if (userValue) {
@@ -256,7 +228,7 @@ export const {
   MYSQL_HOST,
   MYSQL_DATABASE,
   MYSQL_USER,
-  MYSQL_PW,
+  MYSQL_PASSWORD,
   LOG_MYSQL,
   CHAT_INVITE,
   HOURLY_EVENT,
@@ -291,6 +263,7 @@ export const {
   TIMEBLOCK_USERS,
   OIDC_URL,
   AVAILABLE_TP,
+  IS_BUNDLE,
 } = config;
 
 config = null;

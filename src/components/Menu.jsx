@@ -10,6 +10,7 @@ import HelpButton from './buttons/HelpButton.jsx';
 import SettingsButton from './buttons/SettingsButton.jsx';
 import LogInButton from './buttons/LogInButton.jsx';
 import DownloadButton from './buttons/DownloadButton.jsx';
+import NewbieInfoButton from './buttons/NewbieInfoButton.jsx';
 
 const Menu = () => {
   const [render, setRender] = useState(false);
@@ -35,6 +36,7 @@ const Menu = () => {
         <LogInButton />
         <DownloadButton />
         <HelpButton />
+        <NewbieInfoButton />
       </div>
     )
   );

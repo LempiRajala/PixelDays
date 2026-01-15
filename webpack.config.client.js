@@ -42,9 +42,9 @@ export default ({ development, analyze}) => {
         sortByMsgid: true,
       },
     ]);
-    babelPlugins.push([
-      "transform-remove-imports", { "test": "^ttag$" },
-    ]);
+    // babelPlugins.push([
+    //   "transform-remove-imports", { "test": "^ttag$" },
+    // ]);
   }
 
   return {

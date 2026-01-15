@@ -133,6 +133,11 @@ tr:nth-child(odd) {
   background-color: rgb(, 238, 255);
 }
 
+#newbieinfobutton {
+  background-color: rgb(112 0 0 / 80%);
+  color: white;
+}
+
 #helpbutton {
   background-color: rgb(112 0 0 / 80%);
   color: white;
@@ -161,7 +166,7 @@ tr:nth-child(odd) {
   color: white;
 }
 
-#helpbutton:hover, #settingsbutton:hover, #loginbutton:hover, #downloadbutton:hover, #chatbutton:hover {
+#newbieinfobutton:hover, #helpbutton:hover, #settingsbutton:hover, #loginbutton:hover, #downloadbutton:hover, #chatbutton:hover {
   background-color: #ff1818f2;
 }
 
