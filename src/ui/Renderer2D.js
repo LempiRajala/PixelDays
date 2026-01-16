@@ -492,11 +492,12 @@ class Renderer2D extends Renderer {
       && pixelNotify.doRender()
     );
     // if we have to render placeholder
+    const brushSizeMoreThanOne = state.gui.brushSize > 1;
     const doRenderPlaceholder = (
       viewscale >= 3
       && !fetchingPixel
       && (hover || this.hover)
-      && !isPotato
+      && (!isPotato && !brushSizeMoreThanOne)
     );
     const doRenderPotatoPlaceholder = (
       viewscale >= 3
@@ -505,7 +506,7 @@ class Renderer2D extends Renderer {
         || this.forceNextRender
         || this.forceNextSubrender
         || doRenderPixelnotify
-      ) && isPotato
+      ) && (isPotato || brushSizeMoreThanOne)
     );
     //--
     // if we have nothing to render, return

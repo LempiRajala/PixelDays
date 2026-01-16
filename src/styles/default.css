@@ -1290,8 +1290,14 @@ table td span {
   transition: 0.2s;
 }
 
+#brushsizebox span {
+  background-color: rgb(196, 196, 196);
+}
+
 #palettebox .selected,
-#palettebox span:hover {
+#palettebox span:hover,
+#brushsizebox .selected,
+#brushsizebox span:hover {
   z-index: 2 !important;
   outline: rgb(234, 234, 234) solid 1px;
   box-shadow: rgba(0, 0, 0, 0.80) 0px 0px 5px 2px;
