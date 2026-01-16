@@ -350,6 +350,10 @@ msgstr ""
 msgid "Close"
 msgstr ""
 
+#: src/components/buttons/BrushButton.jsx:26
+msgid "Close Brush"
+msgstr ""
+
 #: src/components/buttons/ChatButton.jsx:79
 msgid "Close Chat"
 msgstr ""
@@ -1111,7 +1115,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: src/store/actions/index.js:417
+#: src/store/actions/index.js:430
 msgid "No Phish!"
 msgstr ""
 
@@ -1147,7 +1151,7 @@ msgstr ""
 msgid "Offset"
 msgstr ""
 
-#: src/store/actions/index.js:418
+#: src/store/actions/index.js:431
 msgid "Oh no, the phish escaped. Better luck next time!"
 msgstr ""
 
@@ -1169,6 +1173,10 @@ msgstr ""
 
 #: src/components/TemplateSettings.jsx:94
 msgid "Opacity of Overlay in percent."
+msgstr ""
+
+#: src/components/buttons/BrushButton.jsx:26
+msgid "Open Brush"
 msgstr ""
 
 #: src/components/buttons/ChatButton.jsx:79
@@ -1260,7 +1268,7 @@ msgstr ""
 msgid "Permission"
 msgstr ""
 
-#: src/store/actions/index.js:410
+#: src/store/actions/index.js:423
 msgid "Phish!"
 msgstr ""
 
@@ -2038,7 +2046,7 @@ msgstr ""
 msgid "You can now place more on pixelplanet.fun :)"
 msgstr ""
 
-#: src/store/actions/index.js:412
+#: src/store/actions/index.js:425
 #, javascript-format
 msgid ""
 "You caught a Phish! It is a ${ FISH_TYPES[type].name } with ${ size }kg! As "

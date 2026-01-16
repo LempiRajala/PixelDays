@@ -43,30 +43,32 @@ export function renderPlaceholder(
   viewportCtx.restore();
 }
 
-
-export function renderPotatoPlaceholder(
+export function renderPotatoPlaceholder({
   state,
   $viewport,
   view,
   scale,
-) {
+}) {
   const viewportCtx = $viewport.getContext('2d');
+  const hover = state.canvas.hover;
+  const size = state.gui.brushSize;
 
-  const { palette, selectedColor, hover } = state.canvas;
-
-  const [sx, sy] = worldToScreen(view, scale, $viewport, hover);
+  const [x1, y1] = worldToScreen(view, scale, $viewport, [hover[0] - (size >> 1), hover[1] - (size >> 1)]);
+  const [x2, y2] = worldToScreen(view, scale, $viewport, [hover[0] + 1 + (size >> 1), hover[1] + 1 + (size >> 1)]);
 
   viewportCtx.save();
+
   viewportCtx.fillStyle = '#000';
-  viewportCtx.fillRect(sx - 1, sy - 1, 4, scale + 2);
-  viewportCtx.fillRect(sx - 1, sy - 1, scale + 2, 4);
-  viewportCtx.fillRect(sx + scale - 2, sy - 1, 4, scale + 2);
-  viewportCtx.fillRect(sx - 1, sy + scale - 2, scale + 1, 4);
-  viewportCtx.fillStyle = palette.colors[selectedColor];
-  viewportCtx.fillRect(sx, sy, 2, scale);
-  viewportCtx.fillRect(sx, sy, scale, 2);
-  viewportCtx.fillRect(sx + scale - 1, sy, 2, scale);
-  viewportCtx.fillRect(sx, sy + scale - 1, scale, 2);
+  viewportCtx.lineWidth = 4;
+  viewportCtx.beginPath();
+  viewportCtx.moveTo(x1, y1);
+  viewportCtx.lineTo(x2, y1);
+  viewportCtx.lineTo(x2, y2);
+  viewportCtx.lineTo(x1, y2);
+  viewportCtx.lineTo(x1, y1);
+  viewportCtx.lineTo(x2, y1);
+  viewportCtx.stroke();
+
   viewportCtx.restore();
 }
 

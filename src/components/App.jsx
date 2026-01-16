@@ -17,6 +17,7 @@ import UI from './UI.jsx';
 import ExpandMenuButton from './buttons/ExpandMenuButton.jsx';
 import WindowManager from './WindowManager.jsx';
 import useLink from './hooks/link.js';
+import BrushButton from './buttons/BrushButton.jsx';
 
 const iconContextValue = { style: { verticalAlign: 'middle' } };
 
@@ -27,6 +28,7 @@ const App = () => (
       <CanvasSwitchButton />
       <Menu />
       <ChatButton />
+      <BrushButton />
       <OnlineBox />
       <CoordinatesBox />
       <ExpandMenuButton />

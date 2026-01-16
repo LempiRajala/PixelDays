@@ -158,7 +158,7 @@ class PixelPainterControls {
           requestBanMe(4);
           return;
         }
-        PixelPainterControls.placePixel(
+        PixelPainterControls.placePixels(
           store,
           renderer,
           this.screenToWorld([clientX, clientY]),
@@ -180,75 +180,103 @@ class PixelPainterControls {
     return [x / length, y / length];
   }
 
+  static getPixelsCoordsInBrushRange({
+    x, y,
+    brushSize,
+  }) {
+    const brushRadius = brushSize >> 1;
+    const x1 = x - brushRadius;
+    const y1 = y - brushRadius;
+    const x2 = x + 1 + brushRadius;
+    const y2 = y + 1 + brushRadius;
+
+    const cells = [];
+    for(let y = y1; y < y2; y++) {
+      for(let x = x1; x < x2; x++) {
+        cells.push([x, y]);
+      }
+    }
+    return cells;
+  }
+
   /*
-   * place pixel
+   * place pixels
    * either with given colorIndex or with selected color if none is given
    */
-  static placePixel(store, renderer, cell, colorIndex = null) {
-    cell = cell.map(Math.floor);
+  static placePixels(store, renderer, centerCell, colorIndex = null) {
+    centerCell = centerCell.map(Math.floor);
     const state = store.getState();
     if (state.canvas.isHistoricalView) {
       return;
     }
-    const selectedColor = colorIndex
-      ?? PixelPainterControls.getWantedColor(state, renderer, cell);
-    if (selectedColor === null) {
-      return;
-    }
-    const { viewscale: scale } = renderer;
 
+    const cells = this.getPixelsCoordsInBrushRange({
+      x: centerCell[0],
+      y: centerCell[1],
+      brushSize: state.gui.brushSize,
+    });
+
+    // приближение при большом отдалении
     if (state.gui.autoZoomIn && scale < 8) {
-      renderer.updateView([cell[0], cell[1], 12]);
+      renderer.updateView([centerCell[0], centerCell[1], 12]);
       return;
     }
 
     // allow placing of pixel just on low zoomlevels
-    if (scale < 3) {
+    if (renderer.viewscale < 3) {
       return;
     }
 
-    const curColor = renderer.getColorIndexOfPixel(...cell);
-    if (selectedColor === curColor) {
-      return;
-    }
+    let pixelsToPlace = cells
+      .map(([x, y]) => [
+        x, y,
+        colorIndex ?? PixelPainterControls.getWantedColor(state, renderer, [x, y]),
+      ])
+      .filter(pxl => pxl[2] !== null);
+
 
     // placing unset pixel
-    if (selectedColor < state.canvas.clrIgnore) {
-      const { palette } = state.canvas;
-      const { rgb } = palette;
-      let clrOffset = selectedColor * 3;
-      const r = rgb[clrOffset++];
-      const g = rgb[clrOffset++];
-      const b = rgb[clrOffset];
-      if (palette.getIndexOfColor(r, g, b) === curColor) {
-        return;
+    pixelsToPlace = pixelsToPlace.filter(pxl => {
+      const canvasColor = renderer.getColorIndexOfPixel(pxl[0], pxl[1]);
+      if(pxl[2] === canvasColor) {
+        return false;
       }
-    }
 
-    const { canvasSize } = state.canvas;
-    const [x, y] = cell;
-
-    // apu link
-    // 5275_-8713
-    // 5398_-8614
-    if (x > 5275 && y > -8713 && x < 5398 && y < -8614) {
-      if (state.canvas.canvasId === '0') {
-        window.location.href = 'https://files.catbox.moe/gh2wtr.mp4';
-        return;
+      if (pxl[2] < state.canvas.clrIgnore) {
+        const { palette } = state.canvas;
+        const { rgb } = palette;
+        let clrOffset = pxl[2] * 3;
+        const r = rgb[clrOffset++];
+        const g = rgb[clrOffset++];
+        const b = rgb[clrOffset];
+        if (palette.getIndexOfColor(r, g, b) === canvasColor) {
+          return false;
+        }
       }
-    }
+      return true;
+    });
+
+    const canvasSize = state.canvas.canvasSize;
 
     const maxCoords = canvasSize / 2;
-    if (x < -maxCoords || x >= maxCoords || y < -maxCoords || y >= maxCoords) {
+    pixelsToPlace = pixelsToPlace.filter(([x, y]) => {
+      return !(x < -maxCoords || x >= maxCoords || y < -maxCoords || y >= maxCoords);
+    });
+
+    if(pixelsToPlace.length === 0) {
       return;
     }
-    const [i, j] = getChunkOfPixel(canvasSize, x, y);
-    const offset = getOffsetOfPixel(canvasSize, x, y);
-    pixelTransferController.tryPlacePixel(
-      i, j, offset,
-      selectedColor,
-      curColor,
-    );
+
+    pixelsToPlace.forEach(([x, y, clr]) => {
+      const canvasColor = renderer.getColorIndexOfPixel(x, y);
+      const [i, j] = getChunkOfPixel(canvasSize, x, y);
+      const offset = getOffsetOfPixel(canvasSize, x, y);
+      pixelTransferController.tryPlacePixel(
+        i, j, offset,
+        clr,
+        canvasColor,
+      );
+    });
   }
 
   static getMultiTouchDistance(event) {
@@ -284,7 +312,7 @@ class PixelPainterControls {
       if (state.gui.holdPaint) {
         this.tapTimeout = setTimeout(() => {
           this.isTapPainting = true;
-          PixelPainterControls.placePixel(
+          PixelPainterControls.placePixels(
             this.store,
             this.renderer,
             this.screenToWorld(this.clickTapStartCoords),
@@ -317,7 +345,7 @@ class PixelPainterControls {
       if (clickTapStartTime > Date.now() - 580
         && coordsDiff[0] < 6 && coordsDiff[1] < 6
       ) {
-        PixelPainterControls.placePixel(
+        PixelPainterControls.placePixels(
           store,
           this.renderer,
           this.screenToWorld([clientX, clientY]),
@@ -377,7 +405,7 @@ class PixelPainterControls {
     } else if (!this.wasEverMultiTap && !this.coolDownDelta) {
       // hold paint
       if (this.isTapPainting) {
-        PixelPainterControls.placePixel(
+        PixelPainterControls.placePixels(
           this.store,
           this.renderer,
           this.screenToWorld([clientX, clientY]),
@@ -421,7 +449,7 @@ class PixelPainterControls {
     }
     const { hover } = this.store.getState().canvas;
     if (hover) {
-      PixelPainterControls.placePixel(
+      PixelPainterControls.placePixels(
         this.store,
         this.renderer,
         hover,
@@ -535,7 +563,7 @@ class PixelPainterControls {
           return;
         }
         /* hold paint */
-        PixelPainterControls.placePixel(
+        PixelPainterControls.placePixels(
           this.store,
           this.renderer,
           hover,

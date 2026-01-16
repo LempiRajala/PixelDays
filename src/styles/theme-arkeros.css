@@ -42,6 +42,14 @@ tr:nth-child(odd) {
   background: linear-gradient(45deg, orange , yellow, green, aqua, blue, violet);
 }
 
+#brushbutton {
+  background: linear-gradient(135deg, orange , yellow, green, aqua, blue, violet);
+}
+
+#brushbutton:hover {
+  background: linear-gradient(45deg, orange , yellow, green, aqua, blue, violet);
+}
+
 .coorbox {
   background: linear-gradient(45deg, orange , yellow, green, aqua, blue, violet);
   border-radius: 10px;

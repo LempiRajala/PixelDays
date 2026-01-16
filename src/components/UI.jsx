@@ -19,6 +19,7 @@ import VDay from './VDay.jsx';
 import Fish from './Fish.jsx';
 import useDate from './hooks/useDate.js';
 import { CANVAS_TYPES } from '../core/constants.js';
+import BrushSizeSelect from './BrushSizeSelect.jsx';
 
 const UI = () => {
   const [
@@ -48,6 +49,7 @@ const UI = () => {
         <>
           <PalselButton />
           <Palette />
+          <BrushSizeSelect />
           {(!is3D) && <GlobeButton />}
           {(!is3D && isOnMobile) && <PencilButton />}
           <CoolDownBox />

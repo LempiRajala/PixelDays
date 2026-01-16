@@ -584,7 +584,12 @@ class Renderer2D extends Renderer {
       renderPlaceholder(state, viewport, _view, viewscale);
     }
     if (hover && doRenderPotatoPlaceholder) {
-      renderPotatoPlaceholder(state, viewport, _view, viewscale);
+      renderPotatoPlaceholder({
+        state,
+        $viewport: viewport,
+        view: _view,
+        scale: viewscale,
+      });
     }
   }
 

@@ -117,6 +117,12 @@ export function toggleOpenPalette() {
   };
 }
 
+export function toggleOpenBrush() {
+  return {
+    type: 's/TGL_OPEN_BRUSH',
+  }
+}
+
 export function toggleCursor() {
   return {
     type: 's/TGL_CURSOR',
@@ -129,6 +135,13 @@ export function setHoldPaint(value, immediate) {
     value,
     immediate,
   };
+}
+
+export function setBrushSize(value) {
+  return {
+    type: 's/SET_BRUSH_SIZE',
+    value,
+  }
 }
 
 export function selectPencilMode(value) {

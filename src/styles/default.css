@@ -438,7 +438,7 @@ tr:nth-child(even) {
   border-bottom: solid thin;
 }
 
-.actionbuttons, .coorbox, .onlinebox, .cooldownbox, #palettebox {
+.actionbuttons, .coorbox, .onlinebox, .cooldownbox, #palettebox, #brushsizebox {
   position: fixed;
   background-color: rgba(226, 226, 226, 0.80);
   color: black;
@@ -539,6 +539,10 @@ tr:nth-child(even) {
   right: 16px;
 }
 #chatbutton {
+  bottom: 16px;
+  right: 98px;
+}
+#brushbutton {
   bottom: 16px;
   right: 57px;
 }
@@ -1262,18 +1266,27 @@ table td span {
   opacity: 1;
 }
 
-#palettebox {
+#palettebox, #brushsizebox {
   z-index: 1;
   bottom: 59px;
   padding: 3px;
   position: fixed;
-  right: 16px;
   margin-left: auto;
   margin-right: auto;
   overflow: hidden;
 }
 
-#palettebox, #palettebox span {
+#palettebox {
+  right: 16px;
+}
+
+#brushsizebox {
+  right: 57px;
+  line-height: 25px !important;
+}
+
+#palettebox, #palettebox span,
+#brushsizebox, #brushsizebox span {
   transition: 0.2s;
 }
 

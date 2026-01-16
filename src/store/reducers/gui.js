@@ -24,6 +24,7 @@ const initialState = {
   style: 'default',
   // properties that aren't saved
   holdPaint: false,
+  brushSize: 1,
   easterEgg: false,
   moveU: 0,
   moveV: 0,
@@ -113,6 +114,13 @@ export default function gui(
       };
     }
 
+    case 's/TGL_OPEN_BRUSH': {
+      return {
+        ...state,
+        brushOpen: !state.brushOpen,
+      };
+    }
+
     case 's/TGL_OPEN_MENU': {
       return {
         ...state,
@@ -150,6 +158,13 @@ export default function gui(
       return {
         ...state,
         holdPaint: action.value,
+      };
+    }
+
+    case 's/SET_BRUSH_SIZE': {
+      return {
+        ...state,
+        brushSize: action.value,
       };
     }
 

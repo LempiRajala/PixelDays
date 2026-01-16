@@ -141,6 +141,7 @@ export default (store) => (next) => (action) => {
       break;
     }
 
+    case 's/SET_BRUSH_SIZE':
     case 's/SET_HOLD_PAINT': {
       const renderer = getRenderer();
       if (action.value) {

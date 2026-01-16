@@ -112,7 +112,7 @@ tr:nth-child(odd) {
   color: black;
 }
 
-#palettebox {
+#palettebox, #brushsizebox {
   background-color: rgb(99 16 16 / 80%);
 }
 
@@ -157,6 +157,11 @@ tr:nth-child(odd) {
 }
 
 #chatbutton {
+  background-color: rgb(162 0 0 / 80%);
+  color: white;
+}
+
+#brushbutton {
   background-color: rgb(162 0 0 / 80%);
   color: white;
 }
