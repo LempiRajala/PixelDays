@@ -16,7 +16,7 @@ function setThemeColorMeta(r, g, b) {
   }
 }
 
-const TITLE = 'PixelPlanet.fun';
+const TITLE = 'PixelDays';
 
 let lastTitle = null;
 

@@ -1,4 +1,4 @@
-# PixelPlanet
+# PixelDays
 
 
 [![matrix](https://img.shields.io/badge/Discord-Support-blue.svg)](https://pixelplanet.fun/guilded)
@@ -170,7 +170,7 @@ Hourly event is an MMORPG style event that launches once in two hours where user
 
 ## Backups and Historical View
 
-PixelPlanet includes a backup script that creates full canvas backups daily in the form of PNG tile files and incremential backups all 15min to 20min.
+PixelDays includes a backup script that creates full canvas backups daily in the form of PNG tile files and incremential backups all 15min to 20min.
 
 It requires a [second running redis instance](https://www.digitalocean.com/community/questions/multiple-redis-instances-on-ubuntu-16-04).
 

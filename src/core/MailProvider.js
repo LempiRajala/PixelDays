@@ -51,7 +51,7 @@ export class MailProvider {
       return;
     }
     this.transporter.sendMail({
-      from: `PixelPlanet <${MAIL_ADDRESS}>`,
+      from: `PixelDays <${MAIL_ADDRESS}>`,
       to,
       replyTo: MAIL_ADDRESS,
       subject,
@@ -67,7 +67,7 @@ export class MailProvider {
     const { t } = getTTag(lang);
     logger.info(`Sending verification mail to ${to} / ${name}`);
     const verifyUrl = `${host}/api/auth/verify?token=${code}&email=${encodeURIComponent(to)}`;
-    const subject = t`Welcome ${name} to PixelPlanet, please verify your mail`;
+    const subject = t`Welcome ${name} to PixelDays, please verify your mail`;
     const html = `<em>${t`Hello ${name}`}</em>,<br />
       ${t`welcome to our little community of pixelplacers, to use your account, you have to verify your mail. You can do that here: `} <a href="${verifyUrl}">${t`Click to Verify`}</a>. ${t`Or by copying following url:`}<br />${verifyUrl}\n<br />
       ${t`Have fun and don't hesitate to contact us if you encounter any problems :)`}<br />
@@ -103,7 +103,7 @@ export class MailProvider {
   postNewLocationMail(to, name, host, lang, ip) {
     const { t } = getTTag(lang);
     logger.info(`Send new location login mail to ${to} / ${name} by ${ip}`);
-    const subject = t`Login from new location on PixelPlanet`;
+    const subject = t`Login from new location on PixelDays`;
     const html = `<em>${t`Hello ${name}`}</em>,<br />
 ${t`Someone logged into your account from a new location, with the IP:`} ${ip}<br />
 ${t`If this was you, please ignore this email. If it wasn't you, please go to <a href="https://pixelplanet.fun">pixelplanet.fun</a> and log-out any session that you are unaware of under "Login Methods" in the User Area and change your password.`}<br />
@@ -133,7 +133,7 @@ ${t`Thanks`}<br /><br />
     const { t } = getTTag(lang);
     logger.info(`Sending Password reset mail to ${to}`);
     const restoreUrl = `${host}/reset_password?token=${code}&email=${encodeURIComponent(to)}`;
-    const subject = t`You forgot your password for PixelPlanet? Get a new one here`;
+    const subject = t`You forgot your password for PixelDays? Get a new one here`;
     const html = `<em>${t`Hello`}</em>,<br />
       ${t`You requested to get a new password. You can change your password within the next 30min here: `} <a href="${restoreUrl}">${t`Reset Password`}</a>. ${t`Or by copying following url:`}<br />${restoreUrl}\n<br />
       ${t`If you did not request this mail, please just ignore it (the ip that requested this mail was ${ip}).`}<br />

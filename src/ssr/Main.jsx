@@ -12,5 +12,5 @@ import generateMainHTML from './mainHTML.js';
  */
 export default function generateMainPage(req) {
   const scripts = getJsAssets('client', req.lang);
-  return generateMainHTML(req, 'PixelPlanet', scripts, 'game');
+  return generateMainHTML(req, 'PixelDays', scripts, 'game');
 }
