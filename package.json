@@ -15,6 +15,7 @@
     "backend:dev": "bun --watch src/server.js",
     "build": "node scripts/build.js",
     "build:parallel": "node scripts/build.js --parallel",
+    "build:parallel:dev": "node scripts/build.js --parallel --dev",
     "build:server": "node scripts/build.js --server",
     "build:client": "node scripts/build.js --client",
     "build:dev": "node scripts/build.js --dev",
@@ -45,6 +46,7 @@
     "express-fileupload": "^1.5.1",
     "hono": "^4.11.4",
     "image-q": "^4.0.0",
+    "javascript-obfuscator": "^5.1.0",
     "js-file-download": "^0.4.12",
     "morgan": "^1.10.0",
     "mysql2": "^3.14.1",
@@ -69,6 +71,7 @@
     "ttag": "^1.8.9",
     "url-search-params-polyfill": "^8.2.5",
     "watr": "^2.3.1",
+    "webpack-obfuscator": "^3.6.0",
     "winston": "^3.11.0",
     "winston-daily-rotate-file": "^5.0.0",
     "ws": "^8.15.1"
