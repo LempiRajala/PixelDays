@@ -245,7 +245,7 @@ msgid "Loading..."
 msgstr ""
 
 #: src/core/MailProvider.js:106
-msgid "Login from new location on PixelPlanet"
+msgid "Login from new location on PixelDays"
 msgstr ""
 
 #: src/routes/oidc/auth.js:76
@@ -401,7 +401,7 @@ msgid "PixelCanvas"
 msgstr ""
 
 #: src/ssr/Globe.jsx:35
-msgid "PixelPlanet.Fun 3DGlobe"
+msgid "PixelDays 3DGlobe"
 msgstr ""
 
 #: src/canvasesDesc.js:25
@@ -636,7 +636,7 @@ msgstr ""
 
 #: src/core/MailProvider.js:70
 #, javascript-format
-msgid "Welcome ${ name } to PixelPlanet, please verify your mail"
+msgid "Welcome ${ name } to PixelDays, please verify your mail"
 msgstr ""
 
 #: src/routes/api/auth/change_username.js:17
@@ -728,7 +728,7 @@ msgid "You failed your captcha"
 msgstr ""
 
 #: src/core/MailProvider.js:136
-msgid "You forgot your password for PixelPlanet? Get a new one here"
+msgid "You forgot your password for PixelDays? Get a new one here"
 msgstr ""
 
 #: src/routes/oidc/register.js:62
