@@ -83,7 +83,7 @@ const ChangeMail = ({ done }) => {
     const logos = {};
     Object.keys(THREEPID_PROVIDERS).forEach((providerString) => {
       const provider = THREEPID_PROVIDERS[providerString];
-      logos[provider] = `/${providerString.toLowerCase()}logo.svg`;
+      logos[provider] = `/${providerString.toLowerCase()}logo.png`;
     });
     return logos;
   }, []);

@@ -11,7 +11,7 @@ import ico from 'sharp-ico';
 const __filename = import.meta.filename;
 const __dirname = import.meta.dirname;
 
-const svgLogo = path.resolve(__dirname, '..', 'dist', 'public', 'logo.svg');
+const svgLogo = path.resolve(__dirname, '..', 'dist', 'public', 'logo.png');
 const targetIco = path.resolve(__dirname, '..', 'dist', 'public', 'favicon.ico');
 const tilePng = path.resolve(__dirname, '..', 'dist', 'public', 'tile.png');
 const touchIconPng = path.resolve(__dirname, '..', 'dist', 'public', 'apple-touch-icon.png');

@@ -64,7 +64,7 @@ const Help = () => {
           padding: 2, maxWidth: '20%', verticalAlign: 'middle', display: 'inline-block',
         }}
         alt="ppfun"
-        src={cdn`/logo.svg`}
+        src={cdn`/logo.png`}
         ref={refCallback}
       />
       <p>

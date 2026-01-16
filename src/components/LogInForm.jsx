@@ -251,7 +251,7 @@ const LogInForm = ({
                           <img
                             style={logoStyle}
                             width={32}
-                            src={cdn`/${providerName.toLowerCase()}logo.svg`}
+                            src={cdn`/${providerName.toLowerCase()}logo.png`}
                             title={providerName}
                             alt={providerName}
                           />
