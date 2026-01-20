@@ -31,6 +31,7 @@ import type { ChatState } from '@/store/reducers/chat.ts';
 interface MessagesGroup {
   userId: number;
   username: string;
+  country: string;
   messages: {
     createdAt: number;
     text: string;
@@ -207,6 +208,7 @@ const Chat = () => {
       } else {
         groups.push({
           userId: msg.userId,
+          country: msg.flag,
           username: msg.name,
           messages: [messageToAdd],
         });
@@ -251,6 +253,7 @@ const Chat = () => {
           messagesGroups.map((group, i) => 
             <ChatMessageGroup
               key={i}
+              country={group.country}
               avatarId={
                 group.userId in userIdToAvatarId
                 ? userIdToAvatarId[group.userId]

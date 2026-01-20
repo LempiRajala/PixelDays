@@ -11,6 +11,7 @@ import { selectIsDarkMode } from '../store/selectors/gui.ts';
 // import { cdn } from '../utils/utag.js';
 import { CgProfile } from "react-icons/cg";
 import { getFileUrl } from '../core/client-utils.ts';
+import { cdn } from '../utils/utag.js';
 
 const containerStyle: CSSProperties = {
   display: 'grid',
@@ -31,6 +32,14 @@ const avatarStyle: CSSProperties = {
 
 const headerStyle: CSSProperties = {
   cursor: 'pointer',
+  display: 'inline-flex',
+  gap: '4px',
+}
+
+const flagStyle: CSSProperties = {
+  width: '16px',
+  height: '11px',
+  placeSelf: 'center',
 }
 
 const contentStyle: CSSProperties = {
@@ -49,14 +58,14 @@ const ChatMessageGroup = React.memo(({
   name,
   avatarId,
   userId,
-  // country,
+  country,
   messages,
   openCm,
 }: {
   name: string;
   avatarId: string | null;
   userId: number;
-  // country: string;
+  country: string;
   messages: { createdAt: number, text: string }[];
   openCm: (x: number, y: number, name: string, uid: number) => void;
 }) => {
@@ -111,6 +120,12 @@ const ChatMessageGroup = React.memo(({
           >
             {name}
           </span>
+          <img
+            style={flagStyle}
+            alt="flag icon"
+            title={country}
+            src={cdn`/cf/${country}.gif`}
+          />
         </span>
         {
           messages.map(({ text, createdAt }, i) => (
