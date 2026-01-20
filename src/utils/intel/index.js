@@ -17,7 +17,7 @@ import { DO_NOTHING } from '../../core/constants.ts';
 let proxyChecker = () => null;
 let mailChecker = () => null;
 
-if (USE_PROXYCHECK && PROXYCHECK_KEY) {
+if (USE_PROXYCHECK) {
   const pc = new ProxyCheck(PROXYCHECK_KEY);
   proxyChecker = pc.checkIp;
   mailChecker = pc.checkEmail;
