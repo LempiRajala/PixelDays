@@ -282,7 +282,10 @@ class SocketClient {
     const val = JSON.parse(message.slice(comma + 1));
     switch (key) {
       case 'cm':
-        this.store.dispatch(receiveChatMessage(...val));
+        const userId = val[4];
+        const avatarId = val[5];
+        this.store.dispatch(receiveChatMessage(...val.slice(0, 5)));
+        this.store.dispatch(addUsersAvatars({ [userId]: avatarId }));
         break;
       case 'ac':
         this.store.dispatch(addChatChannel(val));

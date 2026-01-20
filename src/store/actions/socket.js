@@ -19,6 +19,7 @@ export function receiveChatMessage(
   country,
   channel,
   user,
+  avatarId
 ) {
   return (dispatch, getState) => {
     channel = Number(channel);

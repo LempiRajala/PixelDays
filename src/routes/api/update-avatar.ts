@@ -6,7 +6,7 @@ import { updateUser } from '../../db/utils/users.ts';
 import { User as DbUser } from '@/db/schema.ts';
 import { changeFilenameExtension, compressAndResizeImage } from '../../core/server-utils.ts';
 import { avatarSizeAfterUploading } from '../../core/constants.ts';
-import { UsersAvatarsCache } from './users-avatars-cache.ts';
+import { UsersAvatarsCache } from '../../data/users-avatars-cache.ts';
 import { TaskQueue } from './task-queue.ts';
 import ChatProvider from '../../core/ChatProvider.js';
 import socketEvents from '../../socket/socketEvents.js';

@@ -4,7 +4,7 @@
  *
  */
 import chatProvider from '../../core/ChatProvider.js';
-import { UsersAvatarsCache } from './users-avatars-cache.ts';
+import { UsersAvatarsCache } from '../../data/users-avatars-cache.ts';
 
 async function chatHistory(req, res) {
   req.tickRateLimiter(1000);

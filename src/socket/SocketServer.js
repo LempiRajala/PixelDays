@@ -43,6 +43,7 @@ import { checkCaptchaSolution } from '../data/redis/captcha.js';
 import { getCoolDown } from '../data/redis/cooldown.js';
 import { isCORSAllowed } from '../middleware/cors.js';
 import evaluateMalware from '../core/malwareEvaluation.js';
+import { UsersAvatarsCache } from '../data/users-avatars-cache.ts';
 
 
 const ipCounter = new Counter();
@@ -128,7 +129,7 @@ class SocketServer {
       this.broadcast(`an,${JSON.stringify(text)}`);
     });
 
-    socketEvents.on('suChatMessage', (
+    socketEvents.on('suChatMessage', async (
       userId,
       name,
       message,
@@ -136,23 +137,25 @@ class SocketServer {
       id,
       country,
     ) => {
+      const { avatarId } = await UsersAvatarsCache.get(userId);
       const text = `cm,${JSON.stringify(
-        [name, message, country, channelId, id],
+        [name, message, country, channelId, id, avatarId],
       )}`;
       this.findAllWsByUerId(userId).forEach((ws) => {
         ws.send(text);
       });
     });
 
-    socketEvents.on('chatMessage', (
+    socketEvents.on('chatMessage', async (
       name,
       message,
       channelId,
       id,
       country,
     ) => {
+      const { avatarId } = await UsersAvatarsCache.get(id);
       const text = `cm,${JSON.stringify(
-        [name, message, country, channelId, id],
+        [name, message, country, channelId, id, avatarId],
       )}`;
       const clientArray = [];
       this.wss.clients.forEach((ws) => {

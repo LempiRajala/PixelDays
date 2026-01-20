@@ -1,5 +1,5 @@
-import type { User } from "../../db/schema";
-import { getUserAvatarId } from "../../db/utils/users";
+import type { User } from "../db/schema";
+import { getUserAvatarId } from "../db/utils/users";
 import { LRUCache } from 'lru-cache';
 
 type CacheValueType = Pick<User, 'avatarId'> | Promise<Pick<User, 'avatarId'>>;
