@@ -10,7 +10,7 @@ import fs from 'fs';
 import { commandOptions } from 'redis';
 
 import Palette from './Palette.js';
-import { TILE_SIZE } from './constants.js';
+import { TILE_SIZE } from './constants.ts';
 
 
 /*

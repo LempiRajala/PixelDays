@@ -22,7 +22,7 @@ import { addOrReplaceTpid } from '../data/sql/ThreePID.js';
 
 import {
   THREEPID_ABBR, USERLVL, THREEPID_PROVIDERS,
-} from '../core/constants.js';
+} from '../core/constants.ts';
 import {
   DISCORD_CLIENT_ID, DISCORD_CLIENT_SECRET, DISCORD_R_URI,
   GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET, GOOGLE_R_URI,

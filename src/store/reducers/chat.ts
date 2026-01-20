@@ -1,4 +1,7 @@
-import { MAX_CHAT_MESSAGES } from '../../core/constants.js';
+import { MAX_CHAT_MESSAGES } from '../../core/constants.ts';
+
+type ChannelChat = [string, number, null];
+type DirectChat = [string, number, null, number];
 
 const initialState = {
   /*
@@ -17,30 +20,58 @@ const initialState = {
    *   ...
    * }
    */
-  channels: {},
+  channels: {} as Record<string, ChannelChat | DirectChat>,
   // [[uId, userName], [userId2, userName2],...]
-  blocked: [],
+  blocked: [] as [number][],
   // { cid: [message1,message2,message3,...]}
-  messages: {},
+  messages: {} as Record<string, [string, string, string, number, number][]>,
+  userIdToAvatarId: {} as Record<number, string>,
 };
+
+export type ChatState = typeof initialState;
+
+export enum ChatActionsType {
+  REC_ME = 's/REC_ME',
+  LOGIN = 's/LOGIN',
+  LOGOUT = 's/LOGOUT',
+  BLOCK_USER = 's/BLOCK_USER',
+  UNBLOCK_USER = 's/UNBLOCK_USER',
+  ADD_CHAT_CHANNEL = 's/ADD_CHAT_CHANNEL',
+  REMOVE_CHAT_CHANNEL = 's/REMOVE_CHAT_CHANNEL',
+  REC_CHAT_MESSAGE = 's/REC_CHAT_MESSAGE',
+  REC_CHAT_HISTORY = 's/REC_CHAT_HISTORY',
+  ADD_AVATAR_IDS = 'ADD_AVATAR_IDS',
+}
+
+// TODO дописать типы
+export type ChatAction =
+  | { type: ChatActionsType.REC_ME | ChatActionsType.LOGIN; channels: ChatState['channels']; blocked: [number][] }
+  | { type: ChatActionsType.LOGOUT }
+  | { type: ChatActionsType.BLOCK_USER; userId: number; userName: string }
+  | { type: ChatActionsType.UNBLOCK_USER; userId: number }
+  | { type: ChatActionsType.ADD_CHAT_CHANNEL; channel: any }
+  | { type: ChatActionsType.REMOVE_CHAT_CHANNEL; cid: string }
+  | { type: ChatActionsType.REC_CHAT_MESSAGE; name: any; text: any; country: any; channel: string; user: any }
+  | { type: ChatActionsType.REC_CHAT_HISTORY; cid: string; history: any }
+  | { type: ChatActionsType.ADD_AVATAR_IDS; userIdToAvatarId: Record<number, string> };
 
 // used to give every message a unique incrementing key
 let msgId = 0;
 
 export default function chat(
   state = initialState,
-  action,
+  action: ChatAction,
 ) {
   switch (action.type) {
-    case 's/REC_ME':
-    case 's/LOGIN': {
+    case ChatActionsType.REC_ME:
+    case ChatActionsType.LOGIN: {
       // making sure object keys are numbers
-      const channels = {};
+      const channels: ChatState['channels'] = {};
       const channelsJson = action.channels;
       const cids = Object.keys(channelsJson);
       for (let i = 0; i < cids.length; i += 1) {
         const cid = cids[i];
-        channels[Number(cid)] = channelsJson[cid];
+        channels[cid] = channelsJson[cid];
       }
       return {
         ...state,
@@ -49,7 +80,7 @@ export default function chat(
       };
     }
 
-    case 's/LOGOUT': {
+    case ChatActionsType.LOGOUT: {
       const channels = { ...state.channels };
       const messages = { ...state.messages };
       const keys = Object.keys(channels);
@@ -68,7 +99,7 @@ export default function chat(
       };
     }
 
-    case 's/BLOCK_USER': {
+    case ChatActionsType.BLOCK_USER: {
       const { userId, userName } = action;
       const blocked = [
         ...state.blocked,
@@ -96,16 +127,16 @@ export default function chat(
       };
     }
 
-    case 's/UNBLOCK_USER': {
+    case ChatActionsType.UNBLOCK_USER: {
       const { userId } = action;
-      const blocked = state.blocked.filter((bl) => (bl[0] !== userId));
+      const blocked = state.blocked.filter(bl => bl[0] !== userId);
       return {
         ...state,
         blocked,
       };
     }
 
-    case 's/ADD_CHAT_CHANNEL': {
+    case ChatActionsType.ADD_CHAT_CHANNEL: {
       const { channel } = action;
       const cid = Number(Object.keys(channel)[0]);
       if (state.channels[cid]) {
@@ -120,7 +151,7 @@ export default function chat(
       };
     }
 
-    case 's/REMOVE_CHAT_CHANNEL': {
+    case ChatActionsType.REMOVE_CHAT_CHANNEL: {
       const { cid } = action;
       if (!state.channels[cid]) {
         return state;
@@ -136,7 +167,7 @@ export default function chat(
       };
     }
 
-    case 's/REC_CHAT_MESSAGE': {
+    case ChatActionsType.REC_CHAT_MESSAGE: {
       const {
         name, text, country, channel, user,
       } = action;
@@ -172,7 +203,7 @@ export default function chat(
       };
     }
 
-    case 's/REC_CHAT_HISTORY': {
+    case ChatActionsType.REC_CHAT_HISTORY: {
       const { cid, history } = action;
       for (let i = 0; i < history.length; i += 1) {
         msgId += 1;
@@ -185,6 +216,13 @@ export default function chat(
           [cid]: history,
         },
       };
+    }
+
+    case ChatActionsType.ADD_AVATAR_IDS: {
+      return {
+        ...state,
+        userIdToAvatarId: Object.assign({}, state.userIdToAvatarId, action.userIdToAvatarId),
+      }
     }
 
     default:

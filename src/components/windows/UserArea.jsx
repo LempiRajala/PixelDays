@@ -11,7 +11,7 @@ import WindowContext from '../context/window.js';
 import useInterval from '../hooks/interval.js';
 import Tabs from '../Tabs.jsx';
 import UserAreaContent from '../UserAreaContent.jsx';
-import { USERLVL } from '../../core/constants.js';
+import { USERLVL } from '../../core/constants.ts';
 
 // eslint-disable-next-line max-len
 const Rankings = React.lazy(() => import(/* webpackChunkName: "stats" */ '../Rankings.jsx'));

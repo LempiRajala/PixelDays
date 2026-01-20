@@ -16,7 +16,15 @@ import { parseParagraph } from '../../utils/markdown/MarkdownParser.js';
  *   refEmbed: a reference to the element where we can attach an embed to
  * }
  */
-const MdParagraph = ({ text, pArray, refEmbed }) => {
+const MdParagraph = ({
+  text,
+  pArray,
+  refEmbed,
+}: {
+  text?: string;
+  pArray?: string[];
+  refEmbed?: React.MutableRefObject<HTMLLIElement | null>;
+}) => {
   if (!pArray) {
     if (!text) {
       return null;
@@ -24,47 +32,47 @@ const MdParagraph = ({ text, pArray, refEmbed }) => {
     pArray = parseParagraph(text);
   }
 
-  return pArray.map((part) => {
+  return pArray!.map((part, i) => {
     if (!Array.isArray(part)) {
       return part;
     }
     const type = part[0];
     switch (type) {
       case 'c':
-        return (<code>{part[1]}</code>);
+        return (<code key={i}>{part[1]}</code>);
       case '*':
         return (
-          <strong>
+          <strong key={i}>
             <MdParagraph pArray={part[1]} />
           </strong>
         );
       case '~':
         return (
-          <s>
+          <s key={i}>
             <MdParagraph pArray={part[1]} />
           </s>
         );
       case '+':
         return (
-          <em>
+          <em key={i}>
             <MdParagraph pArray={part[1]} />
           </em>
         );
       case '_':
         return (
-          <u>
+          <u key={i}>
             <MdParagraph pArray={part[1]} />
           </u>
         );
       case 'img':
       case 'l': {
         return (
-          <MdLink refEmbed={refEmbed} href={part[2]} title={part[1]} />
+          <MdLink key={i} refEmbed={refEmbed} href={part[2]} title={part[1]} />
         );
       }
       case '@': {
         return (
-          <MdMention uid={part[2]} name={part[1]} />
+          <MdMention key={i} uid={part[2]} name={part[1]} />
         );
       }
       default:

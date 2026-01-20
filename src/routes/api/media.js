@@ -7,7 +7,7 @@ import busboy from 'busboy';
 import {
   processFileStream, isMimeTypeAllowed, mimeTypeFitsToExt,
 } from '../../middleware/media.js';
-import { MAX_MEDIA_SIZE, MAX_UPLOAD_AMOUNT } from '../../core/constants.js';
+import { MAX_MEDIA_SIZE, MAX_UPLOAD_AMOUNT } from '../../core/constants.ts';
 import { hasMedia } from '../../data/sql/Media.js';
 
 const router = express.Router();

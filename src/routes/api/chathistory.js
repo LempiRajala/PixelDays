@@ -4,6 +4,7 @@
  *
  */
 import chatProvider from '../../core/ChatProvider.js';
+import { UsersAvatarsCache } from './users-avatars-cache.ts';
 
 async function chatHistory(req, res) {
   req.tickRateLimiter(1000);
@@ -37,8 +38,18 @@ async function chatHistory(req, res) {
   }
 
   const history = await chatProvider.getHistory(cid, limit);
+  const usersIds = Array.from(new Set(history.map(msg => msg[3])));
+  const userIdToAvatarId = Object.fromEntries(
+    await Promise.all(
+      usersIds.map(async userId => {
+        const { avatarId } = await UsersAvatarsCache.get(userId);
+        return [userId, avatarId];
+      })
+    )
+  );
   res.json({
     history,
+    userIdToAvatarId,
   });
 }
 

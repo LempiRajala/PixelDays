@@ -17,7 +17,7 @@ import {
 import Void from './Void.js';
 import { protectCanvasArea } from './Image.js';
 import { setPixelByOffset } from './setPixel.js';
-import { TILE_SIZE, EVENT_USER_NAME } from './constants.js';
+import { TILE_SIZE, EVENT_USER_NAME } from './constants.ts';
 import socketEvents from '../socket/socketEvents.js';
 import { setState } from './SharedState.js';
 import chatProvider from './ChatProvider.js';

@@ -9,7 +9,7 @@ import { DataTypes, QueryTypes } from 'sequelize';
 import sequelize from './sequelize.js';
 import UserChannel from './association_models/UserChannel.js';
 
-import { CHANNEL_TYPES } from '../../core/constants.js';
+import { CHANNEL_TYPES } from '../../core/constants.ts';
 
 export { CHANNEL_TYPES };
 

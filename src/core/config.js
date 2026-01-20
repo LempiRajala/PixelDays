@@ -1,6 +1,6 @@
 /*
  * general config that is also available from client code can be found in
- * src/core/constants.js
+ * src/core/constants.ts
  */
 import path from 'path';
 import 'dotenv/config';

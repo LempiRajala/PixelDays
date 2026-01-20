@@ -10,7 +10,7 @@ import {
   hydratePixelUpdate,
 } from '../socket/packets/server.js';
 import { setPixelByOffset } from './setPixel.js';
-import { TILE_SIZE } from './constants.js';
+import { TILE_SIZE } from './constants.ts';
 import { CANVAS_ID } from '../data/redis/Event.js';
 import canvases from './canvases.js';
 

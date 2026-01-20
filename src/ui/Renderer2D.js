@@ -12,7 +12,7 @@ import {
   OVERLAY_SP_TH,
   BACKGROUND_CLR_HEX,
   CANVAS_TYPES,
-} from '../core/constants.js';
+} from '../core/constants.ts';
 
 import {
   getTileOfPixel,

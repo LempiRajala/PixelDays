@@ -5,7 +5,7 @@
 
 import templateLoader from './templateLoader.js';
 import { screenToWorld, worldToScreen } from '../core/utils.js';
-import { TILE_SIZE } from '../core/constants.js';
+import { TILE_SIZE } from '../core/constants.ts';
 
 const PLACEHOLDER_SIZE = 1.2;
 const PLACEHOLDER_BORDER = 1;

@@ -25,7 +25,7 @@ import {
 } from './packets/server.js';
 import { pubsub } from '../data/redis/client.js';
 import { combineObjects } from '../core/utils.js';
-import { DO_NOTHING } from '../core/constants.js';
+import { DO_NOTHING } from '../core/constants.ts';
 
 /*
  * channel that all shards share and listen to

@@ -20,7 +20,7 @@ import {
   getOffsetOfPixel,
   getTapOrClickCenter,
 } from '../core/utils.js';
-import { PENCIL_MODE } from '../core/constants.js';
+import { PENCIL_MODE } from '../core/constants.ts';
 import templateLoader from '../ui/templateLoader.js';
 
 class PixelPainterControls {

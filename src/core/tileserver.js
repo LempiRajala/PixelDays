@@ -15,7 +15,7 @@ import { TILE_FOLDER } from './config.js';
 import {
   TILE_SIZE,
   TILE_ZOOM_LEVEL,
-} from './constants.js';
+} from './constants.ts';
 import { mod, getMaxTiledZoom } from './utils.js';
 import { cwd } from 'process';
 

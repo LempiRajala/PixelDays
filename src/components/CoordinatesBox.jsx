@@ -5,7 +5,7 @@
 import React from 'react';
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import { t } from 'ttag';
-import { CANVAS_TYPES } from '../core/constants.js';
+import { CANVAS_TYPES } from '../core/constants.ts';
 
 import copy from '../utils/clipboard.js';
 import { notify } from '../store/actions/thunks.js';

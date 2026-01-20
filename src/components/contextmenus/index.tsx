@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
+import React, { ComponentProps, type CSSProperties, useRef } from 'react';
 import { createPortal } from 'react-dom';
 
-import UserContextMenu from './UserContextMenu.jsx';
-import ChannelContextMenu from './ChannelContextMenu.jsx';
+import UserContextMenu from './UserContextMenu.tsx';
+import ChannelContextMenu from './ChannelContextMenu.tsx';
 import {
   useClickOutside,
 } from '../hooks/clickOutside.js';
@@ -12,9 +12,32 @@ export const types = {
   CHANNEL: ChannelContextMenu,
 };
 
+type BaseProps = {
+  x: number;
+  y: number;
+  close: () => void;
+  align?: string;
+}
+
+export type ContextMenuProps = (
+  (BaseProps & {
+    type: 'USER';
+    args: ComponentProps<typeof UserContextMenu>['args'];
+  }) | 
+  (BaseProps & {
+    type: 'CHANNEL';
+    args: ComponentProps<typeof ChannelContextMenu>['args']
+  })
+)
+
 const ContextMenu = ({
-  type, x, y, args, close, align,
-}) => {
+  type,
+  x,
+  y,
+  args,
+  close,
+  align,
+}: ContextMenuProps) => {
   const wrapperRef = useRef(null);
 
   useClickOutside([wrapperRef], close);
@@ -23,7 +46,7 @@ const ContextMenu = ({
     return null;
   }
 
-  const style = {};
+  const style: CSSProperties = {};
   switch (align) {
     case 'tr': {
       style.right = window.innerWidth - x;
@@ -47,17 +70,20 @@ const ContextMenu = ({
     }
   }
 
-  const Content = types[type];
-
   return createPortal((
     <div
       ref={wrapperRef}
       className={`contextmenu ${type}`}
       style={style}
     >
-      <Content close={close} args={args} />
+      { type === 'USER' &&
+        <UserContextMenu close={close} args={args}/>
+      }
+      { type === 'CHANNEL' &&
+        <ChannelContextMenu close={close} args={args}/>
+      }
     </div>
-  ), document.getElementById('app'));
+  ), document.getElementById('app')!);
 };
 
 export default React.memo(ContextMenu);

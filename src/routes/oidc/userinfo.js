@@ -7,7 +7,7 @@ import { getFishesOfUser } from '../../data/sql/Fish.js';
 import { getBadgesOfUser } from '../../data/sql/Badge.js';
 import { generatePPID } from '../../utils/hash.js';
 
-import { USERLVL } from '../../core/constants.js';
+import { USERLVL } from '../../core/constants.ts';
 
 export default async (req, res) => {
   req.tickRateLimiter(500);

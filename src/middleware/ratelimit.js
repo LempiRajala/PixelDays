@@ -5,7 +5,7 @@
 import { spawn } from 'child_process';
 
 import MassRateLimiter from '../utils/MassRateLimiter.js';
-import { HOUR } from '../core/constants.js';
+import { HOUR } from '../core/constants.ts';
 import { RATE_LIMIT_CMD } from '../core/config.js';
 
 const rateLimiter = new MassRateLimiter(HOUR);

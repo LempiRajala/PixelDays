@@ -9,7 +9,7 @@ import WindowContext from '../context/window.js';
 import { setBrightness, colorFromText } from '../../core/utils.js';
 import { cdn } from '../../utils/utag.js';
 import { requestBadge } from '../../store/actions/fetch.js';
-import { selectIsDarkMode } from '../../store/selectors/gui.js';
+import { selectIsDarkMode } from '../../store/selectors/gui.ts';
 import ClipboardCopyField from '../ClipboardCopyField.jsx';
 import { buildPopUpUrl } from './popUpAvailable.js';
 

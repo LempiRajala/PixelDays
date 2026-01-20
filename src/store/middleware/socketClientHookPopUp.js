@@ -4,7 +4,7 @@
  */
 
 import SocketClient from '../../socket/SocketClient.js';
-import { POPUPS_NEEDING_WS } from '../../core/constants.js';
+import { POPUPS_NEEDING_WS } from '../../core/constants.ts';
 import { parentExists } from '../../core/utils.js';
 
 export default (store) => (next) => (action) => {

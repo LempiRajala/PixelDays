@@ -7,7 +7,7 @@ import logger from '../../core/logger.js';
 import socketEvents from '../../socket/socketEvents.js';
 import { setFlagOfUser } from '../../data/sql/User.js';
 import { deleteAllDMChannelsOfUser } from '../../data/sql/Channel.js';
-import { USER_FLAGS } from '../../core/constants.js';
+import { USER_FLAGS } from '../../core/constants.ts';
 
 async function blockdm(req, res) {
   const { block } = req.body;

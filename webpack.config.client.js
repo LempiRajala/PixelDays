@@ -20,8 +20,6 @@ const pkg = JSON.parse(
 );
 
 export default ({ development, analyze}) => {
-  console.log('development', development);
-
   const babelPlugins = [];
   /*
    * In development mode, we resolve translations to the default english.
@@ -88,7 +86,7 @@ export default ({ development, analyze}) => {
          */
         three: path.resolve('node_modules', 'three'),
       },
-      extensions: ['.js', '.jsx'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
 
     module: {
@@ -112,7 +110,7 @@ export default ({ development, analyze}) => {
           ],
         },
         {
-          test: /\.(js|jsx)$/,
+          test: /\.(js|jsx|ts|tsx)$/,
           use: [
             {
               loader: 'babel-loader',
@@ -139,6 +137,7 @@ export default ({ development, analyze}) => {
         'process.env.BROWSER': true,
         'process.env.PKG_NAME': `"${pkg.name}"`,
         'process.env.PKG_VERSION': `"${pkg.version}"`,
+        'process.env.FILE_STORAGE_ORIGIN': `"${process.env.FILE_STORAGE_ORIGIN}"`,
       }),
       
       ...(!development ? [
@@ -148,7 +147,7 @@ export default ({ development, analyze}) => {
           controlFlowFlattening: true,
           controlFlowFlatteningThreshold: 0.75, // 75% кода будет преобразовано
           deadCodeInjection: true,
-          deadCodeInjectionThreshold: 0.4, // Добавит мертвый код в 40% функций
+          // deadCodeInjectionThreshold: 0.4, // Добавит мертвый код в 40% функций
           debugProtection: false, // ОСТОРОЖНО: может вызывать проблемы с отладкой
           // debugProtectionInterval: 0, // ОСТОРОЖНО: может вызывать проблемы с отладкой
           disableConsoleOutput: false, // Не отключаем console.log для отладки

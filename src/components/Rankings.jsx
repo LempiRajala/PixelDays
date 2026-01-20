@@ -23,7 +23,7 @@ import { Line, Pie } from 'react-chartjs-2';
 import { cdn } from '../utils/utag.js';
 
 import { numberToString, numberToStringFull } from '../core/utils.js';
-import { selectIsDarkMode } from '../store/selectors/gui.js';
+import { selectIsDarkMode } from '../store/selectors/gui.ts';
 import { selectStats } from '../store/selectors/ranks.js';
 import {
   getCHistChartOpts,

@@ -15,7 +15,7 @@ import {
   EVENT_USER_NAME,
   FISH_TYPES,
   FISH_BONUS_CD_FACTOR,
-} from './constants.js';
+} from './constants.ts';
 import { FISH_AMOUNT } from './config.js';
 
 let totalWeight = 0;

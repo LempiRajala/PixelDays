@@ -12,7 +12,7 @@ import { queue } from './queue.js';
 import {
   USE_PROXYCHECK, PROXYCHECK_KEY, WHOIS_DURATION, PROXYCHECK_DURATION,
 } from '../../core/config.js';
-import { DO_NOTHING } from '../../core/constants.js';
+import { DO_NOTHING } from '../../core/constants.ts';
 
 let proxyChecker = () => null;
 let mailChecker = () => null;

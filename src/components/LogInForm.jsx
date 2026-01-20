@@ -14,7 +14,7 @@ import {
   requestLogin, requestNewPassword, requestRegistration,
 } from '../store/actions/fetch.js';
 import { loginUser } from '../store/actions/index.js';
-import { THREEPID_ABBR } from '../core/constants.js';
+import { THREEPID_ABBR } from '../core/constants.ts';
 
 /* eslint-disable max-len */
 

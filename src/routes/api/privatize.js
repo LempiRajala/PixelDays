@@ -5,7 +5,7 @@
  */
 import logger from '../../core/logger.js';
 import { setFlagOfUser } from '../../data/sql/User.js';
-import { USER_FLAGS } from '../../core/constants.js';
+import { USER_FLAGS } from '../../core/constants.ts';
 
 async function privatize(req, res) {
   const { priv } = req.body;

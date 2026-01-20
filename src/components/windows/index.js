@@ -5,7 +5,7 @@ import Settings from './Settings.jsx';
 import UserArea from './UserArea.jsx';
 import CanvasSelect from './CanvasSelect.jsx';
 import Archive from './Archive.jsx';
-import Chat from './Chat.jsx';
+import Chat from './Chat.tsx';
 import Player from './Player.jsx';
 import FishDisplay from './FishDisplay.jsx';
 import BadgeDisplay from './BadgeDisplay.jsx';
@@ -42,5 +42,5 @@ export default {
 /*
  * NOTE:
  * set windows that should be accessible via popup / url
- * also in ../../core/constants.js
+ * also in ../../core/constants.ts
  */

@@ -13,6 +13,7 @@ import {
 } from 'redux';
 import { thunk } from 'redux-thunk';
 import { persistReducer } from 'redux-persist';
+// @ts-expect-error
 import storage from 'redux-persist/es/storage/index.js';
 
 import sharedReducers, {
@@ -36,6 +37,9 @@ import notifications from './middleware/notifications.js';
 import title from './middleware/title.js';
 import popUps from './middleware/popUps.js';
 import extensions from './middleware/extensions.js';
+import type { GuiState } from './reducers/gui.ts';
+import type { ChatState } from './reducers/chat.ts';
+import type { UserState } from './reducers/user.ts';
 
 const windowsPersist = persistReducer({
   key: 'wind',
@@ -50,6 +54,7 @@ const reducers = combineReducers({
   alert,
 });
 
+// @ts-expect-error
 const store = createStore(
   reducers,
   applyMiddleware(
@@ -63,6 +68,14 @@ const store = createStore(
     extensions,
     rendererHook,
   ),
+);
+
+export type State = (
+  Required<Omit<ReturnType<typeof store.getState>, 'gui' | 'chat' | 'user'>> & {
+    gui: GuiState;
+    chat: ChatState;
+    user: UserState;
+  }
 );
 
 /*

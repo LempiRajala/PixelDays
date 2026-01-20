@@ -10,7 +10,7 @@ import {
 } from '../../data/sql/association_models/UserBlock.js';
 import { findUserByIdOrName } from '../../data/sql/User.js';
 import { createDMChannel } from '../../data/sql/Channel.js';
-import { USER_FLAGS } from '../../core/constants.js';
+import { USER_FLAGS } from '../../core/constants.ts';
 
 async function startDm(req, res) {
   let userId = parseInt(req.body.userId, 10);

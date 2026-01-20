@@ -29,7 +29,8 @@ import {
   removeChatChannel,
 } from './socket.js';
 import { isIntervalActive } from '../../core/utils.js';
-import { PENCIL_MODE } from '../../core/constants.js';
+import { PENCIL_MODE } from '../../core/constants.ts';
+import { ChatActionsType } from '../reducers/chat.ts';
 
 function setApiFetching(fetching) {
   return {
@@ -53,6 +54,13 @@ function receiveChatHistory(
     type: 's/REC_CHAT_HISTORY',
     cid,
     history,
+  };
+}
+
+export function addUsersAvatars(userIdToAvatarId) {
+  return {
+    type: ChatActionsType.ADD_AVATAR_IDS,
+    userIdToAvatarId,
   };
 }
 
@@ -115,10 +123,11 @@ export function fetchMe() {
 export function fetchChatMessages(cid) {
   return async (dispatch) => {
     dispatch(setChatFetching(true));
-    const history = await requestChatMessages(cid);
-    if (history) {
+    const historyWithAvatars = await requestChatMessages(cid);
+    if (historyWithAvatars) {
       setTimeout(() => { dispatch(setChatFetching(false)); }, 500);
-      dispatch(receiveChatHistory(cid, history));
+      dispatch(receiveChatHistory(cid, historyWithAvatars.history));
+      dispatch(addUsersAvatars(historyWithAvatars.userIdToAvatarId));
     } else {
       setTimeout(() => { dispatch(setChatFetching(false)); }, 5000);
     }

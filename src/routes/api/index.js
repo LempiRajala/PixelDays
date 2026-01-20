@@ -21,6 +21,10 @@ import canvases from './canvases.js';
 import fish from './fish.js';
 import badge from './badge.js';
 import banme from './banme.js';
+import updateAvatar from './update-avatar.ts';
+import updateBanner from './update-banner.ts';
+
+import { multerUpload } from '../multer.ts';
 // import media from './media.js';
 
 const router = express.Router();
@@ -86,18 +90,15 @@ router.use('/modtools', modtools);
  * only with session
  */
 router.use(ensureLoggedIn);
-
-router.get('/profile', profile);
-
-router.post('/startdm', startDm);
-
-router.post('/leavechan', leaveChan);
-
-router.post('/block', block);
-
-router.post('/blockdm', blockdm);
-
-router.post('/privatize', privatize);
+router
+  .get('/profile', profile)
+  .post('/startdm', startDm)
+  .post('/leavechan', leaveChan)
+  .post('/block', block)
+  .post('/blockdm', blockdm)
+  .post('/privatize', privatize)
+  .post('/update-avatar', multerUpload.single('file'), updateAvatar)
+  .post('/update-banner', multerUpload.single('file'), updateBanner);
 
 router.use(errorJson);
 

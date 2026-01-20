@@ -6,7 +6,7 @@ import EventEmitter from 'events';
 import {
   dehydratePixelUpdate,
 } from './packets/server.js';
-import { DO_NOTHING } from '../core/constants.js';
+import { DO_NOTHING } from '../core/constants.ts';
 
 class SocketEvents extends EventEmitter {
   isCluster = false;

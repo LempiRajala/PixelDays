@@ -4,7 +4,7 @@
 import getLocalizedCanvases, {
   defaultCanvasForCountry,
 } from '../../canvasesDesc.js';
-import { DEFAULT_CANVAS_ID } from '../../core/constants.js';
+import { DEFAULT_CANVAS_ID } from '../../core/constants.ts';
 
 export default async function getiid(req, res) {
   req.tickRateLimiter(3000);

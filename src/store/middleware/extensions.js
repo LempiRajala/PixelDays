@@ -12,7 +12,7 @@
 import EventEmitter from 'events';
 
 import { getRenderer } from '../../ui/rendererFactory.js';
-import { CANVAS_TYPES } from '../../core/constants.js';
+import { CANVAS_TYPES } from '../../core/constants.ts';
 
 let isActive = false;
 

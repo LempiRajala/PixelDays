@@ -14,7 +14,7 @@ import RedisCanvas from '../data/redis/RedisCanvas.js';
 import logger from './logger.js';
 import { getChunkOfPixel, getHistoricalCanvasSize } from './utils.js';
 import Palette from './Palette.js';
-import { TILE_SIZE } from './constants.js';
+import { TILE_SIZE } from './constants.ts';
 import { BACKUP_URL } from './config.js';
 import canvases from './canvases.js';
 

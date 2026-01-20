@@ -1,4 +1,4 @@
-import { TILE_SIZE } from '../core/constants.js';
+import { TILE_SIZE } from '../core/constants.ts';
 import Chunk from './Chunk.js';
 
 

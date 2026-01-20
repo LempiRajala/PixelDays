@@ -7,7 +7,7 @@ import { t } from 'ttag';
 
 import useLink from './hooks/link.js';
 import { setBrightness, colorFromText } from '../core/utils.js';
-import { FISH_TYPES } from '../core/constants.js';
+import { FISH_TYPES } from '../core/constants.ts';
 import { cdn } from '../utils/utag.js';
 
 const FishList = () => {

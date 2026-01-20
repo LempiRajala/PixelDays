@@ -16,6 +16,7 @@ import {
   dehydratePixelUpdate,
   dehydratePing,
   dehydrateCatchFish,
+  hydrateUpdatedUserAvatar,
 } from './packets/client.js';
 import {
   PIXEL_UPDATE_OP,
@@ -27,6 +28,7 @@ import {
   REFRESH_OP,
   FISH_APPEARS_OP,
   FISH_CATCHED_OP,
+  USER_AVATAR_UPDATED,
 } from './packets/op.js';
 import {
   socketOpen,
@@ -40,7 +42,7 @@ import {
 import {
   pRefresh, fishAppears, catchedFish, pAlert,
 } from '../store/actions/index.js';
-import { fetchMe } from '../store/actions/thunks.js';
+import { addUsersAvatars, fetchMe } from '../store/actions/thunks.js';
 import detectMalware from '../core/malwareDetection.js';
 
 class SocketClient {
@@ -346,6 +348,11 @@ class SocketClient {
       }
       case FISH_CATCHED_OP: {
         this.store.dispatch(catchedFish(...hydrateFishCatched(data)));
+        break;
+      }
+      case USER_AVATAR_UPDATED: {
+        const [userId, avatarId] = hydrateUpdatedUserAvatar(data);
+        this.store.dispatch(addUsersAvatars({ [userId]: avatarId }));
         break;
       }
       default:

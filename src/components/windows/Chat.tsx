@@ -4,18 +4,19 @@
 
 import React, {
   useRef, useLayoutEffect, useState, useEffect, useCallback, useContext,
+  useMemo,
 } from 'react';
 import useStayScrolled from 'react-stay-scrolled';
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { t } from 'ttag';
 
 import WindowContext from '../context/window.js';
 import useLink from '../hooks/link.js';
-import ContextMenu from '../contextmenus/index.jsx';
-import ChatMessage from '../ChatMessage.jsx';
+import ContextMenu, { ContextMenuProps } from '../contextmenus/index.tsx';
+import { ChatMessageGroup } from '../ChatMessageGroup.tsx';
 import ChannelDropDown from '../contextmenus/ChannelDropDown.jsx';
 
-import { CHANNEL_TYPES } from '../../core/constants.js';
+import { CHANNEL_TYPES } from '../../core/constants.ts';
 
 import {
   markChannelAsRead,
@@ -24,22 +25,33 @@ import {
 import {
   fetchChatMessages,
 } from '../../store/actions/thunks.js';
+import type { State } from '@/store/store.ts';
+import type { ChatState } from '@/store/reducers/chat.ts';
 
+interface MessagesGroup {
+  userId: number;
+  username: string;
+  messages: {
+    createdAt: number;
+    text: string;
+  }[],
+}
 
 const Chat = () => {
-  const listRef = useRef();
-  const targetRef = useRef();
-  const inputRef = useRef();
+  const listRef = useRef<HTMLUListElement | null>(null);
+  const targetRef = useRef<HTMLDivElement | null>(null);
+  const inputRef = useRef<HTMLInputElement | null>(null);
 
-  const [blockedIds, setBlockedIds] = useState([]);
+  const [blockedIds, setBlockedIds] = useState<number[]>([]);
   const [btnSize, setBtnSize] = useState(20);
-  const [cmArgs, setCmArgs] = useState({});
+  const [cmArgs, setCmArgs] = useState<ContextMenuProps | null>(null);
 
   const dispatch = useDispatch();
 
-  const ownName = useSelector((state) => state.user.name);
-  const fetching = useSelector((state) => state.fetching.fetchingChat);
-  const { channels, messages, blocked } = useSelector((state) => state.chat);
+  const ownName = useSelector<State>(state => state.user!.name);
+  const fetching = useSelector<State>(state => state.fetching!.fetchingChat);
+  const { channels, messages, blocked } = useSelector<State>(state => state.chat) as ChatState;
+  const userIdToAvatarId = useSelector<State>(state => state.chat.userIdToAvatarId, shallowEqual) as State['chat']['userIdToAvatarId'];
 
   const {
     args,
@@ -51,7 +63,7 @@ const Chat = () => {
 
   const link = useLink();
 
-  const setChannel = useCallback((cid) => {
+  const setChannel = useCallback((cid: string) => {
     dispatch(markChannelAsRead(cid));
     setArgs({
       chatChannel: Number(cid),
@@ -59,7 +71,7 @@ const Chat = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [dispatch]);
 
-  const addToInput = useCallback((msg) => {
+  const addToInput = useCallback((msg: string) => {
     const inputElem = inputRef.current;
     if (!inputElem) {
       return;
@@ -70,14 +82,14 @@ const Chat = () => {
     }
     newInputMessage += `${msg} `;
     inputElem.value = newInputMessage;
-    inputRef.current.focus();
+    inputRef.current?.focus();
   }, []);
 
   const closeCm = useCallback(() => {
-    setCmArgs({});
+    setCmArgs(null);
   }, []);
 
-  const openUserCm = useCallback((x, y, name, uid) => {
+  const openUserCm = useCallback((x: number, y: number, name: string, uid: number) => {
     setCmArgs({
       type: 'USER',
       x,
@@ -88,6 +100,7 @@ const Chat = () => {
         setChannel,
         addToInput,
       },
+      close: closeCm,
     });
   }, [setChannel, addToInput]);
 
@@ -99,6 +112,7 @@ const Chat = () => {
   const channelMessages = messages[chatChannel] || [];
   useEffect(() => {
     if (channels[chatChannel] && !messages[chatChannel] && !fetching) {
+      //@ts-expect-error
       dispatch(fetchChatMessages(chatChannel));
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -118,13 +132,14 @@ const Chat = () => {
 
   useEffect(() => {
     setTimeout(() => {
+      if(!targetRef.current) return;
       const fontSize = Math.round(targetRef.current.offsetHeight / 10);
       setBtnSize(Math.min(28, fontSize));
     }, 330);
   }, [targetRef]);
 
   useEffect(() => {
-    const bl = [];
+    const bl: number[] = [];
     for (let i = 0; i < blocked.length; i += 1) {
       bl.push(blocked[i][0]);
     }
@@ -132,8 +147,10 @@ const Chat = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [blocked.length]);
 
-  function handleSubmit(evt) {
+  const handleSubmit: React.FormEventHandler<HTMLFormElement> = evt => {
     evt.preventDefault();
+    if(!inputRef.current) return;
+
     const inptMsg = inputRef.current.value.trim();
     if (!inptMsg) return;
     // send message via websocket
@@ -168,49 +185,83 @@ const Chat = () => {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [channels, chatChannel]);
 
+  const messagesGroups = useMemo(() => {
+    const formatted = channelMessages.map(msg => ({
+      name: msg[0],
+      text: msg[1],
+      flag: msg[2],
+      userId: msg[3],
+      createdAt: msg[4],
+    }));
+    const notBlocked = formatted.filter(msg => !blockedIds.includes(msg.userId));
+    
+    const groups: MessagesGroup[] = [];
+    notBlocked.forEach(msg => {
+      const messageToAdd = {
+        createdAt: msg.createdAt,
+        text: msg.text,
+      }
+      const lastGroup = groups.at(-1);
+      if(lastGroup && lastGroup.userId === msg.userId) {
+        lastGroup.messages.push(messageToAdd);
+      } else {
+        groups.push({
+          userId: msg.userId,
+          username: msg.name,
+          messages: [messageToAdd],
+        });
+      }
+    });
+    // console.warn(channelMessages);
+    // console.warn(groups);
+    return groups;
+  }, [channelMessages, blockedIds]);
+
   return (
     <div
       ref={targetRef}
       className="chat-container"
     >
-      <ContextMenu
-        type={cmArgs.type}
-        x={cmArgs.x}
-        y={cmArgs.y}
-        args={cmArgs.args}
-        close={closeCm}
-        align={cmArgs.align}
-      />
+      { cmArgs &&
+        // TODO wtf happening in this code
+        // @ts-expect-error
+        <ContextMenu
+          type={cmArgs.type}
+          x={cmArgs.x}
+          y={cmArgs.y}
+          args={cmArgs.args}
+          close={cmArgs.close}
+          align={cmArgs.align}
+        />
+      }
       <ul
         className="chatarea"
         ref={listRef}
         style={{ flexGrow: 1 }}
         role="presentation"
       >
-        {
-          (!channelMessages.length)
-          && (
-          <ChatMessage
-            uid={0}
+        {/* { !channelMessages.length === 0 &&
+          <ChatMessageGroup
+            userId={0}
             name="info"
-            country="xx"
             msg={t`Start chatting here`}
           />
-          )
-        }
+        } */}
         {
-          channelMessages.map((message) => ((blockedIds.includes(message[3]))
-            ? null : (
-              <ChatMessage
-                name={message[0]}
-                msg={message[1]}
-                country={message[2]}
-                uid={message[3]}
-                ts={message[4]}
-                key={message[5]}
-                openCm={openUserCm}
-              />
-            )))
+          messagesGroups.map((group, i) => 
+            <ChatMessageGroup
+              key={i}
+              avatarId={
+                group.userId in userIdToAvatarId
+                ? userIdToAvatarId[group.userId]
+                : null
+              }
+              name={group.username}
+              userId={group.userId}
+              messages={group.messages}
+              openCm={openUserCm}
+            />
+          )
         }
       </ul>
       <form
@@ -229,7 +280,7 @@ const Chat = () => {
               }}
               ref={inputRef}
               autoComplete="off"
-              maxLength="200"
+              maxLength={200}
               type="text"
               className="chtipt"
               placeholder={t`Chat here`}
@@ -275,16 +326,13 @@ const Chat = () => {
       >
         <span
           onClick={(event) => {
-            const {
-              clientX: x,
-              clientY: y,
-            } = event;
             setCmArgs({
               type: 'CHANNEL',
-              x,
-              y,
+              x: event.clientX,
+              y: event.clientY,
               args: { cid: chatChannel },
               align: 'tr',
+              close: closeCm,
             });
           }}
           role="button"

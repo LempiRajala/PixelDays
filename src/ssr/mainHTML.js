@@ -16,7 +16,7 @@ import {
   BACKUP_URL, CONTACT_ADDRESS, AVAILABLE_TP,
   UNSHARDED_HOST, CDN_HOST, CDN_URL, BASENAME, NO_CDN_COUNTRIES,
 } from '../core/config.js';
-import { DEFAULT_CANVAS_ID } from '../core/constants.js';
+import { DEFAULT_CANVAS_ID } from '../core/constants.ts';
 
 const basedQuotes = [
   ['Do not use Discord', 'Discord is bad, you should not use it', '/memes/discord.png', 'image', 380, 379],

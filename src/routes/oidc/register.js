@@ -10,7 +10,7 @@ import {
   createOIDCClient, getAllClientsOfUser, deleteClient,
 } from '../../data/sql/OIDCClient.js';
 import putHtmlIntoShell from '../../ssr/shell.js';
-import { USERLVL } from '../../core/constants.js';
+import { USERLVL } from '../../core/constants.ts';
 
 const router = express.Router();
 

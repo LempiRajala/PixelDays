@@ -2,7 +2,7 @@
  * Cron job of argumentless functions that will get run in a specific interval,
  * at full hours
  */
-import { HOUR } from '../core/constants.js';
+import { HOUR } from '../core/constants.ts';
 
 import logger from '../core/logger.js';
 

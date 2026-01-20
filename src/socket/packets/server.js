@@ -13,6 +13,7 @@ import {
   PIXEL_UPDATE_OP,
   FISH_APPEARS_OP,
   FISH_CATCHED_OP,
+  USER_AVATAR_UPDATED,
 } from './op.js';
 
 /*
@@ -269,5 +270,17 @@ export function dehydrateFishCatched(catched, type, size) {
   buffer.writeUInt8((catched) ? 1 : 0, 1);
   buffer.writeUint8(type, 2);
   buffer.writeUint16BE(size * 100, 3);
+  return buffer;
+}
+
+export function dehydrateUpdatedUserAvatar(userId, avatarId) {
+  const buffer = Buffer.allocUnsafe(1 + 4 + (avatarId?.length ?? 0));
+  buffer.writeUint8(USER_AVATAR_UPDATED, 0);
+  buffer.writeUint32BE(userId, 1);
+  if(avatarId !== null) {
+    for(let i = 0; i < avatarId.length; i++) {
+      buffer.writeUint8(avatarId.charCodeAt(i), 5 + i);
+    }
+  }
   return buffer;
 }

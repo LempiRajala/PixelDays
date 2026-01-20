@@ -26,7 +26,7 @@ import {
 import socketEvents from '../socket/socketEvents.js';
 import logger from './logger.js';
 
-import { MINUTE } from './constants.js';
+import { MINUTE } from './constants.ts';
 import { PUNISH_DOMINATOR } from './config.js';
 import { DailyCron, HourlyCron } from '../utils/cron.js';
 

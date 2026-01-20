@@ -3,7 +3,7 @@ import { DataTypes, Op } from 'sequelize';
 import sequelize from './sequelize.js';
 import RangeBanHistory from './RangeBanHistory.js';
 
-export { RANGEBAN_REASONS } from '../../core/constants.js';
+export { RANGEBAN_REASONS } from '../../core/constants.ts';
 
 const RangeBan = sequelize.define('RangeBan', {
   rid: {

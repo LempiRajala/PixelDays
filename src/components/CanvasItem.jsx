@@ -6,7 +6,7 @@ import React from 'react';
 import { t } from 'ttag';
 
 import { cdn } from '../utils/utag.js';
-import { THREE_CANVAS_HEIGHT } from '../core/constants.js';
+import { THREE_CANVAS_HEIGHT } from '../core/constants.ts';
 
 
 const CanvasItem = ({

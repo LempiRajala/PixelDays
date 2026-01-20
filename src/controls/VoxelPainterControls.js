@@ -26,7 +26,7 @@ import {
 import {
   THREE_CANVAS_HEIGHT,
   VIEW_UPDATE_DELAY,
-} from '../core/constants.js';
+} from '../core/constants.ts';
 import {
   getDiff,
   getTapOrClickCenter,

@@ -32,12 +32,13 @@ import {
   dehydrateCaptchaReturn,
   dehydrateFishAppears,
   dehydrateFishCatched,
+  dehydrateUpdatedUserAvatar,
 } from './packets/server.js';
 import socketEvents from './socketEvents.js';
 import chatProvider from '../core/ChatProvider.js';
 import authenticateClient from './authenticateClient.js';
 import drawByOffsets from '../core/draw.js';
-import { HOUR } from '../core/constants.js';
+import { HOUR } from '../core/constants.ts';
 import { checkCaptchaSolution } from '../data/redis/captcha.js';
 import { getCoolDown } from '../data/redis/cooldown.js';
 import { isCORSAllowed } from '../middleware/cors.js';
@@ -221,6 +222,13 @@ class SocketServer {
         if (ws.ip.ipString === ip) {
           ws.send(buffer);
         }
+      });
+    });
+
+    socketEvents.on('userAvatarUpdated', (userId, avatarId) => {
+      const buffer = dehydrateUpdatedUserAvatar(userId, avatarId);
+      this.wss.clients.forEach(async (ws) => {
+        ws.send(buffer);
       });
     });
 

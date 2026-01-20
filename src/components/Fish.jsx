@@ -7,7 +7,7 @@ import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import socketClient from '../socket/SocketClient.js';
-import { FISH_TYPES } from '../core/constants.js';
+import { FISH_TYPES } from '../core/constants.ts';
 import { cdn } from '../utils/utag.js';
 
 /* eslint-disable max-len */

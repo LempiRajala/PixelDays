@@ -15,7 +15,7 @@ import {
 } from './store/actions/index.js';
 import { fetchMe, initTimer } from './store/actions/thunks.js';
 import pixelTransferController from './ui/PixelTransferController.js';
-import store from './store/store.js';
+import store from './store/store.ts';
 import renderApp from './components/App.jsx';
 import { getRenderer } from './ui/rendererFactory.js';
 import templateLoader from './ui/templateLoader.js';

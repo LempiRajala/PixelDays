@@ -3,7 +3,7 @@
  */
 
 import { durationToString } from '../../core/utils.js';
-import { CANVAS_TYPES } from '../../core/constants.js';
+import { CANVAS_TYPES } from '../../core/constants.ts';
 
 /*
  * set theme-color meta tag that sets the color

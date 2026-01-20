@@ -13,7 +13,7 @@ import {
 import {
   MAX_LOADED_CHUNKS,
   MAX_CHUNK_AGE,
-} from '../core/constants.js';
+} from '../core/constants.ts';
 
 /* eslint-disable class-methods-use-this */
 

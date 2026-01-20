@@ -2,7 +2,7 @@
  * express middlewares for handling user sessions
  */
 import { parse as parseCookie } from 'cookie';
-import { HOUR, USER_FLAGS } from '../core/constants.js';
+import { HOUR, USER_FLAGS } from '../core/constants.ts';
 import { TIMEBLOCK_USERS } from '../core/config.js';
 import {
   resolveSession, createSession, removeSession, resolveSessionUid,

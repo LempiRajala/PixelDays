@@ -1,7 +1,3 @@
-/*
- *
- */
-
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { t } from 'ttag';
@@ -11,6 +7,8 @@ import {
   setUserBlock,
 } from '../../store/actions/thunks.js';
 import { escapeMd } from '../../core/utils.js';
+import type { State } from '@/store/store.js';
+import type { ChatState } from '@/store/reducers/chat.js';
 
 /*
  * args: {
@@ -20,9 +18,20 @@ import { escapeMd } from '../../core/utils.js';
  *   addToInput,
  * }
  */
-const UserContextMenu = ({ args, close }) => {
-  const channels = useSelector((state) => state.chat.channels);
-  const fetching = useSelector((state) => state.fetching.fetchingApi);
+const UserContextMenu = ({
+  args,
+  close,
+}: {
+  args: {
+    name: any;
+    uid: any;
+    setChannel: any;
+    addToInput: any;
+  };
+  close: () => void;
+}) => {
+  const channels = useSelector<State>((state) => state.chat.channels) as ChatState['channels'];
+  const fetching = useSelector<State>((state) => state.fetching!.fetchingApi) as Required<State>['fetching'];
 
   const dispatch = useDispatch();
 
@@ -67,6 +76,7 @@ const UserContextMenu = ({ args, close }) => {
             }
           }
           if (!fetching) {
+            // @ts-expect-error
             dispatch(startDm({ userId: uid }, setChannel));
           }
           close();
@@ -79,6 +89,7 @@ const UserContextMenu = ({ args, close }) => {
         key="block"
         tabIndex={-1}
         onClick={() => {
+          // @ts-expect-error
           dispatch(setUserBlock(uid, name, true));
           close();
         }}

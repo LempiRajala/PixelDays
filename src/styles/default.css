@@ -921,6 +921,9 @@ tr:nth-child(even) {
 .chatflag {
   vertical-align: middle;
 }
+.chatmsg__avatar {
+  vertical-align: middle;
+}
 table {
   font-size: 13px;
 }
@@ -949,8 +952,11 @@ table td span {
 .chatts {
   color: #83839f;
   font-size: 10px;
-  flex-grow: 1;
-  text-align: right;
+  padding-left: 8px;
+  /* position: absolute; */
+  /* left: 8px; */
+  /* top: 50%; */
+  /* transform: translateY(-40%); */
 }
 .chatmsg {
   font-size: 13px;

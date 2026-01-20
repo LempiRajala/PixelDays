@@ -2,7 +2,7 @@
  * windows that can be opened as pop-up
  */
 import { u } from '../../utils/utag.js';
-import { POPUP_ARGS, AVAILABLE_POPUPS } from '../../core/constants.js';
+import { POPUP_ARGS, AVAILABLE_POPUPS } from '../../core/constants.ts';
 
 export default AVAILABLE_POPUPS;
 

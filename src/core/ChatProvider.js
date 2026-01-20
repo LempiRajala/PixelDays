@@ -24,7 +24,7 @@ import {
   EVENT_USER_NAME,
   INFO_USER_NAME,
   APISOCKET_USER_NAME,
-} from './constants.js';
+} from './constants.ts';
 
 function getUserFromMd(mdUserLink) {
   let mdUser = mdUserLink.trim();

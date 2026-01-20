@@ -5,7 +5,7 @@ import {
   getTPIDsOfUser, removeTpidFromUser,
 } from '../../../data/sql/ThreePID.js';
 import { comparePasswordToHash } from '../../../utils/hash.js';
-import { USERLVL, THREEPID_PROVIDERS } from '../../../core/constants.js';
+import { USERLVL, THREEPID_PROVIDERS } from '../../../core/constants.ts';
 import { setUserLvl } from '../../../data/sql/User.js';
 import socketEvents from '../../../socket/socketEvents.js';
 

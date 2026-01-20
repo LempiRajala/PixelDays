@@ -10,7 +10,7 @@
 import RedisCanvas from '../data/redis/RedisCanvas.js';
 import logger from './logger.js';
 import { getChunkOfPixel } from './utils.js';
-import { TILE_SIZE } from './constants.js';
+import { TILE_SIZE } from './constants.ts';
 import canvases from './canvases.js';
 import Palette from './Palette.js';
 

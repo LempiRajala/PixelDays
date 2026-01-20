@@ -7,13 +7,13 @@
 import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/es/storage/index.js';
 
-import gui from './reducers/gui.js';
+import gui from './reducers/gui.ts';
 import ranks from './reducers/ranks.js';
 import chatRead from './reducers/chatRead.js';
-import user from './reducers/user.js';
+import user from './reducers/user.ts';
 import canvas from './reducers/canvas.js';
 import templates from './reducers/templates.js';
-import chat from './reducers/chat.js';
+import chat from './reducers/chat.ts';
 import fetching from './reducers/fetching.js';
 import profile from './reducers/profile.js';
 

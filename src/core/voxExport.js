@@ -20,7 +20,7 @@
  * is currently looking at as .vox. The file should just have one model.
  */
 
-import { THREE_TILE_SIZE, THREE_CANVAS_HEIGHT } from './constants.js';
+import { THREE_TILE_SIZE, THREE_CANVAS_HEIGHT } from './constants.ts';
 
 const VOX_OBJECT_SIZE = 128;
 const VOX_OBJECT_CSIZE = VOX_OBJECT_SIZE / THREE_TILE_SIZE;

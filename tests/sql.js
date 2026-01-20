@@ -12,7 +12,7 @@ import { sanitizeIPString, ipToHex, hexToIP } from '../src/utils/intel/ip.js';
 import { blockUser, unblockUser, isUserBlockedBy } from '../src/data/sql/association_models/UserBlock.js';
 import { IP } from '../src/middleware/ip.js';
 import { User } from '../src/middleware/session.js';
-import { USERLVL } from '../src/core/constants.js';
+import { USERLVL } from '../src/core/constants.ts';
 
 const LOG_QUERY = false;
 const SYNC_MYSQL = false;

@@ -7,7 +7,7 @@ import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 
 import { selectColor } from '../store/actions/index.js';
 import useWindowSize from './hooks/resize.js';
-import { USERLVL } from '../core/constants.js';
+import { USERLVL } from '../core/constants.ts';
 
 
 /*

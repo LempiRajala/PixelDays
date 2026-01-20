@@ -23,3 +23,4 @@ export const CAPTCHA_RETURN_OP = 0xC6;
 export const REFRESH_OP = 0xD0;
 export const FISH_APPEARS_OP = 0x50;
 export const FISH_CATCHED_OP = 0x51;
+export const USER_AVATAR_UPDATED = 0x52;

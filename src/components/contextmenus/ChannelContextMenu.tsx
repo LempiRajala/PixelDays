@@ -13,19 +13,30 @@ import {
 import {
   setLeaveChannel,
 } from '../../store/actions/thunks.js';
+import { State } from '@/store/store.js';
+import { ChatState } from '@/store/reducers/chat.js';
 
 /*
  * args: {
  *   cid,
  * }
  */
-const ChannelContextMenu = ({ args, close }) => {
-  const channels = useSelector((state) => state.chat.channels);
-  const muteArr = useSelector((state) => state.chatRead.mute);
+const ChannelContextMenu = ({
+  args,
+  close,
+}: {
+  args: {
+    cid: string;
+  },
+  close: () => void;
+}) => {
+  const channels = useSelector<State>((state) => state.chat.channels) as ChatState['channels'];
+  const muteArr = useSelector<State>((state) => state.chatRead!.mute) as Required<State>['chatRead']['mute'];
 
   const { cid } = args;
   const dispatch = useDispatch();
 
+  // @ts-expect-error
   const isMuted = muteArr.includes(cid);
 
   return (
@@ -51,6 +62,7 @@ const ChannelContextMenu = ({ args, close }) => {
           key="leave"
           role="button"
           onClick={() => {
+            // @ts-expect-error
             dispatch(setLeaveChannel(cid));
             close();
           }}

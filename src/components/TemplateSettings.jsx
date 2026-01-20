@@ -11,7 +11,7 @@ import { c, t } from 'ttag';
 
 import TemplateItem from './TemplateItem.jsx';
 import TemplateItemEdit from './TemplateItemEdit.jsx';
-import SettingsItem from './SettingsItem.jsx';
+import SettingsItem from './SettingsItem.tsx';
 import templateLoader from '../ui/templateLoader.js';
 import {
   toggleOVEnabled,

@@ -15,7 +15,7 @@ import {
   requestMailChange, requestTpids, requestRemoveTpid, requestCloseSession,
   requestRemoveConsent,
 } from '../store/actions/fetch.js';
-import { THREEPID_PROVIDERS } from '../core/constants.js';
+import { THREEPID_PROVIDERS } from '../core/constants.ts';
 
 function validate(havePassword, email, password) {
   const errors = [];

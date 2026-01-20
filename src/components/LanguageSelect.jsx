@@ -8,7 +8,7 @@
  */
 import React, { useState, useEffect } from 'react';
 import { t } from 'ttag';
-import { MONTH } from '../core/constants.js';
+import { MONTH } from '../core/constants.ts';
 import { cdn } from '../utils/utag.js';
 
 function LanguageSelect() {

@@ -1,7 +1,7 @@
 /*
  * map flags of user
  */
-import { USERLVL } from '../core/constants.js';
+import { USERLVL } from '../core/constants.ts';
 
 export default function mapFlag(uid, userlvl, country) {
   if (userlvl >= USERLVL.CLEANER) {

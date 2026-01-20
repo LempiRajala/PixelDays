@@ -4,7 +4,7 @@
 
 import ChunkLoader from './ChunkLoader.js';
 import Chunk from './Chunk2D.js';
-import { TILE_SIZE, TILE_ZOOM_LEVEL } from '../core/constants.js';
+import { TILE_SIZE, TILE_ZOOM_LEVEL } from '../core/constants.ts';
 import { cdn } from '../utils/utag.js';
 import {
   loadingTiles,

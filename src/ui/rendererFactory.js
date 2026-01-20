@@ -11,7 +11,7 @@ import Renderer from './Renderer.js';
 import Renderer2D from './Renderer2D.js';
 import { pAlert } from '../store/actions/index.js';
 import { isWebGL2Available } from '../core/utils.js';
-import { GC_INTERVAL, CANVAS_TYPES } from '../core/constants.js';
+import { GC_INTERVAL, CANVAS_TYPES } from '../core/constants.ts';
 
 const dummyRenderer = new Renderer();
 

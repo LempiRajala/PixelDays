@@ -11,7 +11,7 @@ import {
   initRenderer,
 } from '../../ui/rendererFactory.js';
 import { selectColor } from '../actions/index.js';
-import { CANVAS_TYPES } from '../../core/constants.js';
+import { CANVAS_TYPES } from '../../core/constants.ts';
 
 export default (store) => (next) => (action) => {
   const { type } = action;

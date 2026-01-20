@@ -7,7 +7,7 @@ import { t } from 'ttag';
 
 import DeleteList from './DeleteList.jsx';
 import { api } from '../utils/utag.js';
-import { USERLVL } from '../core/constants.js';
+import { USERLVL } from '../core/constants.ts';
 
 async function submitTextAction(
   action,

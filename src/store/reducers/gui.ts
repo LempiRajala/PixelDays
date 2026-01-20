@@ -7,11 +7,12 @@ const initialState = {
   isLightGrid: false,
   compactPalette: false,
   paletteOpen: true,
+  brushOpen: false,
   mute: false,
   chatNotify: true,
   cursor: true,
   // popups that are set to show fullscreen
-  fsPopUps: [],
+  fsPopUps: [] as string[],
   // top-left button menu
   menuOpen: false,
   // show online users per canvas instead of total
@@ -31,10 +32,17 @@ const initialState = {
   moveW: 0,
 };
 
+export type GuiState = typeof initialState;
 
 export default function gui(
   state = initialState,
-  action,
+  action: {
+    // TODO
+    type: string;
+    value: any;
+    style: any;
+    windowType: any;
+  },
 ) {
   switch (action.type) {
     case 's/TGL_GRID': {

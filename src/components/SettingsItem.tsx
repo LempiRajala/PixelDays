@@ -1,8 +1,19 @@
-import React from 'react';
-import ToggleButton from 'react-toggle';
+import React, { type PropsWithChildren } from 'react';
+import ToggleButton, { type ToggleProps } from 'react-toggle';
 
 const SettingsItem = React.memo(({
-  title, keyBind, value, onToggle, children, deactivated,
+  title,
+  keyBind,
+  value,
+  onToggle,
+  children,
+  deactivated,
+}: PropsWithChildren & {
+  title: string;
+  keyBind?: string;
+  value: ToggleProps['checked'];
+  onToggle: ToggleProps['onChange'];
+  deactivated?: ToggleProps['disabled'];
 }) => (
   <div className="setitem">
     <div className="setrow">

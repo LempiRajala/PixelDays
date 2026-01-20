@@ -12,7 +12,7 @@ import {
   DEFAULT_CANVAS_ID,
   PENCIL_MODE,
   CANVAS_TYPES,
-} from '../../core/constants.js';
+} from '../../core/constants.ts';
 
 /**
  * checks if toggling historical view is neccessary
@@ -159,7 +159,7 @@ const initialState = {
   canvases: {},
   canvasSize: 65536,
   historicalCanvasSize: 65536,
-  rendererType: 'DUMMY',
+  rendererType: CANVAS_TYPES.DUMMY,
   canvasStartDate: null,
   defaultCanvas: DEFAULT_CANVAS_ID,
   canvasEndDate: null,

@@ -7,12 +7,14 @@
 import { USERLVL } from '../data/sql/index.js';
 import { getUserRanks } from '../data/redis/ranks.js';
 import { USE_MAILER, TIMEBLOCK_USERS, TIMEBLOCK_IPS } from './config.js';
-import { USER_FLAGS } from './constants.js';
+import { USER_FLAGS } from './constants.ts';
 import chatProvider from './ChatProvider.js';
 
 export default async function getMe(user, ip, lang) {
   let id;
   let name;
+  let avatarId = null;
+  let bannerId = null;
   let username;
   let userlvl;
   let havePassword;
@@ -26,7 +28,7 @@ export default async function getMe(user, ip, lang) {
 
   if (user) {
     const { data } = user;
-    ({ id, name, username, userlvl } = data);
+    ({ id, name, username, userlvl, avatarId, bannerId } = data);
     blockDm = !!(data.flags & (0x01 << USER_FLAGS.BLOCK_DM));
     priv = !!(data.flags & (0x01 << USER_FLAGS.PRIV));
     havePassword = data.password !== null;
@@ -59,7 +61,7 @@ export default async function getMe(user, ip, lang) {
   ip.touch();
 
   const me = {
-    id, name, username, userlvl, havePassword, blockDm, priv, channels, blocked,
+    id, name, avatarId, bannerId, username, userlvl, havePassword, blockDm, priv, channels, blocked,
   };
 
   if (ranks) {

@@ -16,7 +16,7 @@ import canvases from './canvases.js';
 
 import {
   THREE_CANVAS_HEIGHT, THREE_TILE_SIZE, TILE_SIZE,
-} from './constants.js';
+} from './constants.ts';
 
 let coolDownFactor = 1;
 socketEvents.on('setCoolDownFactor', (newFac) => {

@@ -28,7 +28,7 @@ import APISocketServer from './socket/APISocketServer.js';
 import {
   PORT, HOST, HOURLY_EVENT, FISHING, BASENAME,
 } from './core/config.js';
-import { SECOND } from './core/constants.js';
+import { SECOND } from './core/constants.ts';
 
 import startAllCanvasLoops from './core/tileserver.js';
 

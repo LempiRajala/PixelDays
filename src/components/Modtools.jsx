@@ -9,7 +9,7 @@ import Canvastools from './ModCanvastools.jsx';
 import Admintools from './Admintools.jsx';
 import Watchtools from './ModWatchtools.jsx';
 import IIDTools from './ModIIDtools.jsx';
-import { USERLVL } from '../core/constants.js';
+import { USERLVL } from '../core/constants.ts';
 
 
 const CONTENT = {

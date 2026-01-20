@@ -1,6 +1,6 @@
 import { DataTypes, QueryTypes } from 'sequelize';
 import sequelize from './sequelize.js';
-import { USER_FLAGS } from '../../core/constants.js';
+import { USER_FLAGS } from '../../core/constants.ts';
 
 const Badge = sequelize.define('Badge', {
   id: {

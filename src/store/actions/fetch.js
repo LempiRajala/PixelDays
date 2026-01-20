@@ -251,8 +251,7 @@ export async function requestChatMessages(cid) {
   );
   // timeout in order to not spam api requests and get rate limited
   if (response.ok) {
-    const { history } = await response.json();
-    return history;
+    return await response.json();
   }
   return null;
 }

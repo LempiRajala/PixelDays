@@ -7,10 +7,10 @@ import { t } from 'ttag';
 
 import WindowContext from '../context/window.js';
 import { setBrightness, colorFromText } from '../../core/utils.js';
-import { FISH_TYPES } from '../../core/constants.js';
+import { FISH_TYPES } from '../../core/constants.ts';
 import { cdn } from '../../utils/utag.js';
 import { requestFish } from '../../store/actions/fetch.js';
-import { selectIsDarkMode } from '../../store/selectors/gui.js';
+import { selectIsDarkMode } from '../../store/selectors/gui.ts';
 import ClipboardCopyField from '../ClipboardCopyField.jsx';
 import { buildPopUpUrl } from './popUpAvailable.js';
 

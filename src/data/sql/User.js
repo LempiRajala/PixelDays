@@ -12,7 +12,7 @@ import { generateHash } from '../../utils/hash.js';
 import { setEmail } from './ThreePID.js';
 import {
   USERLVL, THREEPID_PROVIDERS, USER_FLAGS,
-} from '../../core/constants.js';
+} from '../../core/constants.ts';
 import { deleteAllDMChannelsOfUser } from './Channel.js';
 
 export { USERLVL, THREEPID_PROVIDERS, USER_FLAGS };
@@ -39,6 +39,11 @@ const User = sequelize.define('User', {
     allowNull: false,
     unique: 'name',
   },
+
+  // avatarId: {
+  //   type: `${DataTypes.UUIDV4} CHARSET ascii COLLATE ascii_bin`,
+  //   allowNull: false,
+  // },
 
   // null if only ever used external oauth
   password: {

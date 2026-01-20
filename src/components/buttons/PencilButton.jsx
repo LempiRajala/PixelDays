@@ -8,7 +8,7 @@ import { TbPencil, TbPencilMinus } from 'react-icons/tb';
 import { t } from 'ttag';
 
 import useLongPress from '../hooks/useLongPress.js';
-import { PENCIL_MODE } from '../../core/constants.js';
+import { PENCIL_MODE } from '../../core/constants.ts';
 import { setHoldPaint } from '../../store/actions/index.js';
 import { switchPencilMode } from '../../store/actions/thunks.js';
 

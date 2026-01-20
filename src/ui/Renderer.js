@@ -7,7 +7,7 @@
 import {
   VIEW_UPDATE_DELAY,
   CANVAS_TYPES,
-} from '../core/constants.js';
+} from '../core/constants.ts';
 import { updateView } from '../store/actions/index.js';
 
 /* eslint-disable class-methods-use-this */

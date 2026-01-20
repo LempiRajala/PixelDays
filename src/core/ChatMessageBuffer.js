@@ -4,8 +4,9 @@
  *
  */
 import { storeMessage, getMessagesForChannel } from '../data/sql/Message.js';
+// import { getMessagesByChannel } from '../db/utils/messages.ts';
 
-const MAX_BUFFER_TIME = 600000;
+const MAX_BUFFER_TIME = 600_000;
 
 class ChatMessageBuffer {
   constructor(socketEvents) {
@@ -17,6 +18,24 @@ class ChatMessageBuffer {
     this.addMessage = this.addMessage.bind(this);
     this.socketEvents = socketEvents;
     socketEvents.on('chatMessage', this.addMessage);
+  }
+
+  async hasMessageFromUser({
+    userId,
+    checkOnlyCached,
+  }) {
+    if(checkOnlyCached) {
+      for(const [_, messages] of this.buffer) {
+        for(const msg of messages) {
+          if(userId === msg[3]) {
+            return true;
+          }
+        }
+      }
+      return false;
+    } else {
+      throw new Error('not implemented');
+    }
   }
 
   async getMessages(cid, limit = 30) {

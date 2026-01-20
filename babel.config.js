@@ -28,6 +28,7 @@ export default function (api) {
           },
         }
     ],
+    '@babel/preset-typescript',
     '@babel/react',
   ];
 

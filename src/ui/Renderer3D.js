@@ -23,7 +23,7 @@ import { Sky } from 'three/examples/jsm/objects/Sky';
 import { CANVAS_TYPES,
   THREE_TILE_SIZE,
   BACKGROUND_CLR_HEX,
-} from '../core/constants.js';
+} from '../core/constants.ts';
 
 
 import InfiniteGridHelper from './InfiniteGridHelper.js';

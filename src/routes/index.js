@@ -25,7 +25,7 @@ import generateGlobePage from '../ssr/Globe.jsx';
 import generatePopUpPage from '../ssr/PopUp.jsx';
 import generateMainPage from '../ssr/Main.jsx';
 
-import { MONTH, AVAILABLE_POPUPS } from '../core/constants.js';
+import { MONTH, AVAILABLE_POPUPS } from '../core/constants.ts';
 import {
   CHAT_INVITE, BASENAME, CDN_HOST, OIDC_URL,
 } from '../core/config.js';

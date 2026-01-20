@@ -9,7 +9,7 @@ import sequelize from './sequelize.js';
 import ThreePIDHistory from './ThreePIDHistory.js';
 import ThreePIDBan from './association_models/ThreePIDBan.js';
 
-import { THREEPID_PROVIDERS } from '../../core/constants.js';
+import { THREEPID_PROVIDERS } from '../../core/constants.ts';
 
 export { THREEPID_PROVIDERS };
 

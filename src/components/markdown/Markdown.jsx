@@ -3,7 +3,7 @@
  */
 import React from 'react';
 
-import MdParagraph from './MdParagraph.jsx';
+import MdParagraph from './MdParagraph.tsx';
 import { parse } from '../../utils/markdown/MarkdownParser.js';
 
 /**

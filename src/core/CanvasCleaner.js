@@ -17,7 +17,7 @@ import {
 import { setPixelByOffset } from './setPixel.js';
 import {
   TILE_SIZE,
-} from './constants.js';
+} from './constants.ts';
 import logger from './logger.js';
 import canvases from './canvases.js';
 

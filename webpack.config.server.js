@@ -62,20 +62,20 @@ export default ({
   const workersDir = path.resolve('src', 'workers');
   const workerEntries = {};
   fs.readdirSync(workersDir)
-    .filter((e) => e.endsWith('.js'))
+    .filter((e) => e.endsWith('.js') || e.endsWith('.ts'))
     .forEach((filename) => {
       const name = `workers/${filename.slice(0, -3)}`;
       const fullPath = path.resolve(workersDir, filename);
       workerEntries[name] = fullPath;
     });
 
-    /*
-     * same with scripts that are part of the final package
-     */
-    const scriptsDir = path.resolve('deployment', 'scripts');
-    const scriptsEntries = {};
-    fs.readdirSync(scriptsDir)
-    .filter((e) => e.endsWith('.js'))
+  /*
+    * same with scripts that are part of the final package
+    */
+  const scriptsDir = path.resolve('deployment', 'scripts');
+  const scriptsEntries = {};
+  fs.readdirSync(scriptsDir)
+    .filter((e) => e.endsWith('.js') || e.endsWith('.ts'))
     .forEach((filename) => {
       const name = `scripts/${filename.slice(0, -3)}`;
       const fullPath = path.resolve(scriptsDir, filename);
@@ -100,13 +100,13 @@ export default ({
     },
 
     resolve: {
-      extensions: ['.js', '.jsx'],
+      extensions: ['.js', '.jsx', '.ts', '.tsx'],
     },
 
     module: {
       rules: [
         {
-          test: /\.(js|jsx)$/,
+          test: /\.(js|jsx|ts|tsx)$/,
           loader: 'babel-loader',
           include: [
             path.resolve('src'),

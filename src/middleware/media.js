@@ -11,7 +11,7 @@ import { getRandomString } from '../core/utils.js';
 import {
   registerMedia, deregisterMedia, hasMedia,
 } from '../data/sql/Media.js';
-import { MAX_MEDIA_SIZE } from '../core/constants.js';
+import { MAX_MEDIA_SIZE } from '../core/constants.ts';
 import { MEDIA_FOLDER } from '../core/config.js';
 
 const typeToExt = {

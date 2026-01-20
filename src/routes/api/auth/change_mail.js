@@ -10,7 +10,7 @@ import { comparePasswordToHash } from '../../../utils/hash.js';
 import { checkMailOverShards } from '../../../utils/intel/index.js';
 import { setEmail, getTPIDsOfUser } from '../../../data/sql/ThreePID.js';
 import { setUserLvl } from '../../../data/sql/User.js';
-import { USERLVL } from '../../../core/constants.js';
+import { USERLVL } from '../../../core/constants.ts';
 import socketEvents from '../../../socket/socketEvents.js';
 
 async function validate(email, t, gettext) {

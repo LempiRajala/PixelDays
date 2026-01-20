@@ -11,7 +11,7 @@ import { coordsFromString } from '../core/utils.js';
 import HistorySelect from './HistorySelect.jsx';
 import { api } from '../utils/utag.js';
 import { selectCanvas } from '../store/actions/index.js';
-import { USERLVL } from '../core/constants.js';
+import { USERLVL } from '../core/constants.ts';
 
 const keptState = {
   coords: '',

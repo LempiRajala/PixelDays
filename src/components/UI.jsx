@@ -18,7 +18,7 @@ import HistorySelect from './HistorySelect.jsx';
 import VDay from './VDay.jsx';
 import Fish from './Fish.jsx';
 import useDate from './hooks/useDate.js';
-import { CANVAS_TYPES } from '../core/constants.js';
+import { CANVAS_TYPES } from '../core/constants.ts';
 import BrushSizeSelect from './BrushSizeSelect.jsx';
 
 const UI = () => {

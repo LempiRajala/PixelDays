@@ -6,7 +6,7 @@ import React from 'react';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { c, t } from 'ttag';
 
-import SettingsItem from '../SettingsItem.jsx';
+import SettingsItem from '../SettingsItem.tsx';
 import SettingsItemSelect from '../SettingsItemSelect.jsx';
 import LanguageSelect from '../LanguageSelect.jsx';
 import TemplateSettings from '../TemplateSettings.jsx';

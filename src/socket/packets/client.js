@@ -110,6 +110,18 @@ export function hydrateFishCatched(data) {
   return [success, type, size];
 }
 
+export function hydrateUpdatedUserAvatar(data) {
+  const userId = data.getUint32(1);
+  let avatarId = '';
+  for(let i = 1 + 4; i < data.byteLength; i++) {
+    avatarId += String.fromCharCode(data.getUint8(i));
+  }
+  return [
+    userId,
+    avatarId.length === 0 ? null : avatarId,
+  ];
+}
+
 /*
  * dehydrate functions return ArrayBuffer object
  */

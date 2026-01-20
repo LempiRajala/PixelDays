@@ -7,7 +7,7 @@
 
 /* eslint-disable */
 
-import { TILE_SIZE, CANVAS_TYPES } from '../core/constants.js';
+import { TILE_SIZE, CANVAS_TYPES } from '../core/constants.ts';
 import { getTileOfPixel, getCornerOfChunk } from '../core/utils.js';
 
 /* WAS A GOOD IDEA, BUT NOT USIN THIS CLASS */

@@ -10,7 +10,7 @@ import { getUserOIDCProfile } from '../data/sql/User.js';
 import { getAccessToken } from '../data/sql/OIDCAccessToken.js';
 
 import { OIDC_URL } from '../core/config.js';
-import { USERLVL } from '../core/constants.js';
+import { USERLVL } from '../core/constants.ts';
 
 /**
  * generate openid id_token for user

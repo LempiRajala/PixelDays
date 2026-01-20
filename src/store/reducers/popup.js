@@ -2,7 +2,7 @@
  * state for single-window page (popup)
  */
 
-import { POPUP_ARGS } from '../../core/constants.js';
+import { POPUP_ARGS } from '../../core/constants.ts';
 
 function getWinDataFromURL() {
   // eslint-disable-next-line max-len
