@@ -38,3 +38,5 @@ clean.png
 backup
 ips
 pixelplanetmap.zip
+world-map-drawer/ocean
+.DS_Store
