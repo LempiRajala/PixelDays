@@ -67,24 +67,22 @@ const Help = () => {
         src={cdn`/logo.png`}
         ref={refCallback}
       />
-      <p>
-        {t`Place color pixels on a large canvas with other players online!`}<br />
-        {t`Our main canvas is a huge worldmap, you can place wherever you like, but you will have to wait a specific Cooldown between pixels. You can check out the cooldown and requirements on the Canvas Selection menu (globe button on top). Some canvases have a different cooldown for replacing a user-set pixels than placing on a unset pixel. i.e. 4s/7s means 4s on fresh pixels and 7s on already set pixels.`}<br />
-        {t`Higher zoomlevels take some time to update, the 3D globe gets updated at least once per day.`}<br />
-        {t`Have fun!`}
-      </p>
-      <p className="modalinfo">Matrix ({t`recommended`}): <a href="./guilded" target="_blank" rel="noopener noreferrer">{t`Invited to Chat`}</a></p>
-      <p className="modalinfo">{t`Source for pixelplanet on `}<a href="https://git.pixelplanet.fun" target="_blank" rel="noopener noreferrer">git.pixelplanet.fun</a> or <a href={sourceUrl} target="_blank" rel="noopener noreferrer">download here</a>.</p>
-      <p className="modalinfo">{jt`We are Libre Software under the ${agplLink}, `}<a href="/legal/summarized.html" target="_blank" rel="noopener noreferrer">{t`check compliance here`}</a>.</p>
-      <h3>{t`Legal Requests`}</h3>
-      <p>{jt`For any legal issues, please contact ${mailLink}. If you want to delete your data, simply delete your account, this in fact wipes all privacy relevant traces. Your placed pixels will of course not be deleted.`}</p>
-      <p>{t`You are a teacher and a pupil is playing this game, despite it not being suitable for them? Send us an email.`}</p>
-      <h3>{t`Map Data`}</h3>
-      <p>{t`The bare map data that we use, together with converted OpenStreetMap tiles for orientation, can be downloaded from mega.nz here: `}<a href="https://mega.nz/#!JpkBwAbJ!EnSLlZmKv3kEBE0HDhakTgAZZycD3ELjduajJxPGaXo">pixelplanetmap.zip</a> (422MB)</p>
-      <h3>{t`Banned? Detected as Proxy?`}</h3>
-      <div>
-        <p>{jt`If you got detected as proxy, but you aren't using one, or think that you got wrongfully banned, please go to our ${guildedLink} or send us an e-mail to ${mailLink} and, in case of a ban, include the BID you got in the ban message.`}</p>
-      </div>
+      <p>PixelDays is a pixel game for you to have fun with your friends, create art, countries, factions, expand, and wage war against other nations!</p>
+      <p>PixelDays stands out among its competitors because it has less harassment, discrimination, and almost complete freedom of speech.</p>
+      <br/>
+      <p>Here's some information about us:</p>
+      <p style={{ paddingLeft: '10px' }}>1) We guarantee freedom of expression in our project. There is almost no harassment from moderation for your stance or ideals. </p>
+      <p style={{ paddingLeft: '10px' }}>2) We only target those who engage in destructive behavior in society (propaganda of debauchery, LGBT, feminism, pedophilia, and other socially unacceptable movements).</p>
+      <p style={{ paddingLeft: '10px' }}>3) We are a website with conservative and appropriate ideas. Supporters of left-wing movements that promote gender diversity and multiculturalism: please leave this website.</p>
+      <p style={{ paddingLeft: '10px' }}>4) We do not allow moderation to abuse its authority. For example, if a moderator is Russian or Ukrainian, they should not be more loyal to their own country than to players from other factions.</p>
+      <p style={{ paddingLeft: '10px' }}>5) We listen to the players' opinions and try to implement their ideas and ambitions. You help us to become better!</p>
+
+      <p>Our main canvas is a huge world map, you can draw your art, build your countries and create the history of our site!</p>
+      <p>The cooldown on the site is 1/2, the reserve of pixels (recharge) - 120 seconds.</p>
+
+      <p>PixelDays is an experiment in the world of pixels to find out what will happen if you give a person the right to self-expression, bypassing censorship and control from the administration. Most websites persecute people for their views and punish them severely, even to the point of wiping out an entire country.</p>
+
+      <p>Learn more about us on our Discord channel: [link]</p>
       <h3>{t`Identifiers`}</h3>
       <p>{t`If you talk to moderators or administrators, you might get asked for one of the following identifiers:`}</p>
       <p>IID</p>

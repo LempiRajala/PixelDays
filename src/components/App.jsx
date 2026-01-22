@@ -46,7 +46,7 @@ function OnStartup() {
     if(localStorage.getItem('startup_window_showed')) return;
     localStorage.setItem('startup_window_showed', 'true');
 
-    link('NEWBIE_INFO', { target: 'parent' });
+    link('HELP', { target: 'parent' });
   }, []);
 
   return null;

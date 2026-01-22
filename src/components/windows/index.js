@@ -10,12 +10,10 @@ import Player from './Player.jsx';
 import FishDisplay from './FishDisplay.jsx';
 import BadgeDisplay from './BadgeDisplay.jsx';
 import OIDCConsent from './OIDCConsent.jsx';
-import NewbieInfo from './NewbieInfo.jsx';
 import Profile from './Profile.tsx';
 
 export default {
   HELP: [Help, t`Help`],
-  NEWBIE_INFO: [NewbieInfo, t`Newbie Info`],
   SETTINGS: [Settings, t`Settings`],
   USERAREA: [UserArea, t`User Area`],
   CHAT: [Chat, t`Chat`],
