@@ -10,7 +10,7 @@ import availablePopups, {
   isPopUp, buildPopUpUrl,
 } from '../windows/popUpAvailable.js';
 import { openWindow } from '../../store/actions/windows.js';
-import WindowContext from '../context/window.js';
+import WindowContext from '../context/window.ts';
 
 function openPopUp(url, xPos, yPos, width, height) {
   let left;

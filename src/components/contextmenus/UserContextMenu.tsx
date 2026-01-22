@@ -9,6 +9,7 @@ import {
 import { escapeMd } from '../../core/utils.js';
 import type { State } from '@/store/store.js';
 import type { ChatState } from '@/store/reducers/chat.js';
+import useLink from '../hooks/link.js';
 
 /*
  * args: {
@@ -23,13 +24,14 @@ const UserContextMenu = ({
   close,
 }: {
   args: {
-    name: any;
-    uid: any;
+    name: string;
+    uid: number;
     setChannel: any;
     addToInput: any;
   };
   close: () => void;
 }) => {
+  const link = useLink();
   const channels = useSelector<State>((state) => state.chat.channels) as ChatState['channels'];
   const fetching = useSelector<State>((state) => state.fetching!.fetchingApi) as Required<State>['fetching'];
 
@@ -44,6 +46,22 @@ const UserContextMenu = ({
 
   return (
     <>
+      <div
+        role="button"
+        key="profile"
+        tabIndex={0}
+        onClick={() => {
+          link('PROFILE', {
+            target: 'parent',
+            args: { userId: uid },
+            width: 780,
+            height: 301,
+          });
+        }}
+        style={{ borderTop: 'none' }}
+      >
+        {t`Profile`}
+      </div>
       <div
         role="button"
         key="ping"

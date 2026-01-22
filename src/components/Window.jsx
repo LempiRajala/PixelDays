@@ -30,7 +30,7 @@ import {
   selectShowWindows,
 } from '../store/selectors/windows.js';
 import useDrag from './hooks/drag.js';
-import WindowContext from './context/window.js';
+import WindowContext from './context/window.ts';
 import COMPONENTS from './windows/index.js';
 import popUpTypes from './windows/popUpAvailable.js';
 

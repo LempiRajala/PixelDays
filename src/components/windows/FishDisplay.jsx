@@ -5,7 +5,7 @@ import React, { useContext, useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { t } from 'ttag';
 
-import WindowContext from '../context/window.js';
+import WindowContext from '../context/window.ts';
 import { setBrightness, colorFromText } from '../../core/utils.js';
 import { FISH_TYPES } from '../../core/constants.ts';
 import { cdn } from '../../utils/utag.js';

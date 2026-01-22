@@ -23,6 +23,7 @@ import badge from './badge.js';
 import banme from './banme.js';
 import updateAvatar from './update-avatar.ts';
 import updateBanner from './update-banner.ts';
+import userInfo from './user-info.ts';
 
 import { multerUpload } from '../multer.ts';
 // import media from './media.js';
@@ -59,6 +60,8 @@ router.use((req, res, next) => {
 router.get('/shards', shards);
 
 router.get('/getiid', getiid);
+
+router.get('/user-info/:id', userInfo);
 
 /*
  * get user session if available

@@ -7,7 +7,7 @@ import { useSelector, useDispatch } from 'react-redux';
 import { t } from 'ttag';
 
 import { fetchStats } from '../../store/actions/thunks.js';
-import WindowContext from '../context/window.js';
+import WindowContext from '../context/window.ts';
 import useInterval from '../hooks/interval.js';
 import Tabs from '../Tabs.jsx';
 import UserAreaContent from '../UserAreaContent.jsx';

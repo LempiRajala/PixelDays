@@ -18,3 +18,21 @@ export const getUserAvatarId = async (id: number) => {
     .where(eq(users.id, id));
   return list.at(0);
 }
+
+export const getUserBannerId = async (id: number) => {
+  const list = await db
+    .select({
+      bannerId: users.bannerId,
+    })
+    .from(users)
+    .where(eq(users.id, id));
+  return list.at(0);
+}
+
+export const getUser = async (id: number) => {
+  const list = await db
+    .select()
+    .from(users)
+    .where(eq(users.id, id));
+  return list.at(0) ?? null;
+}

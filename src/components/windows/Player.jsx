@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { t } from 'ttag';
 
-import WindowContext from '../context/window.js';
+import WindowContext from '../context/window.ts';
 import EMBEDS from '../embeds/index.js';
 import { getLinkDesc } from '../../core/utils.js';
 

@@ -12,6 +12,7 @@ import {
 import SettingsItem from '../SettingsItem.tsx';
 import type { State } from '@/store/store.js';
 import { AvatarUpdateForm } from './avatar-update-form.tsx';
+import { BannerUpdateForm } from './banner-update-form.tsx';
 
 /* eslint-disable max-len */
 const SocialSettings = ({
@@ -76,6 +77,12 @@ const SocialSettings = ({
       { blocked.length === 0 &&
         <p>{t`You have no users blocked`}</p>
       }
+      <div className="modaldivider" />
+      <BannerUpdateForm
+        style={{
+          marginTop: '16px',
+        }}
+      />
       <div className="modaldivider" />
       <AvatarUpdateForm style={{
         marginTop: '16px',

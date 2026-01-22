@@ -1,7 +1,7 @@
 import sharp, { type WebpOptions } from 'sharp';
 import path from 'node:path';
 
-const defaultWebpCompressionOptions: WebpOptions = {
+export const defaultWebpCompressionOptions: WebpOptions = {
   quality: 90,
   alphaQuality: 90,
   lossless: false,
@@ -24,9 +24,15 @@ export async function compressAndResizeImage({
     .toBuffer();
 }
 
-export async function compressImage(buffer: Parameters<typeof sharp>[0]) {
+export async function compressImage({
+  buffer,
+  options
+}: {
+  buffer: Parameters<typeof sharp>[0],
+  options?: WebpOptions,
+}) {
   return await sharp(buffer)
-    .webp(defaultWebpCompressionOptions)
+    .webp(options ?? defaultWebpCompressionOptions)
     .toBuffer();
 }
 

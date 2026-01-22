@@ -12,7 +12,7 @@ import React, {
 import { useSelector, shallowEqual, useDispatch } from 'react-redux';
 import { t, jt } from 'ttag';
 
-import WindowContext from '../context/window.js';
+import WindowContext from '../context/window.ts';
 import LogInForm from '../LogInForm.jsx';
 import { requestConsent, requestUsernameChange } from '../../store/actions/fetch.js';
 /* for ability to change username if require */

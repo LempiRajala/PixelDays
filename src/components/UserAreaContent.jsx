@@ -18,11 +18,9 @@ import LogInForm from './LogInForm.jsx';
 import SocialSettings from './SocialSettings';
 import { logoutUser } from '../store/actions/index.js';
 import { requestLogOut } from '../store/actions/fetch.js';
-import { numberToString } from '../core/utils.js';
 import { selectIsDarkMode } from '../store/selectors/gui.ts';
 import { fetchProfile } from '../store/actions/thunks.js';
-import { getFileUrl } from '../core/client-utils.ts';
-import { avatarSizeAfterUploading } from '../core/constants.ts';
+import { UserProfileInfo } from './user-profile-info.tsx';
 
 const AREAS = {
   CHANGE_NAME: ChangeName,
@@ -32,16 +30,6 @@ const AREAS = {
   DELETE_ACCOUNT: DeleteAccount,
   SOCIAL_SETTINGS: SocialSettings,
 };
-
-const Stat = ({
-  text, value, rank, zero,
-}) => (
-  <p>
-    <span className="stattext">{(rank) ? `${text}: #` : `${text}: `}</span>
-    &nbsp;
-    <span className="statvalue">{numberToString(value, zero)}</span>
-  </p>
-);
 
 const UserAreaContent = () => {
   const user = useSelector(state => state.user, shallowEqual);
@@ -94,49 +82,15 @@ const UserAreaContent = () => {
   return (
     <div className="content">
       <UserMessages />
-      <div style={{
-        display: 'grid',
-        gridTemplateColumns: user.avatarId ? '1fr 1fr' : '1fr',
-      }}>
-        { user.avatarId !== null &&
-          <img
-            src={getFileUrl(user.avatarId)}
-            alt="avatar"
-            style={{
-              width: `${avatarSizeAfterUploading}px`,
-              height: `${avatarSizeAfterUploading}px`,
-              borderRadius: '9999px',
-              boxShadow: '0 0 5px black',
-              border: '1px solid black',
-            }}
-          />
-        }
-        <div style={{
-          alignSelf: 'center',
-          textAlign: user.avatarId ? 'start' : 'center',
-        }}>
-          <Stat
-            text={t`Today Placed Pixels`}
-            value={dailyTotalPixels}
-          />
-          <Stat
-            text={t`Daily Rank`}
-            value={dailyRanking}
-            zero="N/A"
-            rank
-          />
-          <Stat
-            text={t`Placed Pixels`}
-            value={totalPixels}
-          />
-          <Stat
-            text={t`Total Rank`}
-            value={ranking}
-            zero="N/A"
-            rank
-          />
-        </div>
-      </div>
+      <UserProfileInfo
+        username={user.username}
+        avatarId={user.avatarId}
+        bannerId={user.bannerId}
+        totalPixels={totalPixels}
+        dailyTotalPixels={dailyTotalPixels}
+        ranking={ranking}
+        dailyRanking={dailyRanking}
+      />
       <BadgeList />
       <FishList />
       <div>

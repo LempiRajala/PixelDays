@@ -11,6 +11,7 @@ import FishDisplay from './FishDisplay.jsx';
 import BadgeDisplay from './BadgeDisplay.jsx';
 import OIDCConsent from './OIDCConsent.jsx';
 import NewbieInfo from './NewbieInfo.jsx';
+import Profile from './Profile.tsx';
 
 export default {
   HELP: [Help, t`Help`],
@@ -23,6 +24,7 @@ export default {
   PLAYER: [Player, t`Player`],
   FISH_DISPLAY: [FishDisplay, t`Fish Display`],
   BADGE_DISPLAY: [BadgeDisplay, t`Badge Display`],
+  PROFILE: [Profile, t`User profile`],
   /*
    * OIDC Consent is a very special case, because it is only available as
    * seperate popup, hoever, this is a single-page-applications, so we include

@@ -69,6 +69,9 @@ export function AvatarUpdateForm({
       justifyContent: 'center',
       ...style,
     }}>
+      <h3 className="settitle">
+        Avatar
+      </h3>
       <div
         style={{
           position: 'relative',

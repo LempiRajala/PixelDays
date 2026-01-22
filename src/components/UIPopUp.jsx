@@ -14,7 +14,7 @@ import {
   changeWindowType,
   togglePopUpfs,
 } from '../store/actions/popup.js';
-import WindowContext from './context/window.js';
+import WindowContext from './context/window.ts';
 import COMPONENTS from './windows/index.js';
 
 const UIPopUp = () => {

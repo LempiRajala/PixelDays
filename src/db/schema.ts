@@ -1,4 +1,4 @@
-import { mysqlTable, primaryKey, unique, int, varchar, index, bigint, binary, tinyint, datetime, char, float, varbinary, text, timestamp } from "drizzle-orm/mysql-core"
+import { mysqlTable, primaryKey, unique, int, varchar, index, bigint, json, binary, tinyint, datetime, char, float, varbinary, text, timestamp } from "drizzle-orm/mysql-core"
 import { randomUUID } from 'node:crypto';
 import { sql } from "drizzle-orm"
 
@@ -12,6 +12,24 @@ export const files = mysqlTable('files', {
 
 export type File = typeof files.$inferSelect;
 export type InsertFile = typeof files.$inferInsert;
+
+export const factions = mysqlTable('factions', {
+	id: varchar({ length: 36 }).$defaultFn(() => randomUUID()).primaryKey(),
+	createdAt: timestamp('created_at').defaultNow().notNull(),
+	name: varchar('name', { length: 64 }).notNull(),
+	description: varchar('description', { length: 2048 }).notNull(),
+	placedPixels: int('placed_pixels', { unsigned: true }).default(0).notNull(),
+	links: json('links').$type<FactionLinks>().default([]).notNull(),
+	minPixelsToJoin: int('min_pixels_to_join', { unsigned: true }).notNull(),
+});
+
+export type FactionLinks = {
+	label: string;
+	href: string;
+}[];
+
+export type Faction = typeof factions.$inferSelect;
+export type InsertFaction = typeof factions.$inferInsert;
 
 // ниже таблицы, автоматически выведенные из бд
 export const badges = mysqlTable("Badges", {
@@ -437,6 +455,10 @@ export const users = mysqlTable("Users", {
 ]);
 
 export type User = typeof users.$inferSelect;
+export type UnmarshalledUser = Omit<User, 'lastSeen' | 'createdAt'> & {
+	lastSeen: Date;
+	createdAt: Date;
+}
 export type InsertUser = typeof users.$inferInsert;
 
 export const whoisReferrals = mysqlTable("WhoisReferrals", {
@@ -452,8 +474,3 @@ export const whoisReferrals = mysqlTable("WhoisReferrals", {
 	unique("max").on(table.max),
 	unique("min").on(table.min),
 ]);
-
-function uuidToBinary(uuid: string): Buffer {
-  const hex = uuid.replace(/-/g, '');
-  return Buffer.from(hex, 'hex');
-}

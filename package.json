@@ -34,6 +34,7 @@
   "dependencies": {
     "@babel/preset-typescript": "^7.28.5",
     "@types/express": "^5.0.6",
+    "@types/lodash": "^4.17.23",
     "@types/multer": "^2.0.0",
     "@types/react": "^18.2.0",
     "@types/react-dom": "^18.2.0",
@@ -56,6 +57,7 @@
     "image-q": "^4.0.0",
     "javascript-obfuscator": "^5.1.0",
     "js-file-download": "^0.4.12",
+    "lodash": "^4.17.21",
     "lru-cache": "^11.2.4",
     "minio": "^8.0.6",
     "morgan": "^1.10.0",

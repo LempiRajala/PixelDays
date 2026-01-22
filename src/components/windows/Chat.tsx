@@ -3,14 +3,14 @@
  */
 
 import React, {
-  useRef, useLayoutEffect, useState, useEffect, useCallback, useContext,
+  useRef, useLayoutEffect, useState, useEffect, useCallback,
   useMemo,
 } from 'react';
 import useStayScrolled from 'react-stay-scrolled';
 import { useSelector, useDispatch, shallowEqual } from 'react-redux';
 import { t } from 'ttag';
 
-import WindowContext from '../context/window.js';
+import { useWindow } from '../context/window.ts';
 import useLink from '../hooks/link.js';
 import ContextMenu, { ContextMenuProps } from '../contextmenus/index.tsx';
 import { ChatMessageGroup } from '../ChatMessageGroup.tsx';
@@ -58,7 +58,7 @@ const Chat = () => {
     args,
     setArgs,
     setTitle,
-  } = useContext(WindowContext);
+  } = useWindow();
 
   const chatChannel = args.chatChannel || 0;
 
