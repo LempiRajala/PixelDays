@@ -44,6 +44,7 @@ import { getCoolDown } from '../data/redis/cooldown.js';
 import { isCORSAllowed } from '../middleware/cors.js';
 import evaluateMalware from '../core/malwareEvaluation.js';
 import { UsersAvatarsCache } from '../data/users-avatars-cache.ts';
+import { multiplyOnlineInfoByOnlineFactor } from '../core/server-utils.ts';
 
 
 const ipCounter = new Counter();
@@ -122,7 +123,7 @@ class SocketServer {
     socketEvents.on('reloadIP', this.reloadIP);
 
     socketEvents.on('onlineCounter', (online) => {
-      this.broadcast(dehydrateOnlineCounter(online));
+      this.broadcast(dehydrateOnlineCounter(multiplyOnlineInfoByOnlineFactor(online)));
     });
 
     socketEvents.on('announcement', (text) => {

@@ -18,6 +18,7 @@ import { APISOCKET_KEY } from '../core/config.js';
 import authenticateAPIClient from './authenticateAPIClient.js';
 import { getInfoByUsernameOrId } from '../data/sql/User.js';
 import mapFlag from '../utils/flagMapping.js';
+import { multiplyOnlineInfoByOnlineFactor } from '../core/server-utils.ts';
 
 
 class APISocketServer {
@@ -206,7 +207,7 @@ class APISocketServer {
   }
 
   broadcastOnlineCounter(online) {
-    const buffer = dehydrateOnlineCounter(online);
+    const buffer = dehydrateOnlineCounter(multiplyOnlineInfoByOnlineFactor(online));
     this.broadcast(buffer, (client) => client.subOnline);
   }
 

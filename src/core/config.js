@@ -71,6 +71,7 @@ let config = {};
     ['TIMEBLOCKS', 'array', null],
     ['OIDC_URL', 'string', null],
     ['IS_BUNDLE', 'bool', false],
+    ['ONLINE_FACTOR', 'float', 0],
   ];
 
   for(const varProp in variables) {
@@ -97,6 +98,15 @@ let config = {};
         }
         case 'int': {
           const num = parseInt(userValue, 10);
+          if (Number.isNaN(num)) {
+            value = def;
+          } else {
+            value = num;
+          }
+          break;
+        }
+        case 'float': {
+          const num = parseFloat(userValue);
           if (Number.isNaN(num)) {
             value = def;
           } else {
@@ -264,6 +274,7 @@ export const {
   OIDC_URL,
   AVAILABLE_TP,
   IS_BUNDLE,
+  ONLINE_FACTOR,
 } = config;
 
 config = null;
