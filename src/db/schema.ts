@@ -1,6 +1,7 @@
 import { mysqlTable, primaryKey, unique, int, varchar, index, bigint, json, binary, tinyint, datetime, char, float, varbinary, text, timestamp } from "drizzle-orm/mysql-core"
 import { randomUUID } from 'node:crypto';
 import { sql } from "drizzle-orm"
+import { reportCategories, reportStatuses } from "./shared";
 
 export const files = mysqlTable('files', {
   id: varchar({ length: 36 }).$defaultFn(() => randomUUID()).primaryKey(),
@@ -30,6 +31,24 @@ export type FactionLinks = {
 
 export type Faction = typeof factions.$inferSelect;
 export type InsertFaction = typeof factions.$inferInsert;
+
+export type ReportCategories = (typeof reportCategories)[number];
+export type ReportStatuses = (typeof reportStatuses)[number];
+
+export const reports = mysqlTable('reports', {
+	id: varchar({ length: 36 }).$defaultFn(() => randomUUID()).primaryKey(),
+	createdAt: timestamp('created_at').defaultNow().notNull(),
+	createdBy: int({ unsigned: true }).notNull().references(() => users.id),
+	telegram: varchar({ length: 32 }),
+	discord: varchar({ length: 32 }),
+	title: varchar({ length: 64 }).notNull(),
+	text: varchar({ length: 2048 }).notNull(),
+	category: varchar({ length: 32 }).$type<ReportCategories>().notNull(),
+	status: varchar({ length: 32}).$type<ReportStatuses>().notNull().default('open'),
+});
+
+export type Report = typeof reports.$inferSelect;
+export type InsertReport = typeof reports.$inferInsert;
 
 // ниже таблицы, автоматически выведенные из бд
 export const badges = mysqlTable("Badges", {

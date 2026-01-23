@@ -12,6 +12,7 @@
   --cursor-move-color: url(/cursors/move-color-1.png), move;
   --cursor-move-template: url(/cursors/move-template-1.png), move;
   --cursor-move-history: url(/cursors/move-history-1.png), move;
+  --warning-color: rgb(255,186,35);
 }
 
 /* --- fonts --- */

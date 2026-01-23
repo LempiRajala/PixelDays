@@ -1,4 +1,4 @@
-import type { UnmarshalledUser } from '../db/schema.js';
+import type { UnmarshalledUser } from '../db/schema.ts';
 import { api } from '../utils/utag.js'
 
 export interface UserInfoResponse extends Pick<

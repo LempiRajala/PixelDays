@@ -1,6 +1,6 @@
 import { eq } from "drizzle-orm";
 import { db } from "..";
-import { User, users } from "../schema";
+import { type User, users } from "../schema";
 
 export const updateUser = async (id: number, changes: Partial<Omit<User, 'id'>>) => {
   await db

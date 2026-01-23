@@ -88,7 +88,8 @@
     "webpack-obfuscator": "^3.6.0",
     "winston": "^3.11.0",
     "winston-daily-rotate-file": "^5.0.0",
-    "ws": "^8.15.1"
+    "ws": "^8.15.1",
+    "zod": "^4.3.5"
   },
   "devDependencies": {
     "@babel/core": "^7.23.6",

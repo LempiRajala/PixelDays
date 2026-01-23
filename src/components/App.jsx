@@ -18,6 +18,7 @@ import ExpandMenuButton from './buttons/ExpandMenuButton.jsx';
 import WindowManager from './WindowManager.jsx';
 import useLink from './hooks/link.js';
 import BrushButton from './buttons/BrushButton.jsx';
+import { UnreadReportsProvider } from './context/unread-reports.tsx';
 
 const iconContextValue = { style: { verticalAlign: 'middle' } };
 
@@ -56,7 +57,9 @@ function renderApp(domParent, store) {
   const root = createRoot(domParent);
   root.render(
     <Provider store={store}>
-      <App />
+      <UnreadReportsProvider>
+        <App />
+      </UnreadReportsProvider>
     </Provider>,
   );
 }

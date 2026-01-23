@@ -10,7 +10,7 @@ import {
   setUserBlock,
 } from '../../store/actions/thunks.js';
 import SettingsItem from '../SettingsItem.tsx';
-import type { State } from '@/store/store.js';
+import type { State } from '../../store/store.js';
 import { AvatarUpdateForm } from './avatar-update-form.tsx';
 import { BannerUpdateForm } from './banner-update-form.tsx';
 

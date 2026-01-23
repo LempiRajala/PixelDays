@@ -25,8 +25,9 @@ import {
 import {
   fetchChatMessages,
 } from '../../store/actions/thunks.js';
-import type { State } from '@/store/store.ts';
-import type { ChatState } from '@/store/reducers/chat.ts';
+import type { State } from '../../store/store.ts';
+import type { ChatState } from '../../store/reducers/chat.ts';
+import { FaBullhorn } from "react-icons/fa6";
 
 interface MessagesGroup {
   userId: number;
@@ -320,6 +321,22 @@ const Chat = () => {
           setChatChannel={setChannel}
           chatChannel={chatChannel}
         />
+        <div
+          className='channelbtn'
+          role="button"
+          tabIndex={-1}
+          onClick={e => {
+            e.stopPropagation();
+            link('REPORT_FORM', { target: 'parent', width: 500, height: 500 });
+          }}
+          style={{
+            width: 'fit-content',
+            paddingLeft: '8px',
+            paddingRight: '8px',
+          }}
+        >
+          <FaBullhorn />
+        </div>
       </form>
       <div
         className="chatlink"

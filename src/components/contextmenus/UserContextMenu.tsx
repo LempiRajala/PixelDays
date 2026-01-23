@@ -7,8 +7,8 @@ import {
   setUserBlock,
 } from '../../store/actions/thunks.js';
 import { escapeMd } from '../../core/utils.js';
-import type { State } from '@/store/store.js';
-import type { ChatState } from '@/store/reducers/chat.js';
+import type { State } from '../../store/store.js';
+import type { ChatState } from '../../store/reducers/chat.js';
 import useLink from '../hooks/link.js';
 
 /*

@@ -1,4 +1,4 @@
-import React, { type CSSProperties, Fragment, useRef } from 'react';
+import React, { type CSSProperties, useRef } from 'react';
 import { useSelector } from 'react-redux';
 
 import MdParagraph from './markdown/MdParagraph.tsx';
@@ -8,10 +8,8 @@ import {
   getDateTimeString,
 } from '../core/utils.js';
 import { selectIsDarkMode } from '../store/selectors/gui.ts';
-// import { cdn } from '../utils/utag.js';
-import { CgProfile } from "react-icons/cg";
-import { getFileUrl } from '../core/client-utils.ts';
 import { cdn } from '../utils/utag.js';
+import { SmallAvatar } from './small-avatar.tsx';
 
 const containerStyle: CSSProperties = {
   display: 'grid',
@@ -20,14 +18,6 @@ const containerStyle: CSSProperties = {
   userSelect: 'text',
   padding: '3px 0 3px 2px',
   gap: '8px',
-}
-
-const avatarStyle: CSSProperties = {
-  gridColumnStart: 1,
-  width: '32px',
-  height: '32px',
-  borderRadius: '9999px',
-  overflow: 'hidden',
 }
 
 const headerStyle: CSSProperties = {
@@ -87,21 +77,7 @@ const ChatMessageGroup = React.memo(({
 
   return (
     <li style={containerStyle} ref={refEmbed}>
-      <div style={avatarStyle}>
-        { avatarId &&
-          <img
-            alt={`${name} avatar`}
-            src={getFileUrl(avatarId)}
-            width={32}
-            height={32}
-          />
-        }
-        { avatarId === null &&
-          <CgProfile
-            size={32}
-          />
-        }
-      </div>
+      <SmallAvatar avatarId={avatarId}/>
       <div style={contentStyle}>
         <span
           style={headerStyle}

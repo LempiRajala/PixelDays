@@ -257,3 +257,5 @@ export const DO_NOTHING = Symbol('DO_NOTHING');
 
 export const maxUploadFileSize = 2 * 1024 * 1024; // 2mb
 export const avatarSizeAfterUploading = 256;
+
+export const maxReportsPerDay = 5;

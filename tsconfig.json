@@ -20,11 +20,7 @@
     "jsx": "react-jsx",
     "incremental": true,
     "baseUrl": ".",
-    "paths": {
-      "@/*": [
-        "./src/*"
-      ]
-    },
+    "paths": {},
     "plugins": [
       {
         "name": "next"

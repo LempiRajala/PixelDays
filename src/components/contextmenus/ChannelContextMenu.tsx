@@ -13,8 +13,8 @@ import {
 import {
   setLeaveChannel,
 } from '../../store/actions/thunks.js';
-import { State } from '@/store/store.js';
-import { ChatState } from '@/store/reducers/chat.js';
+import { State } from '../../store/store.js';
+import { ChatState } from '../../store/reducers/chat.js';
 
 /*
  * args: {

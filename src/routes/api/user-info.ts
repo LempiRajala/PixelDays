@@ -1,6 +1,5 @@
 import type { Request, Response } from 'express';
 import { getUser } from '../../db/utils/users.ts';
-import { User as DbUser } from '@/db/schema.ts';
 import { pick } from 'lodash';
 import { getUserRanks } from '../../data/redis/ranks.js';
 

@@ -19,6 +19,8 @@ const Rankings = React.lazy(() => import(/* webpackChunkName: "stats" */ '../Ran
 const Converter = React.lazy(() => import(/* webpackChunkName: "converter" */ '../Converter.jsx'));
 // eslint-disable-next-line max-len
 const Modtools = React.lazy(() => import(/* webpackChunkName: "modtools" */ '../Modtools.jsx'));
+// eslint-disable-next-line max-len
+const Reports = React.lazy(() => import(/* webpackChunkName: "reports" */ '../Reports.tsx'));
 
 const UserArea = () => {
   const userlvl = useSelector((state) => state.user.userlvl);
@@ -42,10 +44,12 @@ const UserArea = () => {
   }, [setArgs, setTitle]);
 
   useInterval(() => {
-    if (Date.now() - 300000 > lastStatsFetch) {
+    if (Date.now() - 300e3 > lastStatsFetch) {
       dispatch(fetchStats());
     }
-  }, 300000);
+  }, 300e3);
+
+  const userlevelAtLeastJanny = userlvl >= USERLVL.JANNY;
 
   return (
     <div style={{ textAlign: 'center' }}>
@@ -63,18 +67,21 @@ const UserArea = () => {
             <Converter />
           </Suspense>
         </div>
-        {(userlvl >= USERLVL.JANNY) && (
-        <div label={(userlvl >= USERLVL.ADMIN) ? t`Admintools` : t`Modtools`}>
-          <Suspense fallback={<div>{t`Loading...`}</div>}>
-            <Modtools />
-          </Suspense>
-        </div>
-        )}
+        { userlevelAtLeastJanny &&
+          <div label={(userlvl >= USERLVL.ADMIN) ? t`Admintools` : t`Modtools`}>
+            <Suspense fallback={<div>{t`Loading...`}</div>}>
+              <Modtools />
+            </Suspense>
+          </div>
+        }
+        { userlevelAtLeastJanny &&
+          <div label={t`Reports`}>
+            <Suspense fallback={<div>{t`Loading...`}</div>}>
+              <Reports />
+            </Suspense>
+          </div>
+        }
       </Tabs>
-      <br />
-      {t`Consider joining us on Matrix:`}&nbsp;
-      <a href="./guilded" target="_blank">{t`Invited to Chat`}</a>
-      <br />
     </div>
   );
 };

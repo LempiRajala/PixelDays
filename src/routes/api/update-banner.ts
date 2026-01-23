@@ -3,7 +3,7 @@ import { createFile, deleteFile } from '../../db/utils/files';
 import type { Request, Response } from 'express';
 import type { User } from '../../middleware/session.js';
 import { updateUser } from '../../db/utils/users.ts';
-import { User as DbUser } from '@/db/schema.ts';
+import { User as DbUser } from '../../db/schema.ts';
 import { changeFilenameExtension, compressImage, defaultWebpCompressionOptions } from '../../core/server-utils.ts';
 import { TaskQueue } from './task-queue.ts';
 

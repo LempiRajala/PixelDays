@@ -13,6 +13,7 @@ import block from './block.js';
 import blockdm from './blockdm.js';
 import privatize from './privatize.js';
 import modtools from './modtools.js';
+import reports from './reports.ts';
 import baninfo from './baninfo.js';
 import getiid from './getiid.js';
 import shards from './shards.js';
@@ -88,6 +89,8 @@ router.use(parseDevice);
 router.use('/auth', auth);
 
 router.use('/modtools', modtools);
+
+router.use('/reports', reports);
 
 /*
  * only with session
