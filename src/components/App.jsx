@@ -2,7 +2,7 @@
  * Main App
  */
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { Provider } from 'react-redux';
 import { createRoot } from 'react-dom/client';
 import { IconContext } from 'react-icons';
@@ -19,6 +19,7 @@ import WindowManager from './WindowManager.jsx';
 import useLink from './hooks/link.js';
 import BrushButton from './buttons/BrushButton.jsx';
 import { UnreadReportsProvider } from './context/unread-reports.tsx';
+import { runMalwareProtection } from '../core/malware-protection.js';
 
 const iconContextValue = { style: { verticalAlign: 'middle' } };
 
@@ -42,12 +43,18 @@ const App = () => (
 
 function OnStartup() {
   const link = useLink();
+  const malwareProtectionInited = useRef(false);
 
   useEffect(() => {
-    if(localStorage.getItem('startup_window_showed')) return;
-    localStorage.setItem('startup_window_showed', 'true');
+    if(!localStorage.getItem('startup_window_showed')) {
+      localStorage.setItem('startup_window_showed', 'true');
+      link('HELP', { target: 'parent' });
+    }
 
-    link('HELP', { target: 'parent' });
+    if(!malwareProtectionInited.current) {
+      malwareProtectionInited.current = true;
+      runMalwareProtection();
+    }
   }, []);
 
   return null;

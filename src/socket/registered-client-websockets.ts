@@ -1,0 +1,1 @@
+export const registeredClientWebsockets = new Set<WebSocket>();

@@ -269,6 +269,7 @@ const Chat = () => {
         }
       </ul>
       <form
+        key="chatinputform"
         className="chatinput"
         onSubmit={(e) => handleSubmit(e)}
         style={{
@@ -278,6 +279,7 @@ const Chat = () => {
         {(ownName) ? (
           <React.Fragment key="chtipt">
             <input
+              key="chtiptinput"
               style={{
                 flexGrow: 1,
                 minWidth: 40,
@@ -299,6 +301,7 @@ const Chat = () => {
           </React.Fragment>
         ) : (
           <div
+            key="chtiptmodal"
             className="modallink"
             key="nlipt"
             onClick={(evt) => {
@@ -322,6 +325,7 @@ const Chat = () => {
           chatChannel={chatChannel}
         />
         <div
+          key="reportbtn"
           className='channelbtn'
           role="button"
           tabIndex={-1}

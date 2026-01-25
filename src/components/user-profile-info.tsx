@@ -1,4 +1,4 @@
-import React, { memo } from "react"
+import React, { Fragment, memo, useId } from "react"
 import { getFileUrl } from "../core/client-utils";
 import { avatarSizeAfterUploading } from "../core/constants";
 import { numberToString } from '../core/utils.js';
@@ -77,12 +77,14 @@ export const UserProfileInfo = memo<Props>(({
         zIndex: 1,
       }}>
         <InfoLine
+          key={0}
           bannerStyled={hasBanner}
           label={t`Username`}
           value={username}
         />
         { createdAt &&
           <InfoLine
+            key={1}
             bannerStyled={hasBanner}
             label={t`Registered`}
             value={createdAt}
@@ -90,6 +92,7 @@ export const UserProfileInfo = memo<Props>(({
         }
         { lastSeen &&
           <InfoLine
+            key={2}
             bannerStyled={hasBanner}
             label={t`Last login`}
             value={lastSeen}
@@ -97,6 +100,7 @@ export const UserProfileInfo = memo<Props>(({
         }
         { dailyTotalPixels !== undefined &&
           <InfoLine
+            key={3}
             bannerStyled={hasBanner}
             label={t`Today Placed Pixels`}
             value={dailyTotalPixels}
@@ -104,6 +108,7 @@ export const UserProfileInfo = memo<Props>(({
         }
         { dailyRanking !== undefined &&
           <InfoLine
+            key={4}
             bannerStyled={hasBanner}
             label={t`Daily Rank`}
             value={dailyRanking}
@@ -113,6 +118,7 @@ export const UserProfileInfo = memo<Props>(({
         }
         { totalPixels !== undefined &&
           <InfoLine
+            key={5}
             bannerStyled={hasBanner}
             label={t`Placed Pixels`}
             value={totalPixels}
@@ -120,6 +126,7 @@ export const UserProfileInfo = memo<Props>(({
         }
         { ranking !== undefined &&
           <InfoLine
+            key={6}
             bannerStyled={hasBanner}
             label={t`Total Rank`}
             value={ranking}
@@ -147,25 +154,26 @@ function InfoLine({
   zero?: string,
   bannerStyled: boolean;
 }) {
+  const id = useId();
   return (
-    <p style={bannerStyled ? {
+    <p key={id} style={bannerStyled ? {
       background: 'white',
       boxShadow: '0 0 4px black',
       borderRadius: '8px',
       paddingLeft: '8px',
     } : {}}>
       { label &&
-        <span className="stattext">{(rank) ? `${label}: #` : `${label}: `}</span>
+        <span key={id + '_0'} className="stattext">{(rank) ? `${label}: #` : `${label}: `}</span>
       }
       { value !== undefined &&
-        <>
+        <Fragment key={id + '_1'}>
           &nbsp;
-          <span className="statvalue">{
+          <span key={id + '_2'} className="statvalue">{
             typeof value === 'number' ? numberToString(value, zero) :
             value instanceof Date ? formatDate(value) :
             value
           }</span>
-        </>
+        </Fragment>
       }
     </p>
   )

@@ -43,7 +43,8 @@ import {
   pRefresh, fishAppears, catchedFish, pAlert,
 } from '../store/actions/index.js';
 import { addUsersAvatars, fetchMe } from '../store/actions/thunks.js';
-import detectMalware from '../core/malwareDetection.js';
+import { detectMalware } from '../core/malware-protection.js';
+import { registeredClientWebsockets } from './registered-client-websockets.ts';
 
 class SocketClient {
   store = null;
@@ -93,9 +94,13 @@ class SocketClient {
       window.location.protocol === 'https:' ? 'wss:' : 'ws:'
     }//${
       // eslint-disable-next-line max-len
-      (window.ssv?.apiUrl) ? window.ssv.apiUrl.substring(window.ssv.apiUrl.indexOf('//') + 2) : window.location.host + (window.ssv?.basename || '')
+      (window.ssv?.apiUrl)
+        ? window.ssv.apiUrl.substring(window.ssv.apiUrl.indexOf('//') + 2)
+        : window.location.host + (window.ssv?.basename || '')
     }/ws`;
+
     this.ws = new WebSocket(url);
+    registeredClientWebsockets.add(this.ws);
     this.ws.binaryType = 'arraybuffer';
     this.ws.onopen = this.onOpen.bind(this);
     this.ws.onmessage = this.onMessage.bind(this);
@@ -365,6 +370,7 @@ class SocketClient {
   }
 
   onClose(e) {
+    registeredClientWebsockets.delete(this.ws);
     this.store.dispatch(socketClose());
     this.ws = null;
     this.readyState = WebSocket.CONNECTING;
