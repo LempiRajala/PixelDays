@@ -301,7 +301,6 @@ const Chat = () => {
           </React.Fragment>
         ) : (
           <div
-            key="chtiptmodal"
             className="modallink"
             key="nlipt"
             onClick={(evt) => {
