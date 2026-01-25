@@ -18,22 +18,6 @@ import {
 } from '../core/config.js';
 import { DEFAULT_CANVAS_ID } from '../core/constants.ts';
 
-const basedQuotes = [
-  ['Do not use Discord', 'Discord is bad, you should not use it', '/memes/discord.png', 'image', 380, 379],
-  ['#ShillForChina', 'Taiwan is a part of China', '/memes/china.png', 'image', 512, 341],
-  ['Donald J. Trump', 'When Elon Musk came to the White House asking me for help on all of his many subsidized projects, wether it&#39;s electric cars that don&#39;t drive long enough, driverless cars that crash, or rocketships to nowhere, without which subsidies he&#39;d be worthless, and telling me how he was a big Trump fan and Republican, I could have said, &#34;drop to your knees and beg&#34;, and he would have done it...', '/memes/trump.png', 'image', 397, 399],
-  ['Donald J. Trump', 'Why would Kim Jong-un insult me by calling me &#34;old,&#34; when i would NEVER call him &#34;short and fat?&#34; Oh well, I try so hard to be his friend - and maybe someday that will happen!', '/memes/trump.png', 'image', 397, 399],
-  ['Joe Biden', 'If you have a problem figuring out whether you&#39;re for me or Trump, then you ain&#39;t Black.', '/memes/biden.png', 'image', 400, 400],
-  ['Joe Biden', 'Transgender Americans shape our Nation&#39;s soul', '/memes/biden.png', 'image', 400, 400],
-  ['Vladimir Putin', 'To forgive the terrorists is up to God, but to send them there is up to us.', '/memes/putin.png', 'image', 1004, 1005],
-  ['Alexander G. Lukashenko', 'It&#39;s better to be a dictator than gay.', '/memes/luka.png', 'image', 665, 658],
-  ['ILLIT', 'ILLIT - EZPZ', '/memes/illit1.mp4', 'video', 720, 1280],
-  ['Donald J. Trump', 'This guy has been talked about for years!', '/memes/trump-epstein.mp4', 'video', 720, 1280],
-  ['Candace Owens', 'What is antisemitism?', '/memes/owens1.mp4', 'video', 640, 360],
-  ['Candace Owens', 'Antisemite of the year 2024', '/memes/owens2.mp4', 'video', 640, 360],
-  ['Benjamin Aaron Shapiro', 'We have better things to do', '/memes/shapiro.mp4', 'video', 1274, 720],
-];
-
 /**
  * Generates string with html of main pages, only the entry script differs
  * @param req express request, populated with ttag and ip
