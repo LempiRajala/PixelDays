@@ -99,21 +99,11 @@ export default function generateMainHTML(
     return { html: null, csp, etag: mainEtag };
   }
 
-  let description;
-  let media;
-  let type;
-  let width;
-  let height;
-  if (req.headers['user-agent']?.includes('https://discordapp.com')) {
-    [title, description, media, type, width, height] = basedQuotes[Math.floor(Math.random() * basedQuotes.length)];
-  } else {
-    description = t`Place color pixels on an map styled canvas with other players online`;
-    media = '/apple-touch-icon.png';
-    type = 'image';
-    width = 256;
-    height = 256;
-  }
-  media = BASENAME + media;
+  const description = t`Place color pixels on an map styled canvas with other players online`;
+  const media = BASENAME + '/apple-touch-icon.png';
+  const type = 'image';
+  const width = 256;
+  const height = 256;
 
   const html = `<!doctype html>
 <html lang="${lang}">
