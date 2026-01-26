@@ -20,7 +20,7 @@ export default async (req: Request, res: Response) => {
 
   const safeUserInfo = pick(userInfo, ['id', 'avatarId', 'bannerId', 'username', 'name', 'flags', 'lastSeen', 'createdAt']);
 
-  const [ranks] = await getUserRanks(userId);
+  const ranks = await getUserRanks(userId);
 
   return res
     .status(200)
