@@ -1,7 +1,6 @@
 # PixelDays
 
 
-[![matrix](https://img.shields.io/badge/Discord-Support-blue.svg)](https://pixelplanet.fun/guilded)
 
 ![videothumb](promotion/videothumb.gif)
 
