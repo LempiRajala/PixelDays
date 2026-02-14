@@ -30,7 +30,7 @@ services:
       - "${MINIO_PORT}:9000"
       - "${MINIO_CONSOLE_PORT}:9006"
     volumes:
-      - jobs_minio_data:/data
+      - minio_data:/data
 
   app:
     build:
@@ -55,4 +55,5 @@ services:
 volumes:
   redis_data:
   mysql_data:
+  minio_data:
   tiles:
