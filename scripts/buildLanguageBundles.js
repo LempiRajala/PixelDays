@@ -98,7 +98,7 @@ async function buildLanguageAssetsInProcess(langs, callback) {
   });
   minifyProcess.on('close', (code) => {
     if (code) {
-      callback(new Error('Minifying assets failed!'));
+      callback(new Error(`Minifying assets failed with code ${code}!`));
     }
   });
 }
