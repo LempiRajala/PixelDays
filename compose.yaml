@@ -51,9 +51,11 @@ services:
     restart: always
     volumes:
       - tiles:/usr/src/app/dist/tiles
+      - logs:/usr/src/app/log
 
 volumes:
   redis_data:
   mysql_data:
   minio_data:
   tiles:
+  logs:
