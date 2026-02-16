@@ -398,6 +398,10 @@ async function build() {
     );
     process.stdout.write(`\x1b[33mArchiving Source took ${Math.round((Date.now() - ts) / 1000)}s\x1b[0m\n`);
   }
+
+  console.log('copy i18n to /dist');
+  fs.cpSync('../i18n', '../dist/i18n', { recursive: true });
+
   console.log(`Finished building in ${(Date.now() - st) / 1000}s`);
 }
 
