@@ -10,6 +10,7 @@
 /* eslint-disable no-await-in-loop */
 
 import fs from 'fs';
+import { mkdir as asyncMkdir } from 'fs/promises';
 import path from 'path';
 import sharp from 'sharp';
 
@@ -334,7 +335,7 @@ export async function createZoomTileFromChunk(
     });
 
     try {
-      await sharp(tileRGBBuffer, {
+      const tilePreview = sharp(tileRGBBuffer, {
         raw: {
           width: TILE_SIZE * TILE_ZOOM_LEVEL,
           height: TILE_SIZE * TILE_ZOOM_LEVEL,
@@ -342,8 +343,15 @@ export async function createZoomTileFromChunk(
         },
       })
         .resize(TILE_SIZE)
-        .webp({ quality: 100, smartSubsample: true })
-        .toFile(filename);
+        .webp({ quality: 100, smartSubsample: true });
+
+      try {
+        await tilePreview.toFile(filename);
+      } catch(e) {
+        console.warn(e);
+        await asyncMkdir(path.dirname(filename), { recursive: true });
+        await tilePreview.toFile(filename);
+      }
     } catch (error) {
       console.error(
         `Tiling: Error on createZoomTileFromChunk: ${error.message}`,
