@@ -41,6 +41,10 @@ msgstr ""
 msgid "Add new application"
 msgstr ""
 
+#: src/db/shared.ts:20
+msgid "Admin abuse"
+msgstr ""
+
 #: src/routes/api/auth/resend_verify.js:25
 msgid "An error occured. Please try again later."
 msgstr ""
@@ -61,6 +65,14 @@ msgstr ""
 msgid "Black and White canvas"
 msgstr ""
 
+#: src/db/shared.ts:19
+msgid "Bot"
+msgstr ""
+
+#: src/db/shared.ts:21
+msgid "Bug"
+msgstr ""
+
 #: src/core/ChatProvider.js:333
 msgid "Can not chat while being banned"
 msgstr ""
@@ -77,6 +89,10 @@ msgstr ""
 #: src/routes/oidc/register.js:186
 #: src/routes/oidc/register.js:247
 msgid "Client Name"
+msgstr ""
+
+#: src/db/shared.ts:31
+msgid "Closed"
 msgstr ""
 
 #: src/routes/reset_password.js:123
@@ -228,6 +244,8 @@ msgstr ""
 
 #: src/routes/api/modtools.js:180
 #: src/routes/api/modtools.js:304
+#: src/routes/api/reports.ts:148
+#: src/routes/api/reports.ts:162
 msgid "Just admins can do that"
 msgstr ""
 
@@ -365,6 +383,10 @@ msgstr ""
 msgid "Only four colors. Same rules as moon!"
 msgstr ""
 
+#: src/db/shared.ts:30
+msgid "Open"
+msgstr ""
+
 #: src/routes/oidc/register.js:141
 #: src/routes/oidc/register.js:151
 #: src/routes/oidc/register.js:171
@@ -376,16 +398,36 @@ msgstr ""
 msgid "Or by copying following url:"
 msgstr ""
 
+#: src/db/shared.ts:23
+msgid "Other"
+msgstr ""
+
 #: src/canvasesDesc.js:33
 msgid "Our main canvas, a huge map of the world. Place anywhere you like!"
 msgstr ""
 
 #: src/utils/validation.js:71
-msgid "Password must be at least 6 characters long."
+msgid "Password must be at least 8 characters long."
 msgstr ""
 
 #: src/utils/validation.js:74
 msgid "Password must be shorter than 60 characters."
+msgstr ""
+
+#: src/utils/validation.js:80
+msgid "Password must contain at least one lowercase letter"
+msgstr ""
+
+#: src/utils/validation.js:83
+msgid "Password must contain at least one number"
+msgstr ""
+
+#: src/utils/validation.js:86
+msgid "Password must contain at least one special character"
+msgstr ""
+
+#: src/utils/validation.js:77
+msgid "Password must contain at least one uppercase letter"
 msgstr ""
 
 #: src/routes/reset_password.js:78
@@ -421,7 +463,7 @@ msgstr ""
 msgid "Place Voxels on a 3D canvas with others."
 msgstr ""
 
-#: src/ssr/mainHTML.js:110
+#: src/ssr/mainHTML.js:86
 msgid "Place color pixels on an map styled canvas with other players online"
 msgstr ""
 
@@ -435,6 +477,10 @@ msgstr ""
 
 #: src/core/ChatProvider.js:376
 msgid "Please use int channel"
+msgstr ""
+
+#: src/db/shared.ts:22
+msgid "Proxy"
 msgstr ""
 
 #: src/routes/oidc/register.js:166
@@ -452,6 +498,10 @@ msgstr ""
 
 #: src/routes/oidc/register.js:171
 msgid "Regularly update this data"
+msgstr ""
+
+#: src/db/shared.ts:32
+msgid "Rejected"
 msgstr ""
 
 #: src/routes/oidc/register.js:290
@@ -662,6 +712,7 @@ msgid "You are muted for another ${ ttl } seconds"
 msgstr ""
 
 #: src/routes/api/modtools.js:75
+#: src/routes/api/reports.ts:77
 msgid "You are not allowed to access this page"
 msgstr ""
 
@@ -671,6 +722,7 @@ msgstr ""
 
 #: src/middleware/session.js:217
 #: src/routes/api/modtools.js:66
+#: src/routes/api/reports.ts:66
 msgid "You are not logged in"
 msgstr ""
 
@@ -701,6 +753,11 @@ msgstr ""
 
 #: src/core/ChatProvider.js:330
 msgid "You can not send chat messages while using a proxy"
+msgstr ""
+
+#: src/routes/api/reports.ts:30
+#, javascript-format
+msgid "You can only send ${ maxReportsPerDay } reports per day."
 msgstr ""
 
 #: src/routes/oidc/register.js:126

@@ -7,30 +7,30 @@ msgstr ""
 msgid " which is in "
 msgstr ""
 
-#: src/components/windows/Help.jsx:119
+#: src/components/windows/Help.jsx:117
 #, javascript-format
 msgid "${ mouseSymbol } Hold left mouse button and drag mouse to rotate"
 msgstr ""
 
-#: src/components/windows/Help.jsx:111
-#: src/components/windows/Help.jsx:122
+#: src/components/windows/Help.jsx:109
+#: src/components/windows/Help.jsx:120
 #, javascript-format
 msgid "${ mouseSymbol } Left click or ${ touchSymbol } tap to place a pixel"
 msgstr ""
 
-#: src/components/windows/Help.jsx:121
+#: src/components/windows/Help.jsx:119
 #, javascript-format
 msgid "${ mouseSymbol } Right click and drag mouse to pan"
 msgstr ""
 
-#: src/components/windows/Help.jsx:123
+#: src/components/windows/Help.jsx:121
 #, javascript-format
 msgid ""
 "${ mouseSymbol } Right click or ${ touchSymbol } double-tap to remove a "
 "pixel"
 msgstr ""
 
-#: src/components/windows/Help.jsx:120
+#: src/components/windows/Help.jsx:118
 #, javascript-format
 msgid ""
 "${ mouseSymbol } Scroll mouse wheel or hold ${ mouseSymbol } middle mouse "
@@ -69,7 +69,15 @@ msgstr ""
 msgid "Add Template"
 msgstr ""
 
-#: src/components/windows/UserArea.jsx:67
+#: src/components/windows/ReportForm.tsx:130
+msgid "Add current position link"
+msgstr ""
+
+#: src/db/shared.ts:20
+msgid "Admin abuse"
+msgstr ""
+
+#: src/components/windows/UserArea.jsx:71
 msgid "Admintools"
 msgstr ""
 
@@ -121,19 +129,15 @@ msgstr ""
 msgid "Banned"
 msgstr ""
 
-#: src/components/windows/Help.jsx:84
-msgid "Banned? Detected as Proxy?"
-msgstr ""
-
-#: src/components/contextmenus/UserContextMenu.jsx:86
+#: src/components/contextmenus/UserContextMenu.tsx:115
 msgid "Block"
 msgstr ""
 
-#: src/components/SocialSettings.jsx:38
+#: src/components/SocialSettings/index.tsx:32
 msgid "Block DMs"
 msgstr ""
 
-#: src/components/SocialSettings.jsx:45
+#: src/components/SocialSettings/index.tsx:41
 msgid ""
 "Block all Private Messages. Enabling this will delete all your current DMs. "
 "You can still start new DMs with other users, but other users won't be able "
@@ -144,11 +148,19 @@ msgstr ""
 msgid "Blocked"
 msgstr ""
 
+#: src/db/shared.ts:19
+msgid "Bot"
+msgstr ""
+
 #: src/components/ModCanvastools.jsx:370
 #: src/components/ModCanvastools.jsx:447
 #: src/components/ModCanvastools.jsx:543
 #: src/components/ModWatchtools.jsx:206
 msgid "Bottom-right corner"
+msgstr ""
+
+#: src/db/shared.ts:21
+msgid "Bug"
 msgstr ""
 
 #: src/components/ModCanvastools.jsx:175
@@ -231,6 +243,11 @@ msgstr ""
 msgid "Captcha"
 msgstr ""
 
+#: src/components/Reports.tsx:160
+#: src/components/windows/ReportForm.tsx:91
+msgid "Category"
+msgstr ""
+
 #: src/components/windows/FishDisplay.jsx:78
 msgid "Caught by"
 msgstr ""
@@ -239,19 +256,23 @@ msgstr ""
 msgid "Change Happened"
 msgstr ""
 
-#: src/components/UserAreaContent.jsx:133
+#: src/components/UserAreaContent.jsx:113
 msgid "Change Name"
 msgstr ""
 
-#: src/components/UserAreaContent.jsx:166
+#: src/components/UserAreaContent.jsx:146
 msgid "Change Password"
+msgstr ""
+
+#: src/components/SocialSettings/avatar-update-form.tsx:153
+msgid "Change avatar"
 msgstr ""
 
 #: src/components/ChangeMail.jsx:230
 msgid "Change your Mail Adress here:"
 msgstr ""
 
-#: src/components/windows/Chat.jsx:291
+#: src/components/windows/Chat.tsx:362
 msgid "Channel settings"
 msgstr ""
 
@@ -264,7 +285,7 @@ msgstr ""
 msgid "Chat"
 msgstr ""
 
-#: src/components/windows/Chat.jsx:235
+#: src/components/windows/Chat.tsx:292
 msgid "Chat here"
 msgstr ""
 
@@ -293,7 +314,7 @@ msgstr ""
 msgid "Choose Strategy"
 msgstr ""
 
-#: src/components/UserAreaContent.jsx:146
+#: src/components/UserAreaContent.jsx:126
 msgid "Choose Username"
 msgstr ""
 
@@ -318,15 +339,15 @@ msgstr ""
 msgid "Cleaners can use 0cd blank colors."
 msgstr ""
 
-#: src/components/windows/Help.jsx:112
-#: src/components/windows/Help.jsx:124
+#: src/components/windows/Help.jsx:110
+#: src/components/windows/Help.jsx:122
 #, javascript-format
 msgid ""
 "Click ${ mouseSymbol } middle mouse button or ${ touchSymbol } long-tap to "
 "select current hovering color"
 msgstr ""
 
-#: src/components/windows/Help.jsx:100
+#: src/components/windows/Help.jsx:98
 msgid "Click a color in palette to select it"
 msgstr ""
 
@@ -338,6 +359,14 @@ msgstr ""
 msgid "Click to Load Captcha"
 msgstr ""
 
+#: src/components/SocialSettings/avatar-update-form.tsx:98
+msgid "Click to upload avatar"
+msgstr ""
+
+#: src/components/SocialSettings/banner-update-form.tsx:59
+msgid "Click to upload banner"
+msgstr ""
+
 #: src/components/Window.jsx:214
 msgid "Clone"
 msgstr ""
@@ -346,7 +375,7 @@ msgstr ""
 #: src/components/ModCanvastools.jsx:230
 #: src/components/ModWatchtools.jsx:128
 #: src/components/Window.jsx:256
-#: src/components/contextmenus/ChannelContextMenu.jsx:59
+#: src/components/contextmenus/ChannelContextMenu.tsx:71
 msgid "Close"
 msgstr ""
 
@@ -364,6 +393,14 @@ msgstr ""
 
 #: src/components/buttons/PalselButton.jsx:30
 msgid "Close Palette"
+msgstr ""
+
+#: src/components/Reports.tsx:382
+msgid "Close report"
+msgstr ""
+
+#: src/db/shared.ts:31
+msgid "Closed"
 msgstr ""
 
 #: src/components/windows/Settings.jsx:127
@@ -389,12 +426,8 @@ msgstr ""
 msgid "Consent"
 msgstr ""
 
-#: src/components/windows/UserArea.jsx:75
-msgid "Consider joining us on Matrix:"
-msgstr ""
-
-#: src/components/windows/Help.jsx:98
-#: src/components/windows/Help.jsx:114
+#: src/components/windows/Help.jsx:96
+#: src/components/windows/Help.jsx:112
 msgid "Controls"
 msgstr ""
 
@@ -402,7 +435,7 @@ msgstr ""
 msgid "Convert an image to canvas colors"
 msgstr ""
 
-#: src/components/windows/UserArea.jsx:61
+#: src/components/windows/UserArea.jsx:65
 msgid "Converter"
 msgstr ""
 
@@ -484,17 +517,17 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: src/components/windows/Help.jsx:139
+#: src/components/windows/Help.jsx:137
 #, javascript-format
 msgid "Credit for the Palette of the 2bit canvas goes to ${ donendoLink }."
 msgstr ""
 
-#: src/components/windows/Help.jsx:133
+#: src/components/windows/Help.jsx:131
 #, javascript-format
 msgid "Credit for the Palette of the Moon goes to ${ starhouseLink }."
 msgstr ""
 
-#: src/components/windows/Help.jsx:136
+#: src/components/windows/Help.jsx:134
 #, javascript-format
 msgid "Credit for the Palette of the Top10 canvas goes to ${ vinikLink }."
 msgstr ""
@@ -507,7 +540,7 @@ msgstr ""
 msgid "Custom Cursor"
 msgstr ""
 
-#: src/components/contextmenus/UserContextMenu.jsx:75
+#: src/components/contextmenus/UserContextMenu.tsx:103
 msgid "DM"
 msgstr ""
 
@@ -519,7 +552,7 @@ msgstr ""
 msgid "Daily Pixels per Player"
 msgstr ""
 
-#: src/components/UserAreaContent.jsx:99
+#: src/components/user-profile-info.tsx:113
 msgid "Daily Rank"
 msgstr ""
 
@@ -535,7 +568,7 @@ msgstr ""
 msgid "Delete"
 msgstr ""
 
-#: src/components/UserAreaContent.jsx:173
+#: src/components/UserAreaContent.jsx:153
 msgid "Delete Account"
 msgstr ""
 
@@ -573,6 +606,11 @@ msgstr ""
 msgid "Disable Pencil"
 msgstr ""
 
+#: src/components/Reports.tsx:319
+#: src/components/windows/ReportForm.tsx:110
+msgid "Discord"
+msgstr ""
+
 #: src/components/windows/Settings.jsx:132
 msgid "Display Palette in a compact form that takes less screen space."
 msgstr ""
@@ -585,7 +623,7 @@ msgstr ""
 msgid "Don't remember"
 msgstr ""
 
-#: src/components/SocialSettings.jsx:54
+#: src/components/SocialSettings/index.tsx:53
 msgid "Don't show me in global stats"
 msgstr ""
 
@@ -593,7 +631,7 @@ msgstr ""
 msgid "Download Template"
 msgstr ""
 
-#: src/components/windows/Help.jsx:108
+#: src/components/windows/Help.jsx:106
 #, javascript-format
 msgid "Drag ${ mouseSymbol } mouse or ${ touchSymbol } pan to move"
 msgstr ""
@@ -722,6 +760,11 @@ msgstr ""
 msgid "File"
 msgstr ""
 
+#: src/components/SocialSettings/avatar-update-form.tsx:136
+#: src/components/SocialSettings/banner-update-form.tsx:71
+msgid "File must be less than"
+msgstr ""
+
 #: src/components/windows/index.js:24
 msgid "Fish Display"
 msgstr ""
@@ -730,16 +773,8 @@ msgstr ""
 msgid "For"
 msgstr ""
 
-#: src/components/windows/Help.jsx:126
+#: src/components/windows/Help.jsx:124
 msgid "For Developers"
-msgstr ""
-
-#: src/components/windows/Help.jsx:80
-#, javascript-format
-msgid ""
-"For any legal issues, please contact ${ mailLink }. If you want to delete "
-"your data, simply delete your account, this in fact wipes all privacy "
-"relevant traces. Your placed pixels will of course not be deleted."
 msgstr ""
 
 #: src/components/windows/OIDCConsent.jsx:259
@@ -775,12 +810,12 @@ msgid "Forever"
 msgstr ""
 
 #: src/components/windows/Settings.jsx:67
-#: src/store/actions/thunks.js:250
+#: src/store/actions/thunks.js:259
 msgid "From History"
 msgstr ""
 
 #: src/components/windows/Settings.jsx:66
-#: src/store/actions/thunks.js:247
+#: src/store/actions/thunks.js:256
 msgid "From Template"
 msgstr ""
 
@@ -824,17 +859,13 @@ msgstr ""
 msgid "Grid ON"
 msgstr ""
 
-#: src/components/windows/Help.jsx:74
-msgid "Have fun!"
-msgstr ""
-
 #: src/components/Converter.jsx:470
 msgid "Height"
 msgstr ""
 
 #: src/components/BanInfo.jsx:80
 #: src/components/buttons/HelpButton.jsx:20
-#: src/components/windows/index.js:16
+#: src/components/windows/index.js:17
 msgid "Help"
 msgstr ""
 
@@ -848,17 +879,11 @@ msgstr ""
 msgid "Hide Embed"
 msgstr ""
 
-#: src/components/windows/Help.jsx:73
-msgid ""
-"Higher zoomlevels take some time to update, the 3D globe gets updated at "
-"least once per day."
-msgstr ""
-
 #: src/components/windows/Settings.jsx:157
 msgid "Historical View"
 msgstr ""
 
-#: src/components/windows/Help.jsx:110
+#: src/components/windows/Help.jsx:108
 #, javascript-format
 msgid "Hold left ${ bindShift } for pencil (to place while moving mouse)"
 msgstr ""
@@ -883,20 +908,11 @@ msgstr ""
 msgid "IP Actions"
 msgstr ""
 
-#: src/components/windows/Help.jsx:88
+#: src/components/windows/Help.jsx:86
 msgid "Identifiers"
 msgstr ""
 
-#: src/components/windows/Help.jsx:86
-#, javascript-format
-msgid ""
-"If you got detected as proxy, but you aren't using one, or think that you "
-"got wrongfully banned, please go to our ${ guildedLink } or send us an "
-"e-mail to ${ mailLink } and, in case of a ban, include the BID you got in "
-"the ban message."
-msgstr ""
-
-#: src/components/windows/Help.jsx:89
+#: src/components/windows/Help.jsx:87
 msgid ""
 "If you talk to moderators or administrators, you might get asked for one of "
 "the following identifiers:"
@@ -936,11 +952,6 @@ msgstr ""
 msgid "Invalid color selected"
 msgstr ""
 
-#: src/components/windows/Help.jsx:76
-#: src/components/windows/UserArea.jsx:76
-msgid "Invited to Chat"
-msgstr ""
-
 #: src/components/windows/OIDCConsent.jsx:221
 msgid "It requests the following permissions. Uncheck what you don't want to grant:"
 msgstr ""
@@ -969,8 +980,8 @@ msgstr ""
 msgid "Know that an account exists"
 msgstr ""
 
-#: src/components/windows/Help.jsx:79
-msgid "Legal Requests"
+#: src/components/user-profile-info.tsx:97
+msgid "Last login"
 msgstr ""
 
 #: src/components/Converter.jsx:381
@@ -986,11 +997,13 @@ msgstr ""
 msgid "Loading"
 msgstr ""
 
-#: src/components/windows/UserArea.jsx:68
+#: src/components/Reports.tsx:197
+#: src/components/windows/UserArea.jsx:72
+#: src/components/windows/UserArea.jsx:79
 msgid "Loading..."
 msgstr ""
 
-#: src/components/UserAreaContent.jsx:126
+#: src/components/UserAreaContent.jsx:106
 msgid "Log out"
 msgstr ""
 
@@ -1002,11 +1015,11 @@ msgstr ""
 msgid "LogIn"
 msgstr ""
 
-#: src/components/UserAreaContent.jsx:155
+#: src/components/UserAreaContent.jsx:135
 msgid "Login Methods"
 msgstr ""
 
-#: src/components/UserAreaContent.jsx:86
+#: src/components/UserAreaContent.jsx:77
 msgid "Login to access more features and stats."
 msgstr ""
 
@@ -1026,12 +1039,12 @@ msgstr ""
 msgid "Make Screenshot"
 msgstr ""
 
-#: src/components/Admintools.jsx:304
-msgid "Manage Moderators"
+#: src/components/windows/index.js:27
+msgid "Make report"
 msgstr ""
 
-#: src/components/windows/Help.jsx:82
-msgid "Map Data"
+#: src/components/Admintools.jsx:304
+msgid "Manage Moderators"
 msgstr ""
 
 #: src/components/Window.jsx:247
@@ -1046,7 +1059,7 @@ msgstr ""
 msgid "Moderators can access all Canvas, Watch and IID tools."
 msgstr ""
 
-#: src/components/windows/UserArea.jsx:67
+#: src/components/windows/UserArea.jsx:71
 msgid "Modtools"
 msgstr ""
 
@@ -1054,7 +1067,7 @@ msgstr ""
 msgid "Move"
 msgstr ""
 
-#: src/components/contextmenus/ChannelContextMenu.jsx:46
+#: src/components/contextmenus/ChannelContextMenu.tsx:57
 msgid "Mute"
 msgstr ""
 
@@ -1103,14 +1116,6 @@ msgstr ""
 msgid "New Username"
 msgstr ""
 
-#: src/components/windows/index.js:17
-msgid "Newbie Info"
-msgstr ""
-
-#: src/components/buttons/NewbieInfoButton.jsx:20
-msgid "Newbie info"
-msgstr ""
-
 #: src/components/CanvasItem.jsx:45
 msgid "No"
 msgstr ""
@@ -1131,13 +1136,22 @@ msgstr ""
 msgid "No password given."
 msgstr ""
 
+#: src/components/Reports.tsx:200
+msgid "No results"
+msgstr ""
+
 #: src/ui/PixelTransferController.js:126
 #: src/ui/PixelTransferController.js:142
 #: src/ui/PixelTransferController.js:146
 msgid "Not allowed"
 msgstr ""
 
-#: src/components/windows/index.js:38
+#: src/components/report-category-select.tsx:44
+#: src/components/report-status-select.tsx:44
+msgid "Not selected"
+msgstr ""
+
+#: src/components/windows/index.js:40
 msgid "OIDC LogIn"
 msgstr ""
 
@@ -1167,12 +1181,20 @@ msgstr ""
 msgid "Online Users on Canvas"
 msgstr ""
 
+#: src/components/windows/ReportForm.tsx:188
+msgid "Only registered users can send reports"
+msgstr ""
+
 #: src/ui/PixelTransferController.js:169
 msgid "Only verified Users are currently allowed to play."
 msgstr ""
 
 #: src/components/TemplateSettings.jsx:94
 msgid "Opacity of Overlay in percent."
+msgstr ""
+
+#: src/db/shared.ts:30
+msgid "Open"
 msgstr ""
 
 #: src/components/buttons/BrushButton.jsx:26
@@ -1195,18 +1217,12 @@ msgstr ""
 msgid "Open in PopUp"
 msgstr ""
 
-#: src/components/windows/Help.jsx:127
+#: src/components/windows/Help.jsx:125
 msgid "OpenID Connect Client registration"
 msgstr ""
 
-#: src/components/windows/Help.jsx:72
-msgid ""
-"Our main canvas is a huge worldmap, you can place wherever you like, but "
-"you will have to wait a specific Cooldown between pixels. You can check out "
-"the cooldown and requirements on the Canvas Selection menu (globe button on "
-"top). Some canvases have a different cooldown for replacing a user-set "
-"pixels than placing on a unset pixel. i.e. 4s/7s means 4s on fresh pixels "
-"and 7s on already set pixels."
+#: src/db/shared.ts:23
+msgid "Other"
 msgstr ""
 
 #: src/controls/keypress.js:215
@@ -1240,11 +1256,27 @@ msgid "Password"
 msgstr ""
 
 #: src/utils/validation.js:71
-msgid "Password must be at least 6 characters long."
+msgid "Password must be at least 8 characters long."
 msgstr ""
 
 #: src/utils/validation.js:74
 msgid "Password must be shorter than 60 characters."
+msgstr ""
+
+#: src/utils/validation.js:80
+msgid "Password must contain at least one lowercase letter"
+msgstr ""
+
+#: src/utils/validation.js:83
+msgid "Password must contain at least one number"
+msgstr ""
+
+#: src/utils/validation.js:86
+msgid "Password must contain at least one special character"
+msgstr ""
+
+#: src/utils/validation.js:77
+msgid "Password must contain at least one uppercase letter"
 msgstr ""
 
 #: src/components/ChangePassword.jsx:44
@@ -1260,7 +1292,7 @@ msgstr ""
 msgid "Pencil Mode for ${ canvasName } canvas"
 msgstr ""
 
-#: src/store/actions/thunks.js:241
+#: src/store/actions/thunks.js:250
 msgid "Pencil picks: "
 msgstr ""
 
@@ -1276,7 +1308,7 @@ msgstr ""
 msgid "Phishes"
 msgstr ""
 
-#: src/components/contextmenus/UserContextMenu.jsx:49
+#: src/components/contextmenus/UserContextMenu.tsx:76
 msgid "Ping"
 msgstr ""
 
@@ -1296,12 +1328,8 @@ msgstr ""
 msgid "Pixel protected"
 msgstr ""
 
-#: src/components/windows/Help.jsx:71
-msgid "Place color pixels on a large canvas with other players online!"
-msgstr ""
-
 #: src/components/OnlineBox.jsx:84
-#: src/components/UserAreaContent.jsx:105
+#: src/components/user-profile-info.tsx:123
 msgid "Placed Pixels"
 msgstr ""
 
@@ -1339,55 +1367,60 @@ msgstr ""
 msgid "Potato Mode"
 msgstr ""
 
-#: src/components/windows/Help.jsx:107
-#: src/components/windows/Help.jsx:117
+#: src/components/windows/Help.jsx:105
+#: src/components/windows/Help.jsx:115
 #, javascript-format
 msgid "Press ${ bindAUp }, ${ bindALeft }, ${ bindADown }, ${ bindARight } to move"
 msgstr ""
 
-#: src/components/windows/Help.jsx:101
+#: src/components/windows/Help.jsx:99
 #, javascript-format
 msgid "Press ${ bindG } to toggle grid"
 msgstr ""
 
-#: src/components/windows/Help.jsx:103
+#: src/components/windows/Help.jsx:101
 #, javascript-format
 msgid "Press ${ bindH } to toggle historical view"
 msgstr ""
 
-#: src/components/windows/Help.jsx:118
+#: src/components/windows/Help.jsx:116
 #, javascript-format
 msgid "Press ${ bindQ } and ${ bindE } to fly up and down"
 msgstr ""
 
-#: src/components/windows/Help.jsx:105
+#: src/components/windows/Help.jsx:103
 #, javascript-format
 msgid "Press ${ bindQ } or ${ bindE } to zoom"
 msgstr ""
 
-#: src/components/windows/Help.jsx:104
+#: src/components/windows/Help.jsx:102
 #, javascript-format
 msgid "Press ${ bindR } to copy coordinates"
 msgstr ""
 
-#: src/components/windows/Help.jsx:106
-#: src/components/windows/Help.jsx:116
+#: src/components/windows/Help.jsx:104
+#: src/components/windows/Help.jsx:114
 #, javascript-format
 msgid "Press ${ bindW }, ${ bindA }, ${ bindS }, ${ bindD } to move"
 msgstr ""
 
-#: src/components/windows/Help.jsx:102
+#: src/components/windows/Help.jsx:100
 #, javascript-format
 msgid "Press ${ bindX } to toggle showing of pixel activity"
 msgstr ""
 
-#: src/components/SocialSettings.jsx:47
+#: src/components/SocialSettings/index.tsx:44
 msgid "Private"
 msgstr ""
 
-#: src/components/windows/UserArea.jsx:33
-#: src/components/windows/UserArea.jsx:53
+#: src/components/contextmenus/UserContextMenu.tsx:63
+#: src/components/windows/UserArea.jsx:35
+#: src/components/windows/UserArea.jsx:57
 msgid "Profile"
+msgstr ""
+
+#: src/db/shared.ts:22
+msgid "Proxy"
 msgstr ""
 
 #: src/components/Admintools.jsx:239
@@ -1431,8 +1464,20 @@ msgstr ""
 msgid "Register new account here"
 msgstr ""
 
+#: src/components/user-profile-info.tsx:89
+msgid "Registered"
+msgstr ""
+
 #: src/components/windows/OIDCConsent.jsx:69
 msgid "Regularly update this data"
+msgstr ""
+
+#: src/components/Reports.tsx:372
+msgid "Reject report"
+msgstr ""
+
+#: src/db/shared.ts:32
+msgid "Rejected"
 msgstr ""
 
 #: src/components/Captcha.jsx:267
@@ -1461,6 +1506,30 @@ msgstr ""
 
 #: src/components/ChangeMail.jsx:188
 msgid "Remove a Login method:"
+msgstr ""
+
+#: src/components/SocialSettings/avatar-update-form.tsx:161
+msgid "Remove avatar"
+msgstr ""
+
+#: src/components/SocialSettings/banner-update-form.tsx:81
+msgid "Remove banner"
+msgstr ""
+
+#: src/components/windows/ReportForm.tsx:125
+msgid "Report description"
+msgstr ""
+
+#: src/components/windows/ReportForm.tsx:163
+msgid "Report successfully sent!"
+msgstr ""
+
+#: src/components/Reports.tsx:328
+msgid "Report text"
+msgstr ""
+
+#: src/components/windows/UserArea.jsx:78
+msgid "Reports"
 msgstr ""
 
 #: src/components/Admintools.jsx:274
@@ -1530,7 +1599,7 @@ msgstr ""
 msgid "Scale Image"
 msgstr ""
 
-#: src/components/windows/Help.jsx:109
+#: src/components/windows/Help.jsx:107
 #, javascript-format
 msgid "Scroll ${ mouseSymbol } mouse wheel or ${ touchSymbol } pinch to zoom"
 msgstr ""
@@ -1556,11 +1625,12 @@ msgid ""
 msgstr ""
 
 #: src/components/windows/Settings.jsx:66
-#: src/store/actions/thunks.js:244
+#: src/store/actions/thunks.js:253
 msgid "Selected Color"
 msgstr ""
 
 #: src/components/GlobalCaptcha.jsx:100
+#: src/components/windows/ReportForm.tsx:154
 msgid "Send"
 msgstr ""
 
@@ -1580,7 +1650,7 @@ msgstr ""
 msgid "Server got confused by your pixels. Are you playing on multiple devices?"
 msgstr ""
 
-#: src/components/UserAreaContent.jsx:166
+#: src/components/UserAreaContent.jsx:146
 msgid "Set Password"
 msgstr ""
 
@@ -1621,6 +1691,14 @@ msgstr ""
 msgid "Show circles where pixels are placed."
 msgstr ""
 
+#: src/components/Reports.tsx:358
+msgid "Show less"
+msgstr ""
+
+#: src/components/Reports.tsx:359
+msgid "Show more"
+msgstr ""
+
 #: src/components/TemplateSettings.jsx:73
 msgid "Show overlay as small individual pixels on high zoomlevels."
 msgstr ""
@@ -1637,28 +1715,24 @@ msgstr ""
 msgid "Small Pixels When Zoomed"
 msgstr ""
 
-#: src/components/UserAreaContent.jsx:180
+#: src/components/UserAreaContent.jsx:160
 msgid "Social Settings"
-msgstr ""
-
-#: src/components/windows/Help.jsx:77
-msgid "Source for pixelplanet on "
 msgstr ""
 
 #: src/components/CanvasItem.jsx:41
 msgid "Stacking till"
 msgstr ""
 
-#: src/components/windows/Chat.jsx:197
-msgid "Start chatting here"
-msgstr ""
-
 #: src/components/Admintools.jsx:298
 msgid "Start checking for Malware"
 msgstr ""
 
-#: src/components/windows/UserArea.jsx:56
+#: src/components/windows/UserArea.jsx:60
 msgid "Statistics"
+msgstr ""
+
+#: src/components/Reports.tsx:168
+msgid "Status"
 msgstr ""
 
 #: src/components/ModCanvastools.jsx:211
@@ -1703,6 +1777,11 @@ msgstr ""
 msgid "Switched to ${ canvasName }"
 msgstr ""
 
+#: src/components/Reports.tsx:310
+#: src/components/windows/ReportForm.tsx:100
+msgid "Telegram"
+msgstr ""
+
 #: src/components/TemplateItemEdit.jsx:120
 msgid "Template Name"
 msgstr ""
@@ -1716,12 +1795,6 @@ msgstr ""
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
 "pixelplanet account ${ accountName }"
-msgstr ""
-
-#: src/components/windows/Help.jsx:83
-msgid ""
-"The bare map data that we use, together with converted OpenStreetMap tiles "
-"for orientation, can be downloaded from mega.nz here: "
 msgstr ""
 
 #: src/components/LogInForm.jsx:332
@@ -1786,7 +1859,7 @@ msgstr ""
 msgid "Today"
 msgstr ""
 
-#: src/components/UserAreaContent.jsx:95
+#: src/components/user-profile-info.tsx:105
 msgid "Today Placed Pixels"
 msgstr ""
 
@@ -1813,6 +1886,10 @@ msgstr ""
 msgid "Top-left corner"
 msgstr ""
 
+#: src/components/windows/ReportForm.tsx:80
+msgid "Topic"
+msgstr ""
+
 #: src/components/OnlineBox.jsx:92
 #: src/components/Rankings.jsx:151
 msgid "Total"
@@ -1830,7 +1907,7 @@ msgstr ""
 msgid "Total Pixels placed per day"
 msgstr ""
 
-#: src/components/UserAreaContent.jsx:109
+#: src/components/user-profile-info.tsx:131
 msgid "Total Rank"
 msgstr ""
 
@@ -1852,7 +1929,7 @@ msgstr ""
 msgid "Type the characters from the following image:"
 msgstr ""
 
-#: src/components/SocialSettings.jsx:60
+#: src/components/SocialSettings/index.tsx:61
 msgid "Unblock Users"
 msgstr ""
 
@@ -1895,7 +1972,7 @@ msgstr ""
 msgid "User Account"
 msgstr ""
 
-#: src/components/buttons/LogInButton.jsx:20
+#: src/components/buttons/LogInButton.jsx:17
 #: src/components/windows/index.js:19
 msgid "User Area"
 msgstr ""
@@ -1911,7 +1988,12 @@ msgstr ""
 msgid "User Name"
 msgstr ""
 
+#: src/components/windows/index.js:26
+msgid "User profile"
+msgstr ""
+
 #: src/components/ModIIDtools.jsx:240
+#: src/components/user-profile-info.tsx:82
 msgid "Username"
 msgstr ""
 
@@ -1936,11 +2018,6 @@ msgstr ""
 msgid "Username must be shorter than 26 characters"
 msgstr ""
 
-#: src/components/windows/Help.jsx:78
-#, javascript-format
-msgid "We are Libre Software under the ${ agplLink }, "
-msgstr ""
-
 #: src/components/windows/Archive.jsx:22
 msgid ""
 "We decided to archive it as a timelapse with lossless encoded webm. Taking "
@@ -1948,7 +2025,7 @@ msgid ""
 "how the canvas was at that time."
 msgstr ""
 
-#: src/components/windows/Help.jsx:130
+#: src/components/windows/Help.jsx:128
 msgid ""
 "We thank the following artists, who made their palettes available to the "
 "public on"
@@ -1956,10 +2033,6 @@ msgstr ""
 
 #: src/ui/PixelTransferController.js:176
 msgid "Weird"
-msgstr ""
-
-#: src/components/windows/NewbieInfo.jsx:9
-msgid "Welcome to PixelDays!"
 msgstr ""
 
 #: src/components/windows/Settings.jsx:174
@@ -2003,12 +2076,6 @@ msgstr ""
 msgid "Yesterday"
 msgstr ""
 
-#: src/components/windows/Help.jsx:81
-msgid ""
-"You are a teacher and a pupil is playing this game, despite it not being "
-"suitable for them? Send us an email."
-msgstr ""
-
 #: src/components/BanInfo.jsx:87
 #, javascript-format
 msgid ""
@@ -2032,7 +2099,7 @@ msgstr ""
 msgid "You are weird"
 msgstr ""
 
-#: src/components/windows/Help.jsx:127
+#: src/components/windows/Help.jsx:125
 msgid ""
 "You can connect to pixelplanet and use pixelplanet accounts for oauth / "
 "oidc login. See here:"
@@ -2065,7 +2132,7 @@ msgstr ""
 msgid "You have new messages in chat"
 msgstr ""
 
-#: src/components/SocialSettings.jsx:73
+#: src/components/SocialSettings/index.tsx:78
 msgid "You have no users blocked"
 msgstr ""
 
@@ -2077,7 +2144,7 @@ msgstr ""
 msgid "You made too many requests"
 msgstr ""
 
-#: src/components/windows/Chat.jsx:261
+#: src/components/windows/Chat.tsx:318
 msgid "You must be logged in to chat"
 msgstr ""
 
@@ -2141,7 +2208,7 @@ msgid ""
 "other applications. You can set it now:"
 msgstr ""
 
-#: src/components/UserAreaContent.jsx:118
+#: src/components/UserAreaContent.jsx:98
 msgid "Your name is:"
 msgstr ""
 
@@ -2160,10 +2227,6 @@ msgstr ""
 msgid "and ${ canvas.req } Pixels set"
 msgstr ""
 
-#: src/components/windows/Help.jsx:78
-msgid "check compliance here"
-msgstr ""
-
 #: src/store/middleware/notifications.js:54
 msgid "mentioned you"
 msgstr ""
@@ -2174,10 +2237,6 @@ msgstr ""
 
 #: src/components/LogInForm.jsx:263
 msgid "or register here:"
-msgstr ""
-
-#: src/components/windows/Help.jsx:76
-msgid "recommended"
 msgstr ""
 
 #: src/store/actions/fetch.js:44
