@@ -10,7 +10,6 @@ import ppfunCaptcha from 'ppfun-captcha';
 import { isMainThread, parentPort } from 'worker_threads';
 
 import { getRandomString } from '../core/utils.js';
-import filter from '../funcs/captchaFilter.js';
 
 const FONT_FOLDER = path.resolve(__dirname, '..', '..', 'dist', 'captchaFonts');
 
@@ -52,7 +51,7 @@ function createCaptcha() {
     style: 'stroke-width: 4;',
     background: '#EFEFEF',
     font,
-    filter,
+    filter: paths => paths,
   });
 }
 
