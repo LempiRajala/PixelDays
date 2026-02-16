@@ -12,6 +12,4 @@ COPY .env deployment/.env
 
 RUN npm run build:parallel
 
-WORKDIR /usr/src/app/dist
-
-CMD ["node", "server.js"]
+CMD ["node", "./dist/server.js"]
