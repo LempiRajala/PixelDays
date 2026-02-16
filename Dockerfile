@@ -8,7 +8,9 @@ RUN npm ci
 
 COPY . .
 
-RUN npm run build
+COPY .env deployment/.env
+
+RUN npm run build:parallel
 
 WORKDIR /usr/src/app/dist
 
