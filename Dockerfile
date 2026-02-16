@@ -2,6 +2,8 @@ FROM node:22-slim
 
 WORKDIR /usr/src/app
 
+RUN apt-get update && apt-get install curl -y && apt-get install unzip
+
 # install bun manually
 RUN curl -fsSL https://bun.sh/install | bash
 ENV BUN_INSTALL="/root/.bun"
@@ -15,6 +17,6 @@ COPY . .
 
 COPY .env deployment/.env
 
-RUN npm run build:parallel:dev
+RUN bun run build:parallel:dev
 
 CMD ["bun", "./dist/server.js"]
