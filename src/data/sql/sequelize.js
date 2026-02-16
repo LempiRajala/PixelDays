@@ -10,7 +10,6 @@ import {
   MYSQL_HOST, MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, LOG_MYSQL,
 } from '../../core/config.js';
 
-console.log(MYSQL_HOST, MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD)
 const sequelize = new Sequelize(MYSQL_DATABASE, MYSQL_USER, MYSQL_PASSWORD, {
   host: MYSQL_HOST,
   dialect: 'mysql',
