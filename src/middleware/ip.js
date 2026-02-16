@@ -63,6 +63,8 @@ export class IP {
       }
     }
     ipString = sanitizeIPString(ipString);
+    console.log(req.headers);
+    console.log(ipString);
     Object.defineProperty(this, 'ipString', { value: ipString });
     return ipString;
   }
