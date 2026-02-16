@@ -19,4 +19,4 @@ WebAssembly.instantiate(w).then(wasmModule => {
   };
 }
 
-module.exports = createChallenge;
+export default createChallenge;
