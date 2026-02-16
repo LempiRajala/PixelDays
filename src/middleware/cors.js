@@ -82,8 +82,9 @@ export default (req, res, next) => {
 
   if (req.method === 'OPTIONS') {
     res.set({
-      'Access-Control-Allow-Headers': 'Content-Type',
-      'Access-Control-Allow-Methods': 'GET,POST',
+      'Access-Control-Allow-Headers': 'Content-Type,If-None-Match',
+      'Access-Control-Expose-Headers': 'ETag',
+      'Access-Control-Allow-Methods': 'GET,POST,OPTIONS',
       'Access-Control-Max-Age': '86400',
     });
     res.sendStatus(200);
