@@ -59,7 +59,8 @@ export default async (req, res, next) => {
     const preEtag = req.headers['if-none-match'];
 
     res.set({
-      'Cache-Control': `public, s-maxage=${60}, max-age=${40}`, // seconds
+      // 'Cache-Control': `public, s-maxage=${60}, max-age=${40}`, // seconds
+      'Cache-Control': 'no-cache',
     });
 
     if (curEtag && preEtag && preEtag === curEtag) {
