@@ -6,12 +6,13 @@
 
 import { createLogger, format, transports } from 'winston';
 import DailyRotateFile from 'winston-daily-rotate-file';
+import path from 'node:path';
 
 import { PORT } from './config.js';
 
-export const PIXELLOGGER_PREFIX = `./log/pixels-${PORT}-`;
-const PROXYLOGGER_PREFIX = `./log/proxycheck-${PORT}-`;
-const MODTOOLLOGGER_PREFIX = `./log/moderation/modtools-${PORT}-`;
+export const PIXELLOGGER_PREFIX = path.resolve(__dirname, `./log/pixels-${PORT}-`);
+const PROXYLOGGER_PREFIX = path.resolve(__dirname, `./log/proxycheck-${PORT}-`);
+const MODTOOLLOGGER_PREFIX = path.resolve(__dirname, `./log/moderation/modtools-${PORT}-`);
 
 const logger = createLogger({
   level: 'info',
