@@ -10,6 +10,6 @@ COPY . .
 
 COPY .env deployment/.env
 
-RUN npm run build:parallel
+RUN npm run build:parallel:dev
 
 CMD ["node", "./dist/server.js"]
