@@ -50,7 +50,7 @@ services:
       - minio
     restart: always
     volumes:
-      - tiles:/usr/src/app/dist/tiles
+      - tiles:/usr/src/app/tiles
       - logs:/usr/src/app/log
 
 volumes:
