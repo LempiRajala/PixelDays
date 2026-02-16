@@ -400,7 +400,11 @@ async function build() {
   }
 
   console.log('copy i18n to /dist');
-  fs.cpSync('../i18n', '../dist/i18n', { recursive: true });
+  fs.cpSync(
+    path.resolve(__dirname, '..', 'i18n'),
+      path.resolve(__dirname, '..', 'dist', 'i18n'),
+    { recursive: true }
+  );
 
   console.log(`Finished building in ${(Date.now() - st) / 1000}s`);
 }
