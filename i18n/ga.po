@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: admin@pixelplanet.fun\n"
+"Report-Msgid-Bugs-To: admin@pixeldays.ru\n"
 "PO-Revision-Date: 2025-11-04 18:40+0000\n"
-"Last-Translator: Extreme Motorsex <em@noreply.pixelplanet.fun>\n"
+"Last-Translator: Extreme Motorsex <em@noreply.pixeldays.ru>\n"
 "Language-Team: Irish <https://translate.gs-os.com/projects/ppfun/client/ga/"
 ">\n"
 "Language: ga\n"
@@ -396,10 +396,10 @@ msgid "Deny"
 msgstr ""
 
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr ""
-"Ní bhfuair muid freagra ó pixelplanet. Déan iarracht athnuachan a dhéanamh "
+"Ní bhfuair muid freagra ó pixeldays. Déan iarracht athnuachan a dhéanamh "
 "má leanann an fhadhb seo."
 
 msgid "Dimensions"
@@ -618,7 +618,7 @@ msgstr ""
 "coinnigh ar chlé ${ bindShift } do peann luaidhe (le cuir nuair atá tú ag "
 "bóg an luchóg)"
 
-msgid "How pixelplanet should look like."
+msgid "How pixeldays should look like."
 msgstr "An dóigh a ba Chóir do Pixelplanet a beith mar."
 
 msgid "I forgot my Password."
@@ -1196,7 +1196,7 @@ msgstr ""
 msgid "Social Settings"
 msgstr ""
 
-msgid "Source for pixelplanet on "
+msgid "Source for pixeldays on "
 msgstr ""
 
 msgid "Stacking till"
@@ -1245,7 +1245,7 @@ msgstr ""
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 msgid ""
@@ -1484,7 +1484,7 @@ msgid "You are weird"
 msgstr "Is duine aisteach tú"
 
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc "
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
 msgstr ""
 
@@ -1492,8 +1492,8 @@ msgid "You can not access this canvas yet, because your pixel score is too low"
 msgstr ""
 "Níl tú ábalta baint úsáid as an canbháis seo, mar níl do scóir mór go leor"
 
-msgid "You can now place more on pixelplanet.fun :)"
-msgstr "Is féidir leat a chur anois níos mó ar pixelplanet.fun :)"
+msgid "You can now place more on pixeldays.ru :)"
+msgstr "Is féidir leat a chur anois níos mó ar pixeldays.ru :)"
 
 #, javascript-format
 msgid ""

@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2024-04-29 11:08+0000\n"
-"Last-Translator: weblate <weblate@noreply.pixelplanet.fun>\n"
+"Last-Translator: weblate <weblate@noreply.pixeldays.ru>\n"
 "Language-Team: Kurdish (Northern) <https://hosted.weblate.org/projects/"
-"pixelplanet/client/kmr/>\n"
+"pixeldays/client/kmr/>\n"
 "Language: kmr\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -411,10 +411,10 @@ msgid "Deny"
 msgstr ""
 
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr ""
-"Ji pixelplanet cewab nehat. Ger ev pirsgirêk berdewam bike, malpera nûjen "
+"Ji pixeldays cewab nehat. Ger ev pirsgirêk berdewam bike, malpera nûjen "
 "bikin."
 
 msgid "Dimensions"
@@ -635,8 +635,8 @@ msgstr ""
 "${ bindShift } ji bo qelemê li çepê bihêle (ji bo ku dema mişk diherike bi "
 "cîh bike)"
 
-msgid "How pixelplanet should look like."
-msgstr "Divê pixelplanet çawa xuya bike."
+msgid "How pixeldays should look like."
+msgstr "Divê pixeldays çawa xuya bike."
 
 msgid "I forgot my Password."
 msgstr "Min şîfreya xwe ji bîr kir."
@@ -1230,7 +1230,7 @@ msgstr "Pixelên Biçûk Dema Zêdekirin"
 msgid "Social Settings"
 msgstr "Mîhengên Civakî"
 
-msgid "Source for pixelplanet on "
+msgid "Source for pixeldays on "
 msgstr ""
 
 msgid "Stacking till"
@@ -1279,7 +1279,7 @@ msgstr "Şablonên"
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 msgid ""
@@ -1529,7 +1529,7 @@ msgid "You are weird"
 msgstr "Tu xerîb î"
 
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc "
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
 msgstr ""
 
@@ -1538,8 +1538,8 @@ msgstr ""
 "Hûn hîn nikarin xwe bigihînin vê kanvasê. Pêdivî ye ku hûn pixelên bêtir bi "
 "cîh bikin"
 
-msgid "You can now place more on pixelplanet.fun :)"
-msgstr "Niha hûn dikarin zêdetir li ser pixelplanet.fun bi cîh bikin :)"
+msgid "You can now place more on pixeldays.ru :)"
+msgstr "Niha hûn dikarin zêdetir li ser pixeldays.ru bi cîh bikin :)"
 
 #, javascript-format
 msgid ""

@@ -202,7 +202,7 @@ const OIDCConsent = () => {
     <div style={{ textAlign: 'center' }}>
       <h2>{t`Login to other application`}</h2>
       <p className="stattext">
-        {jt`The application ${appName} at ${appUrl} wants to login with your pixelplanet account ${accountName}`}{' '}
+        {jt`The application ${appName} at ${appUrl} wants to login with your pixeldays account ${accountName}`}{' '}
         <button
           type="button"
           disabled={submitting}

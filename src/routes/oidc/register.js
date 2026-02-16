@@ -122,7 +122,7 @@ router.use(verifySession, urlEncoded, async (req, res) => {
   const wellKnownUrl = '<a href="/.well-known/openid-configuration">.well-known/openid-configuration</a>';
   innerHtml += `<h2>OpenID Connect (oauth2)</h2>
 <div class="client-form-box">
-<p style="font-size: 16px;">${t`Pixelplanet fulfills the OpenID Connect (OIDC) specifications. So an application that supports OIDC could ask for consent and login using pixelplanet accounts. The required endpoints can be auto-discovered via the ${wellKnownUrl} URL.`}</p>
+<p style="font-size: 16px;">${t`Pixelplanet fulfills the OpenID Connect (OIDC) specifications. So an application that supports OIDC could ask for consent and login using pixeldays accounts. The required endpoints can be auto-discovered via the ${wellKnownUrl} URL.`}</p>
 <p style="font-size: 16px;">${t`You can register your own application here to get the client_id and client_secret needed to make use of this.`}</p>
 <p>${
   /* t: "scopes" is a technical term and should not be translated */

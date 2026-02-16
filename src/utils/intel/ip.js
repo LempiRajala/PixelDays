@@ -8,7 +8,7 @@
  * @param req express req object
  * @param includeProto if we include protocol (https, http)
  * @param stripSub if we strip subdomains
- * @return host (like pixelplanet.fun)
+ * @return host (like pixeldays.ru)
  */
 export function getHostFromRequest(req, includeProto = true, stripSub = false) {
   const { headers } = req;

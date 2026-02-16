@@ -27,7 +27,7 @@ export default function putHtmlIntoModal(title, description, htmlString, lang = 
       <div class="popup-modal">
         <div class="popup-content" style="font-size: 20px;">
 ${htmlString}
-          <p><a href="${BASENAME}/">${t`Click here`}</a> ${t`to go back to pixelplanet`}</p>
+          <p><a href="${BASENAME}/">${t`Click here`}</a> ${t`to go back to pixeldays`}</p>
         </div>
       </div>
     </div>

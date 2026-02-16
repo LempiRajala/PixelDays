@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: weblate <weblate@noreply.pixelplanet.fun>\n"
+"Last-Translator: weblate <weblate@noreply.pixeldays.ru>\n"
 "Language-Team: \n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
@@ -418,10 +418,10 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr ""
-"Geen antwoord gekregen van pixelplanet. Misschien proberen te vernieuwen als "
+"Geen antwoord gekregen van pixeldays. Misschien proberen te vernieuwen als "
 "het probleem zich blijft voordoen?"
 
 msgid "Dimensions"
@@ -646,8 +646,8 @@ msgstr ""
 "Houd de linker ${ bindShift } ingedrukt om te plaatsen terwijl je de muis "
 "beweegt"
 
-msgid "How pixelplanet should look like."
-msgstr "Hoe pixelplanet eruit zou moeten zien."
+msgid "How pixeldays should look like."
+msgstr "Hoe pixeldays eruit zou moeten zien."
 
 msgid "I forgot my Password."
 msgstr "Ik ben mijn wachtwoord vergeten."
@@ -1241,7 +1241,7 @@ msgstr ""
 msgid "Social Settings"
 msgstr "Sociale instellingen"
 
-msgid "Source for pixelplanet on "
+msgid "Source for pixeldays on "
 msgstr ""
 
 msgid "Stacking till"
@@ -1291,7 +1291,7 @@ msgstr "Sjabloon downloaden"
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 msgid ""
@@ -1544,7 +1544,7 @@ msgid "You are weird"
 msgstr "Jij bent raar"
 
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc "
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
 msgstr ""
 
@@ -1552,8 +1552,8 @@ msgstr ""
 msgid "You can not access this canvas yet, because your pixel score is too low"
 msgstr "Je hebt nog geen toegang tot dit canvas. Je moet meer pixels plaatsen"
 
-msgid "You can now place more on pixelplanet.fun :)"
-msgstr "Je kunt nu meer plaatsen op pixelplanet.fun :)"
+msgid "You can now place more on pixeldays.ru :)"
+msgstr "Je kunt nu meer plaatsen op pixeldays.ru :)"
 
 #, javascript-format
 msgid ""
@@ -1819,9 +1819,9 @@ msgstr "X"
 #~ "Houd rechts ${ bindShift } ingedrukt om te plaatsen terwijl u de muis "
 #~ "beweegt volgens de geschiedenis weergave"
 
-#~ msgid "Didn't get an answer from pixelplanet. Maybe try to refresh?"
+#~ msgid "Didn't get an answer from pixeldays. Maybe try to refresh?"
 #~ msgstr ""
-#~ "Geen antwoord gekregen van pixelplanet. Misschien eens proberen te "
+#~ "Geen antwoord gekregen van pixeldays. Misschien eens proberen te "
 #~ "vernieuwen?"
 
 #~ msgid "Place more :)"

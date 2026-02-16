@@ -580,7 +580,7 @@ msgstr ""
 #: src/ui/PixelTransferController.js:70
 #: src/ui/PixelTransferController.js:165
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr ""
 
@@ -889,7 +889,7 @@ msgid "Hold left ${ bindShift } for pencil (to place while moving mouse)"
 msgstr ""
 
 #: src/components/windows/Settings.jsx:183
-msgid "How pixelplanet should look like."
+msgid "How pixeldays should look like."
 msgstr ""
 
 #: src/components/LogInForm.jsx:241
@@ -1794,7 +1794,7 @@ msgstr ""
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 #: src/components/LogInForm.jsx:332
@@ -2101,7 +2101,7 @@ msgstr ""
 
 #: src/components/windows/Help.jsx:125
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / "
+"You can connect to pixeldays and use pixeldays accounts for oauth / "
 "oidc login. See here:"
 msgstr ""
 
@@ -2110,7 +2110,7 @@ msgid "You can not access this canvas yet, because your pixel score is too low"
 msgstr ""
 
 #: src/store/middleware/notifications.js:37
-msgid "You can now place more on pixelplanet.fun :)"
+msgid "You can now place more on pixeldays.ru :)"
 msgstr ""
 
 #: src/store/actions/index.js:425

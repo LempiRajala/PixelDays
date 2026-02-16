@@ -1,11 +1,11 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: admin@pixelplanet.fun\n"
+"Report-Msgid-Bugs-To: admin@pixeldays.ru\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-11-02 16:40+0000\n"
 "Last-Translator: 568d2b17a2a549b58c9e72614f849ff2 "
-"<568d2b17a2a549b58c9e72614f849ff2@noreply.pixelplanet.fun>\n"
+"<568d2b17a2a549b58c9e72614f849ff2@noreply.pixeldays.ru>\n"
 "Language-Team: Portuguese <https://translate.gs-os.com/projects/ppfun/client/"
 "pt/>\n"
 "Language: pt\n"
@@ -423,10 +423,10 @@ msgstr "Recusar"
 
 #, fuzzy
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr ""
-"Não recebi nenhuma resposta do pixelplanet. Talvez tente atualizar a página?"
+"Não recebi nenhuma resposta do pixeldays. Talvez tente atualizar a página?"
 
 msgid "Dimensions"
 msgstr "Dimensões"
@@ -648,8 +648,8 @@ msgid "Hold left ${ bindShift } for pencil (to place while moving mouse)"
 msgstr ""
 "Segure ${ bindShift } esquerdo para colocar píxeis enquanto move o mouse"
 
-msgid "How pixelplanet should look like."
-msgstr "Como pixelplanet deve parecer."
+msgid "How pixeldays should look like."
+msgstr "Como pixeldays deve parecer."
 
 msgid "I forgot my Password."
 msgstr "Esqueci minha senha."
@@ -1247,7 +1247,7 @@ msgstr "Zoom Pixeis Pequenos"
 msgid "Social Settings"
 msgstr "Configuração social"
 
-msgid "Source for pixelplanet on "
+msgid "Source for pixeldays on "
 msgstr ""
 
 msgid "Stacking till"
@@ -1297,7 +1297,7 @@ msgstr "Baixar Modelo"
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 msgid ""
@@ -1555,7 +1555,7 @@ msgid "You are weird"
 msgstr "Você é estranho"
 
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc "
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
 msgstr ""
 
@@ -1564,8 +1564,8 @@ msgid "You can not access this canvas yet, because your pixel score is too low"
 msgstr ""
 "Você não tem acesso a esse canvas ainda. Você precisa colocar mais píxeis"
 
-msgid "You can now place more on pixelplanet.fun :)"
-msgstr "Você já pode colocar mais píxeis em pixelplanet.fun :)"
+msgid "You can now place more on pixeldays.ru :)"
+msgstr "Você já pode colocar mais píxeis em pixeldays.ru :)"
 
 #, javascript-format
 msgid ""
@@ -1844,9 +1844,9 @@ msgstr "X"
 #~ msgstr ""
 #~ "Coloque pixeis do overlay usando shift-direito, em vez do modo histórico."
 
-#~ msgid "Didn't get an answer from pixelplanet. Maybe try to refresh?"
+#~ msgid "Didn't get an answer from pixeldays. Maybe try to refresh?"
 #~ msgstr ""
-#~ "Não recebi nenhuma resposta do pixelplanet. Talvez tente atualizar a "
+#~ "Não recebi nenhuma resposta do pixeldays. Talvez tente atualizar a "
 #~ "página?"
 
 #~ msgid "Place more :)"

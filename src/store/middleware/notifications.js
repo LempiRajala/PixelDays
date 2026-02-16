@@ -34,7 +34,7 @@ export default (store) => (next) => (action) => {
               icon: '/tile.png',
               silent: false,
               vibrate: [200, 100],
-              body: t`You can now place more on pixelplanet.fun :)`,
+              body: t`You can now place more on pixeldays.fun :)`,
             });
           }
           break;

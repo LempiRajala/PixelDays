@@ -15,7 +15,7 @@ const Archive = () => (
         padding: 2, maxWidth: '20%', verticalAlign: 'middle', display: 'inline-block',
       }}
       alt="political-compass"
-      src="https://storage.pixelplanet.fun/compass-preview.png"
+      src="https://pixeldays.fun/storage/compass-preview.png"
     />
     <p>
       {t`This canvas got requested during a time of political conflicts on the main Earth canvas. It was a 1024x1024 representation of the political compass with a 5s cooldown and 60s stacking. It got launched on May 11th and remained active for months till it got shut down on November 30th.`}<br />
@@ -23,14 +23,14 @@ const Archive = () => (
     </p>
     <p className="modalinfo">
       Timelapse:
-      <a href="https://storage.pixelplanet.fun/compass-timelapse.webm">
+      <a href="https://pixeldays.fun/storage/compass-timelapse.webm">
         Download
       </a>
     </p>
     <img
       style={{ padding: 2, maxWidth: '80%', verticalAlign: 'middle' }}
       alt="political-compass"
-      src="https://storage.pixelplanet.fun/compass-final.png"
+      src="https://pixeldays.fun/storage/compass-final.png"
     />
   </div>
 );

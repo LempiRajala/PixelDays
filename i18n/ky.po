@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2024-06-14 20:57+0000\n"
-"Last-Translator: weblate <weblate@noreply.pixelplanet.fun>\n"
-"Language-Team: Kyrgyz <https://hosted.weblate.org/projects/pixelplanet/"
+"Last-Translator: weblate <weblate@noreply.pixeldays.ru>\n"
+"Language-Team: Kyrgyz <https://hosted.weblate.org/projects/pixeldays/"
 "client/ky/>\n"
 "Language: ky\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -402,10 +402,10 @@ msgid "Deny"
 msgstr ""
 
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr ""
-"pixelplanet'тен жооп алган жок. Бул көйгөй чечилбесе, жаңылаганга аракет "
+"pixeldays'тен жооп алган жок. Бул көйгөй чечилбесе, жаңылаганга аракет "
 "кылыңыз."
 
 msgid "Dimensions"
@@ -626,7 +626,7 @@ msgstr ""
 "Карандаш үчүн солго ${ bindShift } басып туруңуз (чычканды жылдырып жатканда "
 "коюу үчүн)"
 
-msgid "How pixelplanet should look like."
+msgid "How pixeldays should look like."
 msgstr ""
 
 msgid "I forgot my Password."
@@ -1209,7 +1209,7 @@ msgstr ""
 msgid "Social Settings"
 msgstr ""
 
-msgid "Source for pixelplanet on "
+msgid "Source for pixeldays on "
 msgstr ""
 
 msgid "Stacking till"
@@ -1258,7 +1258,7 @@ msgstr ""
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 msgid ""
@@ -1494,7 +1494,7 @@ msgid "You are weird"
 msgstr "Сен кызыксың"
 
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc "
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
 msgstr ""
 
@@ -1503,8 +1503,8 @@ msgstr ""
 "Бул кенепке азырынча кире албайсыз, анткени сиздин пикселдик упайыңыз өтө "
 "төмөн"
 
-msgid "You can now place more on pixelplanet.fun :)"
-msgstr "Эми pixelplanet.fun сайтында көбүрөөк жайгаштырсаңыз болот :)"
+msgid "You can now place more on pixeldays.ru :)"
+msgstr "Эми pixeldays.ru сайтында көбүрөөк жайгаштырсаңыз болот :)"
 
 #, javascript-format
 msgid ""

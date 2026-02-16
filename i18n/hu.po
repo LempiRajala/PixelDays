@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: admin@pixelplanet.fun\n"
+"Report-Msgid-Bugs-To: admin@pixeldays.ru\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-11-08 07:40+0000\n"
-"Last-Translator: Extreme Motorsex <em@noreply.pixelplanet.fun>\n"
+"Last-Translator: Extreme Motorsex <em@noreply.pixeldays.ru>\n"
 "Language-Team: Hungarian <https://translate.gs-os.com/projects/ppfun/client/"
 "hu/>\n"
 "Language: hu\n"
@@ -413,7 +413,7 @@ msgid "Deny"
 msgstr ""
 
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr ""
 "Nem érkezett válasz a PixelPlanettől. Próbáld meg frissíteni az oldalt, ha a "
@@ -636,7 +636,7 @@ msgstr "Történelmi nézet"
 msgid "Hold left ${ bindShift } for pencil (to place while moving mouse)"
 msgstr "Tartsd lenyomva a bal ${ bindShift }-et, hogy kattintás nélkül rajzolj"
 
-msgid "How pixelplanet should look like."
+msgid "How pixeldays should look like."
 msgstr "Ahogy a pixelplanetnek kellene kinéznie."
 
 msgid "I forgot my Password."
@@ -1229,7 +1229,7 @@ msgstr "Kis pixeles nagyítás"
 msgid "Social Settings"
 msgstr "Szociális beállítások"
 
-msgid "Source for pixelplanet on "
+msgid "Source for pixeldays on "
 msgstr ""
 
 msgid "Stacking till"
@@ -1278,7 +1278,7 @@ msgstr "Sablonok"
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 msgid ""
@@ -1536,15 +1536,15 @@ msgid "You are weird"
 msgstr "Furcsa vagy"
 
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc "
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
 msgstr ""
 
 msgid "You can not access this canvas yet, because your pixel score is too low"
 msgstr "Ehhez a vászonhoz még nem férsz hozzá. Több pixelt kell elhelyezned"
 
-msgid "You can now place more on pixelplanet.fun :)"
-msgstr "Mostantól többet is elhelyezhetsz a pixelplanet.fun oldalon :)"
+msgid "You can now place more on pixeldays.ru :)"
+msgstr "Mostantól többet is elhelyezhetsz a pixeldays.ru oldalon :)"
 
 #, javascript-format
 msgid ""
@@ -1822,7 +1822,7 @@ msgstr "X"
 #~ "Pixelek elhelyezése az overlay-ből a jobb oldali shift-tel, a történelmi "
 #~ "nézet helyett."
 
-#~ msgid "Didn't get an answer from pixelplanet. Maybe try to refresh?"
+#~ msgid "Didn't get an answer from pixeldays. Maybe try to refresh?"
 #~ msgstr ""
 #~ "Nem érkezett válasz a PixelPlanettől. Próbáld meg frissíteni az oldalt."
 

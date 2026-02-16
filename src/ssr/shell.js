@@ -23,7 +23,7 @@ export default function putHtmlIntoShell(title, description, htmlString, lang = 
   </head>
   <body style="font-size: 20px;">
 ${htmlString}
-    <p style="text-align: center;"><a href="${BASENAME}/">${t`Click here`}</a> ${t`to go back to pixelplanet`}</p>
+    <p style="text-align: center;"><a href="${BASENAME}/">${t`Click here`}</a> ${t`to go back to pixeldays`}</p>
     <a data-jslicense="1" style="display: none;" href="${BASENAME}/legal">JavaScript license information</a>
   </body>
 </html>

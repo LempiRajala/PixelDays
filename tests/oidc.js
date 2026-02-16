@@ -59,7 +59,7 @@ let scopes = ['openid', 'email', 'user_id'];
 
   title('launch expressjs app on localhost:33333');
   console.log(
-    'A test instance of pixelplanet needs to be running at localhost:5000 with OIDC_URL=http://localhost:5000 and HOST=127.0.0.1',
+    'A test instance of pixeldays needs to be running at localhost:5000 with OIDC_URL=http://localhost:5000 and HOST=127.0.0.1',
   );
   const app = express();
   const server = http.createServer(app);

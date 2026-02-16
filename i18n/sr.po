@@ -1,10 +1,10 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: \n"
-"Report-Msgid-Bugs-To: admin@pixelplanet.fun\n"
+"Report-Msgid-Bugs-To: admin@pixeldays.ru\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2025-10-26 15:53+0000\n"
-"Last-Translator: weblate <weblate@noreply.pixelplanet.fun>\n"
+"Last-Translator: weblate <weblate@noreply.pixeldays.ru>\n"
 "Language-Team: Serbian <https://translate.gs-os.com/projects/ppfun/client/sr/"
 ">\n"
 "Language: sr\n"
@@ -414,7 +414,7 @@ msgid "Deny"
 msgstr ""
 
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr "Došlo je do greške. Možda da pokušate da osvežite stranicu?"
 
@@ -636,8 +636,8 @@ msgid "Hold left ${ bindShift } for pencil (to place while moving mouse)"
 msgstr ""
 "Držite levi ${ bindShift } da bi ste postavljali piksele dok držite miš"
 
-msgid "How pixelplanet should look like."
-msgstr "Kako pixelplanet treba da izgleda."
+msgid "How pixeldays should look like."
+msgstr "Kako pixeldays treba da izgleda."
 
 msgid "I forgot my Password."
 msgstr "Zaboravio sam lozinku"
@@ -1225,7 +1225,7 @@ msgstr "Manji pikseli nakon ubližavanja"
 msgid "Social Settings"
 msgstr "Socijalna podešavanja"
 
-msgid "Source for pixelplanet on "
+msgid "Source for pixeldays on "
 msgstr ""
 
 msgid "Stacking till"
@@ -1274,7 +1274,7 @@ msgstr "Šabloni"
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 msgid ""
@@ -1526,15 +1526,15 @@ msgid "You are weird"
 msgstr "Čudan si"
 
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc "
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
 msgstr ""
 
 msgid "You can not access this canvas yet, because your pixel score is too low"
 msgstr "Nemožete koristiti ovo platno. Morate staviti još piksela"
 
-msgid "You can now place more on pixelplanet.fun :)"
-msgstr "Sada možeš da postavljaš više na pixelplanet.fun :)"
+msgid "You can now place more on pixeldays.ru :)"
+msgstr "Sada možeš da postavljaš više na pixeldays.ru :)"
 
 #, javascript-format
 msgid ""
@@ -1810,7 +1810,7 @@ msgstr "X"
 #~ "Postavi piksele sa preklapača slika sa desnim shiftom,umesto istorijskog "
 #~ "moda."
 
-#~ msgid "Didn't get an answer from pixelplanet. Maybe try to refresh?"
+#~ msgid "Didn't get an answer from pixeldays. Maybe try to refresh?"
 #~ msgstr "Došla je greška. Možda pokušajte da osvežite stranicu?"
 
 #~ msgid "Place more :)"

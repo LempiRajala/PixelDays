@@ -13,13 +13,13 @@ if (!process.env.BROWSER) {
 const basename = window.ssv?.basename || '';
 
 /*
- * apiUrl needs to be a url like 'https://pixelplanet.fun', shall not end with
+ * apiUrl needs to be a url like 'https://pixeldays.ru', shall not end with
  * an '/'
  */
 const apiUrl = window.ssv?.apiUrl || basename;
 
 /*
- * cdnUrl needs to be a url without path like "https://pixelplanet.fun"
+ * cdnUrl needs to be a url without path like "https://pixeldays.ru"
  */
 let cdnUrl = window.ssv?.cdnUrl || basename;
 

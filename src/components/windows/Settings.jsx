@@ -180,7 +180,7 @@ const Settings = () => {
           selected={selectedStyle}
           onSelect={(style) => dispatch(selectStyle(style))}
         >
-          {t`How pixelplanet should look like.`}
+          {t`How pixeldays should look like.`}
         </SettingsItemSelect>
       )}
       {(window.ssv?.langs && navigator.cookieEnabled) && (

@@ -1,6 +1,6 @@
 /*
  * Create needed images from SVG
- * Creates images needed for pixelplanet out of svg files
+ * Creates images needed for pixeldays out of svg files
  */
 
 import fs from 'fs';

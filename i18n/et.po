@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2024-05-14 19:42+0000\n"
-"Last-Translator: weblate <weblate@noreply.pixelplanet.fun>\n"
-"Language-Team: Estonian <https://hosted.weblate.org/projects/pixelplanet/"
+"Last-Translator: weblate <weblate@noreply.pixeldays.ru>\n"
+"Language-Team: Estonian <https://hosted.weblate.org/projects/pixeldays/"
 "client/et/>\n"
 "Language: et\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -405,7 +405,7 @@ msgid "Deny"
 msgstr ""
 
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr ""
 "Pixelplanetilt ei saadud vastust. Proovi taaskäivitada lehekülg kui problem "
@@ -629,8 +629,8 @@ msgstr ""
 "Hoia vasakut ${ bindShift }, et kasutada pliiatsit (joonistada hiire "
 "liigutamisega)"
 
-msgid "How pixelplanet should look like."
-msgstr "Kuidas pixelplanet peaks välja nägema."
+msgid "How pixeldays should look like."
+msgstr "Kuidas pixeldays peaks välja nägema."
 
 msgid "I forgot my Password."
 msgstr "Unustasin Salasõna."
@@ -1213,7 +1213,7 @@ msgstr "Väikesed Pikslid Kui Sisse Suumitud"
 msgid "Social Settings"
 msgstr "Sotsiaalseadmed"
 
-msgid "Source for pixelplanet on "
+msgid "Source for pixeldays on "
 msgstr ""
 
 msgid "Stacking till"
@@ -1262,7 +1262,7 @@ msgstr "Šabloonid"
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 msgid ""
@@ -1513,7 +1513,7 @@ msgid "You are weird"
 msgstr "Sa oled imelik"
 
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc "
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
 msgstr ""
 
@@ -1522,8 +1522,8 @@ msgstr ""
 "Sul puudub ligipääs sellele lõuendile, sest sa oled liiga vähe piksleid "
 "joonistanud"
 
-msgid "You can now place more on pixelplanet.fun :)"
-msgstr "Sa saad uuesti pixelplanet.fun'is joonistada :)"
+msgid "You can now place more on pixeldays.ru :)"
+msgstr "Sa saad uuesti pixeldays.ru'is joonistada :)"
 
 #, javascript-format
 msgid ""
@@ -1799,7 +1799,7 @@ msgstr "X"
 #~ msgid "Place pixels from overlay on right-shift, instead of history."
 #~ msgstr "Joonista piksleid ajaloo asemel ülekattelt parempoolse Shift'iga."
 
-#~ msgid "Didn't get an answer from pixelplanet. Maybe try to refresh?"
+#~ msgid "Didn't get an answer from pixeldays. Maybe try to refresh?"
 #~ msgstr "Pixelplanetilt ei saadud vastust. Proovi taaskäivitada lehekülg."
 
 #~ msgid "Place more :)"

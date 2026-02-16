@@ -19,7 +19,7 @@ function download(view) {
   if (!viewport) return;
 
   const [x, y] = view.map(Math.round);
-  const filename = `pixelplanet-${x}-${y}.png`;
+  const filename = `pixeldays-${x}-${y}.png`;
 
   viewport.toBlob((blob) => fileDownload(blob, filename));
 }

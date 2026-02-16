@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2024-04-04 20:02+0000\n"
-"Last-Translator: weblate <weblate@noreply.pixelplanet.fun>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/pixelplanet/"
+"Last-Translator: weblate <weblate@noreply.pixeldays.ru>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/pixeldays/"
 "client/pl/>\n"
 "Language: pl\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -413,10 +413,10 @@ msgid "Deny"
 msgstr ""
 
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr ""
-"Zero odpowiedzi ze strony pixelplanet. Spróbuj odświeżyć stronę jeśli "
+"Zero odpowiedzi ze strony pixeldays. Spróbuj odświeżyć stronę jeśli "
 "problem został."
 
 msgid "Dimensions"
@@ -638,8 +638,8 @@ msgstr "Wgląd na historie"
 msgid "Hold left ${ bindShift } for pencil (to place while moving mouse)"
 msgstr "Przytrzymaj lewy ${ bindShift }, aby umieścić podczas poruszania myszą"
 
-msgid "How pixelplanet should look like."
-msgstr "Jak pixelplanet powinien wyglądać."
+msgid "How pixeldays should look like."
+msgstr "Jak pixeldays powinien wyglądać."
 
 msgid "I forgot my Password."
 msgstr "Zapomniałem swoje hasło."
@@ -1227,7 +1227,7 @@ msgstr "Małe pixele"
 msgid "Social Settings"
 msgstr "ustawienia prywatności"
 
-msgid "Source for pixelplanet on "
+msgid "Source for pixeldays on "
 msgstr ""
 
 msgid "Stacking till"
@@ -1276,7 +1276,7 @@ msgstr "Szablony"
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 msgid ""
@@ -1531,7 +1531,7 @@ msgid "You are weird"
 msgstr "Jesteś dziwny"
 
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc "
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
 msgstr ""
 
@@ -1539,8 +1539,8 @@ msgid "You can not access this canvas yet, because your pixel score is too low"
 msgstr ""
 "Nie masz jeszcze dostępu do tego płótna. Musisz postawić więcej pikseli"
 
-msgid "You can now place more on pixelplanet.fun :)"
-msgstr "Możesz teraz stawiać więcej na pixelplanet.fun :)"
+msgid "You can now place more on pixeldays.ru :)"
+msgstr "Możesz teraz stawiać więcej na pixeldays.ru :)"
 
 #, javascript-format
 msgid ""
@@ -1813,8 +1813,8 @@ msgstr "X"
 #~ msgid "Place pixels from overlay on right-shift, instead of history."
 #~ msgstr "Stawiaj pixele z nakładki klikając prawy-shift, zamiast z pamięci."
 
-#~ msgid "Didn't get an answer from pixelplanet. Maybe try to refresh?"
-#~ msgstr "Brak odpowiedzi od pixelplanet. Może spróbuj odświeżyć stronę?"
+#~ msgid "Didn't get an answer from pixeldays. Maybe try to refresh?"
+#~ msgstr "Brak odpowiedzi od pixeldays. Może spróbuj odświeżyć stronę?"
 
 #~ msgid "Place more :)"
 #~ msgstr "Postaw więcej :)"

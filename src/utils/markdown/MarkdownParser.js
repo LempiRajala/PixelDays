@@ -2,7 +2,7 @@
  * Markdown parsing
  *
  * We do not support all markdown, but do additionally parse extra
- * stuff like pixelplanet coords and usernames and bare links.
+ * stuff like pixeldays coords and usernames and bare links.
  * This code is written in preparation for a possible implementation in
  * WebAssembly, so it's all in a big loop
  */

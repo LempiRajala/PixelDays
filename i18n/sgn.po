@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
-"Report-Msgid-Bugs-To: admin@pixelplanet.fun\n"
+"Report-Msgid-Bugs-To: admin@pixeldays.ru\n"
 "PO-Revision-Date: 2025-10-31 15:40+0000\n"
-"Last-Translator: Kingfisher <shaddy@noreply.pixelplanet.fun>\n"
+"Last-Translator: Kingfisher <shaddy@noreply.pixeldays.ru>\n"
 "Language-Team: Sign Languages <https://translate.gs-os.com/projects/ppfun/"
 "client/sgn/>\n"
 "Language: sgn\n"
@@ -416,7 +416,7 @@ msgid "Deny"
 msgstr "🤚🤙👇👏"
 
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr ""
 "🤚🤞🤚👇👋 🤛🤙👋 ✌️👇 ✌️👇🖖👐🤙☝️ ✋☝️👌👆 👎🤞👉🤙👍👎👍✌️👇🤙👋. 👋☝️👏 👋👌 ☝️"
@@ -641,7 +641,7 @@ msgstr "🖐🤞🖖👋👌☝️🤞🤘✌️👍 🤜🤞🤙👐"
 msgid "Hold left ${ bindShift } for pencil (to place while moving mouse)"
 msgstr ""
 
-msgid "How pixelplanet should look like."
+msgid "How pixeldays should look like."
 msgstr "🖐👌👐 👎🤞👉🤙👍👎👍✌️👇🤙👋 🖖🖐👌🙌👍🤚 👍👌👌👊 👍🤞👊🤙."
 
 msgid "I forgot my Password."
@@ -1239,7 +1239,7 @@ msgstr "🖖👆✌️👍👍 👎🤞👉🤙👍🖖 👐🖐🤙👇 🙏�
 msgid "Social Settings"
 msgstr "🖖👌🤘🤞✌️👍 🖖🤙👋👋🤞👇🤛🖖"
 
-msgid "Source for pixelplanet on "
+msgid "Source for pixeldays on "
 msgstr ""
 
 msgid "Stacking till"
@@ -1288,7 +1288,7 @@ msgstr "👋🤙👆👎👍✌️👋🤙🖖"
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 msgid ""
@@ -1556,7 +1556,7 @@ msgid "You are weird"
 msgstr "👏👌🙌 ✌️☝️🤙 👐🤙🤞☝️🤚"
 
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc "
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
 msgstr ""
 
@@ -1565,7 +1565,7 @@ msgstr ""
 "👏👌🙌 🤘✌️👇 👇👌👋 ✌️🤘🤘🤙🖖🖖 👋🖐🤞🖖 🤘✌️👇🤜✌️🖖 👏🤙👋, 👈🤙🤘✌️🙌🖖🤙 👏👌"
 "🙌☝️ 👎🤞👉🤙👍 🖖🤘👌☝️🤙 🤞🖖 👋👌👌 👍👌👐"
 
-msgid "You can now place more on pixelplanet.fun :)"
+msgid "You can now place more on pixeldays.ru :)"
 msgstr ""
 "👏👌🙌 🤘✌️👇 👇👌👐 👎👍✌️🤘🤙 👆👌☝️🤙 👌👇 👎🤞👉🤙👍👎👍✌️👇🤙👋.✋🙌👇 😊"
 

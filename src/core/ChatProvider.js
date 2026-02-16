@@ -54,7 +54,7 @@ export class ChatProvider {
     this.cyrillic = /[\u0436-\u043B]'/;
     this.substitutes = [
       {
-        regexp: /http[s]?:\/\/(old.)?pixelplanet\.fun\/#/g,
+        regexp: /http[s]?:\/\/(old.)?pixeldays\.ru\/#/g,
         replace: '#',
       },
     ];

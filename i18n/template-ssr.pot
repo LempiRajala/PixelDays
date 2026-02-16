@@ -222,7 +222,7 @@ msgstr ""
 #: src/core/MailProvider.js:109
 msgid ""
 "If this was you, please ignore this email. If it wasn't you, please go to "
-"<a href=\"https://pixelplanet.fun\">pixelplanet.fun</a> and log-out any "
+"<a href=\"https://pixeldays.ru\">pixeldays.ru</a> and log-out any "
 "session that you are unaware of under \"Login Methods\" in the User Area "
 "and change your password."
 msgstr ""
@@ -455,7 +455,7 @@ msgstr ""
 msgid ""
 "Pixelplanet fulfills the OpenID Connect (OIDC) specifications. So an "
 "application that supports OIDC could ask for consent and login using "
-"pixelplanet accounts. The required endpoints can be auto-discovered via the "
+"pixeldays accounts. The required endpoints can be auto-discovered via the "
 "${ wellKnownUrl } URL."
 msgstr ""
 
@@ -856,7 +856,7 @@ msgstr ""
 
 #: src/ssr/modalShell.js:30
 #: src/ssr/shell.js:26
-msgid "to go back to pixelplanet"
+msgid "to go back to pixeldays"
 msgstr ""
 
 #: src/core/MailProvider.js:72

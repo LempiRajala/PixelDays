@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: weblate <weblate@noreply.pixelplanet.fun>\n"
+"Last-Translator: weblate <weblate@noreply.pixeldays.ru>\n"
 "Language-Team: \n"
 "Language: os\n"
 "MIME-Version: 1.0\n"
@@ -417,7 +417,7 @@ msgstr "Нæ райс"
 
 #, fuzzy
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr "Pixelplanet'мæ дзуаппы райс нæй? Чи зоны бафæлвар сног кæнын?"
 
@@ -640,8 +640,8 @@ msgstr "Историон бакаст"
 msgid "Hold left ${ bindShift } for pencil (to place while moving mouse)"
 msgstr "Хи уром галиу джыбы ${bindShift} æрбынатæн бынатаивд мыст цур"
 
-msgid "How pixelplanet should look like."
-msgstr "Куыд дарын pixelplanet йæ бакаст."
+msgid "How pixeldays should look like."
+msgstr "Куыд дарын pixeldays йæ бакаст."
 
 msgid "I forgot my Password."
 msgstr "Паролы мæ ферох."
@@ -1237,7 +1237,7 @@ msgstr ""
 msgid "Social Settings"
 msgstr "Социалон Рæвдзгæнæнтæ"
 
-msgid "Source for pixelplanet on "
+msgid "Source for pixeldays on "
 msgstr ""
 
 msgid "Stacking till"
@@ -1287,7 +1287,7 @@ msgstr "Шаблоны Равæр"
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 msgid ""
@@ -1536,7 +1536,7 @@ msgid "You are weird"
 msgstr ""
 
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc "
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
 msgstr ""
 
@@ -1546,7 +1546,7 @@ msgstr ""
 "Нæй гæнæн дæ бацæуæн райсын четæнмæ ай. Сымахæн хъæуы бынæттæ скæн стылдæр "
 "пиксел"
 
-msgid "You can now place more on pixelplanet.fun :)"
+msgid "You can now place more on pixeldays.ru :)"
 msgstr ""
 
 #, javascript-format
@@ -1785,7 +1785,7 @@ msgstr "X"
 #~ "Уром рахиз джыбы ${bindShift} æрбынатæн бынатаивд мыст цур æмбæрдзинады "
 #~ "историкон афæлгæстимæ"
 
-#~ msgid "Didn't get an answer from pixelplanet. Maybe try to refresh?"
+#~ msgid "Didn't get an answer from pixeldays. Maybe try to refresh?"
 #~ msgstr "Pixelplanet'мæ дзуаппы райс нæй? Чи зоны бафæлвар сног кæнын?"
 
 #~ msgid "Place more :)"

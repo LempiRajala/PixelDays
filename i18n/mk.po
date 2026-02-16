@@ -1,8 +1,8 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2024-06-10 20:09+0000\n"
-"Last-Translator: weblate <weblate@noreply.pixelplanet.fun>\n"
-"Language-Team: Macedonian <https://hosted.weblate.org/projects/pixelplanet/"
+"Last-Translator: weblate <weblate@noreply.pixeldays.ru>\n"
+"Language-Team: Macedonian <https://hosted.weblate.org/projects/pixeldays/"
 "client/mk/>\n"
 "Language: mk\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -409,7 +409,7 @@ msgid "Deny"
 msgstr ""
 
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr ""
 "Не си добил/а одговор од Пикселпланета. Обиди се да го искористиш F5 или "
@@ -636,7 +636,7 @@ msgstr ""
 "Држете лево ${ bindShift } за молив (за поставување додека го движите "
 "глувчето)"
 
-msgid "How pixelplanet should look like."
+msgid "How pixeldays should look like."
 msgstr "Како пиксел планет би требала да изгледа."
 
 msgid "I forgot my Password."
@@ -1222,7 +1222,7 @@ msgstr "Мали пиксели при зумирање"
 msgid "Social Settings"
 msgstr "Социјални поставки"
 
-msgid "Source for pixelplanet on "
+msgid "Source for pixeldays on "
 msgstr ""
 
 msgid "Stacking till"
@@ -1271,7 +1271,7 @@ msgstr "Шаблони"
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 msgid ""
@@ -1523,7 +1523,7 @@ msgid "You are weird"
 msgstr "Вие сте чуден/а"
 
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc "
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
 msgstr ""
 
@@ -1532,8 +1532,8 @@ msgstr ""
 "Сеуште неможеш да имаш пристап на оваа платно затоа што твојот цел бројна "
 "пиксели е премногу мал"
 
-msgid "You can now place more on pixelplanet.fun :)"
-msgstr "Сега можете да поставите повеќе на pixelplanet.fun :)"
+msgid "You can now place more on pixeldays.ru :)"
+msgstr "Сега можете да поставите повеќе на pixeldays.ru :)"
 
 #, javascript-format
 msgid ""

@@ -122,7 +122,7 @@ const Help = () => {
         {jt`Click ${mouseSymbol} middle mouse button or ${touchSymbol} long-tap to select current hovering color`}<br />
       </div>
       <h3>{t`For Developers`}</h3>
-      <p>{t`You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc login. See here:`}<a href={u`/oidc/register`}>{t`OpenID Connect Client registration`}</a></p>
+      <p>{t`You can connect to pixeldays and use pixeldays accounts for oauth / oidc login. See here:`}<a href={u`/oidc/register`}>{t`OpenID Connect Client registration`}</a></p>
       <h3>Palette Credits</h3>
       <div>
         {jt`We thank the following artists, who made their palettes available to the public on`}&nbsp;

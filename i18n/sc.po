@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: weblate <weblate@noreply.pixelplanet.fun>\n"
+"Last-Translator: weblate <weblate@noreply.pixeldays.ru>\n"
 "Language-Team: \n"
 "Language: sicilian\n"
 "MIME-Version: 1.0\n"
@@ -401,7 +401,7 @@ msgid "Deny"
 msgstr ""
 
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr ""
 
@@ -616,7 +616,7 @@ msgstr ""
 msgid "Hold left ${ bindShift } for pencil (to place while moving mouse)"
 msgstr ""
 
-msgid "How pixelplanet should look like."
+msgid "How pixeldays should look like."
 msgstr ""
 
 #, fuzzy
@@ -1196,7 +1196,7 @@ msgstr ""
 msgid "Social Settings"
 msgstr ""
 
-msgid "Source for pixelplanet on "
+msgid "Source for pixeldays on "
 msgstr ""
 
 msgid "Stacking till"
@@ -1245,7 +1245,7 @@ msgstr ""
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 msgid ""
@@ -1477,14 +1477,14 @@ msgid "You are weird"
 msgstr "Si bannatu"
 
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc "
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
 msgstr ""
 
 msgid "You can not access this canvas yet, because your pixel score is too low"
 msgstr ""
 
-msgid "You can now place more on pixelplanet.fun :)"
+msgid "You can now place more on pixeldays.ru :)"
 msgstr ""
 
 #, javascript-format
@@ -1740,7 +1740,7 @@ msgstr ""
 #~ msgid "Reset your password here"
 #~ msgstr "Resetta a password ca"
 
-#~ msgid "to go back to pixelplanet"
+#~ msgid "to go back to pixeldays"
 #~ msgstr "va arre su Pixelplanet"
 
 #, javascript-format
@@ -1794,8 +1794,8 @@ msgstr ""
 #~ msgstr "Veni mannatu nala paggina automaticamente 'n 15s"
 
 #, javascript-format
-#~ msgid "Or ${ clickHere } to go back to pixelplanet"
-#~ msgstr "O ${ clickHere } Pi gghiri arre su pixelplanet"
+#~ msgid "Or ${ clickHere } to go back to pixeldays"
+#~ msgstr "O ${ clickHere } Pi gghiri arre su pixeldays"
 
 #~ msgid "Earth"
 #~ msgstr "Terra"
@@ -1854,7 +1854,7 @@ msgstr ""
 
 #, javascript-format
 #~ msgid "Welcome ${ name } to PixelPlanet, plese verify your mail"
-#~ msgstr "Binvinutu  ${ name } na pixelplanet, piffauri verifica a to email"
+#~ msgstr "Binvinutu  ${ name } na pixeldays, piffauri verifica a to email"
 
 #~ msgid "Hello ${ name }"
 #~ msgstr "Salutamu ${ name }"

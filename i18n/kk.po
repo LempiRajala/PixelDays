@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2024-05-01 10:07+0000\n"
-"Last-Translator: weblate <weblate@noreply.pixelplanet.fun>\n"
-"Language-Team: Kazakh <https://hosted.weblate.org/projects/pixelplanet/"
+"Last-Translator: weblate <weblate@noreply.pixeldays.ru>\n"
+"Language-Team: Kazakh <https://hosted.weblate.org/projects/pixeldays/"
 "client/kk/>\n"
 "Language: kk\n"
 "MIME-Version: 1.0\n"
@@ -410,7 +410,7 @@ msgid "Deny"
 msgstr ""
 
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr ""
 "Pixelplanet жауап бермейді. Мәселе шешілмесе, бәлкім бетті жаңартып көріңіз."
@@ -632,7 +632,7 @@ msgid "Hold left ${ bindShift } for pencil (to place while moving mouse)"
 msgstr ""
 "Тінтуірді сүйрегенде пиксел салу үшін сол жақ ${ bindShift } ұстап тұрыңыз"
 
-msgid "How pixelplanet should look like."
+msgid "How pixeldays should look like."
 msgstr "Pixelplanet қалай көрінуге тиіс."
 
 msgid "I forgot my Password."
@@ -1223,7 +1223,7 @@ msgstr "Масштабтау кезінде шағын пикселдер көр
 msgid "Social Settings"
 msgstr "Әлеуметтік баптаулар"
 
-msgid "Source for pixelplanet on "
+msgid "Source for pixeldays on "
 msgstr ""
 
 msgid "Stacking till"
@@ -1272,7 +1272,7 @@ msgstr "Үлгілер"
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 msgid ""
@@ -1527,15 +1527,15 @@ msgid "You are weird"
 msgstr "Сіз біртүрлісіз"
 
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc "
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
 msgstr ""
 
 msgid "You can not access this canvas yet, because your pixel score is too low"
 msgstr "Осы кенепте әзірше сала алмайсыз. Көбірек пиксел салуыңыз қажет"
 
-msgid "You can now place more on pixelplanet.fun :)"
-msgstr "Енді сіз pixelplanet.fun-да көбірек сала аласыз :)"
+msgid "You can now place more on pixeldays.ru :)"
+msgstr "Енді сіз pixeldays.ru-да көбірек сала аласыз :)"
 
 #, javascript-format
 msgid ""
@@ -1796,7 +1796,7 @@ msgstr "X"
 #~ "Тінтуірді сүйрегенде тарихи көрініске сәйкес пиксел салу үшін оң жақ $"
 #~ "{ bindShift } ұстап тұрыңыз"
 
-#~ msgid "Didn't get an answer from pixelplanet. Maybe try to refresh?"
+#~ msgid "Didn't get an answer from pixeldays. Maybe try to refresh?"
 #~ msgstr "Pixelplanet жауап бермейді. Бетті жаңартсаңыз қайтеді?"
 
 #~ msgid "Place more :)"

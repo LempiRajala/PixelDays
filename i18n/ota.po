@@ -1,9 +1,9 @@
 msgid ""
 msgstr ""
 "PO-Revision-Date: 2024-03-12 19:57+0000\n"
-"Last-Translator: weblate <weblate@noreply.pixelplanet.fun>\n"
+"Last-Translator: weblate <weblate@noreply.pixeldays.ru>\n"
 "Language-Team: Turkish (Ottoman) <https://hosted.weblate.org/projects/"
-"pixelplanet/client/ota/>\n"
+"pixeldays/client/ota/>\n"
 "Language: ota\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -391,7 +391,7 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr ""
 "Pixelplanet bir cevâp irâd eylemedi. Sahife-i icticdad tecrübe eylediniz mi?"
@@ -607,7 +607,7 @@ msgstr ""
 msgid "Hold left ${ bindShift } for pencil (to place while moving mouse)"
 msgstr ""
 
-msgid "How pixelplanet should look like."
+msgid "How pixeldays should look like."
 msgstr ""
 
 msgid "I forgot my Password."
@@ -1179,7 +1179,7 @@ msgstr ""
 msgid "Social Settings"
 msgstr ""
 
-msgid "Source for pixelplanet on "
+msgid "Source for pixeldays on "
 msgstr ""
 
 msgid "Stacking till"
@@ -1228,7 +1228,7 @@ msgstr ""
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 msgid ""
@@ -1460,7 +1460,7 @@ msgid "You are weird"
 msgstr "عجایبسینیز"
 
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc "
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
 msgstr ""
 
@@ -1468,7 +1468,7 @@ msgstr ""
 msgid "You can not access this canvas yet, because your pixel score is too low"
 msgstr "Bu tuvale bâliğ değilsiniz. Ekser nokta atmanız ihtiyaçtır"
 
-msgid "You can now place more on pixelplanet.fun :)"
+msgid "You can now place more on pixeldays.ru :)"
 msgstr ""
 
 #, javascript-format

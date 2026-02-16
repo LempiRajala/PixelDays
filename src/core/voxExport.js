@@ -6,7 +6,7 @@
  * As of the latest release with 0.99.5 4/5/2020 this limit is now 256x256x256,
  * however, lets keep with the old restraints for support of other software.
  * In .vox, 0,0 is the corner of the model and coordinates are unsigned int,
- * the z dimension is the height, contrarian to pixelplanet with y.
+ * the z dimension is the height, contrarian to pixeldays with y.
  *
  * Reference:
  * https://github.com/ephtracy/voxel-model/blob/master/MagicaVoxel-file-format-vox.txt

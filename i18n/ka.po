@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2024-03-12 19:57+0000\n"
-"Last-Translator: weblate <weblate@noreply.pixelplanet.fun>\n"
-"Language-Team: Georgian <https://hosted.weblate.org/projects/pixelplanet/"
+"Last-Translator: weblate <weblate@noreply.pixeldays.ru>\n"
+"Language-Team: Georgian <https://hosted.weblate.org/projects/pixeldays/"
 "client/ka/>\n"
 "Language: ka\n"
 "MIME-Version: 1.0\n"
@@ -415,7 +415,7 @@ msgstr ""
 
 #, fuzzy
 msgid ""
-"Didn't get an answer from pixelplanet. Try to refresh if this problem "
+"Didn't get an answer from pixeldays. Try to refresh if this problem "
 "persists."
 msgstr "არ მოვიდა პასუხი პიქსელპლანეტიდან, ცადე დარეფრეშება საიტის?"
 
@@ -637,8 +637,8 @@ msgstr "ისტორიული ხედი"
 msgid "Hold left ${ bindShift } for pencil (to place while moving mouse)"
 msgstr "გეჭიროთ ${ bindShift } მარცხნივ დასაყენებლად მაუსის გადაადგილებისას"
 
-msgid "How pixelplanet should look like."
-msgstr "როგორი უნდა გამოიყურებოდეს pixelplanet."
+msgid "How pixeldays should look like."
+msgstr "როგორი უნდა გამოიყურებოდეს pixeldays."
 
 msgid "I forgot my Password."
 msgstr "Დამავიწყდა ჩემი პაროლი."
@@ -1225,7 +1225,7 @@ msgstr "პატარა პიქსელების ზუმი"
 msgid "Social Settings"
 msgstr "სოციალური პარამეტრები"
 
-msgid "Source for pixelplanet on "
+msgid "Source for pixeldays on "
 msgstr ""
 
 msgid "Stacking till"
@@ -1274,7 +1274,7 @@ msgstr "თემფლეითები"
 #, javascript-format
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
-"pixelplanet account ${ accountName }"
+"pixeldays account ${ accountName }"
 msgstr ""
 
 msgid ""
@@ -1528,15 +1528,15 @@ msgid "You are weird"
 msgstr "უცნაური ხარ"
 
 msgid ""
-"You can connect to pixelplanet and use pixelplanet accounts for oauth / oidc "
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
 msgstr ""
 
 msgid "You can not access this canvas yet, because your pixel score is too low"
 msgstr "ჯერ ამ კანვასზე არ შეგიძლია შესვლა. უნდა დასვა მეტი პიქსელი"
 
-msgid "You can now place more on pixelplanet.fun :)"
-msgstr "ახლა შეგიძლიათ მეტი განათავსოთ pixelplanet.fun-ზე :)"
+msgid "You can now place more on pixeldays.ru :)"
+msgstr "ახლა შეგიძლიათ მეტი განათავსოთ pixeldays.ru-ზე :)"
 
 #, javascript-format
 msgid ""
@@ -1811,7 +1811,7 @@ msgstr "ხ"
 #~ msgid "Place pixels from overlay on right-shift, instead of history."
 #~ msgstr "დასვით პიქსელები ივერლეიდან მარჯვენა შიფტით, ისტორიის ნაცვლად."
 
-#~ msgid "Didn't get an answer from pixelplanet. Maybe try to refresh?"
+#~ msgid "Didn't get an answer from pixeldays. Maybe try to refresh?"
 #~ msgstr "არ მოვიდა პასუხი პიქსელპლანეტიდან, ცადე დარეფრეშება საიტის?"
 
 #~ msgid "Place more :)"

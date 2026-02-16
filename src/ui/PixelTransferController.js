@@ -67,7 +67,7 @@ class PixelTransferController {
       store.dispatch(pAlert(
         t`Timeout`,
         // eslint-disable-next-line max-len
-        t`Didn't get an answer from pixelplanet. Try to refresh if this problem persists.`,
+        t`Didn't get an answer from pixeldays. Try to refresh if this problem persists.`,
         'error',
       ));
     }
@@ -162,7 +162,7 @@ class PixelTransferController {
       case 16:
         errorTitle = t`Timeout`;
         // eslint-disable-next-line max-len
-        msg = t`Didn't get an answer from pixelplanet. Try to refresh if this problem persists.`;
+        msg = t`Didn't get an answer from pixeldays. Try to refresh if this problem persists.`;
         break;
       case 17:
         errorTitle = t`Just for verified Users`;

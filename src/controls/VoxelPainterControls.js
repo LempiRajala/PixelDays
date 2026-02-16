@@ -7,10 +7,6 @@
  * @author WestLangley / http://github.com/WestLangley
  * @author erich666 / http://erichaines.com
  * @author ScieCode / http://github.com/sciecode
- *
- * Changed for pixelplanet by
- *
- * @author hf / http://git.pixelplanet.fun/hf
  */
 
 /* eslint-disable no-console */
