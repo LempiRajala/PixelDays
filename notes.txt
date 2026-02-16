@@ -1,0 +1,2 @@
+настройка фаервола с учетом приколов docker
+https://rithwik.hashnode.dev/how-docker-can-be-sneaky-around-your-ufw-firewall
