@@ -311,6 +311,22 @@ function buildServer() {
   });
 }
 
+function getAllFolders(dirPath, folders = []) {
+  const items = fs.readdirSync(dirPath);
+  
+  items.forEach(item => {
+    const fullPath = path.join(dirPath, item);
+    const stat = fs.statSync(fullPath);
+    
+    if (stat.isDirectory()) {
+      folders.push(fullPath);
+      getAllFolders(fullPath, folders);
+    }
+  });
+  
+  return folders;
+}
+
 async function build() {
   const st = Date.now();
   // cleanup old files
@@ -355,7 +371,7 @@ async function build() {
     avlangs = getAllAvailableLocals();
     if (langs !== 'all') {
       avlangs = langs.split(',').map((l) => l.trim())
-      .filter((l) => avlangs.includes(l));
+        .filter((l) => avlangs.includes(l));
     } else {
       let badLangs;
       ({ goodLangs: avlangs, badLangs } = await filterLackingLocals(avlangs, 50));
@@ -381,6 +397,8 @@ async function build() {
         return;
       }
     }
+
+    console.log(getAllFolders('./dist'));
 
     await buildLanguages(avlangs, true, parallel && 5);
     await minifyJs(avlangs, parallel && 5);

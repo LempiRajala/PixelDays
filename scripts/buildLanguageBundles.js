@@ -3,7 +3,7 @@
  */
 import fs from 'fs';
 import path from 'path';
-import { parseSync, transformAsync, transformFromAstSync } from '@babel/core';
+import { parseAsync, transformFromAstAsync } from '@babel/core';
 import { spawn } from 'child_process';
 
 const assetdir = path.resolve(
@@ -14,6 +14,13 @@ const podir = path.resolve(
 );
 const assetSourceCache = new Map();
 const assetAstCache = new Map();
+
+console.log('__dirname:', import.meta.dirname);
+console.log('Asset dir exists:', fs.existsSync(assetdir));
+console.log('Public dir exists:', fs.existsSync(path.resolve(
+  import.meta.dirname, '..', 'dist', 'public',
+)));
+console.log('PO dir exists:', fs.existsSync(podir));
 
 export async function buildLanguage(lang = 'en') {
   const ttag = { resolve: {} };
@@ -29,7 +36,9 @@ export async function buildLanguage(lang = 'en') {
   } else {
     const translations = path.join(podir, lang + '.po');
     if (!fs.existsSync(translations)) {
-      throw new Error(`Language ${lang} has no translation`);
+      // throw new Error(`Language ${lang} has no translation`);
+      console.warn(`Language ${lang} has no translation`);
+      return;
     }
     ttag.resolve.translations = translations;
   }
@@ -53,17 +62,33 @@ export async function buildLanguage(lang = 'en') {
 
     let code = assetSourceCache.get(asset);
     if (!code) {
+      const assetPath = path.join(assetdir, asset);
+      if(!fs.existsSync(assetPath)) {
+        console.warn(`cant find file ${assetPath}`);
+        continue;
+      }
+
       code = 'import { t, jt, c, gettext, ngettext } from \'ttag\';\n'
-        + fs.readFileSync(path.join(assetdir, asset), 'utf8');
+        + fs.readFileSync(assetPath, 'utf8');
       assetSourceCache.set(asset, code);
     }
     let ast = assetAstCache.get(asset);
     if (!ast) {
-      ast = parseSync(code);
+      // console.log('parseSync before', lang)
+      // console.log(code.substring(code.length-100));
+      // ast = parseSync(code);
+      ast = await parseAsync(code, {
+        filename: path.join(assetdir, asset), // или просто 'file.js'
+        configFile: false, // отключаем поиск конфига
+        babelrc: false, // отключаем .babelrc
+      });
+      // console.log('parseSync after', lang)
       assetAstCache.set(asset, ast);
     }
 
-    const { code: output } =  await transformFromAstSync(ast, code, options);
+    // console.log('transformFromAstAsync before', lang)
+    const { code: output } = await transformFromAstAsync(ast, code, options);
+    // console.log('transformFromAstAsync after', lang)
     fs.writeFileSync(
       path.join(assetdir, asset.replace('.WPLANGCODE.', '.' + lang + '.')),
       output.replace('WPLANGCODE', lang),
@@ -187,7 +212,7 @@ async function doBuildLanguages() {
    * if there are any arguments, they are lang codes
    */
   if (process.argv.length > 1) {
-    let langs = process.argv.slice(2).filter((a) => !a.startsWith('-'));
+    const langs = process.argv.slice(2).filter((a) => !a.startsWith('-'));
     if (langs.length) {
       buildLanguageAssets(langs, (error, finishedLang) => {
         if (error) {

@@ -4,7 +4,7 @@
   "license": "AGPL-3.0-or-later",
   "private": true,
   "engines": {
-    "node": ">=21"
+    "node": ">=22"
   },
   "type": "module",
   "description": "Unlimited planet canvas for placing pixels",
