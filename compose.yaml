@@ -40,6 +40,7 @@ services:
       - .env
     environment:
       - MYSQL_HOST=mysql
+      - MINIO_HOST=minio
       - HOST=0.0.0.0
       - REDIS_URL=redis://redis:6379
     ports:
