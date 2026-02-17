@@ -2101,8 +2101,8 @@ msgstr ""
 
 #: src/components/windows/Help.jsx:125
 msgid ""
-"You can connect to pixeldays and use pixeldays accounts for oauth / "
-"oidc login. See here:"
+"You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
+"login. See here:"
 msgstr ""
 
 #: src/ui/PixelTransferController.js:128
@@ -2110,7 +2110,7 @@ msgid "You can not access this canvas yet, because your pixel score is too low"
 msgstr ""
 
 #: src/store/middleware/notifications.js:37
-msgid "You can now place more on pixeldays.ru :)"
+msgid "You can now place more on pixeldays.fun :)"
 msgstr ""
 
 #: src/store/actions/index.js:425

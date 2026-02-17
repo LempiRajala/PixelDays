@@ -222,9 +222,9 @@ msgstr ""
 #: src/core/MailProvider.js:109
 msgid ""
 "If this was you, please ignore this email. If it wasn't you, please go to "
-"<a href=\"https://pixeldays.ru\">pixeldays.ru</a> and log-out any "
-"session that you are unaware of under \"Login Methods\" in the User Area "
-"and change your password."
+"<a href=\"https://pixeldays.ru\">pixeldays.ru</a> and log-out any session "
+"that you are unaware of under \"Login Methods\" in the User Area and change "
+"your password."
 msgstr ""
 
 #: src/core/MailProvider.js:139
