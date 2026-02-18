@@ -8,6 +8,7 @@ timelapse
 output.webm
 utils/ocean-tiles/ocean
 utils/osm-tiles/osm
+tiles
 i18n/*.mo
 test*.js
 test*.wasm
