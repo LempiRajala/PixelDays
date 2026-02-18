@@ -1,9 +1,6 @@
-/*
- * route providing captcha
- */
 import logger from '../core/logger.js';
-import { requestCaptcha } from '../core/captchaserver.js';
-import { setCaptchaSolution, isTrusted } from '../data/redis/captcha.js';
+import { CAPTCHA_SERVICE_URL } from '../core/config.js';
+import { isTrusted } from '../data/redis/captcha.js';
 
 async function captcha(req, res) {
   req.tickRateLimiter(3000);
@@ -17,7 +14,6 @@ async function captcha(req, res) {
     res.status(403);
     res.set({ 'Content-Type': 'text/html; charset=utf-8' });
     res.send(
-      // eslint-disable-next-line max-len
       '<html><body><h1>Captchaserver: 403 Server Error</h1>Cross-Site request rejected</body></html>',
     );
     return;
@@ -26,32 +22,30 @@ async function captcha(req, res) {
   const { ipString } = req.ip;
 
   try {
-    const [trusted, [err, text, data, id]] = await Promise.all([
-      isTrusted(ipString, req.headers['user-agent']),
-      new Promise((resolve) => {
-        requestCaptcha((...args) => resolve(args));
-      }),
-    ]);
-
-    if (err) {
-      throw new Error(err);
+    const trusted = await isTrusted(ipString, req.headers['user-agent']);
+    const captchaRes = await fetch(`${CAPTCHA_SERVICE_URL}/captcha`);
+    if (!captchaRes.ok) {
+      throw new Error(`Captcha service: ${captchaRes.status}`);
     }
-    setCaptchaSolution(text, id);
-    logger.info(`CAPTCHA ${ipString} got captcha with text: ${text}`);
+    const id = captchaRes.headers.get('x-captcha-id');
+    if (!id) {
+      throw new Error('No X-Captcha-ID from captcha service');
+    }
+    const body = await captchaRes.arrayBuffer();
+    logger.info(`CAPTCHA ${ipString} got captcha id ${id}`);
 
     res.set({
-      'Content-Type': 'image/svg+xml',
+      'Content-Type': 'image/png',
       'Captcha-Id': id,
       'Challenge-Needed': trusted ? '0' : '1',
     });
-    res.end(data);
+    res.end(Buffer.from(body));
   } catch (err) {
     if (!res.writableEnded) {
       res.status(503);
       res.set({ 'Content-Type': 'text/html; charset=utf-8' });
       res.send(
-        // eslint-disable-next-line max-len
-        '<html><body><h1>Captchaserver: 503 Server Error</h1>Maybe try it later again</body></html>',
+        '<html><body><h1>Captchaserver: 503 Service Unavailable</h1>Maybe try it later again</body></html>',
       );
     }
     logger.warn(err.message);

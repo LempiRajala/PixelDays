@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"strconv"
 	"time"
 
 	//Ебани go get этих либ
@@ -19,6 +20,8 @@ func main() {
 		Addr: os.Getenv("REDIS_URL"),
 	})
 
+	var captchaTimeout, _ = strconv.Atoi(os.Getenv("CAPTCHA_TIMEOUT"))
+
 	// Шрифт в байты (нихуя тут не меняй, реадфайл единственный работает на такой формат)
 	fontData, err := os.ReadFile("fonts/Comismsh.ttf")
 	if err == nil {
@@ -27,7 +30,7 @@ func main() {
 
 	http.HandleFunc("/captcha", func(w http.ResponseWriter, r *http.Request) {
 		// Генер капча (ВАЖНО, если капча будет вылазить за рамки, поиграйся с размерами, чтобы в css заехала и фронт не ебнулся)
-		img, err := captcha.New(240, 120)
+		img, err := captcha.New(480, 240)
 		if err != nil {
 			http.Error(w, "Captcha error", 500)
 			return
@@ -36,7 +39,7 @@ func main() {
 		id := fmt.Sprintf("%d", time.Now().UnixNano())
 
 		// Сейв в редиску
-		err = rdb.Set(ctx, "capt:"+id, img.Text, 5*time.Minute).Err()
+		err = rdb.Set(ctx, "capt:"+id, img.Text, time.Duration(captchaTimeout)*time.Second).Err()
 		if err != nil {
 			http.Error(w, "Redis error", 500)
 			return
@@ -48,6 +51,6 @@ func main() {
 		img.WriteImage(w)
 	})
 
-	fmt.Println("Сервис запущен на :8080")
+	fmt.Println("Service started on :8080")
 	http.ListenAndServe(":8080", nil)
 }

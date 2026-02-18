@@ -216,21 +216,6 @@ export async function checkChallengeSolution(text, ipString, ua) {
   return true;
 }
 
-/**
- * set captcha solution
- * @param text Solution of captcha
- * @param captchaid
- */
-export async function setCaptchaSolution(text, captchaid) {
-  try {
-    await client.set(`${SOLUTION_PREFIX}:${captchaid}`, text, {
-      EX: CAPTCHA_TIMEOUT,
-    });
-  } catch (err) {
-    logger.error(`Error setting Captcha Solution: ${err.message}`);
-  }
-}
-
 /*
  * check captcha solution
  *

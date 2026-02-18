@@ -25,8 +25,14 @@ async function getUrlAndId() {
     if (resp.ok) {
       const captchaid = resp.headers.get('captcha-id');
       const challengeNeeded = resp.headers.get('challenge-needed') === '1';
+      const contentType = resp.headers.get('content-type') || '';
+      if (contentType.includes('image/png')) {
+        const blob = await resp.blob();
+        const imageUrl = URL.createObjectURL(blob);
+        return [null, imageUrl, captchaid, challengeNeeded];
+      }
       const svg = await resp.text();
-      return [svg, captchaid, challengeNeeded];
+      return [svg, null, captchaid, challengeNeeded];
     }
   } catch {
     // nothing
@@ -66,7 +72,10 @@ const Captcha = ({
       setErrors([t`Could not load captcha`]);
       return;
     }
-    const [svg, captchaid, challengeNeeded] = captchaResponse;
+    const [svg, imageUrl, captchaid, challengeNeeded] = captchaResponse;
+    if (captchaData.imageUrl) {
+      URL.revokeObjectURL(captchaData.imageUrl);
+    }
 
     /*
      * solve JS Challenge in Worker on first load
@@ -82,14 +91,14 @@ const Captcha = ({
       setChallengeSolution('');
     }
 
-    setCaptchaData({ svg, id: captchaid });
+    setCaptchaData({ svg, imageUrl, id: captchaid });
     setErrors([]);
   }, [challengeSolution, loading]);
 
   useEffect(() => {
-    /*
-     * prepare svg for animated elements
-     */
+    if (captchaData.imageUrl) {
+      return () => URL.revokeObjectURL(captchaData.imageUrl);
+    }
     if (captchaData.svg) {
       const svgElement = svgContainerRef.current.firstChild;
       svgElement.style.width = '100%';
@@ -122,12 +131,12 @@ const Captcha = ({
         }
       });
       if (Object.keys(transforms).length > 0) {
-        setCaptchaData({ ...captchaData, transforms });
+        setCaptchaData((prev) => ({ ...prev, transforms }));
         setAnimationRunning(true);
       }
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [captchaData.svg]);
+  }, [captchaData.svg, captchaData.imageUrl]);
 
   const stopAnimation = useCallback(() => {
     if (!animationRunning) {
@@ -198,22 +207,37 @@ const Captcha = ({
           backgroundColor: '#e0e0e0',
         }}
       >
-        {(captchaData.svg) ? (
-          <div
+        {(captchaData.imageUrl) ? (
+          <img
+            src={captchaData.imageUrl}
+            alt="CAPTCHA"
+            title="CAPTCHA"
             style={{
               position: 'absolute',
               width: '100%',
-              heigth: '100%',
-              top: '0',
-              left: '0',
+              height: '100%',
+              top: 0,
+              left: 0,
+              objectFit: 'contain',
             }}
-            /* eslint-disable-next-line react/no-danger */
-            dangerouslySetInnerHTML={{ __html: captchaData.svg }}
-            title="CAPTCHA"
-            ref={svgContainerRef}
-            key="svgc"
           />
         )
+          : (captchaData.svg) ? (
+            <div
+              style={{
+                position: 'absolute',
+                width: '100%',
+                heigth: '100%',
+                top: '0',
+                left: '0',
+              }}
+              /* eslint-disable-next-line react/no-danger */
+              dangerouslySetInnerHTML={{ __html: captchaData.svg }}
+              title="CAPTCHA"
+              ref={svgContainerRef}
+              key="svgc"
+            />
+          )
           : (
             <span
               style={{

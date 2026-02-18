@@ -19,6 +19,7 @@
 
 
 ```text
+├── captcha-lab/         # Captcha generation service
 ├── deployment/          # Infrastructure & CI/CD (Nginx, PM2, Deploy scripts)
 ├── doc/                 # Technical documentation (API, Deployment, Migration)
 ├── i18n/                # Internationalization (10+ languages support)
@@ -50,7 +51,7 @@ git clone [https://github.com/LempiRajala/PixelDays.git](https://github.com/Lemp
 cd PixelDays
 ```
 ```
-docker-compose up redis minio mysql -d --build
+docker-compose up redis minio mysql captcha -d --build
 ```
 ```
 bun drizzle-kit push

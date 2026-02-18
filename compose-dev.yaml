@@ -32,6 +32,18 @@ services:
     volumes:
       - minio_data:/data
 
+  captcha:
+    build:
+      context: ./captcha-lab
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+    environment:
+      - REDIS_URL=redis:6379
+      - CAPTCHA_TIMEOUT=${CAPTCHA_TIMEOUT}
+
 volumes:
   redis_data:
   mysql_data:
