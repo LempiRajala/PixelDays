@@ -1,0 +1,12 @@
+version: '3.8'
+services:
+  captcha-app:
+    build: .
+    ports:
+      - "8080:8080"
+    depends_on:
+      - redis
+    environment:
+      - REDIS_URL=redis:6379 # Редис - имя хоста
+  redis:
+    image: redis:alpine
