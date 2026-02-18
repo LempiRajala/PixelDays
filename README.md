@@ -1,4 +1,4 @@
-# 🌍 PixelDays | Global Real-Time Pixel Battle Engine 
+# 🌍 PixelDays | Global Real-Time PixelBattle
 
 **PixelDays** is a high-load, real-time interactive canvas platform designed for massive global collaboration. This project is a comprehensive modernization of a classic pixel-battle engine, optimized for performance, scalability, and modern web standards.
 
