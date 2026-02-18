@@ -3,6 +3,7 @@
  */
 
 import React, { useState, useEffect, useCallback } from 'react';
+import { useSelector } from 'react-redux';
 import { t } from 'ttag';
 
 import DeleteList from './DeleteList.jsx';
@@ -96,6 +97,16 @@ async function getGameState(
   }
 }
 
+async function updateCanvasChunksPreviews(canvasId) {
+  const resp = await fetch(api`/api/modtools/update-chunks-previews/${canvasId}`, {
+    credentials: 'include',
+    method: 'POST',
+  });
+  if (!resp.ok) {
+    throw new Error(await resp.text());
+  }
+}
+
 function Admintools() {
   const [textAction, selectTextAction] = useState('iidtoip');
   const [modName, selectModName] = useState('');
@@ -105,6 +116,8 @@ function Admintools() {
   const [modlist, setModList] = useState({});
   const [gameState, setGameState] = useState([]);
   const [submitting, setSubmitting] = useState(false);
+  const [chunksPreviewCanvasId, setChunksPreviewCanvasId] = useState('0');
+  const canvases = useSelector((state) => state.canvas.canvases) ?? {};
 
   useEffect(() => {
     getModList((mods) => setModList(mods));
@@ -298,6 +311,38 @@ function Admintools() {
             {(submitting) ? '...' : t`Start checking for Malware`}
           </button>
         )}
+        <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '8px' }}>
+          <button
+            key="generate-chunks-previews"
+            type="button"
+            disabled={submitting || !chunksPreviewCanvasId}
+            onClick={async () => {
+              if (submitting) return;
+              setSubmitting(true);
+              setResp(null);
+              try {
+                await updateCanvasChunksPreviews(chunksPreviewCanvasId);
+                setResp(t`Chunk previews update started for canvas ${chunksPreviewCanvasId}.`);
+              } catch (err) {
+                setResp(err.message ?? String(err));
+              } finally {
+                setSubmitting(false);
+              }
+            }}
+          >
+            {submitting ? '...' : t`Update chunk previews`}
+          </button>
+          <select
+            value={chunksPreviewCanvasId}
+            onChange={(e) => setChunksPreviewCanvasId(e.target.value)}
+          >
+            {Object.keys(canvases).filter((c) => !canvases[c].v).map((id) => (
+              <option key={id} value={id}>
+                {canvases[id].title ?? id}
+              </option>
+            ))}
+          </select>
+        </div>
         <br />
         <div className="modaldivider" />
 

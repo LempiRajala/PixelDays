@@ -104,7 +104,7 @@ syncSql()
   .then(async () => {
     User.setMailProvider(mailProvider);
     chatProvider.initialize();
-    startAllCanvasLoops();
+    await startAllCanvasLoops();
     loadCaptchaFontsFromRedis();
     usersocket.initialize();
     apisocket.initialize();

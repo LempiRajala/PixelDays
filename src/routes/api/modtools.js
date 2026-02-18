@@ -28,6 +28,7 @@ import {
 import { getState } from '../../core/SharedState.js';
 import { getHighUserLvlUsers, findUserById } from '../../data/sql/User.js';
 import { USERLVL } from '../../data/sql/index.js';
+import { CanvasUpdaters } from '../../core/tileserver.js';
 
 
 const router = express.Router();
@@ -362,6 +363,30 @@ router.post('/', async (req, res, next) => {
     next();
   } catch (err) {
     next(err);
+  }
+});
+
+// all chunks preview update
+router.post('/update-chunks-previews/:id', async (req, res, next) => {
+  try {
+    const canvasId = req.params.id;
+    const updater = CanvasUpdaters[canvasId];
+    if(!updater) {
+      res.status(400).send(`unknown canvas id ${canvasId}`);
+      return;
+    }
+  
+    updater.generateAllPreviews(20, 500)
+      .then(() => console.log(`[api] /update-previews previews for canvas ${canvasId} generated`))
+      .catch(e => {
+        console.error(`[api] /update-previews error while generate for canvas ${canvasId}`);
+        console.error(e);
+      });
+  
+    res.status(200).send();
+    return;
+  } catch(e) {
+    next(e);
   }
 });
 

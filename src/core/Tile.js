@@ -277,7 +277,10 @@ export async function createZoomTileFromChunk(
   const maxTiledZoom = getMaxTiledZoom(canvasSize);
 
   const filename = tileFileName(canvasTileFolder, [maxTiledZoom - 1, x, y]);
-  if (!filename) return true;
+  if (!filename) {
+    console.log(`[createZoomTileFromChunk] filename is null. args: ${Array.from(arguments)}`);
+    return true;
+  }
 
   const tileRGBBuffer = new Uint8Array(
     TILE_SIZE * TILE_SIZE * TILE_ZOOM_LEVEL * TILE_ZOOM_LEVEL * 3,
@@ -297,6 +300,7 @@ export async function createZoomTileFromChunk(
       );
       if (!chunk || !chunk.length) {
         na.push([dx, dy]);
+        console.log(`[createZoomTileFromChunk] chunk not found ${xabs + dx} ${yabs + dy}. args: ${Array.from(arguments)}`);
         return;
       }
       addIndexedSubtiletoTile(
@@ -386,7 +390,10 @@ export async function createZoomedTile(
   const [z, x, y] = cell;
 
   const filename = tileFileName(canvasTileFolder, [z, x, y]);
-  if (!filename) return true;
+  if (!filename) {
+    console.log(`[createZoomedTile] filename is null. args: ${Array.from(arguments)}`);
+    return true;
+  }
 
   const startTime = Date.now();
   const na = [];
@@ -397,6 +404,7 @@ export async function createZoomedTile(
     try {
       if (!fs.existsSync(chunkfile)) {
         na.push([dx, dy]);
+        console.log(`[createZoomedTile] chunk not found ${chunkfile}. args: ${Array.from(arguments)}`);
         return;
       }
       const chunk = await sharp(chunkfile).removeAlpha().raw().toBuffer();
@@ -434,21 +442,21 @@ export async function createZoomedTile(
       );
     });
 
+    const processedTile = sharp(tileRGBBuffer, {
+      raw: {
+        width: TILE_SIZE,
+        height: TILE_SIZE,
+        channels: 3,
+      },
+    }).webp({ quality: 100, smartSubsample: true });
+
     try {
-      await sharp(tileRGBBuffer, {
-        raw: {
-          width: TILE_SIZE,
-          height: TILE_SIZE,
-          channels: 3,
-        },
-      })
-        .webp({ quality: 100, smartSubsample: true })
-        .toFile(filename);
+      await processedTile.toFile(filename);
     } catch (error) {
-      console.error(
-        `Tiling: Error on createZoomedTile: ${error.message}`,
-      );
-      return false;
+      console.warn(`Tiling: Error on createZoomedTile: ${error.message}\nRetrying...`);
+      await asyncMkdir(path.dirname(filename), { recursive: true });
+      await processedTile.toFile(filename);
+      // return false;
     }
     console.log(
       // eslint-disable-next-line max-len

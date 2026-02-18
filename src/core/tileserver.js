@@ -72,52 +72,62 @@ class CanvasUpdater {
    */
   async updateZoomlevelTiles(zoom) {
     const queue = this.TileLoadingQueues[zoom];
-    if (typeof queue === 'undefined') return;
+    if (typeof queue === 'undefined') {
+      console.log('[updateZoomlevelTiles] queue is undefined');
+      return;
+    }
 
     const tile = queue.shift();
-    if (typeof tile !== 'undefined') {
-      const width = TILE_ZOOM_LEVEL ** zoom;
-      const cx = mod(tile, width);
-      const cy = Math.floor(tile / width);
+    if (typeof tile === 'undefined') {
+      // console.log('[updateZoomlevelTiles] queue is empty');
+      return;
+    }
 
-      if (zoom === this.maxTiledZoom - 1) {
-        enqueueTask({
-          task: 'createZoomTileFromChunk',
-          args: [
-            this.id,
-            this.canvas,
-            this.canvasTileFolder,
-            [cx, cy],
-          ],
-        });
-      } else if (zoom !== this.maxTiledZoom) {
-        enqueueTask({
-          task: 'createZoomedTile',
-          args: [
-            this.canvas,
-            this.canvasTileFolder,
-            [zoom, cx, cy],
-          ],
-        });
+    const width = TILE_ZOOM_LEVEL ** zoom;
+    const cx = mod(tile, width);
+    const cy = Math.floor(tile / width);
+
+    if (zoom === this.maxTiledZoom - 1) {
+      enqueueTask({
+        task: 'createZoomTileFromChunk',
+        args: [
+          this.id,
+          this.canvas,
+          this.canvasTileFolder,
+          [cx, cy],
+        ],
+      });
+    } else if (zoom !== this.maxTiledZoom) {
+      enqueueTask({
+        task: 'createZoomedTile',
+        args: [
+          this.canvas,
+          this.canvasTileFolder,
+          [zoom, cx, cy],
+        ],
+      });
+    }
+
+    if (zoom === 0) {
+      enqueueTask({
+        task: 'createTexture',
+        args: [
+          this.id,
+          this.canvas,
+          this.canvasTileFolder,
+        ],
+      });
+    } else {
+      const [ucx, ucy] = [cx, cy].map((z) => Math.floor(z / TILE_ZOOM_LEVEL));
+      const upperTile = ucx + ucy * (TILE_ZOOM_LEVEL ** (zoom - 1));
+      const upperQueue = this.TileLoadingQueues[zoom - 1];
+      if (upperQueue.indexOf(upperTile) !== -1) {
+        console.log(`[updateZoomlevelTiles] upperTile (${upperTile}) found in upperQueue`);
+        return;
       }
 
-      if (zoom === 0) {
-        enqueueTask({
-          task: 'createTexture',
-          args: [
-            this.id,
-            this.canvas,
-            this.canvasTileFolder,
-          ],
-        });
-      } else {
-        const [ucx, ucy] = [cx, cy].map((z) => Math.floor(z / TILE_ZOOM_LEVEL));
-        const upperTile = ucx + ucy * (TILE_ZOOM_LEVEL ** (zoom - 1));
-        const upperQueue = this.TileLoadingQueues[zoom - 1];
-        if (~upperQueue.indexOf(upperTile)) return;
-        upperQueue.push(upperTile);
-        logger.info(`Tiling: Enqueued ${zoom - 1}, ${ucx}, ${ucy} for reload`);
-      }
+      upperQueue.push(upperTile);
+      logger.info(`Tiling: Enqueued ${zoom - 1}, ${ucx}, ${ucy} for reload`);
     }
   }
 
@@ -140,10 +150,111 @@ class CanvasUpdater {
     */
   }
 
+  async generateAllPreviews(batchSize = 10, delayBetweenBatches = 1000) {
+    logger.info(`Tiling: Starting preview generation for canvas ${this.id}`);
+    const targetSize = Math.min(this.canvas.size, 4096);
+    const textureZoom = getMaxTiledZoom(targetSize);
+
+    if (this.maxTiledZoom === 0) {
+      enqueueTask({
+        task: 'createTexture',
+        args: [
+          this.id,
+          this.canvas,
+          this.canvasTileFolder,
+        ],
+      });
+      return;
+    }
+
+    for (let zoom = this.maxTiledZoom - 1; zoom >= 0; zoom -= 1) {
+      const maxTiles = TILE_ZOOM_LEVEL ** zoom;
+      const tiles = [];
+      
+      for (let cx = 0; cx < maxTiles; cx += 1) {
+        for (let cy = 0; cy < maxTiles; cy += 1) {
+          tiles.push([cx, cy]);
+        }
+      }
+
+      for (let i = 0; i < tiles.length; i += batchSize) {
+        const batch = tiles.slice(i, i + batchSize);
+        
+        for (const [cx, cy] of batch) {
+          if (zoom === this.maxTiledZoom - 1) {
+            enqueueTask({
+              task: 'createZoomTileFromChunk',
+              args: [
+                this.id,
+                this.canvas,
+                this.canvasTileFolder,
+                [cx, cy],
+              ],
+            });
+          } else {
+            enqueueTask({
+              task: 'createZoomedTile',
+              args: [
+                this.canvas,
+                this.canvasTileFolder,
+                [zoom, cx, cy],
+              ],
+            });
+          }
+        }
+
+        if (i + batchSize < tiles.length) {
+          await new Promise((resolve) => setTimeout(resolve, delayBetweenBatches));
+        }
+      }
+
+      logger.info(`Tiling: Generated for zoom ${zoom}`);
+    }
+
+    if (textureZoom >= this.maxTiledZoom) {
+      const zoom = this.maxTiledZoom;
+      const maxTiles = TILE_ZOOM_LEVEL ** zoom;
+      const tiles = [];
+      for (let cx = 0; cx < maxTiles; cx += 1) {
+        for (let cy = 0; cy < maxTiles; cy += 1) {
+          tiles.push([cx, cy]);
+        }
+      }
+      for (let i = 0; i < tiles.length; i += batchSize) {
+        const batch = tiles.slice(i, i + batchSize);
+        for (const [cx, cy] of batch) {
+          enqueueTask({
+            task: 'createZoomedTile',
+            args: [
+              this.canvas,
+              this.canvasTileFolder,
+              [zoom, cx, cy],
+            ],
+          });
+        }
+        if (i + batchSize < tiles.length) {
+          await new Promise((resolve) => setTimeout(resolve, delayBetweenBatches));
+        }
+      }
+      logger.info(`Tiling: Generated texture zoom level ${zoom}`);
+    }
+
+    enqueueTask({
+      task: 'createTexture',
+      args: [
+        this.id,
+        this.canvas,
+        this.canvasTileFolder,
+      ],
+    });
+
+    logger.info(`Tiling: Finished preview generation for canvas ${this.id}`);
+  }
+
   /*
    * initialize queues and start loops for updating tiles
    */
-  initialize() {
+  async initialize() {
     logger.info(`Tiling: Using folder ${this.canvasTileFolder}`);
     if (!fs.existsSync(path.resolve(this.canvasTileFolder, '0'))) {
       if (!fs.existsSync(this.canvasTileFolder)) {
@@ -170,6 +281,7 @@ class CanvasUpdater {
       logger.info(
         `Tiling: Set interval for zoomlevel ${c} update to ${timeout / 1000}`,
       );
+
       setTimeout(() => {
         setInterval(this.updateZoomlevelTiles, timeout, c);
       }, Math.floor(Math.random() * timeout));
@@ -178,9 +290,8 @@ class CanvasUpdater {
       // in the case of canvasSize == 256
       this.TileLoadingQueues.push([]);
       const timeout = 5 * 60 * 1000;
-      setTimeout(() => {
-        setInterval(this.updateZoomlevelTiles, timeout, 0);
-      }, Math.floor(Math.random() * timeout));
+
+      setInterval(this.updateZoomlevelTiles, timeout, 0);
     }
   }
 }
@@ -194,7 +305,7 @@ socketEvents.on('chunkUpdate', (canvasId, chunk) => {
 /*
  * starting update loops for canvases
  */
-export default function startAllCanvasLoops() {
+export default async function startAllCanvasLoops() {
   if (!fs.existsSync(TILE_FOLDER)) fs.mkdirSync(TILE_FOLDER);
   const ids = Object.keys(canvases);
   for (let i = 0; i < ids.length; i += 1) {
@@ -203,8 +314,10 @@ export default function startAllCanvasLoops() {
     if (!canvas.v) {
       // just 2D canvases
       const updater = new CanvasUpdater(id);
-      updater.initialize();
+      await updater.initialize();
       CanvasUpdaters[id] = updater;
     }
   }
 }
+
+export { CanvasUpdaters }
