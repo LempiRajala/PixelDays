@@ -50,7 +50,13 @@ git clone [https://github.com/LempiRajala/PixelDays.git](https://github.com/Lemp
 cd PixelDays
 ```
 ```
-docker-compose up -d --build
+docker-compose up redis minio mysql -d --build
+```
+```
+bun drizzle-kit push
+```
+```
+docker-compose up app -d --build
 ```
 ---
 
@@ -60,7 +66,7 @@ Requirements: Node.js v20+, Redis 6.2+, MariaDB/MySQL.
 
 1. **Install:** ```npm install```
 
-2. **Configure:** Set your credentials in ```config.ini``` or via environment variables.
+2. **Configure:** Set your credentials in ```.env```.
 
 3. **Build & Run:**
    
