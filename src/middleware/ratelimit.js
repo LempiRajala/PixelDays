@@ -5,10 +5,10 @@
 import { spawn } from 'child_process';
 
 import MassRateLimiter from '../utils/MassRateLimiter.js';
-import { HOUR } from '../core/constants.ts';
+import { MINUTE } from '../core/constants.ts';
 import { RATE_LIMIT_CMD } from '../core/config.js';
 
-const rateLimiter = new MassRateLimiter(HOUR);
+const rateLimiter = new MassRateLimiter(MINUTE);
 
 function onTrigger(ipString) {
   console.warn(`User ${ipString} triggered Request RateLimit.`);
