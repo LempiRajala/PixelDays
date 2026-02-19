@@ -1,10 +1,11 @@
 /*
  * get information of fish
  */
+import type { Handler } from 'express';
 import { getFishById } from '../../data/sql/Fish.js';
 import { resolveSessionUidOfRequest } from '../../middleware/session.js';
 
-export default async function fish(req, res) {
+const fish: Handler = async (req, res) => {
   req.tickRateLimiter(1000);
 
   res.set({
@@ -29,3 +30,5 @@ export default async function fish(req, res) {
   delete fishData.isPrivate;
   res.status(200).json(fishData);
 }
+
+export default fish;

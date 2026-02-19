@@ -19,7 +19,7 @@ import getiid from './getiid.js';
 import shards from './shards.js';
 import profile from './profile.js';
 import canvases from './canvases.js';
-import fish from './fish.js';
+import fish from './fish.ts';
 import badge from './badge.js';
 import banme from './banme.js';
 import updateAvatar from './update-avatar.ts';

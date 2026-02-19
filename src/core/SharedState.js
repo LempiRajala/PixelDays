@@ -9,6 +9,7 @@ import path from 'path';
 import socketEvents from '../socket/socketEvents.js';
 import { shallowCombineObjects } from './utils.js';
 
+/** @type any */
 let state = {};
 
 function loadStateFromFile() {

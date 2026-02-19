@@ -2,9 +2,10 @@
  * send global ranking
  */
 
+import type { Handler } from 'express';
 import rankings from '../core/Ranks.js';
 
-export default (req, res) => {
+const route: Handler = (req, res) => {
   req.tickRateLimiter(1000);
 
   res.set({
@@ -12,3 +13,5 @@ export default (req, res) => {
   });
   res.json(rankings.ranks);
 };
+
+export default route;

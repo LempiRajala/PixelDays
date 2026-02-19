@@ -7,7 +7,7 @@ import compression from 'compression';
 import express from 'express';
 import http from 'http';
 
-import forceGC from './core/forceGC.js';
+import forceGC from './core/forceGC.ts';
 import logger from './core/logger.js';
 import rankings from './core/Ranks.js';
 import { sync as syncSql } from './data/sql/sequelize.js';

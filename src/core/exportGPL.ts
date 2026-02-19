@@ -2,13 +2,15 @@
  * export palette in gimp format
  */
 
-function appendNumberText(number) {
-  let appendStr = `${number} `;
-  if (number < 10) appendStr += '  ';
-  else if (number < 100) appendStr += ' ';
+import type { Vec3 } from "../types";
+
+function appendNumberText(value: number) {
+  let appendStr = `${value} `;
+  if (value < 10) appendStr += '  ';
+  else if (value < 100) appendStr += ' ';
   return appendStr;
 }
-function appendHexColorText(clr) {
+function appendHexColorText(clr: Vec3<number>) {
   let appendStr = ' #';
   clr.forEach((z) => {
     if (z < 16) appendStr += '0';
@@ -18,7 +20,7 @@ function appendHexColorText(clr) {
 }
 
 
-function printGIMPPalette(title, description, colors) {
+function printGIMPPalette(title: string, description: string, colors: Vec3<number>[]) {
   let text = `GIMP Palette
 #Palette Name: Pixelplanet${title}
 #Description: ${description}

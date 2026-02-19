@@ -15,7 +15,7 @@ import {
   addGrid,
 } from '../utils/imageFilters.js';
 import { fileToCanvas } from '../utils/imageFiles.js';
-import printGIMPPalette from '../core/exportGPL.js';
+import printGIMPPalette from '../core/exportGPL.ts';
 import { copyCanvasToClipboard } from '../utils/clipboard.js';
 
 

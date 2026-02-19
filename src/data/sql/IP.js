@@ -35,16 +35,17 @@ const IP = sequelize.define('IP', {
 
 /**
  * Get basic values to check if an ip is allows, may throw Error
- * @param ipString ip as string
- * @return {
+ * @param {string} ipString
+ * @return {{
  *   lastSeen,
  *   isWhitelisted,
  *   isProxy,
  *   bans: [ { expires, flags } ],
- *   country: two letter country code,
- *   whoisExpiresTs: timestamp for when whois expires,
- *   proxyCheckExpiresTs: timestamp for when proxycheck expires,
- * }
+ *   country: string,
+ *   whoisExpiresTs: number,
+ *   proxyCheckExpiresTs: number,
+ * }}
+ * @description country - two letter country code, whoisExpiresTs - timestamp for when whois expires, proxyCheckExpiresTs - timestamp for when proxycheck expires
  */
 export async function getIPAllowance(ipString) {
   let ipAllowance;

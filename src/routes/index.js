@@ -4,8 +4,8 @@
 import express from 'express';
 import path from 'path';
 
-import ranking from './ranking.js';
-import voidl from './void.js';
+import ranking from './ranking.ts';
+import voidl from './void.ts';
 import history from './history.js';
 import tiles from './tiles.js';
 import chunks from './chunks.js';
@@ -215,7 +215,7 @@ router.get('/', (req, res) => {
   const { html, csp, etag: mainEtag } = generateMainPage(req);
 
   res.set({
-    'Cache-Control': 'private, no-cache', // seconds
+    'Cache-Control': 'no-cache', // seconds
     'Content-Security-Policy': csp,
     ETag: mainEtag,
   });

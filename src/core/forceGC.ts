@@ -1,7 +1,7 @@
 /**
  * https://blog.jayway.com/2015/04/13/600k-concurrent-websocket-connections-on-aws-using-node-js/
  */
-function forceGC() {
+export default function forceGC() {
   if (global.gc) {
     const startTime = Date.now();
     global.gc();
@@ -9,5 +9,3 @@ function forceGC() {
     console.log(`GC took ${Date.now() - startTime}`);
   }
 }
-
-export default forceGC;

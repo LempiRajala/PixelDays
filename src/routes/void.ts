@@ -2,9 +2,10 @@
  * send information about next void
  */
 
+import type { Handler } from 'express';
 import { getState } from '../core/SharedState.js';
 
-export default (req, res) => {
+const route: Handler = (req, res) => {
   req.tickRateLimiter(1000);
 
   res.set({
@@ -20,3 +21,5 @@ export default (req, res) => {
     res.send('No void');
   }
 };
+
+export default route;
