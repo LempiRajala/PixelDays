@@ -16,7 +16,7 @@ router.use(requireOidc('reports', true));
 router.post('/', express.json(), async (req, res) => {
   // @ts-expect-error
   const userId = req.user?.id;
-  if(userId === undefined) {
+  if (userId === undefined) {
     return res.status(401).send();
   }
 
@@ -24,14 +24,14 @@ router.post('/', express.json(), async (req, res) => {
     userId,
     timePeriod: DAY,
   });
-  if(reportsInLastDay >= maxReportsPerDay) {
+  if (reportsInLastDay >= maxReportsPerDay) {
     // @ts-expect-error
     const { t } = req.ttag;
     return res.status(429).send(t`You can only send ${maxReportsPerDay} reports per day.`);
   }
 
   const { data, error } = await createReportSchema.safeParseAsync(req.body);
-  if(error) {
+  if (error) {
     return res.status(400).send(error);
   }
 
@@ -58,9 +58,6 @@ router.use(async (req, res, next) => {
 
   // @ts-expect-error
   if (!req.user) {
-    // logger.warn(
-    //   `MODTOOLS> ${req.ip.ipString} tried to access modtools without login`,
-    // );
     // @ts-expect-error
     const { t } = req.ttag;
     next(new Error(t`You are not logged in`));
@@ -69,9 +66,6 @@ router.use(async (req, res, next) => {
   // @ts-expect-error
   const { userlvl } = req.user;
   if (!userlvl || userlvl < USERLVL.JANNY) {
-    // logger.warn(
-    //   `MODTOOLS: ${req.ip.ipString} / ${req.user.id} tried to access modtools`,
-    // );
     // @ts-expect-error
     const { t } = req.ttag;
     next(new Error(t`You are not allowed to access this page`));
@@ -88,7 +82,7 @@ router.use(async (req, res, next) => {
 
 router.get('/search', async (req, res) => {
   const { data, error } = await searchReportsQuerySchema.safeParseAsync(req.query);
-  if(error) {
+  if (error) {
     return res.status(400).send(error);
   }
 
@@ -102,7 +96,7 @@ router.get('/search', async (req, res) => {
 
 router.get('/count', async (req, res) => {
   const { data, error } = await baseReportSearchQuery.safeParseAsync(req.query);
-  if(error) {
+  if (error) {
     return res.status(400).send(error);
   }
 
@@ -117,7 +111,7 @@ router.get('/count', async (req, res) => {
 router.get('/:id', async (req, res) => {
   const reportId = req.params.id;
   const report = await getReport(reportId);
-  if(!report) {
+  if (!report) {
     return res.status(404).send();
   }
 
@@ -126,9 +120,21 @@ router.get('/:id', async (req, res) => {
 
 router.post('/:id', express.json(), async (req, res) => {
   const reportId = req.params.id;
+
+  const report = await getReport(reportId);
+  if (!report) {
+    return res.status(404).send();
+  }
+
+  // @ts-expect-error
+  if(report.category === 'moder-or-admin-abuse' && req.user.userlvl < USERLVL.ADMIN) {
+    // @ts-expect-error
+    const { t } = req.ttag;
+    return res.status(403).send(t`You cannot edit report on moder abuse`);
+  }
   
   const { data, error } = await updateReportSchema.safeParseAsync(req.body);
-  if(error) {
+  if (error) {
     return res.status(400).send(error);
   }
 
@@ -164,7 +170,6 @@ router.use(async (req, res, next) => {
   }
   next();
 });
-
 
 router.use(async (req, res, next) => {
   next(new Error('Invalid request'));
