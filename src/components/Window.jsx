@@ -50,6 +50,7 @@ const Window = ({ id }) => {
   const selectWindowById = useMemo(() => makeSelectWindowById(id), []);
   const selectWindowPosById = useMemo(() => makeSelectWindowPosById(id), []);
   const selectWindowArgs = useMemo(() => makeSelectWindowArgs(id), []);
+  const qwerty = useSelector(state => state.windows);
   const win = useSelector(selectWindowById);
   const position = useSelector(selectWindowPosById);
   const showWindows = useSelector(selectShowWindows);

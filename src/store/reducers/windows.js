@@ -136,7 +136,7 @@ function sortWindows(newState, force = false) {
         z: orderedZ.indexOf(positions[id].z),
       };
     }
-    newState.zMax = orderedZ.length - 1;
+    newState.zMax = orderedZ.length;
     newState.positions = positions;
   }
   return newState;

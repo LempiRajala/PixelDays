@@ -1,9 +1,10 @@
-import React, { Fragment, memo, useId } from "react"
+import React, { type CSSProperties, Fragment, memo, useId, useMemo, useRef } from "react"
 import { getFileUrl } from "../core/client-utils";
 import { avatarSizeAfterUploading } from "../core/constants";
 import { numberToString } from '../core/utils.js';
 import type { UnmarshalledUser } from "../db/schema";
 import { t } from "ttag";
+import { useElementWidth } from "./hooks/useElementWidth.ts";
 
 interface Props extends
   Pick<UnmarshalledUser, 'avatarId' | 'bannerId' | 'username'>,
@@ -26,14 +27,34 @@ export const UserProfileInfo = memo<Props>(({
   createdAt,
   lastSeen,
 }) => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const containerWidth = useElementWidth(containerRef);
+
+  const containerStyle = useMemo(() => {
+    const renderInCompactWay = containerWidth ? containerWidth <= 600 : false;
+
+    const style: CSSProperties = {
+      display: 'grid',
+      position: 'relative',
+    }
+
+    if(avatarId) {
+      if(renderInCompactWay) {
+        style.gridTemplateRows = '1fr 1fr';
+      } else {
+        style.gridTemplateColumns = '1fr 1fr';
+      }
+    } else {
+      style.gridTemplateColumns = '1fr';
+    }
+  
+    return style;
+  }, [avatarId, containerWidth]);
+
   const hasBanner = bannerId !== null;
 
   return (
-    <div style={{
-      display: 'grid',
-      position: 'relative',
-      gridTemplateColumns: avatarId ? '1fr 1fr' : '1fr',
-    }}>
+    <div ref={containerRef} style={containerStyle}>
       { bannerId !== null &&
         <div style={{
           width: 'calc(100% + 16px)',
@@ -62,8 +83,9 @@ export const UserProfileInfo = memo<Props>(({
           src={getFileUrl(avatarId)}
           alt="avatar"
           style={{
+            aspectRatio: '1/1',
             width: `${avatarSizeAfterUploading}px`,
-            height: `${avatarSizeAfterUploading}px`,
+            maxWidth: '100%',
             borderRadius: '9999px',
             boxShadow: '0 0 5px black',
             border: '1px solid black',
