@@ -77,7 +77,7 @@ const ReportForm = () => {
       gap: '8px',
     }}>
       <Field>
-        <span>{t`Topic`}<RedStar/>: </span>
+        <span>{t`Topic`}<RedStar/> </span>
         <input
           value={fields.title}
           onChange={e => setFields(prev => ({ ...prev, title: e.target.value }))}
@@ -88,7 +88,7 @@ const ReportForm = () => {
       </Field>
 
       <Field>
-        <span>{t`Category`}<RedStar/>: </span>
+        <span>{t`Category`}<RedStar/> </span>
         <ReportCategorySelect
           allowUnset={false}
           value={fields.category}
@@ -97,7 +97,7 @@ const ReportForm = () => {
       </Field>
 
       <Field>
-        <span>{t`Telegram`}: </span>
+        <span>{t`Telegram`} </span>
         <input
           value={fields.telegram || ''}
           onChange={e => setFields(prev => ({ ...prev, telegram: e.target.value}))}
@@ -107,7 +107,7 @@ const ReportForm = () => {
       </Field>
 
       <Field>
-        <span>{t`Discord`}: </span>
+        <span>{t`Discord`} </span>
         <input
           value={fields.discord || ''}
           onChange={e => setFields(prev => ({ ...prev, discord: e.target.value}))}
