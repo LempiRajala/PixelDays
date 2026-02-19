@@ -65,16 +65,19 @@ class PixelPainterControls {
     this.onTouchEnd = this.onTouchEnd.bind(this);
     this.onTouchMove = this.onTouchMove.bind(this);
 
-    viewport.addEventListener('auxclick', this.onAuxClick, false);
-    viewport.addEventListener('mousedown', this.onMouseDown, false);
-    viewport.addEventListener('mousemove', this.onMouseMove, false);
-    viewport.addEventListener('mouseup', this.onMouseUp, false);
-    viewport.addEventListener('wheel', this.onWheel, false);
-    viewport.addEventListener('touchstart', this.onTouchStart, false);
-    viewport.addEventListener('touchend', this.onTouchEnd, false);
-    viewport.addEventListener('touchmove', this.onTouchMove, false);
-    viewport.addEventListener('mouseout', this.onMouseOut, false);
-    viewport.addEventListener('touchcancel', this.onMouseOut, false);
+    const allowOnlyNativeEvents = cb => e => {
+      if(e.isTrusted) cb(e);
+    }
+    viewport.addEventListener('auxclick', allowOnlyNativeEvents(this.onAuxClick), false);
+    viewport.addEventListener('mousedown', allowOnlyNativeEvents(this.onMouseDown), false);
+    viewport.addEventListener('mousemove', allowOnlyNativeEvents(this.onMouseMove), false);
+    viewport.addEventListener('mouseup', allowOnlyNativeEvents(this.onMouseUp), false);
+    viewport.addEventListener('wheel', allowOnlyNativeEvents(this.onWheel), false);
+    viewport.addEventListener('touchstart', allowOnlyNativeEvents(this.onTouchStart), false);
+    viewport.addEventListener('touchend', allowOnlyNativeEvents(this.onTouchEnd), false);
+    viewport.addEventListener('touchmove', allowOnlyNativeEvents(this.onTouchMove), false);
+    viewport.addEventListener('mouseout', allowOnlyNativeEvents(this.onMouseOut), false);
+    viewport.addEventListener('touchcancel', allowOnlyNativeEvents(this.onMouseOut), false);
     this.setCursor('default');
   }
 
