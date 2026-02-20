@@ -1,7 +1,7 @@
 /*
  * utils for informations regarding ip and email
  */
-import ProxyCheck from './ProxyCheck.js';
+import ProxyCheck from './ProxyCheck.ts';
 import whois from './whois.js';
 import socketEvents from '../../socket/socketEvents.js';
 import { getLowHexSubnetOfIP } from './ip.js';
@@ -18,7 +18,7 @@ let proxyChecker = () => null;
 let mailChecker = () => null;
 
 if (USE_PROXYCHECK) {
-  const pc = new ProxyCheck(PROXYCHECK_KEY);
+  const pc = new ProxyCheck(PROXYCHECK_KEY?.split(',') ?? []);
   proxyChecker = pc.checkIp;
   mailChecker = pc.checkEmail;
 }

@@ -4,11 +4,58 @@
 
 /* eslint-disable max-classes-per-file */
 
-import https from 'https';
-
 import { HourlyCron } from '../cron.js';
 
 const HYSTERESIS = 60;
+
+type KeyType = [
+  string,
+  number,
+  number,
+  number,
+  boolean,
+];
+
+type ProxyCheckIPResponse = {
+  status: "ok" | "warning" | "denied" | "error";
+} & {
+  [ip: string]: {
+    proxy: "yes" | "no";
+    type?: "VPN" | "TOR" | "PUBLIC" | "WEB" | "HTTP" | "SOCKS4" | "SOCKS5" | "DNS" | "SPAM";
+    error: string;
+    operator?: {
+      name: string;
+    };
+    city?: string;
+    devices?: {
+      address: string;
+      subnet: string;
+    };
+  };
+}
+
+type ProxyCheckResult = {
+  [ip: string]: {
+    proxy: "yes" | "no";
+    type?: "VPN" | "TOR" | "PUBLIC" | "WEB" | "HTTP" | "SOCKS4" | "SOCKS5" | "DNS" | "SPAM";
+    error: string;
+    operator?: {
+      name: string;
+    };
+    city?: string;
+    devices?: {
+      address: string;
+      subnet: string;
+    };
+  } | {
+    proxy: 'yes',
+    type: 'Invalid IP',
+    disposable: 'yes',
+    // operator: undefined;
+    // city: undefined;
+    // devices: undefined;
+  };
+} 
 
 /*
  * class to serve proxycheck.io key
@@ -16,15 +63,16 @@ const HYSTERESIS = 60;
  * which is good for fallback, if something goes wrong
  */
 class PcKeyProvider {
+  private logger: Console;
+  private availableKeys: KeyType[];
+  private disabledKeys: KeyType[];
+
   /*
-   * @param pcKeys comma separated list of keys
+   * @param pcKeys list of keys
    */
-  constructor(pcKeys, logger) {
+  constructor(pcKeys: string[], logger: Console) {
     if (!logger) logger = console;
-    const keys = (pcKeys)
-      ? pcKeys.split(',')
-      : [];
-    if (!keys.length) {
+    if (!pcKeys.length) {
       logger.info('You have to define PROXYCHECK_KEY to use proxycheck.io');
     }
     this.updateKeys = this.updateKeys.bind(this);
@@ -42,7 +90,7 @@ class PcKeyProvider {
     this.availableKeys = [];
     this.disabledKeys = [];
     this.logger = logger;
-    this.getKeysUsage(keys);
+    this.getKeysUsage(pcKeys);
     HourlyCron.hook(this.updateKeys);
   }
 
@@ -50,7 +98,7 @@ class PcKeyProvider {
    * @return random available pcKey
    * disable key if close to daily limit
    */
-  getKey() {
+  public getKey() {
     const { availableKeys: keys } = this;
     while (keys.length) {
       const pos = Math.floor(Math.random() * keys.length);
@@ -90,7 +138,7 @@ class PcKeyProvider {
    * get usage data of array of keys and put them into available / disabledKeys
    * @param keys Array of key strings
    */
-  async getKeysUsage(keys) {
+  async getKeysUsage(keys: (string | KeyType)[]) {
     const tmpKeys = [...keys];
     for (let i = 0; i < tmpKeys.length; i += 1) {
       let key = tmpKeys[i];
@@ -106,7 +154,7 @@ class PcKeyProvider {
    * get usage data of key and put him into availableKeys or disabledKeys
    * @param key string
    */
-  async getKeyUsage(key) {
+  async getKeyUsage(key: string) {
     let usage;
     try {
       try {
@@ -117,7 +165,7 @@ class PcKeyProvider {
         pos = this.disabledKeys.findIndex((k) => k[0] === key);
         if (~pos) this.disabledKeys.splice(pos, 1);
       }
-    } catch (err) {
+    } catch (err: any) {
       this.logger.info(`PCKey: ${key}, Error ${err.message}`);
       this.disabledKeys.push([
         key,
@@ -138,7 +186,7 @@ class PcKeyProvider {
     const availableQueries = dailyLimit - queriesToday;
     // eslint-disable-next-line max-len
     this.logger.info(`PCKey: ${key}, Queries Today: ${availableQueries} / ${dailyLimit} (Burst: ${availableBurst}, ${burstActive ? 'active' : 'inactive'})`);
-    const keyData = [
+    const keyData: KeyType = [
       key,
       availableQueries,
       dailyLimit,
@@ -159,49 +207,20 @@ class PcKeyProvider {
    * query the API for limits
    * @param key
    */
-  static requestKeyUsage(key) {
-    return new Promise((resolve, reject) => {
-      const options = {
-        hostname: 'proxycheck.io',
-        path: `/dashboard/export/usage/?key=${key}`,
-        method: 'GET',
-      };
+  private static async requestKeyUsage(key: string) {
+    const res = await fetch(`https://proxycheck.io/dashboard/export/usage/?key=${key}`);
+    if (res.status !== 200) {
+      throw new Error(`Status not 200: ${res.status}`);
+    }
 
-      const req = https.request(options, (res) => {
-        if (res.statusCode !== 200) {
-          reject(new Error(`Status not 200: ${res.statusCode}`));
-          return;
-        }
-
-        res.setEncoding('utf8');
-        const data = [];
-        res.on('data', (chunk) => {
-          data.push(chunk);
-        });
-
-        res.on('end', () => {
-          try {
-            const jsonString = data.join('');
-            const result = JSON.parse(jsonString);
-            resolve(result);
-          } catch (err) {
-            reject(err);
-          }
-        });
-      });
-
-      req.on('error', (err) => {
-        reject(err);
-      });
-      req.end();
-    });
+    return await res.json();
   }
 
   /*
    * report denied key (over daily quota, rate limited, blocked,...)
    * @param key
    */
-  denyKey(key) {
+  public denyKey(key: string) {
     const { availableKeys: keys } = this;
     const pos = keys.findIndex((k) => k[0] === key);
     if (~pos) {
@@ -221,16 +240,18 @@ class PcKeyProvider {
   }
 }
 
-
 class ProxyCheck {
-  constructor(pcKeys, logger) {
+  private readonly queue: [string, Function][] = [];
+  private readonly logger: Console;
+  private fetching = false;
+  private pcKeyProvider: PcKeyProvider;
+
+  constructor(pcKeys: string[], logger?: Console) {
     if (!logger) logger = console;
     /*
      * queue of ip-checking tasks
      * [[ip, callbackFunction],...]
      */
-    this.queue = [];
-    this.fetching = false;
     this.checkFromQueue = this.checkFromQueue.bind(this);
     this.checkIp = this.checkIp.bind(this);
     this.checkEmail = this.checkEmail.bind(this);
@@ -238,8 +259,8 @@ class ProxyCheck {
     this.logger = logger;
   }
 
-  reqProxyCheck(values) {
-    return new Promise((resolve, reject) => {
+  private reqProxyCheck(ips: string[]) {
+    return new Promise<ProxyCheckResult>(async (resolve, reject) => {
       const key = this.pcKeyProvider.getKey();
       if (!key) {
         setTimeout(
@@ -248,91 +269,77 @@ class ProxyCheck {
         );
         return;
       }
-      const postData = `ips=${values.join(',')}`;
 
-      const options = {
-        hostname: 'proxycheck.io',
-        path: `/v2/?vpn=1&asn=1&key=${key}`,
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-          'Content-Length': Buffer.byteLength(postData),
-        },
-      };
-
-      const req = https.request(options, (res) => {
-        if (res.statusCode !== 200) {
-          reject(new Error(`Status not 200: ${res.statusCode}`));
-          return;
-        }
-        res.setEncoding('utf8');
-        const data = [];
-
-        res.on('data', (chunk) => {
-          data.push(chunk);
+      let proxycheckResponse: ProxyCheckIPResponse;
+      const postData = `ips=${ips.join(',')}`;
+      try {
+        const res = await fetch(`https://proxycheck.io/v2/?vpn=1&asn=1&key=${key}`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Length': Buffer.byteLength(postData).toString(),
+          },
+          body: postData,
+          signal: AbortSignal.timeout(30e3),
         });
+        if (res.status !== 200) {
+          throw new Error(`Status not 200: ${res.status}`);
+        }
 
-        res.on('end', () => {
-          try {
-            const jsonString = data.join('');
-            const result = JSON.parse(jsonString);
-            if (result.status !== 'ok') {
-              if (result.status === 'error' && values.length === 1) {
-                /*
-                 * invalid ip, like a link local address
-                 * Error is either thrown in the top, when requesting only one ip
-                 * or in the ip-part as "error": "No valid.." when multiple
-                 * */
-                resolve({
-                  [values[0]]: {
-                    proxy: 'yes',
-                    type: 'Invalid IP',
-                    disposable: 'yes',
-                  },
-                });
-                return;
-              }
-              if (result.status === 'denied') {
-                this.pcKeyProvider.denyKey(key);
-              }
-              if (result.status !== 'warning') {
-                throw new Error(`${key}: ${result.message}`);
-              } else {
-                this.logger.warn(`Warning: ${key}: ${result.message}`);
-              }
-            }
-            values.forEach((value) => {
-              if (result[value] && result[value].error) {
-                result[value] = {
-                  proxy: 'yes',
-                  type: 'Invalid IP',
-                  disposable: 'yes',
-                };
-              }
+        proxycheckResponse = await res.json();
+      } catch(e) {
+        reject(e);
+        return;
+      }
+
+      const { status: _, ...onlyChecks } = proxycheckResponse;
+      const result: ProxyCheckResult = {};
+      try {
+        if (proxycheckResponse.status !== 'ok') {
+          if (proxycheckResponse.status === 'error' && ips.length === 1) {
+            /*
+             * invalid ip, like a link local address
+             * Error is either thrown in the top, when requesting only one ip
+             * or in the ip-part as "error": "No valid.." when multiple
+             * */
+            resolve({
+              [ips[0]]: {
+                proxy: 'yes',
+                type: 'Invalid IP',
+                disposable: 'yes',
+              },
             });
-            resolve(result);
-          } catch (err) {
-            reject(err);
+            return;
+          }
+          if (proxycheckResponse.status === 'denied') {
+            this.pcKeyProvider.denyKey(key);
+          }
+          if (proxycheckResponse.status !== 'warning') {
+            throw new Error(`${key}: ${proxycheckResponse.message}`);
+          } else {
+            this.logger.warn(`Warning: ${key}: ${proxycheckResponse.message}`);
+          }
+        }
+        ips.forEach((ip) => {
+          const ipCheckResult = proxycheckResponse[ip];
+          if (ipCheckResult && ipCheckResult.error) {
+            result[ip] = {
+              proxy: 'yes',
+              type: 'Invalid IP',
+              disposable: 'yes',
+            };
+          } else {
+            result[ip] = ipCheckResult;
           }
         });
-      });
-
-      req.setTimeout(30000, () => {
-        req.destroy(new Error('Connection TIMEOUT'));
-      });
-      req.on('error', (err) => {
+        resolve(result);
+      } catch (err) {
         reject(err);
-      });
-      req.write(postData);
-      req.end();
+      }
     });
   }
 
-  updateKeys() {
-    return this.pcKeyProvider.updateKeys();
-  }
-
-  async checkFromQueue() {
+  private async checkFromQueue() {
     const { queue } = this;
     if (!queue.length) {
       this.fetching = false;
@@ -341,10 +348,10 @@ class ProxyCheck {
     this.fetching = true;
     const tasks = queue.slice(0, 50);
     const values = tasks.map((i) => i[0]);
-    let res = {};
+    let res: ProxyCheckResult = {};
     try {
       res = await this.reqProxyCheck(values);
-    } catch (err) {
+    } catch (err: any) {
       this.logger.error(`Error: ${err.message}`);
     }
     for (let i = 0; i < tasks.length; i += 1) {
@@ -361,7 +368,7 @@ class ProxyCheck {
 
         if (res[value]) {
           this.logger.info(`Email ${value}: ${JSON.stringify(res[value])}`);
-          disposable = res[value].disposable === 'yes';
+          disposable = 'disposable' in res[value] && res[value].disposable === 'yes';
         }
 
         cb(disposable);
@@ -374,10 +381,10 @@ class ProxyCheck {
           cb({
             isProxy: result.proxy !== 'no',
             type: result.type || null,
-            operator: result.operator?.name || null,
-            city: result.city || null,
-            devices: result.devices?.address || 1,
-            subnetDevices: result.devices?.subnet || 1,
+            operator: 'operator' in result ? result.operator?.name || null : null,
+            city: 'city' in result ? result.city || null : null,
+            devices: 'devices' in result ? result.devices?.address || 1 : 1,
+            subnetDevices: 'devices' in result ? result.devices?.subnet || 1 : 1,
           });
         } else {
           this.logger.error(`IP ${value} could not be checked for proxy.`);
@@ -400,7 +407,7 @@ class ProxyCheck {
    *   subnetDevices: amount of devices in this subnet,
    * }
    */
-  checkIp(ip) {
+  public checkIp(ip: string) {
     return new Promise((resolve) => {
       this.queue.push([ip, resolve]);
       if (!this.fetching) {
@@ -417,7 +424,7 @@ class ProxyCheck {
    *  false: is legit provider
    *  true: is disposable provider
    */
-  checkEmail(email) {
+  public checkEmail(email: string) {
     return new Promise((resolve) => {
       this.queue.push([email, resolve]);
       if (!this.fetching) {
