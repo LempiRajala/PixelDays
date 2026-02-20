@@ -106,7 +106,6 @@ npm start
 ---
 
 ### Team & Community
-PixelDays is maintained by the **PixelDays Team**. We are on a mission to prove that any legacy code can be turned into a masterpiece.
+PixelDays is maintained by the PixelDays Team. We are on a mission to prove that any legacy code can be turned into a masterpiece.
 
----
-© 2026 PixelDays Platform.
+**© 2026 PixelDays Platform.**
