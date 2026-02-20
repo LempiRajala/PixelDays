@@ -51,9 +51,6 @@ type ProxyCheckResult = {
     proxy: 'yes',
     type: 'Invalid IP',
     disposable: 'yes',
-    // operator: undefined;
-    // city: undefined;
-    // devices: undefined;
   };
 } 
 
