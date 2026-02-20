@@ -108,8 +108,5 @@ npm start
 ### Team & Community
 PixelDays is maintained by the **PixelDays Team**. We are on a mission to prove that any legacy code can be turned into a masterpiece.
 
-📢 **Join our community:** [Telegram Channel (@pixeldaysfun)](https://t.me/pixeldaysfun)  
-*Get the latest updates, participate in events, and chat with the developers!*
-
 ---
 © 2026 PixelDays Platform.
