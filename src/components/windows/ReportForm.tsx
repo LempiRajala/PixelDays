@@ -122,7 +122,7 @@ const ReportForm = () => {
           flexDirection: 'row',
           justifyContent: 'space-between',
         }}>
-          <span>{t`Report description`}<RedStar/>: </span>
+          <span>{t`Report description`}<RedStar/> </span>
           <button
             style={{ cursor: 'pointer' }}
             onClick={addCurrentLinkToText}
