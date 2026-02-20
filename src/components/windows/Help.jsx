@@ -80,7 +80,10 @@ const Help = () => {
 
       <p>PixelDays is an experiment in the world of pixels to find out what will happen if you give a person the right to self-expression, bypassing censorship and control from the administration. Most websites persecute people for their views and punish them severely, even to the point of wiping out an entire country.</p>
 
-      <p> Learn more about us on our Telegram channel: https://t.me/pixeldaysfun </p>
+      <p> Find out more about us in our channels: https://t.me/pixeldaysfun </p>
+      <p> Telegram: https://t.me/pixeldaysfun </p>
+      <p> Discord: https://dsc.gg/pixeldays </p>
+        
       <h3>{t`Identifiers`}</h3>
       <p>{t`If you talk to moderators or administrators, you might get asked for one of the following identifiers:`}</p>
       <p>IID</p>
