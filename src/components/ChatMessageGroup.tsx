@@ -21,7 +21,6 @@ const containerStyle: CSSProperties = {
 }
 
 const headerStyle: CSSProperties = {
-  cursor: 'pointer',
   display: 'inline-flex',
   gap: '4px',
 }
@@ -75,15 +74,21 @@ const ChatMessageGroup = React.memo(({
   //   className += ' redtext';
   // }
 
+  const isServiceAccount = userId < 4;
+
   return (
     <li style={containerStyle} ref={refEmbed}>
       <SmallAvatar avatarId={avatarId}/>
       <div style={contentStyle}>
         <span
-          style={headerStyle}
+          style={{
+            ...headerStyle,
+            ...(isServiceAccount ? {} : { cursor: 'pointer' })
+          }}
           role="button"
           tabIndex={-1}
           onClick={(event) => {
+            if(isServiceAccount) return;
             openCm(event.clientX, event.clientY, name, userId);
           }}
         >
