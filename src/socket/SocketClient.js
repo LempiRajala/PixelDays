@@ -43,7 +43,7 @@ import {
   pRefresh, fishAppears, catchedFish, pAlert,
 } from '../store/actions/index.js';
 import { addUsersAvatars, fetchMe } from '../store/actions/thunks.js';
-import { detectMalware } from '../core/malware-protection.js';
+// import { detectMalware } from '../core/malware-protection.js';
 import { registeredClientWebsockets } from './registered-client-websockets.ts';
 
 class SocketClient {
@@ -173,7 +173,7 @@ class SocketClient {
     // flush queue
     this.processMsgQueue();
 
-    detectMalware(this);
+    // detectMalware(this);
   }
 
   setCanvas(canvasId) {
