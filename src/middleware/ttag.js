@@ -9,6 +9,7 @@ import lccc from '../../i18n/lccc.json';
 import { cwd } from 'process';
 import path from 'node:path';
 import { readFileSync, readdirSync } from 'node:fs';
+import gettextParser from 'gettext-parser';
 
 // const localeImports = import.meta.webpackContext('../../i18n', {
 //   recursive: false,
@@ -24,28 +25,33 @@ const ttags = {};
 export const availableLangs = {};
 
 function loadTtags() {
-  const i18nPath = path.join(cwd(), 'i18n');
+  const i18nPath = path.join(cwd(), 'dist', 'i18n');
   const langs = readdirSync(i18nPath).filter(filename => filename.startsWith('ssr-') && filename.endsWith('.po'));
   const jsLangs = getLangsOfJsAsset('client');
+  console.log('ttag.js langs', langs);
+  console.log('ttag.js jsLangs', jsLangs);
   Object.keys(availableLangs).forEach((key) => delete availableLangs[key]);
 
   let amountOfLangs = 0;
   for (let i = 0; i < langs.length; i += 1) {
     const file = langs[i];
     // ./ssr-de.po
-    const lang = file.replace('./ssr-', '').replace('.po', '').toLowerCase();
+    const lang = file.replace('ssr-', '').replace('.po', '').toLowerCase();
     /*
      * In cases where the language code and country code differ,
      * it can be mapped in i18n/lccc.json
      */
     const flag = lccc[lang] || lang;
+    console.log('ttag.js check lang', lang, jsLangs.includes(lang));
     if (jsLangs.includes(lang)) {
       amountOfLangs += 1;
       availableLangs[lang] = flag;
 
       if (!ttags[lang]) {
         const ttag = new TTag();
-        ttag.addLocale(lang, readFileSync(path.join(i18nPath, file)).default);
+        console.log('ttag.js addLocale', lang, 'from', path.join(i18nPath, file));
+        const parsedPoFile = gettextParser.po.parse(readFileSync(path.join(i18nPath, file)));
+        ttag.addLocale(lang, parsedPoFile);
         ttag.useLocale(lang);
         ttags[lang] = ttag;
       }
@@ -62,6 +68,8 @@ function loadTtags() {
   } else if (ttags.en) {
     delete ttags.en;
   }
+
+  console.log('ttag.js availableLangs', availableLangs);
 }
 
 loadTtags();

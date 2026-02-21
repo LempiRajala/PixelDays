@@ -242,10 +242,10 @@ msgstr ""
 msgid "Invalid url :( Please check your mail again."
 msgstr ""
 
-#: src/routes/api/modtools.js:180
-#: src/routes/api/modtools.js:304
-#: src/routes/api/reports.ts:148
-#: src/routes/api/reports.ts:162
+#: src/routes/api/modtools.js:181
+#: src/routes/api/modtools.js:305
+#: src/routes/api/reports.ts:154
+#: src/routes/api/reports.ts:168
 msgid "Just admins can do that"
 msgstr ""
 
@@ -345,7 +345,7 @@ msgid "No Captcha given"
 msgstr ""
 
 #: src/routes/api/badge.js:16
-#: src/routes/api/fish.js:16
+#: src/routes/api/fish.ts:17
 msgid "No or invalid fish id."
 msgstr ""
 
@@ -362,7 +362,7 @@ msgstr ""
 msgid "No such badge found"
 msgstr ""
 
-#: src/routes/api/fish.js:20
+#: src/routes/api/fish.ts:21
 msgid "No such fish found"
 msgstr ""
 
@@ -572,7 +572,7 @@ msgstr ""
 msgid "The user owning this badge is private"
 msgstr ""
 
-#: src/routes/api/fish.js:25
+#: src/routes/api/fish.ts:26
 msgid "The user owning this fish is private"
 msgstr ""
 
@@ -711,8 +711,8 @@ msgstr ""
 msgid "You are muted for another ${ ttl } seconds"
 msgstr ""
 
-#: src/routes/api/modtools.js:75
-#: src/routes/api/reports.ts:77
+#: src/routes/api/modtools.js:76
+#: src/routes/api/reports.ts:71
 msgid "You are not allowed to access this page"
 msgstr ""
 
@@ -721,8 +721,8 @@ msgid "You are not banned"
 msgstr ""
 
 #: src/middleware/session.js:217
-#: src/routes/api/modtools.js:66
-#: src/routes/api/reports.ts:66
+#: src/routes/api/modtools.js:67
+#: src/routes/api/reports.ts:63
 msgid "You are not logged in"
 msgstr ""
 
@@ -768,6 +768,10 @@ msgstr ""
 
 #: src/core/ChatProvider.js:372
 msgid "You can't send a message this long :("
+msgstr ""
+
+#: src/routes/api/reports.ts:133
+msgid "You cannot edit report on moder abuse"
 msgstr ""
 
 #: src/routes/api/auth/resend_verify.js:21

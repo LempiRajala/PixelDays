@@ -18,6 +18,7 @@ import zipDir from './zipDirectory.js';
 import serverConfig from '../webpack.config.server.js';
 import clientConfig from '../webpack.config.client.js';
 import 'dotenv/config';
+import { cwd } from 'process';
 
 const __filename = import.meta.filename;
 const __dirname = import.meta.dirname;
@@ -67,10 +68,11 @@ if (!doBuildServer && !doBuildClient) {
  * get available locals based on the files available in ../i18n
  */
 function getAllAvailableLocals() {
-  const langDir = path.resolve(__dirname, '..', 'i18n');
+  const langDir = path.join(cwd(), 'i18n');
   const langs = fs.readdirSync(langDir)
     .filter((e) => (e.endsWith('.po') && !e.startsWith('ssr')))
     .map((l) => l.slice(0, -3));
+  console.log('build.js langs', langs);
   return langs;
 }
 
@@ -380,7 +382,13 @@ async function build() {
           'Skipping',
           badLangs.length,
           'locals because of low completion:',
-          badLangs,
+          badLangs.join(', '),
+        );
+        console.log(
+          'Use',
+          avlangs.length,
+          'good locals:',
+          avlangs.join(', ')
         );
       }
     }
@@ -398,8 +406,9 @@ async function build() {
       }
     }
 
-    console.log(getAllFolders('./dist'));
+    // console.log(getAllFolders('./dist'));
 
+    console.log('build.js run buildLanguages with', avlangs.join(', '));
     await buildLanguages(avlangs, true, parallel && 5);
     await minifyJs(avlangs, parallel && 5);
   }

@@ -3,12 +3,14 @@
  */
 import fs from 'fs';
 import path from 'path';
-import { parseAsync, transformFromAstAsync } from '@babel/core';
+import { parseAsync, parseSync, transformFromAstAsync, transformFromAstSync } from '@babel/core';
 import { spawn } from 'child_process';
+import { fileURLToPath } from 'url';
 
-const assetdir = path.resolve(
-  import.meta.dirname, '..', 'dist', 'public', 'assets',
+const publicdir = path.resolve(
+  import.meta.dirname, '..', 'dist', 'public',
 );
+const assetdir = path.resolve(publicdir, 'assets');
 const podir = path.resolve(
   import.meta.dirname, '..', 'i18n',
 );
@@ -17,9 +19,7 @@ const assetAstCache = new Map();
 
 console.log('__dirname:', import.meta.dirname);
 console.log('Asset dir exists:', fs.existsSync(assetdir));
-console.log('Public dir exists:', fs.existsSync(path.resolve(
-  import.meta.dirname, '..', 'dist', 'public',
-)));
+console.log('Public dir exists:', fs.existsSync(publicdir));
 console.log('PO dir exists:', fs.existsSync(podir));
 
 export async function buildLanguage(lang = 'en') {
@@ -55,6 +55,7 @@ export async function buildLanguage(lang = 'en') {
   };
 
   const translatableAssets = fs.readdirSync(assetdir).filter((e) => e.endsWith('.js') && e.includes('.WPLANGCODE.'));
+  console.log('buildLanguageBundles.js translatableAssets', translatableAssets);
 
   const amountOfAssets = translatableAssets.length;
   for (let i = 0; i < amountOfAssets; i += 1) {
@@ -76,23 +77,22 @@ export async function buildLanguage(lang = 'en') {
     if (!ast) {
       // console.log('parseSync before', lang)
       // console.log(code.substring(code.length-100));
-      // ast = parseSync(code);
-      ast = await parseAsync(code, {
-        filename: path.join(assetdir, asset), // или просто 'file.js'
-        configFile: false, // отключаем поиск конфига
-        babelrc: false, // отключаем .babelrc
-      });
+      ast = parseSync(code, { filename: 'file.js' });
+      // ast = await parseAsync(code, {
+      //   filename: path.join(assetdir, asset), // или просто 'file.js'
+      //   configFile: false, // отключаем поиск конфига
+      //   babelrc: false, // отключаем .babelrc
+      // });
       // console.log('parseSync after', lang)
       assetAstCache.set(asset, ast);
     }
 
     // console.log('transformFromAstAsync before', lang)
-    const { code: output } = await transformFromAstAsync(ast, code, options);
+    const { code: output } = await transformFromAstSync(ast, code, options);
     // console.log('transformFromAstAsync after', lang)
-    fs.writeFileSync(
-      path.join(assetdir, asset.replace('.WPLANGCODE.', '.' + lang + '.')),
-      output.replace('WPLANGCODE', lang),
-    );
+    const WPLANGCODEPath = path.join(assetdir, asset.replace('.WPLANGCODE.', '.' + lang + '.'));
+    fs.writeFileSync(WPLANGCODEPath, output.replace('WPLANGCODE', lang));
+    console.log('buildLanguageBundles.js write', WPLANGCODEPath);
   }
 }
 
@@ -112,8 +112,8 @@ async function buildLanguageAssetsInProcess(langs, callback) {
   if (!langs.length) {
     return;
   }
-  const minifyProcess = spawn('node', [import.meta.filename, ...langs], {
-    shell: process.platform == 'win32',
+  const minifyProcess = spawn('bun', [import.meta.filename, ...langs], {
+    shell: process.platform === 'win32',
   });
   minifyProcess.stdout.on('data', (data) => {
     callback(null, data.toString());
@@ -139,7 +139,7 @@ function buildLanguages(langs, finish = true, parallel = false) {
     return buildLanguage();
   }
 
-  return new Promise((resolve, reject) => {
+  return new Promise(async (resolve, reject) => {
     let i = 0;
     let cursorPosition = 0;
     const callback = async (error, finishedLang) => {
@@ -201,7 +201,7 @@ function buildLanguages(langs, finish = true, parallel = false) {
       for (let i = 0; i < parallel; i++) {
         const start = i * partSize;
         const end = start + partSize;
-        buildLanguageAssetsInProcess(langs.slice(start, end), callback);
+        await buildLanguageAssetsInProcess(langs.slice(start, end), callback);
       }
     }
   });
@@ -210,7 +210,8 @@ function buildLanguages(langs, finish = true, parallel = false) {
 async function doBuildLanguages() {
   /*
    * if there are any arguments, they are lang codes
-   */
+  */
+  console.log('buildLanguageBundles.js process.argv', process.argv)
   if (process.argv.length > 1) {
     const langs = process.argv.slice(2).filter((a) => !a.startsWith('-'));
     if (langs.length) {
@@ -229,7 +230,9 @@ async function doBuildLanguages() {
   process.exit(1);
 }
 
-if (import.meta.url.endsWith(process.argv[1])) {
+// if (import.meta.url.endsWith(process.argv[1])) {
+// if (require.main === module) {
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
   doBuildLanguages();
 }
 

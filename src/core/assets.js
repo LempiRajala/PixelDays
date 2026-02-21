@@ -39,6 +39,7 @@ function checkAssets() {
     themes: {},
   };
   const assetFiles = fs.readdirSync(assetDir);
+  console.log('assets.js assetFiles', assetFiles);
   const mtimes = {};
 
   for (const filename of assetFiles) {
@@ -94,6 +95,7 @@ function checkAssets() {
         // nothing
     }
   }
+  console.log('assets.js parsedAssets', parsedAssets);
   return parsedAssets;
 }
 
