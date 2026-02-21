@@ -5,7 +5,7 @@
  */
 import fs from 'fs';
 import path from 'path';
-import { minify } from 'terser';
+import * as esbuild from 'esbuild';
 import { spawn } from 'child_process';
 
 const assetdir = path.resolve(
@@ -21,15 +21,17 @@ async function minifyAssets(assetList, callback) {
   try {
     for (let i = 0; i < assetList.length; i += 1) {
       const asset = assetList[i];
-      const code = fs.readFileSync(path.join(assetdir, asset), 'utf8');
-      const { code: output } = await minify(code, {
-        compress: true,
-        mangle: true,
-        format: {
-          comments: false,
-        }
+      const inputPath = path.join(assetdir, asset);
+      
+      await esbuild.build({
+        entryPoints: [inputPath],
+        minify: true,
+        allowOverwrite: true,
+        write: true,
+        outfile: inputPath,
+        logLevel: 'silent',
       });
-      fs.writeFileSync(path.join(assetdir, asset), output);
+      
       callback(null, asset);
     }
   } catch (error) {

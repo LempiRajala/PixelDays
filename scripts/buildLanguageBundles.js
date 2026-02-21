@@ -3,7 +3,7 @@
  */
 import fs from 'fs';
 import path from 'path';
-import { parseAsync, parseSync, transformFromAstAsync, transformFromAstSync } from '@babel/core';
+import { parseSync, transformFromAstSync } from '@babel/core';
 import { spawn } from 'child_process';
 import { fileURLToPath } from 'url';
 
@@ -75,21 +75,11 @@ export async function buildLanguage(lang = 'en') {
     }
     let ast = assetAstCache.get(asset);
     if (!ast) {
-      // console.log('parseSync before', lang)
-      // console.log(code.substring(code.length-100));
       ast = parseSync(code, { filename: 'file.js' });
-      // ast = await parseAsync(code, {
-      //   filename: path.join(assetdir, asset), // или просто 'file.js'
-      //   configFile: false, // отключаем поиск конфига
-      //   babelrc: false, // отключаем .babelrc
-      // });
-      // console.log('parseSync after', lang)
       assetAstCache.set(asset, ast);
     }
 
-    // console.log('transformFromAstAsync before', lang)
     const { code: output } = await transformFromAstSync(ast, code, options);
-    // console.log('transformFromAstAsync after', lang)
     const WPLANGCODEPath = path.join(assetdir, asset.replace('.WPLANGCODE.', '.' + lang + '.'));
     fs.writeFileSync(WPLANGCODEPath, output.replace('WPLANGCODE', lang));
     console.log('buildLanguageBundles.js write', WPLANGCODEPath);
