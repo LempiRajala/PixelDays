@@ -16,3 +16,8 @@
 docker-compose up --build
 ```
 #### Сервис будет доступен по адресу: http://localhost:8080/captcha
+  
+  <p align="left">
+    <img src="assets/captcha.jpg?v=2" alt="Captcha interface"/>
+  </p>
+  <p align="left"><i> An example of a captcha taken from the PixelDays interface </i></p>
