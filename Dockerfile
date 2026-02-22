@@ -17,6 +17,6 @@ COPY . .
 
 COPY .env deployment/.env
 
-RUN bun run build:parallel
+RUN bun run build
 
 CMD ["bun", "./dist/server.js"]
