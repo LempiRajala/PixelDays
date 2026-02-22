@@ -14,7 +14,7 @@ import {
   quantizeImage,
   addGrid,
 } from '../utils/imageFilters.js';
-import { fileToCanvas } from '../utils/imageFiles.js';
+import { fileToCanvas } from '../utils/imageFiles.ts';
 import printGIMPPalette from '../core/exportGPL.ts';
 import { copyCanvasToClipboard } from '../utils/clipboard.js';
 

@@ -40,6 +40,9 @@ class TemplateLoader {
     }
   }
 
+  /**
+   * @return {HTMLCanvasElement}
+   */
   async getTemplate(id) {
     if (!this.ready) {
       return null;

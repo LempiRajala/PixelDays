@@ -10,6 +10,7 @@ import { t } from 'ttag';
 
 import templateLoader from '../ui/templateLoader.js';
 import { coordsFromString } from '../core/utils.js';
+import { fileToImage, base64ToImage } from '../utils/imageFiles.ts';
 
 const TemplateItemEdit = ({
   title: initTitle,
@@ -28,7 +29,7 @@ const TemplateItemEdit = ({
   const [title, setTitle] = useState(initTitle || '');
   const [file, setFile] = useState(null);
   const [titleUnique, setTitleUnique] = useState(true);
-  const imgRef = useRef();
+  const templateCanvasRef = useRef();
   const fileRef = useRef();
   const [
     storeCanvasId,
@@ -43,41 +44,37 @@ const TemplateItemEdit = ({
 
   useEffect(() => {
     (async () => {
-      if (!imageId || !imgRef.current) {
+      if (!imageId || !templateCanvasRef.current) {
         return;
       }
-      const previewImg = await templateLoader.getTemplate(imageId);
-      if (!previewImg) {
+      const templateCanvas = await templateLoader.getTemplate(imageId);
+      if (!templateCanvas) {
         return;
       }
-      const bitmap = await createImageBitmap(previewImg);
-      const canvas = imgRef.current;
-      const { width, height } = bitmap;
-      canvas.width = width;
-      canvas.height = height;
-      canvas.getContext('bitmaprenderer').transferFromImageBitmap(bitmap);
-      setDimensions([width, height]);
-      bitmap.close();
+
+      const canvas = templateCanvasRef.current;
+      canvas.width = templateCanvas.width;
+      canvas.height = templateCanvas.height;
+      canvas.getContext('2d').drawImage(templateCanvas, 0, 0);
+      setDimensions([templateCanvas.width, templateCanvas.height]);
     })();
   }, [imageId]);
 
   useEffect(() => {
-    if (!file || !imgRef.current) {
+    if (!file || !templateCanvasRef.current) {
       return;
     }
     (async () => {
-      const bitmap = await createImageBitmap(file);
-      const canvas = imgRef.current;
-      const { width, height } = bitmap;
-      canvas.width = width;
-      canvas.height = height;
-      canvas.getContext('bitmaprenderer').transferFromImageBitmap(bitmap);
-      setDimensions([width, height]);
-      bitmap.close();
+      const img = await fileToImage(file);
+      const canvas = templateCanvasRef.current;
+      canvas.width = img.width;
+      canvas.height = img.height;
+      canvas.getContext('2d').drawImage(img, 0, 0);
+      setDimensions([img.width, img.height]);
     })();
   }, [file]);
 
-  const canSubmit = (imgRef.current && (file || imageId)
+  const canSubmit = (templateCanvasRef.current && (file || imageId)
     && titleUnique && coords && title && dimensions);
 
   return (
@@ -86,7 +83,7 @@ const TemplateItemEdit = ({
         <div style={{ width: '100%', height: '100%' }}>
           <canvas
             className="tmpitm-img"
-            ref={imgRef}
+            ref={templateCanvasRef}
             key="editimg"
             style={{ opacity: 0.4 }}
           />

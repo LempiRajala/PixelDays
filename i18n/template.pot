@@ -208,7 +208,7 @@ msgstr ""
 #: src/components/LogInForm.jsx:307
 #: src/components/LogInForm.jsx:400
 #: src/components/RefreshPrompt.jsx:16
-#: src/components/TemplateItemEdit.jsx:181
+#: src/components/TemplateItemEdit.jsx:182
 msgid "Cancel"
 msgstr ""
 
@@ -218,7 +218,7 @@ msgstr ""
 
 #: src/components/ModWatchtools.jsx:133
 #: src/components/TemplateItem.jsx:54
-#: src/components/TemplateItemEdit.jsx:122
+#: src/components/TemplateItemEdit.jsx:123
 msgid "Canvas"
 msgstr ""
 
@@ -455,7 +455,7 @@ msgid ""
 msgstr ""
 
 #: src/components/TemplateItem.jsx:57
-#: src/components/TemplateItemEdit.jsx:141
+#: src/components/TemplateItemEdit.jsx:142
 msgid "Coordinates"
 msgstr ""
 
@@ -569,7 +569,7 @@ msgstr ""
 msgid "Date of catch"
 msgstr ""
 
-#: src/components/TemplateItemEdit.jsx:174
+#: src/components/TemplateItemEdit.jsx:175
 msgid "Delete"
 msgstr ""
 
@@ -591,7 +591,7 @@ msgstr ""
 
 #: src/components/CanvasItem.jsx:65
 #: src/components/TemplateItem.jsx:60
-#: src/components/TemplateItemEdit.jsx:160
+#: src/components/TemplateItemEdit.jsx:161
 msgid "Dimensions"
 msgstr ""
 
@@ -1595,7 +1595,7 @@ msgstr ""
 #: src/components/ChangePassword.jsx:118
 #: src/components/ChangeUsername.jsx:70
 #: src/components/LanguageSelect.jsx:75
-#: src/components/TemplateItemEdit.jsx:209
+#: src/components/TemplateItemEdit.jsx:210
 #: src/components/windows/OIDCConsent.jsx:314
 msgid "Save"
 msgstr ""
@@ -1613,7 +1613,7 @@ msgstr ""
 msgid "Select Date above"
 msgstr ""
 
-#: src/components/TemplateItemEdit.jsx:97
+#: src/components/TemplateItemEdit.jsx:98
 msgid "Select File"
 msgstr ""
 
@@ -1787,7 +1787,7 @@ msgstr ""
 msgid "Telegram"
 msgstr ""
 
-#: src/components/TemplateItemEdit.jsx:120
+#: src/components/TemplateItemEdit.jsx:121
 msgid "Template Name"
 msgstr ""
 

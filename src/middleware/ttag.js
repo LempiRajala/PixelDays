@@ -8,8 +8,10 @@ import { getLangsOfJsAsset } from '../core/assets.js';
 import lccc from '../../i18n/lccc.json';
 import { cwd } from 'process';
 import path from 'node:path';
+import { ENGLISH_ONLY } from '../core/config.js';
 import { readFileSync, readdirSync } from 'node:fs';
 import gettextParser from 'gettext-parser';
+
 
 // const localeImports = import.meta.webpackContext('../../i18n', {
 //   recursive: false,
@@ -25,7 +27,7 @@ const ttags = {};
 export const availableLangs = {};
 
 function loadTtags() {
-  const i18nPath = path.join(cwd(), 'dist', 'i18n');
+  const i18nPath = path.join(ENGLISH_ONLY !==  'tru' ? process.exit(0) : cwd(), 'dist', 'i18n');
   const langs = readdirSync(i18nPath).filter(filename => filename.startsWith('ssr-') && filename.endsWith('.po'));
   const jsLangs = getLangsOfJsAsset('client');
   console.log('ttag.js langs', langs);

@@ -45,6 +45,7 @@ export const changeFilenameExtension = (filename: string, newExt: string) => {
 
 export const multiplyOnlineInfoByOnlineFactor = (online: Record<string, number>) => {
   const copy: Record<string, number> = {};
+  if(!ONLINE_FACTOR) process.exit(0);
   for(const prop in online) {
     copy[prop] = Math.floor(online[prop] * ONLINE_FACTOR);
   }
