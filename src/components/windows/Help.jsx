@@ -126,20 +126,6 @@ const Help = () => {
       </div>
       <h3>{t`For Developers`}</h3>
       <p>{t`You can connect to pixeldays and use pixeldays accounts for oauth / oidc login. See here:`}<a href={u`/oidc/register`}>{t`OpenID Connect Client registration`}</a></p>
-      <h3>Palette Credits</h3>
-      <div>
-        {jt`We thank the following artists, who made their palettes available to the public on`}&nbsp;
-        <a href="https://lospec.com/">lospec.com</a>
-        <p>
-          {jt`Credit for the Palette of the Moon goes to ${starhouseLink}.`}
-        </p>
-        <p>
-          {jt`Credit for the Palette of the Top10 canvas goes to ${vinikLink}.`}
-        </p>
-        <p>
-          {jt`Credit for the Palette of the 2bit canvas goes to ${donendoLink}.`}
-        </p>
-      </div>
     </div>
   );
 };
