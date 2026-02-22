@@ -4,8 +4,8 @@
 
 export function imageToCanvas(img: HTMLImageElement) {
   const canvas = document.createElement('canvas');
-  canvas.width = img.naturalWidth;
-  canvas.height = img.naturalHeight;
+  canvas.width = img.naturalWidth || img.width;
+  canvas.height = img.naturalHeight || img.height;
   const context = canvas.getContext('2d')!;
   context.drawImage(img, 0, 0);
   return canvas;
