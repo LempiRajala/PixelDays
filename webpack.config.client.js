@@ -373,11 +373,9 @@ export default ({ development, analyze}) => {
           },
         },
       },
-      /*
-       * we post-process the bundle in production ourselves, so no need for
-       * minimization here
-       */
-      minimize: false,
+      minimize: true,
+      usedExports: true,
+      sideEffects: false,
     },
 
     recordsPath: path.resolve('records.json'),
