@@ -6,7 +6,7 @@ import path from 'path';
 import gettextParser from 'gettext-parser';
 import { spawn } from 'child_process';
 import { fileURLToPath } from 'url';
-import * as LZ from 'lz-string';
+import { default as LZ } from 'lz-string';
 
 const publicdir = path.resolve(
   import.meta.dirname, '..', 'dist', 'public',
