@@ -24,9 +24,14 @@ console.log('Public dir exists:', fs.existsSync(publicdir));
 console.log('PO dir exists:', fs.existsSync(podir));
 
 export async function buildLanguage(lang = 'en') {
+  const translatableAssets = fs.readdirSync(assetdir).filter(
+    e =>
+      e.endsWith('.js')
+      && e.includes('.WPLANGCODE.')
+      && e.startsWith('client.')
+  );
+  
   if (lang === 'en') {
-    const translatableAssets = fs.readdirSync(assetdir).filter((e) => e.endsWith('.js') && e.includes('.WPLANGCODE.'));
-    
     for (const asset of translatableAssets) {
       const assetPath = path.join(assetdir, asset);
       const code = fs.readFileSync(assetPath, 'utf8');
@@ -53,7 +58,6 @@ export async function buildLanguage(lang = 'en') {
   const poContent = fs.readFileSync(translationsPath);
   const parsed = gettextParser.po.parse(poContent);
   
-  const translatableAssets = fs.readdirSync(assetdir).filter((e) => e.endsWith('.js') && e.includes('.WPLANGCODE.'));
   console.log('buildLanguageBundles.js translatableAssets', translatableAssets);
 
   for (const asset of translatableAssets) {
