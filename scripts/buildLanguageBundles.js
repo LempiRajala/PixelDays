@@ -34,7 +34,7 @@ export async function buildLanguage(lang = 'en') {
       const WPLANGCODEPath = path.join(assetdir, asset.replace('.WPLANGCODE.', '.en.'));
       
       const finalCode = [
-        `var _LANG_CODE = "en";`,
+        `window._LANG_CODE = "en";`,
         code.replace(/WPLANGCODE/g, 'en'),
       ].join('\n');
       
@@ -73,8 +73,8 @@ export async function buildLanguage(lang = 'en') {
       `// Auto-generated language bundle for ${lang}`,
       '',
       '// Translation',
-      `var _LANG_CODE = "${lang}";`,
-      `var _LANG_TRANSLATION = \`${LZ.compressToBase64(JSON.stringify(parsed))}\`;`,
+      `window._LANG_CODE = "${lang}";`,
+      `window._LANG_TRANSLATION = \`${LZ.compressToBase64(JSON.stringify(parsed))}\`;`,
       '',
       '// Original code:',
       code,
