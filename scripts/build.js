@@ -259,7 +259,7 @@ function cleanUpAfterBuild() {
     .filter((e) => e.endsWith('.LICENSE.txt'))
     .forEach((l) => fs.rmSync(path.join(assetPath, l)));
   fs.readdirSync(assetPath)
-    .filter((e) => e.endsWith('.js') && e.includes('WPLANGCODE'))
+    .filter((e) => e.startsWith('client.') && e.endsWith('.js') && e.includes('WPLANGCODE'))
     .forEach((l) => fs.rmSync(path.join(assetPath, l)));
   const serverLicenseFile = path.resolve(__dirname, '..', 'dist', 'server.js.LICENSE.txt');
   if (fs.existsSync(serverLicenseFile)) {
