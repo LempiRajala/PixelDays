@@ -9,6 +9,56 @@ import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import sourceMapping from './scripts/sourceMapping.js';
 import LicenseListWebpackPlugin from './scripts/LicenseListWebpackPlugin.cjs';
 import JavaScriptObfuscator from 'webpack-obfuscator';
+// import { transform } from 'esbuild';
+
+// class EsbuildMinifyPlugin {
+//   constructor(options = {}) {
+//     this.options = {
+//       target: 'es2015',
+//       minify: true,
+//       minifyWhitespace: true,
+//       minifyIdentifiers: true,
+//       minifySyntax: true,
+//       treeShaking: true,
+//       ...options
+//     };
+//   }
+
+//   apply(compiler) {
+//     compiler.hooks.compilation.tap('EsbuildMinifyPlugin', (compilation) => {
+//       compilation.hooks.chunkAsset.tap('EsbuildMinifyPlugin', (chunk, filename) => {
+//         // Получаем исходный код чанка
+//         const source = compilation.assets[filename]?.source();
+        
+//         if (source && typeof source === 'string' && 
+//             filename.endsWith('.js') && 
+//             !filename.includes('vendor') && // Исключаем vendor чанки, если нужно
+//             !filename.includes('three')) {
+          
+//           // Асинхронно минифицируем с помощью esbuild
+//           setTimeout(async () => {
+//             try {
+//               const result = await transform(source, {
+//                 ...this.options,
+//                 loader: 'js',
+//               });
+              
+//               // Заменяем оригинальный код минифицированным
+//               compilation.assets[filename] = {
+//                 source: () => result.code,
+//                 size: () => result.code.length
+//               };
+              
+//               console.log(`✅ esbuild handle: ${filename}`);
+//             } catch (err) {
+//               console.error(`❌ esbuild error ${filename}:`, err);
+//             }
+//           }, 0);
+//         }
+//       });
+//     });
+//   }
+// }
 
 /*
  * make sure we build in root dir
@@ -141,6 +191,15 @@ export default ({ development, analyze}) => {
       }),
       
       ...(!development ? [
+        // new EsbuildMinifyPlugin({
+        //   target: 'es2015',
+        //   minify: true,
+        //   minifyWhitespace: true,
+        //   minifyIdentifiers: true,
+        //   minifySyntax: true,
+        //   treeShaking: true,
+        //   // Можно добавить exclude для определенных чанков
+        // }),
         new JavaScriptObfuscator({
           // Базовые настройки (безопасные)
           compact: true,

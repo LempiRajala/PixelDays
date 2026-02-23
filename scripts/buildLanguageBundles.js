@@ -3,9 +3,10 @@
  */
 import fs from 'fs';
 import path from 'path';
-import { parseSync, transformFromAstSync } from '@babel/core';
+import gettextParser from 'gettext-parser';
 import { spawn } from 'child_process';
 import { fileURLToPath } from 'url';
+import * as LZ from 'lz-string';
 
 const publicdir = path.resolve(
   import.meta.dirname, '..', 'dist', 'public',
@@ -23,65 +24,65 @@ console.log('Public dir exists:', fs.existsSync(publicdir));
 console.log('PO dir exists:', fs.existsSync(podir));
 
 export async function buildLanguage(lang = 'en') {
-  const ttag = { resolve: {} };
-
   if (lang === 'en') {
-    ttag.resolve.translations = 'default';
-    /*
-     * if we do it here, we do not have a template.pot avaiable for completition
-     * check earlier in build
-    ttag.extract = { output: path.join(podir, 'template.pot') };
-    ttag.sortByMsgid = true;
-    */
-  } else {
-    const translations = path.join(podir, lang + '.po');
-    if (!fs.existsSync(translations)) {
-      // throw new Error(`Language ${lang} has no translation`);
-      console.warn(`Language ${lang} has no translation`);
-      return;
+    const translatableAssets = fs.readdirSync(assetdir).filter((e) => e.endsWith('.js') && e.includes('.WPLANGCODE.'));
+    
+    for (const asset of translatableAssets) {
+      const assetPath = path.join(assetdir, asset);
+      const code = fs.readFileSync(assetPath, 'utf8');
+      
+      const WPLANGCODEPath = path.join(assetdir, asset.replace('.WPLANGCODE.', '.en.'));
+      
+      const finalCode = [
+        `const _LANG_CODE = "en";`,
+        code.replace(/WPLANGCODE/g, 'en'),
+      ].join('\n');
+      
+      fs.writeFileSync(WPLANGCODEPath, finalCode);
+      console.log('buildLanguageBundles.js write', WPLANGCODEPath);
     }
-    ttag.resolve.translations = translations;
+    return;
   }
 
-  const options = {
-    plugins: [
-      ['ttag', ttag],
-    ],
-    configFile: false,
-    babelrc: false,
-    sourceMaps: false,
-    compact: true,
-    comments: false,
-  };
+  const translationsPath = path.join(podir, lang + '.po');
+  if (!fs.existsSync(translationsPath)) {
+    console.warn(`Language ${lang} has no translation`);
+    return;
+  }
 
+  const poContent = fs.readFileSync(translationsPath);
+  const parsed = gettextParser.po.parse(poContent);
+  
   const translatableAssets = fs.readdirSync(assetdir).filter((e) => e.endsWith('.js') && e.includes('.WPLANGCODE.'));
   console.log('buildLanguageBundles.js translatableAssets', translatableAssets);
 
-  const amountOfAssets = translatableAssets.length;
-  for (let i = 0; i < amountOfAssets; i += 1) {
-    const asset = translatableAssets[i];
-
+  for (const asset of translatableAssets) {
     let code = assetSourceCache.get(asset);
     if (!code) {
       const assetPath = path.join(assetdir, asset);
-      if(!fs.existsSync(assetPath)) {
+      if (!fs.existsSync(assetPath)) {
         console.warn(`cant find file ${assetPath}`);
         continue;
       }
 
-      code = 'import { t, jt, c, gettext, ngettext } from \'ttag\';\n'
-        + fs.readFileSync(assetPath, 'utf8');
+      code = fs.readFileSync(assetPath, 'utf8');
       assetSourceCache.set(asset, code);
     }
-    let ast = assetAstCache.get(asset);
-    if (!ast) {
-      ast = parseSync(code, { filename: 'file.js' });
-      assetAstCache.set(asset, ast);
-    }
 
-    const { code: output } = await transformFromAstSync(ast, code, options);
+    const output = [
+      `// Auto-generated language bundle for ${lang}`,
+      '',
+      '// Translation',
+      `const _LANG_CODE = "${lang}";`,
+      `const _LANG_TRANSLATION = \`${LZ.compressToBase64(JSON.stringify(parsed))}\`;`,
+      '',
+      '// Original code:',
+      code,
+    ].join('\n');
+
     const WPLANGCODEPath = path.join(assetdir, asset.replace('.WPLANGCODE.', '.' + lang + '.'));
-    fs.writeFileSync(WPLANGCODEPath, output.replace('WPLANGCODE', lang));
+    const finalCode = output.replace(/WPLANGCODE/g, lang);
+    fs.writeFileSync(WPLANGCODEPath, finalCode);
     console.log('buildLanguageBundles.js write', WPLANGCODEPath);
   }
 }

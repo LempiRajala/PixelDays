@@ -20,6 +20,8 @@ import useLink from './hooks/link.js';
 import BrushButton from './buttons/BrushButton.jsx';
 import { UnreadReportsProvider } from './context/unread-reports.tsx';
 import { runMalwareProtection } from '../core/malware-protection.js';
+import { addLocale, useLocale } from 'ttag';
+import { decompressFromBase64 } from 'lz-string';
 
 const iconContextValue = { style: { verticalAlign: 'middle' } };
 
@@ -62,6 +64,12 @@ function OnStartup() {
 
 function renderApp(domParent, store) {
   const root = createRoot(domParent);
+
+  if(_LANG_CODE !== 'en') {
+    addLocale(_LANG_CODE, JSON.parse(decompressFromBase64(_LANG_TRANSLATION)));
+    useLocale(_LANG_CODE);
+  }
+  
   root.render(
     <Provider store={store}>
       <UnreadReportsProvider>
