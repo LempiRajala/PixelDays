@@ -7,30 +7,30 @@ msgstr ""
 msgid " which is in "
 msgstr ""
 
-#: src/components/windows/Help.jsx:118
+#: src/components/windows/Help.jsx:120
 #, javascript-format
 msgid "${ mouseSymbol } Hold left mouse button and drag mouse to rotate"
 msgstr ""
 
-#: src/components/windows/Help.jsx:110
-#: src/components/windows/Help.jsx:121
+#: src/components/windows/Help.jsx:112
+#: src/components/windows/Help.jsx:123
 #, javascript-format
 msgid "${ mouseSymbol } Left click or ${ touchSymbol } tap to place a pixel"
 msgstr ""
 
-#: src/components/windows/Help.jsx:120
+#: src/components/windows/Help.jsx:122
 #, javascript-format
 msgid "${ mouseSymbol } Right click and drag mouse to pan"
 msgstr ""
 
-#: src/components/windows/Help.jsx:122
+#: src/components/windows/Help.jsx:124
 #, javascript-format
 msgid ""
 "${ mouseSymbol } Right click or ${ touchSymbol } double-tap to remove a "
 "pixel"
 msgstr ""
 
-#: src/components/windows/Help.jsx:119
+#: src/components/windows/Help.jsx:121
 #, javascript-format
 msgid ""
 "${ mouseSymbol } Scroll mouse wheel or hold ${ mouseSymbol } middle mouse "
@@ -47,6 +47,25 @@ msgstr ""
 
 #: src/components/ChangeMail.jsx:180
 msgid "...loading Login methods and sessions..."
+msgstr ""
+
+#: src/components/windows/Help.jsx:74
+msgid ""
+"1) We guarantee freedom of expression in our project. There is almost no "
+"harassment from moderation for your stance or ideals."
+msgstr ""
+
+#: src/components/windows/Help.jsx:75
+msgid ""
+"2) We do not allow moderation to abuse its authority. For example, if a "
+"moderator is Russian or Ukrainian, they should not be more loyal to their "
+"own country than to players from other factions."
+msgstr ""
+
+#: src/components/windows/Help.jsx:76
+msgid ""
+"3) We listen to the players' opinions and try to implement their ideas and "
+"ambitions. You help us to become better!"
 msgstr ""
 
 #: src/components/Fish.jsx:39
@@ -183,11 +202,11 @@ msgstr ""
 msgid "Calculate like GIMP"
 msgstr ""
 
-#: src/ui/templateLoader.js:231
+#: src/ui/templateLoader.js:234
 msgid "Can not export more than 20 or no template!"
 msgstr ""
 
-#: src/ui/templateLoader.js:257
+#: src/ui/templateLoader.js:260
 msgid "Can not import more than 20 or no template!"
 msgstr ""
 
@@ -208,7 +227,7 @@ msgstr ""
 #: src/components/LogInForm.jsx:307
 #: src/components/LogInForm.jsx:400
 #: src/components/RefreshPrompt.jsx:16
-#: src/components/TemplateItemEdit.jsx:182
+#: src/components/TemplateItemEdit.jsx:178
 msgid "Cancel"
 msgstr ""
 
@@ -218,7 +237,7 @@ msgstr ""
 
 #: src/components/ModWatchtools.jsx:133
 #: src/components/TemplateItem.jsx:54
-#: src/components/TemplateItemEdit.jsx:123
+#: src/components/TemplateItemEdit.jsx:119
 msgid "Canvas"
 msgstr ""
 
@@ -344,15 +363,15 @@ msgstr ""
 msgid "Cleaners can use 0cd blank colors."
 msgstr ""
 
-#: src/components/windows/Help.jsx:111
-#: src/components/windows/Help.jsx:123
+#: src/components/windows/Help.jsx:113
+#: src/components/windows/Help.jsx:125
 #, javascript-format
 msgid ""
 "Click ${ mouseSymbol } middle mouse button or ${ touchSymbol } long-tap to "
 "select current hovering color"
 msgstr ""
 
-#: src/components/windows/Help.jsx:99
+#: src/components/windows/Help.jsx:101
 msgid "Click a color in palette to select it"
 msgstr ""
 
@@ -431,8 +450,8 @@ msgstr ""
 msgid "Consent"
 msgstr ""
 
-#: src/components/windows/Help.jsx:97
-#: src/components/windows/Help.jsx:113
+#: src/components/windows/Help.jsx:99
+#: src/components/windows/Help.jsx:115
 msgid "Controls"
 msgstr ""
 
@@ -455,7 +474,7 @@ msgid ""
 msgstr ""
 
 #: src/components/TemplateItem.jsx:57
-#: src/components/TemplateItemEdit.jsx:142
+#: src/components/TemplateItemEdit.jsx:138
 msgid "Coordinates"
 msgstr ""
 
@@ -522,21 +541,6 @@ msgstr ""
 msgid "Country"
 msgstr ""
 
-#: src/components/windows/Help.jsx:138
-#, javascript-format
-msgid "Credit for the Palette of the 2bit canvas goes to ${ donendoLink }."
-msgstr ""
-
-#: src/components/windows/Help.jsx:132
-#, javascript-format
-msgid "Credit for the Palette of the Moon goes to ${ starhouseLink }."
-msgstr ""
-
-#: src/components/windows/Help.jsx:135
-#, javascript-format
-msgid "Credit for the Palette of the Top10 canvas goes to ${ vinikLink }."
-msgstr ""
-
 #: src/components/CooldownChanges.jsx:22
 msgid "Current Cooldown Changes per Country"
 msgstr ""
@@ -569,7 +573,7 @@ msgstr ""
 msgid "Date of catch"
 msgstr ""
 
-#: src/components/TemplateItemEdit.jsx:175
+#: src/components/TemplateItemEdit.jsx:171
 msgid "Delete"
 msgstr ""
 
@@ -591,7 +595,7 @@ msgstr ""
 
 #: src/components/CanvasItem.jsx:65
 #: src/components/TemplateItem.jsx:60
-#: src/components/TemplateItemEdit.jsx:161
+#: src/components/TemplateItemEdit.jsx:157
 msgid "Dimensions"
 msgstr ""
 
@@ -612,6 +616,7 @@ msgid "Disable Pencil"
 msgstr ""
 
 #: src/components/Reports.tsx:319
+#: src/components/windows/Help.jsx:85
 #: src/components/windows/ReportForm.tsx:110
 msgid "Discord"
 msgstr ""
@@ -636,7 +641,7 @@ msgstr ""
 msgid "Download Template"
 msgstr ""
 
-#: src/components/windows/Help.jsx:107
+#: src/components/windows/Help.jsx:109
 #, javascript-format
 msgid "Drag ${ mouseSymbol } mouse or ${ touchSymbol } pan to move"
 msgstr ""
@@ -743,8 +748,8 @@ msgstr ""
 msgid "Error ${ retCode }"
 msgstr ""
 
-#: src/ui/templateLoader.js:230
-#: src/ui/templateLoader.js:256
+#: src/ui/templateLoader.js:233
+#: src/ui/templateLoader.js:259
 msgid "Error :("
 msgstr ""
 
@@ -770,6 +775,10 @@ msgstr ""
 msgid "File must be less than"
 msgstr ""
 
+#: src/components/windows/Help.jsx:83
+msgid "Find out more about us in our channels"
+msgstr ""
+
 #: src/components/windows/index.js:24
 msgid "Fish Display"
 msgstr ""
@@ -778,7 +787,7 @@ msgstr ""
 msgid "For"
 msgstr ""
 
-#: src/components/windows/Help.jsx:125
+#: src/components/windows/Help.jsx:127
 msgid "For Developers"
 msgstr ""
 
@@ -880,6 +889,10 @@ msgid ""
 "currently only one."
 msgstr ""
 
+#: src/components/windows/Help.jsx:73
+msgid "Here's some information about us:"
+msgstr ""
+
 #: src/components/markdown/MdLink.jsx:110
 msgid "Hide Embed"
 msgstr ""
@@ -888,7 +901,7 @@ msgstr ""
 msgid "Historical View"
 msgstr ""
 
-#: src/components/windows/Help.jsx:109
+#: src/components/windows/Help.jsx:111
 #, javascript-format
 msgid "Hold left ${ bindShift } for pencil (to place while moving mouse)"
 msgstr ""
@@ -913,11 +926,11 @@ msgstr ""
 msgid "IP Actions"
 msgstr ""
 
-#: src/components/windows/Help.jsx:87
+#: src/components/windows/Help.jsx:89
 msgid "Identifiers"
 msgstr ""
 
-#: src/components/windows/Help.jsx:88
+#: src/components/windows/Help.jsx:90
 msgid ""
 "If you talk to moderators or administrators, you might get asked for one of "
 "the following identifiers:"
@@ -1222,12 +1235,18 @@ msgstr ""
 msgid "Open in PopUp"
 msgstr ""
 
-#: src/components/windows/Help.jsx:126
+#: src/components/windows/Help.jsx:128
 msgid "OpenID Connect Client registration"
 msgstr ""
 
 #: src/db/shared.ts:23
 msgid "Other"
+msgstr ""
+
+#: src/components/windows/Help.jsx:78
+msgid ""
+"Our main canvas is a huge world map, you can draw your art, build your "
+"countries and create the history of our site!"
 msgstr ""
 
 #: src/controls/keypress.js:215
@@ -1333,6 +1352,27 @@ msgstr ""
 msgid "Pixel protected"
 msgstr ""
 
+#: src/components/windows/Help.jsx:70
+msgid ""
+"PixelDays is a pixel game for you to have fun with your friends, create "
+"art, countries, factions, expand, and wage war against other nations!"
+msgstr ""
+
+#: src/components/windows/Help.jsx:81
+msgid ""
+"PixelDays is an experiment in the world of pixels to find out what will "
+"happen if you give a person the right to self-expression, bypassing "
+"censorship and control from the administration. Most websites persecute "
+"people for their views and punish them severely, even to the point of "
+"wiping out an entire country."
+msgstr ""
+
+#: src/components/windows/Help.jsx:71
+msgid ""
+"PixelDays stands out among its competitors because it has less harassment, "
+"discrimination, and almost complete freedom of speech."
+msgstr ""
+
 #: src/components/OnlineBox.jsx:84
 #: src/components/user-profile-info.tsx:145
 msgid "Placed Pixels"
@@ -1372,44 +1412,44 @@ msgstr ""
 msgid "Potato Mode"
 msgstr ""
 
-#: src/components/windows/Help.jsx:106
-#: src/components/windows/Help.jsx:116
+#: src/components/windows/Help.jsx:108
+#: src/components/windows/Help.jsx:118
 #, javascript-format
 msgid "Press ${ bindAUp }, ${ bindALeft }, ${ bindADown }, ${ bindARight } to move"
 msgstr ""
 
-#: src/components/windows/Help.jsx:100
+#: src/components/windows/Help.jsx:102
 #, javascript-format
 msgid "Press ${ bindG } to toggle grid"
 msgstr ""
 
-#: src/components/windows/Help.jsx:102
+#: src/components/windows/Help.jsx:104
 #, javascript-format
 msgid "Press ${ bindH } to toggle historical view"
 msgstr ""
 
-#: src/components/windows/Help.jsx:117
+#: src/components/windows/Help.jsx:119
 #, javascript-format
 msgid "Press ${ bindQ } and ${ bindE } to fly up and down"
 msgstr ""
 
-#: src/components/windows/Help.jsx:104
+#: src/components/windows/Help.jsx:106
 #, javascript-format
 msgid "Press ${ bindQ } or ${ bindE } to zoom"
 msgstr ""
 
-#: src/components/windows/Help.jsx:103
+#: src/components/windows/Help.jsx:105
 #, javascript-format
 msgid "Press ${ bindR } to copy coordinates"
 msgstr ""
 
-#: src/components/windows/Help.jsx:105
-#: src/components/windows/Help.jsx:115
+#: src/components/windows/Help.jsx:107
+#: src/components/windows/Help.jsx:117
 #, javascript-format
 msgid "Press ${ bindW }, ${ bindA }, ${ bindS }, ${ bindD } to move"
 msgstr ""
 
-#: src/components/windows/Help.jsx:101
+#: src/components/windows/Help.jsx:103
 #, javascript-format
 msgid "Press ${ bindX } to toggle showing of pixel activity"
 msgstr ""
@@ -1595,7 +1635,7 @@ msgstr ""
 #: src/components/ChangePassword.jsx:118
 #: src/components/ChangeUsername.jsx:70
 #: src/components/LanguageSelect.jsx:75
-#: src/components/TemplateItemEdit.jsx:210
+#: src/components/TemplateItemEdit.jsx:206
 #: src/components/windows/OIDCConsent.jsx:314
 msgid "Save"
 msgstr ""
@@ -1604,7 +1644,7 @@ msgstr ""
 msgid "Scale Image"
 msgstr ""
 
-#: src/components/windows/Help.jsx:108
+#: src/components/windows/Help.jsx:110
 #, javascript-format
 msgid "Scroll ${ mouseSymbol } mouse wheel or ${ touchSymbol } pinch to zoom"
 msgstr ""
@@ -1613,7 +1653,7 @@ msgstr ""
 msgid "Select Date above"
 msgstr ""
 
-#: src/components/TemplateItemEdit.jsx:98
+#: src/components/TemplateItemEdit.jsx:94
 msgid "Select File"
 msgstr ""
 
@@ -1724,6 +1764,10 @@ msgstr ""
 msgid "Social Settings"
 msgstr ""
 
+#: src/components/windows/Help.jsx:87
+msgid "Source for pixeldays on"
+msgstr ""
+
 #: src/components/CanvasItem.jsx:41
 msgid "Stacking till"
 msgstr ""
@@ -1783,11 +1827,12 @@ msgid "Switched to ${ canvasName }"
 msgstr ""
 
 #: src/components/Reports.tsx:310
+#: src/components/windows/Help.jsx:84
 #: src/components/windows/ReportForm.tsx:100
 msgid "Telegram"
 msgstr ""
 
-#: src/components/TemplateItemEdit.jsx:121
+#: src/components/TemplateItemEdit.jsx:117
 msgid "Template Name"
 msgstr ""
 
@@ -1800,6 +1845,12 @@ msgstr ""
 msgid ""
 "The application ${ appName } at ${ appUrl } wants to login with your "
 "pixeldays account ${ accountName }"
+msgstr ""
+
+#: src/components/windows/Help.jsx:79
+msgid ""
+"The cooldown on the site is 1/2, the reserve of pixels (recharge) - 120 "
+"seconds."
 msgstr ""
 
 #: src/components/LogInForm.jsx:332
@@ -2034,12 +2085,6 @@ msgid ""
 "how the canvas was at that time."
 msgstr ""
 
-#: src/components/windows/Help.jsx:129
-msgid ""
-"We thank the following artists, who made their palettes available to the "
-"public on"
-msgstr ""
-
 #: src/ui/PixelTransferController.js:176
 msgid "Weird"
 msgstr ""
@@ -2108,7 +2153,7 @@ msgstr ""
 msgid "You are weird"
 msgstr ""
 
-#: src/components/windows/Help.jsx:126
+#: src/components/windows/Help.jsx:128
 msgid ""
 "You can connect to pixeldays and use pixeldays accounts for oauth / oidc "
 "login. See here:"
