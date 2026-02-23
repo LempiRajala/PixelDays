@@ -65,7 +65,7 @@ function OnStartup() {
 function renderApp(domParent, store) {
   const root = createRoot(domParent);
 
-  if(_LANG_CODE !== 'en') {
+  if('_LANG_CODE' in window && window._LANG_CODE !== 'en') {
     addLocale(_LANG_CODE, JSON.parse(decompressFromBase64(_LANG_TRANSLATION)));
     useLocale(_LANG_CODE);
   }
