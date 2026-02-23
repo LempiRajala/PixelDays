@@ -72,7 +72,7 @@ function getAllAvailableLocals() {
   const langs = fs.readdirSync(langDir)
     .filter((e) => (e.endsWith('.po') && !e.startsWith('ssr')))
     .map((l) => l.slice(0, -3));
-  console.log('build.js langs', langs);
+  // console.log('build.js langs', langs);
   return langs;
 }
 
@@ -408,7 +408,7 @@ async function build() {
 
     // console.log(getAllFolders('./dist'));
 
-    console.log('build.js run buildLanguages with', avlangs.join(', '));
+    // console.log('build.js run buildLanguages with', avlangs.join(', '));
     await buildLanguages(avlangs, true, parallel && 5);
     await minifyJs(avlangs, parallel && 5);
   }

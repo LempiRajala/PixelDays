@@ -73,7 +73,6 @@ let config = {};
     ['TIMEBLOCKS', 'array', null],
     ['OIDC_URL', 'string', null],
     ['IS_BUNDLE', 'bool', false],
-    ['ONLINE_FACTOR', 'float', 0],
   ];
 
   for(const varProp in variables) {
@@ -278,7 +277,6 @@ export const {
   OIDC_URL,
   AVAILABLE_TP,
   IS_BUNDLE,
-  ONLINE_FACTOR,
 } = config;
 
 config = null;

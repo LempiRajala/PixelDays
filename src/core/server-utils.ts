@@ -1,6 +1,5 @@
 import sharp, { type WebpOptions } from 'sharp';
 import path from 'node:path';
-import { ONLINE_FACTOR } from './config';
 
 export const defaultWebpCompressionOptions: WebpOptions = {
   quality: 90,
@@ -41,13 +40,4 @@ export const changeFilenameExtension = (filename: string, newExt: string) => {
   const currentExtenstion = path.extname(filename);
   if(!newExt.startsWith('.')) newExt = '.' + newExt;
   return filename.slice(0, -currentExtenstion.length) + newExt;
-}
-
-export const multiplyOnlineInfoByOnlineFactor = (online: Record<string, number>) => {
-  const copy: Record<string, number> = {};
-  if(!ONLINE_FACTOR) process.exit(0);
-  for(const prop in online) {
-    copy[prop] = Math.floor(online[prop] * ONLINE_FACTOR);
-  }
-  return copy;
 }

@@ -18,10 +18,10 @@ const podir = path.resolve(
 const assetSourceCache = new Map();
 const assetAstCache = new Map();
 
-console.log('__dirname:', import.meta.dirname);
-console.log('Asset dir exists:', fs.existsSync(assetdir));
-console.log('Public dir exists:', fs.existsSync(publicdir));
-console.log('PO dir exists:', fs.existsSync(podir));
+// console.log('__dirname:', import.meta.dirname);
+// console.log('Asset dir exists:', fs.existsSync(assetdir));
+// console.log('Public dir exists:', fs.existsSync(publicdir));
+// console.log('PO dir exists:', fs.existsSync(podir));
 
 export async function buildLanguage(lang = 'en') {
   const jsFiles = fs.readdirSync(assetdir).filter(e => e.endsWith('.js') && e.includes('.WPLANGCODE.'));
@@ -38,7 +38,7 @@ export async function buildLanguage(lang = 'en') {
     
     const clientJsWithTranslationPath = path.join(assetdir, clientJsFile.replace('.WPLANGCODE.', '.en.'));
     fs.writeFileSync(clientJsWithTranslationPath, finalCode);
-    console.log('buildLanguageBundles.js write', clientJsWithTranslationPath);
+    // console.log('buildLanguageBundles.js write', clientJsWithTranslationPath);
     return;
   }
 
@@ -51,7 +51,7 @@ export async function buildLanguage(lang = 'en') {
   const poContent = fs.readFileSync(translationsPath);
   const parsed = gettextParser.po.parse(poContent);
   
-  console.log('buildLanguageBundles.js jsFiles', jsFiles);
+  // console.log('buildLanguageBundles.js jsFiles', jsFiles);
 
   let code = assetSourceCache.get(clientJsFile);
   if (!code) {
@@ -74,7 +74,7 @@ export async function buildLanguage(lang = 'en') {
   const clientJsWithTranslationPath = path.join(assetdir, clientJsFile.replace('.WPLANGCODE.', '.' + lang + '.'));
   const finalCode = output.replace(/WPLANGCODE/g, lang);
   fs.writeFileSync(clientJsWithTranslationPath, finalCode);
-  console.log('buildLanguageBundles.js write', clientJsWithTranslationPath);
+  // console.log('buildLanguageBundles.js write', clientJsWithTranslationPath);
 }
 
 async function buildLanguageAssets(langs, callback) {
@@ -192,7 +192,7 @@ async function doBuildLanguages() {
   /*
    * if there are any arguments, they are lang codes
   */
-  console.log('buildLanguageBundles.js process.argv', process.argv)
+  // console.log('buildLanguageBundles.js process.argv', process.argv)
   if (process.argv.length > 1) {
     const langs = process.argv.slice(2).filter((a) => !a.startsWith('-'));
     if (langs.length) {
