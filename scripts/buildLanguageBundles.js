@@ -24,28 +24,21 @@ console.log('Public dir exists:', fs.existsSync(publicdir));
 console.log('PO dir exists:', fs.existsSync(podir));
 
 export async function buildLanguage(lang = 'en') {
-  const translatableAssets = fs.readdirSync(assetdir).filter(
-    e =>
-      e.endsWith('.js')
-      && e.includes('.WPLANGCODE.')
-      && e.startsWith('client.')
-  );
+  const jsFiles = fs.readdirSync(assetdir).filter(e => e.endsWith('.js') && e.includes('.WPLANGCODE.'));
+  const clientJsFile = jsFiles.filter(e => e.startsWith('client.'))[0];
   
   if (lang === 'en') {
-    for (const asset of translatableAssets) {
-      const assetPath = path.join(assetdir, asset);
-      const code = fs.readFileSync(assetPath, 'utf8');
-      
-      const WPLANGCODEPath = path.join(assetdir, asset.replace('.WPLANGCODE.', '.en.'));
-      
-      const finalCode = [
-        `window._LANG_CODE = "en";`,
-        code.replace(/WPLANGCODE/g, 'en'),
-      ].join('\n');
-      
-      fs.writeFileSync(WPLANGCODEPath, finalCode);
-      console.log('buildLanguageBundles.js write', WPLANGCODEPath);
-    }
+    const assetPath = path.join(assetdir, clientJsFile);
+    const code = fs.readFileSync(assetPath, 'utf8');
+    
+    const finalCode = [
+      `window._LANG_CODE = "en";`,
+      code.replace(/WPLANGCODE/g, 'en'),
+    ].join('\n');
+    
+    const clientJsWithTranslationPath = path.join(assetdir, clientJsFile.replace('.WPLANGCODE.', '.en.'));
+    fs.writeFileSync(clientJsWithTranslationPath, finalCode);
+    console.log('buildLanguageBundles.js write', clientJsWithTranslationPath);
     return;
   }
 
@@ -58,37 +51,30 @@ export async function buildLanguage(lang = 'en') {
   const poContent = fs.readFileSync(translationsPath);
   const parsed = gettextParser.po.parse(poContent);
   
-  console.log('buildLanguageBundles.js translatableAssets', translatableAssets);
+  console.log('buildLanguageBundles.js jsFiles', jsFiles);
 
-  for (const asset of translatableAssets) {
-    let code = assetSourceCache.get(asset);
-    if (!code) {
-      const assetPath = path.join(assetdir, asset);
-      if (!fs.existsSync(assetPath)) {
-        console.warn(`cant find file ${assetPath}`);
-        continue;
-      }
-
-      code = fs.readFileSync(assetPath, 'utf8');
-      assetSourceCache.set(asset, code);
-    }
-
-    const output = [
-      `// Auto-generated language bundle for ${lang}`,
-      '',
-      '// Translation',
-      `window._LANG_CODE = "${lang}";`,
-      `window._LANG_TRANSLATION = \`${LZ.compressToBase64(JSON.stringify(parsed))}\`;`,
-      '',
-      '// Original code:',
-      code,
-    ].join('\n');
-
-    const WPLANGCODEPath = path.join(assetdir, asset.replace('.WPLANGCODE.', '.' + lang + '.'));
-    const finalCode = output.replace(/WPLANGCODE/g, lang);
-    fs.writeFileSync(WPLANGCODEPath, finalCode);
-    console.log('buildLanguageBundles.js write', WPLANGCODEPath);
+  let code = assetSourceCache.get(clientJsFile);
+  if (!code) {
+    const assetPath = path.join(assetdir, clientJsFile);
+    code = fs.readFileSync(assetPath, 'utf8');
+    assetSourceCache.set(clientJsFile, code);
   }
+
+  const output = [
+    `// Auto-generated language bundle for ${lang}`,
+    '',
+    '// Translation',
+    `window._LANG_CODE = "${lang}";`,
+    `window._LANG_TRANSLATION = \`${LZ.compressToBase64(JSON.stringify(parsed))}\`;`,
+    '',
+    '// Original code:',
+    code,
+  ].join('\n');
+
+  const clientJsWithTranslationPath = path.join(assetdir, clientJsFile.replace('.WPLANGCODE.', '.' + lang + '.'));
+  const finalCode = output.replace(/WPLANGCODE/g, lang);
+  fs.writeFileSync(clientJsWithTranslationPath, finalCode);
+  console.log('buildLanguageBundles.js write', clientJsWithTranslationPath);
 }
 
 async function buildLanguageAssets(langs, callback) {
