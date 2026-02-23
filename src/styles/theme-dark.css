@@ -185,3 +185,7 @@ h3, h4 {
 .c-last-hour {
   color: lime;
 }
+
+.user-profile-info.user-profile-info_with-banner .user-profile-info__line {
+  background: rgba(0,0,0,0.8);
+}

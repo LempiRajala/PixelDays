@@ -1486,3 +1486,21 @@ table td span {
   -moz-box-shadow: 0px 0px 5px 5px #0099E0;
   box-shadow: 0px 0px 5px 5px #0099E0;
 }
+
+.user-profile-info {
+  display: grid;
+  position: relative;
+}
+
+.user-profile-info .user-profile-info__line {
+  background: white;
+  box-shadow: 0 0 4px black;
+  border-radius: 8px;
+  padding-left: 8px;
+}
+
+.user-profile-info__line {}
+
+.user-profile-info__line-label {}
+
+.user-profile-info__line-value {}

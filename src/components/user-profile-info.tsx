@@ -5,6 +5,7 @@ import { numberToString } from '../core/utils.js';
 import type { UnmarshalledUser } from "../db/schema";
 import { t } from "ttag";
 import { useElementWidth } from "./hooks/useElementWidth.ts";
+import clsx from 'clsx';
 
 interface Props extends
   Pick<UnmarshalledUser, 'avatarId' | 'bannerId' | 'username'>,
@@ -33,11 +34,7 @@ export const UserProfileInfo = memo<Props>(({
   const containerStyle = useMemo(() => {
     const renderInCompactWay = containerWidth ? containerWidth <= 600 : false;
 
-    const style: CSSProperties = {
-      display: 'grid',
-      position: 'relative',
-    }
-
+    const style: CSSProperties = {}
     if(avatarId) {
       if(renderInCompactWay) {
         style.gridTemplateRows = '1fr 1fr';
@@ -54,7 +51,14 @@ export const UserProfileInfo = memo<Props>(({
   const hasBanner = bannerId !== null;
 
   return (
-    <div ref={containerRef} style={containerStyle}>
+    <div
+      ref={containerRef}
+      style={containerStyle}
+      className={clsx(
+        "user-profile-info",
+        hasBanner && "user-profile-info_with-banner",
+      )}
+    >
       { bannerId !== null &&
         <div style={{
           width: 'calc(100% + 16px)',
@@ -100,14 +104,12 @@ export const UserProfileInfo = memo<Props>(({
       }}>
         <InfoLine
           key={0}
-          bannerStyled={hasBanner}
           label={t`Username`}
           value={username}
         />
         { createdAt &&
           <InfoLine
             key={1}
-            bannerStyled={hasBanner}
             label={t`Registered`}
             value={createdAt}
           />
@@ -115,7 +117,6 @@ export const UserProfileInfo = memo<Props>(({
         { lastSeen &&
           <InfoLine
             key={2}
-            bannerStyled={hasBanner}
             label={t`Last login`}
             value={lastSeen}
           />
@@ -123,7 +124,6 @@ export const UserProfileInfo = memo<Props>(({
         { dailyTotalPixels !== undefined &&
           <InfoLine
             key={3}
-            bannerStyled={hasBanner}
             label={t`Today Placed Pixels`}
             value={dailyTotalPixels}
           />
@@ -131,7 +131,6 @@ export const UserProfileInfo = memo<Props>(({
         { dailyRanking !== undefined &&
           <InfoLine
             key={4}
-            bannerStyled={hasBanner}
             label={t`Daily Rank`}
             value={dailyRanking}
             zero="N/A"
@@ -141,7 +140,6 @@ export const UserProfileInfo = memo<Props>(({
         { totalPixels !== undefined &&
           <InfoLine
             key={5}
-            bannerStyled={hasBanner}
             label={t`Placed Pixels`}
             value={totalPixels}
           />
@@ -149,7 +147,6 @@ export const UserProfileInfo = memo<Props>(({
         { ranking !== undefined &&
           <InfoLine
             key={6}
-            bannerStyled={hasBanner}
             label={t`Total Rank`}
             value={ranking}
             zero="N/A"
@@ -168,29 +165,22 @@ function InfoLine({
   value,
   rank,
   zero,
-  bannerStyled,
 }: {
   label?: string,
   value?: number | string | Date;
   rank?: boolean;
   zero?: string,
-  bannerStyled: boolean;
 }) {
   const id = useId();
   return (
-    <p key={id} style={bannerStyled ? {
-      background: 'white',
-      boxShadow: '0 0 4px black',
-      borderRadius: '8px',
-      paddingLeft: '8px',
-    } : {}}>
+    <p key={id} className="user-profile-info__line">
       { label &&
-        <span key={id + '_0'} className="stattext">{(rank) ? `${label}: #` : `${label}: `}</span>
+        <span key={id + '_0'} className="stattext user-profile-info__line-label">{(rank) ? `${label}: #` : `${label}: `}</span>
       }
       { value !== undefined &&
         <Fragment key={id + '_1'}>
           &nbsp;
-          <span key={id + '_2'} className="statvalue">{
+          <span key={id + '_2'} className="statvalue user-profile-info__line-value">{
             typeof value === 'number' ? numberToString(value, zero) :
             value instanceof Date ? formatDate(value) :
             value

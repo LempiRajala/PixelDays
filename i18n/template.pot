@@ -561,7 +561,7 @@ msgstr ""
 msgid "Daily Pixels per Player"
 msgstr ""
 
-#: src/components/user-profile-info.tsx:135
+#: src/components/user-profile-info.tsx:134
 msgid "Daily Rank"
 msgstr ""
 
@@ -998,7 +998,7 @@ msgstr ""
 msgid "Know that an account exists"
 msgstr ""
 
-#: src/components/user-profile-info.tsx:119
+#: src/components/user-profile-info.tsx:120
 msgid "Last login"
 msgstr ""
 
@@ -1374,7 +1374,7 @@ msgid ""
 msgstr ""
 
 #: src/components/OnlineBox.jsx:84
-#: src/components/user-profile-info.tsx:145
+#: src/components/user-profile-info.tsx:143
 msgid "Placed Pixels"
 msgstr ""
 
@@ -1509,7 +1509,7 @@ msgstr ""
 msgid "Register new account here"
 msgstr ""
 
-#: src/components/user-profile-info.tsx:111
+#: src/components/user-profile-info.tsx:113
 msgid "Registered"
 msgstr ""
 
@@ -1963,7 +1963,7 @@ msgstr ""
 msgid "Total Pixels placed per day"
 msgstr ""
 
-#: src/components/user-profile-info.tsx:153
+#: src/components/user-profile-info.tsx:150
 msgid "Total Rank"
 msgstr ""
 
@@ -2053,7 +2053,7 @@ msgid "User profile"
 msgstr ""
 
 #: src/components/ModIIDtools.jsx:240
-#: src/components/user-profile-info.tsx:104
+#: src/components/user-profile-info.tsx:107
 msgid "Username"
 msgstr ""
 
