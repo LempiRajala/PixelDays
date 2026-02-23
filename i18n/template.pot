@@ -49,25 +49,6 @@ msgstr ""
 msgid "...loading Login methods and sessions..."
 msgstr ""
 
-#: src/components/windows/Help.jsx:74
-msgid ""
-"1) We guarantee freedom of expression in our project. There is almost no "
-"harassment from moderation for your stance or ideals."
-msgstr ""
-
-#: src/components/windows/Help.jsx:75
-msgid ""
-"2) We do not allow moderation to abuse its authority. For example, if a "
-"moderator is Russian or Ukrainian, they should not be more loyal to their "
-"own country than to players from other factions."
-msgstr ""
-
-#: src/components/windows/Help.jsx:76
-msgid ""
-"3) We listen to the players' opinions and try to implement their ideas and "
-"ambitions. You help us to become better!"
-msgstr ""
-
 #: src/components/Fish.jsx:39
 msgid "A Phish!"
 msgstr ""
@@ -890,7 +871,7 @@ msgid ""
 msgstr ""
 
 #: src/components/windows/Help.jsx:73
-msgid "Here's some information about us:"
+msgid "Here's some information about us"
 msgstr ""
 
 #: src/components/markdown/MdLink.jsx:110
@@ -2083,6 +2064,25 @@ msgid ""
 "We decided to archive it as a timelapse with lossless encoded webm. Taking "
 "a screenshot from the timelapse results in a perfect 1:1 representation of "
 "how the canvas was at that time."
+msgstr ""
+
+#: src/components/windows/Help.jsx:75
+msgid ""
+"We do not allow moderation to abuse its authority. For example, if a "
+"moderator is Russian or Ukrainian, they should not be more loyal to their "
+"own country than to players from other factions."
+msgstr ""
+
+#: src/components/windows/Help.jsx:74
+msgid ""
+"We guarantee freedom of expression in our project. There is almost no "
+"harassment from moderation for your stance or ideals."
+msgstr ""
+
+#: src/components/windows/Help.jsx:76
+msgid ""
+"We listen to the players' opinions and try to implement their ideas and "
+"ambitions. You help us to become better!"
 msgstr ""
 
 #: src/ui/PixelTransferController.js:176

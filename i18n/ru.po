@@ -1943,3 +1943,105 @@ msgstr "X"
 
 #~ msgid "I think we experienced some error :("
 #~ msgstr "Я думаю у нас вышла ошибка :("
+
+msgid "Make report"
+msgstr "Создать репорт"
+
+msgid "Not selected"
+msgstr "Не выбрано"
+
+msgid "Category"
+msgstr "Категория"
+
+msgid "Reports"
+msgstr "Репорты"
+
+msgid "Status"
+msgstr "Статус"
+
+msgid "No results"
+msgstr "Нет результатов"
+
+msgid "Telegram"
+msgstr "Телеграм"
+
+msgid "Discord"
+msgstr "Дискорд"
+
+msgid "Report text"
+msgstr "Текст репорта"
+
+msgid "Show less"
+msgstr "Меньше"
+
+msgid "Show more"
+msgstr "Больше"
+
+msgid "Reject report"
+msgstr "Отклонить репорт"
+
+msgid "Close report"
+msgstr "Закрыть репорт"
+
+msgid "Topic"
+msgstr "Тема"
+
+msgid "Report description"
+msgstr "Описание репорта"
+
+msgid "Add current position link"
+msgstr "Добавить ссылку на текущее местоположение"
+
+msgid "Report successfully sent!"
+msgstr "Репорт успешно отправлен!"
+
+msgid "Only registered users can send reports"
+msgstr "Только зарегистрированные пользователи могут отправлять репорты"
+
+msgid "Bot"
+msgstr "Бот"
+msgid "Admin abuse"
+msgstr "Злоупотребление модеркой"
+msgid "Bug"
+msgstr "Баг"
+msgid "Proxy"
+msgstr "Прокси"
+msgid "Other"
+msgstr "Другое"
+
+msgid "Open"
+msgstr "Открыт"
+msgid "Closed"
+msgstr "Закрыт"
+msgid "Rejected"
+msgstr "Отклонен"
+
+msgid "PixelDays is a pixel game for you to have fun with your friends, create art, countries, factions, expand, and wage war against other nations!"
+msgstr "PixelDays — это пиксельная игра, где можно весело провести время с друзьями, создавать арты, страны, фракции, расширяться и воевать с другими нациями!"
+
+msgid "PixelDays stands out among its competitors because it has less harassment, discrimination, and almost complete freedom of speech."
+msgstr "PixelDays выделяется среди конкурентов благодаря меньшему количеству преследований и дискриминации, а также почти полной свободе слова."
+
+msgid "Here's some information about us"
+msgstr "Вот некоторая информация о нас"
+
+msgid "We guarantee freedom of expression in our project. There is almost no harassment from moderation for your stance or ideals."
+msgstr "Мы гарантируем свободу самовыражения в нашем проекте. Здесь практически нет преследований со стороны модерации за вашу позицию или идеалы."
+
+msgid "We do not allow moderation to abuse its authority. For example, if a moderator is Russian or Ukrainian, they should not be more loyal to their own country than to players from other factions."
+msgstr "Мы не позволяем модерации злоупотреблять своей властью. Например, если модератор русский или украинец, он не должен быть более лояльным к своей стране, чем к игрокам из других фракций."
+
+msgid "We listen to the players' opinions and try to implement their ideas and ambitions. You help us to become better!"
+msgstr "Мы прислушиваемся к мнению игроков и стараемся реализовывать их идеи и амбиции. Вы помогаете нам становиться лучше!"
+
+msgid "Our main canvas is a huge world map, you can draw your art, build your countries and create the history of our site!"
+msgstr "Наше основное полотно — это огромная карта мира, где вы можете рисовать свои арты, строить свои страны и творить историю нашего сайта!"
+
+msgid "The cooldown on the site is 1/2, the reserve of pixels (recharge) - 120 seconds."
+msgstr "Кулдаун на сайте 1/2, запас пикселей (речардж) — 120 секунд."
+
+msgid "PixelDays is an experiment in the world of pixels to find out what will happen if you give a person the right to self-expression, bypassing censorship and control from the administration. Most websites persecute people for their views and punish them severely, even to the point of wiping out an entire country."
+msgstr "PixelDays — это эксперимент в мире пикселей, чтобы выяснить, что произойдет, если дать человеку право на самовыражение в обход цензуры и контроля со стороны администрации. Большинство сайтов преследуют людей за их взгляды и жестоко наказывают, вплоть до полного вайпа целой страны."
+
+msgid "Find out more about us in our channels"
+msgstr "Узнайте больше о нас в наших соцсетях"

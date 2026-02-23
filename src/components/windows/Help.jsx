@@ -70,19 +70,19 @@ const Help = () => {
       <p>{t`PixelDays is a pixel game for you to have fun with your friends, create art, countries, factions, expand, and wage war against other nations!`}</p>
       <p>{t`PixelDays stands out among its competitors because it has less harassment, discrimination, and almost complete freedom of speech.`}</p>
       <br/>
-      <p>{t`Here's some information about us:`}</p>
-      <p style={{ paddingLeft: '10px' }}>{t`1) We guarantee freedom of expression in our project. There is almost no harassment from moderation for your stance or ideals.`}</p>
-      <p style={{ paddingLeft: '10px' }}>{t`2) We do not allow moderation to abuse its authority. For example, if a moderator is Russian or Ukrainian, they should not be more loyal to their own country than to players from other factions.`}</p>
-      <p style={{ paddingLeft: '10px' }}>{t`3) We listen to the players' opinions and try to implement their ideas and ambitions. You help us to become better!`}</p>
+      <p>{t`Here's some information about us`}:</p>
+      <p style={{ paddingLeft: '10px' }}>1) {t`We guarantee freedom of expression in our project. There is almost no harassment from moderation for your stance or ideals.`}</p>
+      <p style={{ paddingLeft: '10px' }}>2) {t`We do not allow moderation to abuse its authority. For example, if a moderator is Russian or Ukrainian, they should not be more loyal to their own country than to players from other factions.`}</p>
+      <p style={{ paddingLeft: '10px' }}>3) {t`We listen to the players' opinions and try to implement their ideas and ambitions. You help us to become better!`}</p>
 
       <p>{t`Our main canvas is a huge world map, you can draw your art, build your countries and create the history of our site!`}</p>
       <p>{t`The cooldown on the site is 1/2, the reserve of pixels (recharge) - 120 seconds.`}</p>
 
       <p>{t`PixelDays is an experiment in the world of pixels to find out what will happen if you give a person the right to self-expression, bypassing censorship and control from the administration. Most websites persecute people for their views and punish them severely, even to the point of wiping out an entire country.`}</p>
 
-      <p> {t`Find out more about us in our channels`}: <a rel="noopener noreferrer" target="_blank" href="https://t.me/pixeldaysfun">https://t.me/pixeldaysfun</a> </p>
-      <p> {t`Telegram`}: <a rel="noopener noreferrer" target="_blank" href="https://t.me/pixeldaysfun">https://t.me/pixeldaysfun</a> </p>
-      <p> {t`Discord`}: <a rel="noopener noreferrer" target="_blank" href="https://dsc.gg/pixeldays">https://dsc.gg/pixeldays</a> </p>
+      <p> {t`Find out more about us in our channels`}: </p>
+      <p> {t`Telegram`} <a rel="noopener noreferrer" target="_blank" href="https://t.me/pixeldaysfun">https://t.me/pixeldaysfun</a> </p>
+      <p> {t`Discord`} <a rel="noopener noreferrer" target="_blank" href="https://dsc.gg/pixeldays">https://dsc.gg/pixeldays</a> </p>
 
       <p> {t`Source for pixeldays on`} <a rel="noopener noreferrer" target="_blank" href="https://github.com/LempiRajala/PixelDays">https://github.com/LempiRajala/PixelDays</a> </p>
         
