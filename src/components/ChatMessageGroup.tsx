@@ -78,7 +78,12 @@ const ChatMessageGroup = React.memo(({
 
   return (
     <li style={containerStyle} ref={refEmbed}>
-      <SmallAvatar avatarId={avatarId}/>
+      { isServiceAccount &&
+        <SmallAvatar src={cdn`/service-account-avatar.webp`}/>
+      }
+      { !isServiceAccount &&
+        <SmallAvatar avatarId={avatarId}/>
+      }
       <div style={contentStyle}>
         <span
           style={{
@@ -101,12 +106,14 @@ const ChatMessageGroup = React.memo(({
           >
             {name}
           </span>
-          <img
-            style={flagStyle}
-            alt="flag icon"
-            title={country}
-            src={cdn`/cf/${country}.gif`}
-          />
+          { !isServiceAccount &&
+            <img
+              style={flagStyle}
+              alt="flag icon"
+              title={country}
+              src={cdn`/cf/${country}.gif`}
+            />
+          }
         </span>
         {
           messages.map(({ text, createdAt }, i) => (

@@ -11,22 +11,35 @@ const avatarStyle: CSSProperties = {
   overflow: 'hidden',
 }
 
-export function SmallAvatar({
-  avatarId,
-}: {
+type Props = {
   avatarId: User['avatarId'];
-}) {
+} | {
+  src: string;
+}
+
+export function SmallAvatar(props: Props) {
+  let imgSource: string | null;
+  if('avatarId' in props) {
+    if(props.avatarId) {
+      imgSource = getFileUrl(props.avatarId);
+    } else {
+      imgSource = null;
+    }
+  } else {
+    imgSource = props.src;
+  }
+
   return (
     <div style={avatarStyle}>
-      { avatarId &&
+      { imgSource &&
         <img
           alt={`${name} avatar`}
-          src={getFileUrl(avatarId)}
+          src={imgSource}
           width={32}
           height={32}
         />
       }
-      { avatarId === null &&
+      { !imgSource &&
         <CgProfile
           size={32}
         />
