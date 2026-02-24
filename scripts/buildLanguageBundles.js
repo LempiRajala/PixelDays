@@ -28,8 +28,8 @@ export async function buildLanguage(lang = 'en') {
   const clientJsFile = jsFiles.filter(e => e.startsWith('client.'))[0];
   
   if (lang === 'en') {
-    const assetPath = path.join(assetdir, clientJsFile);
-    const code = fs.readFileSync(assetPath, 'utf8');
+    const clientJsFilePath = path.join(assetdir, clientJsFile);
+    const code = fs.readFileSync(clientJsFilePath, 'utf8');
     
     const finalCode = [
       `window._LANG_CODE = "en";`,
@@ -38,7 +38,15 @@ export async function buildLanguage(lang = 'en') {
     
     const clientJsWithTranslationPath = path.join(assetdir, clientJsFile.replace('.WPLANGCODE.', '.en.'));
     fs.writeFileSync(clientJsWithTranslationPath, finalCode);
-    // console.log('buildLanguageBundles.js write', clientJsWithTranslationPath);
+    
+    const restJsFiles = jsFiles.filter(e => !e.startsWith('client.'));
+    for(const jsFile of restJsFiles) {
+      fs.copyFileSync(
+        path.join(assetdir, jsFile),
+        path.join(assetdir, jsFile.replace('.WPLANGCODE.', '.en.')),
+      );
+    }
+
     return;
   }
 
@@ -72,8 +80,8 @@ export async function buildLanguage(lang = 'en') {
   ].join('\n');
 
   const clientJsWithTranslationPath = path.join(assetdir, clientJsFile.replace('.WPLANGCODE.', '.' + lang + '.'));
-  const finalCode = output.replace(/WPLANGCODE/g, lang);
-  fs.writeFileSync(clientJsWithTranslationPath, finalCode);
+  // const finalCode = output.replace(/WPLANGCODE/g, lang);
+  fs.writeFileSync(clientJsWithTranslationPath, output);
   // console.log('buildLanguageBundles.js write', clientJsWithTranslationPath);
 }
 

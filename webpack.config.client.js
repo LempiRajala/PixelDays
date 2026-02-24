@@ -8,57 +8,6 @@ import webpack from 'webpack';
 import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import sourceMapping from './scripts/sourceMapping.js';
 import LicenseListWebpackPlugin from './scripts/LicenseListWebpackPlugin.cjs';
-import JavaScriptObfuscator from 'webpack-obfuscator';
-// import { transform } from 'esbuild';
-
-// class EsbuildMinifyPlugin {
-//   constructor(options = {}) {
-//     this.options = {
-//       target: 'es2015',
-//       minify: true,
-//       minifyWhitespace: true,
-//       minifyIdentifiers: true,
-//       minifySyntax: true,
-//       treeShaking: true,
-//       ...options
-//     };
-//   }
-
-//   apply(compiler) {
-//     compiler.hooks.compilation.tap('EsbuildMinifyPlugin', (compilation) => {
-//       compilation.hooks.chunkAsset.tap('EsbuildMinifyPlugin', (chunk, filename) => {
-//         // Получаем исходный код чанка
-//         const source = compilation.assets[filename]?.source();
-        
-//         if (source && typeof source === 'string' && 
-//             filename.endsWith('.js') && 
-//             !filename.includes('vendor') && // Исключаем vendor чанки, если нужно
-//             !filename.includes('three')) {
-          
-//           // Асинхронно минифицируем с помощью esbuild
-//           setTimeout(async () => {
-//             try {
-//               const result = await transform(source, {
-//                 ...this.options,
-//                 loader: 'js',
-//               });
-              
-//               // Заменяем оригинальный код минифицированным
-//               compilation.assets[filename] = {
-//                 source: () => result.code,
-//                 size: () => result.code.length
-//               };
-              
-//               console.log(`✅ esbuild handle: ${filename}`);
-//             } catch (err) {
-//               console.error(`❌ esbuild error ${filename}:`, err);
-//             }
-//           }, 0);
-//         }
-//       });
-//     });
-//   }
-// }
 
 /*
  * make sure we build in root dir
@@ -105,12 +54,9 @@ export default ({ development, analyze}) => {
     devtool: development ? 'source-map' : false,
 
     entry: {
-      client:
-        [path.resolve('src', 'client.js')],
-      globe:
-        [path.resolve('src', 'globe.js')],
-      popup:
-        [path.resolve('src', 'popup.js')],
+      client: [path.resolve('src', 'client.js')],
+      globe: [path.resolve('src', 'globe.js')],
+      popup: [path.resolve('src', 'popup.js')],
     },
 
     output: {
@@ -123,10 +69,11 @@ export default ({ development, analyze}) => {
        * a WPLANGCODE placer if its in production, because we postprocess that,
        * and generate language bundles out of it.
        */
-      filename: (pathData) => (pathData.chunk.chunkReason)
+      filename: (pathData) => (
+        pathData.chunk.chunkReason
         ? '[name].[chunkhash:8].js'
-        : `[name].${(development) ? 'en' : 'WPLANGCODE'}.[chunkhash:8].js`,
-      chunkFilename: `[name].${(development) ? 'en' : 'WPLANGCODE'}.[chunkhash:8].js`,
+        : `[name].WPLANGCODE.[chunkhash:8].js`),
+      chunkFilename: `[name].WPLANGCODE.[chunkhash:8].js`,
     },
 
     resolve: {
@@ -189,86 +136,6 @@ export default ({ development, analyze}) => {
         'process.env.PKG_VERSION': `"${pkg.version}"`,
         'process.env.FILE_STORAGE_ORIGIN': `"${process.env.FILE_STORAGE_ORIGIN}"`,
       }),
-      
-      ...(!development ? [
-        // new EsbuildMinifyPlugin({
-        //   target: 'es2015',
-        //   minify: true,
-        //   minifyWhitespace: true,
-        //   minifyIdentifiers: true,
-        //   minifySyntax: true,
-        //   treeShaking: true,
-        //   // Можно добавить exclude для определенных чанков
-        // }),
-      //   new JavaScriptObfuscator({
-      //     // Базовые настройки (безопасные)
-      //     compact: true,
-      //     controlFlowFlattening: true,
-      //     controlFlowFlatteningThreshold: 0.75,
-      //     deadCodeInjection: false,
-      //     // deadCodeInjectionThreshold: 0.4,
-      //     debugProtection: false,
-      //     // debugProtectionInterval: 0,
-      //     disableConsoleOutput: false, // Не отключаем console.log для отладки
-      //     identifierNamesGenerator: 'hexadecimal', // Используем hex имена переменных
-          
-      //     // Настройки для строк (хорошо запутывают, но безопасны)
-      //     log: false,
-      //     numbersToExpressions: true, // Преобразует числа в выражения
-      //     simplify: true, // Упрощает некоторые выражения
-      //     stringArray: true,
-      //     stringArrayEncoding: ['base64'], // Кодирует строки в base64
-      //     stringArrayIndexShift: true, // Сдвигает индексы массива строк
-      //     stringArrayWrappersCount: 2, // Добавляет обертки для доступа к строкам
-      //     stringArrayWrappersChainedCalls: true,
-      //     stringArrayWrappersParametersMaxCount: 4,
-      //     stringArrayWrappersType: 'function',
-      //     stringArrayThreshold: 0.75, // 75% строк будут помещены в массив
-          
-      //     // Другие преобразования
-      //     rotateStringArray: true, // Перемешивает массив строк
-      //     selfDefending: false, // ОСТОРОЖНО: может вызывать проблемы
-      //     shuffleStringArray: true, // Перемешивает массив строк
-      //     splitStrings: true,
-      //     splitStringsChunkLength: 10, // Разбивает длинные строки
-      //     unicodeEscapeSequence: false, // Лучше false для совместимости
-          
-      //     // Безопасные настройки для переименования
-      //     renameGlobals: false, // ОПАСНО: может сломать интеграцию с другими скриптами
-      //     renameProperties: false, // ОПАСНО: может сломать доступ к свойствам объектов
-      //     transformObjectKeys: false, // ОПАСНО: может сломать доступ по ключам
-
-      //     // Настройки source map (если нужны для отладки)
-      //     sourceMap: development,
-      //     sourceMapBaseUrl: '',
-      //     sourceMapFileName: '',
-      //     sourceMapMode: 'separate',
-
-      //     // Настройки для domain lock (если нужно)
-      //     domainLock: [], // Оставить пустым для всех доменов
-
-      //     seed: 0,
-
-      //     target: 'browser',
-
-      //     exclude: [
-      //       /node_modules/,
-      //       /\.map$/,
-      //       /\.css$/,
-      //       /\.svg$/,
-      //       /\.json$/,
-      //       /\.html$/,
-      //     ]
-      //   }, [
-      //     // Исключите определенные файлы из обфускации (опционально)
-      //     'vendor.js',
-      //     'pvendor.js', 
-      //     'three.js',
-      //     'vendor.*.js',
-      //     'pvendor.*.js', 
-      //     'three.*.js',
-      //   ])
-      ] : []),
 
       // Output license informations
       new LicenseListWebpackPlugin({
