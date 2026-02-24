@@ -66,7 +66,7 @@ services:
     restart: always
     volumes:
       - tiles:/usr/src/app/tiles
-      - logs:/usr/src/app/log
+      - logs:/usr/src/app/dist/log
 
 volumes:
   redis_data:
