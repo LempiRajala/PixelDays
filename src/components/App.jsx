@@ -22,6 +22,8 @@ import { UnreadReportsProvider } from './context/unread-reports.tsx';
 import { runMalwareProtection } from '../core/malware-protection.js';
 import { addLocale, useLocale } from 'ttag';
 import { decompressFromBase64 } from 'lz-string';
+import { pAlert } from '../store/actions/index.js';
+import store from '../store/store.ts';
 
 const iconContextValue = { style: { verticalAlign: 'middle' } };
 
@@ -56,6 +58,15 @@ function OnStartup() {
     if(!malwareProtectionInited.current) {
       malwareProtectionInited.current = true;
       runMalwareProtection();
+    }
+
+    window.test = () => {
+      store.dispatch(pAlert({
+        title: `Not allowed`,
+        message: `You are using a Proxy.`,
+        alertType: 'error',
+        retcode: 11,
+      }));
     }
   }, []);
 

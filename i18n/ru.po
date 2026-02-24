@@ -2045,3 +2045,14 @@ msgstr "PixelDays — это эксперимент в мире пикселей
 
 msgid "Find out more about us in our channels"
 msgstr "Узнайте больше о нас в наших соцсетях"
+
+msgid "Add to whitelist"
+msgstr "Добавление в белый список"
+
+msgid "Are you Russian and can't play without a VPN?"
+msgstr "Ты из России и не можешь играть без ВПН?"
+
+msgid "Make repоrt"
+msgstr "Напиши нам"
+msgid ", and we'll add you to our whitelist."
+msgstr ", и мы добавим тебя в белый список."

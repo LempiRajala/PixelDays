@@ -60,3 +60,12 @@ export async function fileToImage(file: File): Promise<{
 }
 
 export const getFileUrl = (id: string) => `${process.env.FILE_STORAGE_ORIGIN}/${id}`;
+
+export function getLanguageNativeName(langCode: string) {
+  const displayNames = new Intl.DisplayNames([langCode], { 
+    type: 'language',
+    languageDisplay: 'standard',
+  });
+  
+  return displayNames.of(langCode);
+}

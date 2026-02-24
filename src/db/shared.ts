@@ -6,6 +6,7 @@ export const reportCategories = [
 	'bot',
 	'proxy',
 	'moder-or-admin-abuse',
+	'add-to-whitelist',
 	'other',
 ] as const;
 
@@ -21,6 +22,7 @@ export const makeReportCategoryUserFriendly = (category: Report['category']): st
 	if(category === 'bug') return t`Bug`;
 	if(category === 'proxy') return t`Proxy`;
 	if(category === 'other') return t`Other`;
+	if(category === 'add-to-whitelist') return t`Add to whitelist`;
 
 	console.warn(`unrecognized report category "${category}"`);
 	return category;

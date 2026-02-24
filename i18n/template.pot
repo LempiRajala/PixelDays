@@ -45,6 +45,10 @@ msgstr ""
 msgid "+last hour"
 msgstr ""
 
+#: src/components/Alert.jsx:110
+msgid ", and we'll add you to our whitelist."
+msgstr ""
+
 #: src/components/ChangeMail.jsx:180
 msgid "...loading Login methods and sessions..."
 msgstr ""
@@ -69,11 +73,15 @@ msgstr ""
 msgid "Add Template"
 msgstr ""
 
-#: src/components/windows/ReportForm.tsx:130
+#: src/components/windows/ReportForm.tsx:135
 msgid "Add current position link"
 msgstr ""
 
-#: src/db/shared.ts:20
+#: src/db/shared.ts:25
+msgid "Add to whitelist"
+msgstr ""
+
+#: src/db/shared.ts:21
 msgid "Admin abuse"
 msgstr ""
 
@@ -103,6 +111,10 @@ msgstr ""
 
 #: src/components/windows/CanvasSelect.jsx:40
 msgid "Archive"
+msgstr ""
+
+#: src/components/Alert.jsx:99
+msgid "Are you Russian and can't play without a VPN?"
 msgstr ""
 
 #: src/components/Admintools.jsx:387
@@ -148,7 +160,7 @@ msgstr ""
 msgid "Blocked"
 msgstr ""
 
-#: src/db/shared.ts:19
+#: src/db/shared.ts:20
 msgid "Bot"
 msgstr ""
 
@@ -159,7 +171,7 @@ msgstr ""
 msgid "Bottom-right corner"
 msgstr ""
 
-#: src/db/shared.ts:21
+#: src/db/shared.ts:22
 msgid "Bug"
 msgstr ""
 
@@ -244,7 +256,7 @@ msgid "Captcha"
 msgstr ""
 
 #: src/components/Reports.tsx:160
-#: src/components/windows/ReportForm.tsx:91
+#: src/components/windows/ReportForm.tsx:96
 msgid "Category"
 msgstr ""
 
@@ -252,7 +264,7 @@ msgstr ""
 msgid "Caught by"
 msgstr ""
 
-#: src/store/actions/index.js:21
+#: src/store/actions/index.js:36
 msgid "Change Happened"
 msgstr ""
 
@@ -404,7 +416,7 @@ msgstr ""
 msgid "Close report"
 msgstr ""
 
-#: src/db/shared.ts:31
+#: src/db/shared.ts:33
 msgid "Closed"
 msgstr ""
 
@@ -598,7 +610,7 @@ msgstr ""
 
 #: src/components/Reports.tsx:319
 #: src/components/windows/Help.jsx:85
-#: src/components/windows/ReportForm.tsx:110
+#: src/components/windows/ReportForm.tsx:115
 msgid "Discord"
 msgstr ""
 
@@ -1042,6 +1054,10 @@ msgstr ""
 msgid "Make report"
 msgstr ""
 
+#: src/components/Alert.jsx:108
+msgid "Make repоrt"
+msgstr ""
+
 #: src/components/Admintools.jsx:349
 msgid "Manage Moderators"
 msgstr ""
@@ -1119,7 +1135,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: src/store/actions/index.js:430
+#: src/store/actions/index.js:445
 msgid "No Phish!"
 msgstr ""
 
@@ -1155,7 +1171,8 @@ msgid "OIDC LogIn"
 msgstr ""
 
 #: src/components/BanInfo.jsx:144
-#: src/store/actions/index.js:9
+#: src/store/actions/index.js:13
+#: src/store/actions/index.js:22
 msgid "OK"
 msgstr ""
 
@@ -1164,7 +1181,7 @@ msgstr ""
 msgid "Offset"
 msgstr ""
 
-#: src/store/actions/index.js:431
+#: src/store/actions/index.js:446
 msgid "Oh no, the phish escaped. Better luck next time!"
 msgstr ""
 
@@ -1180,7 +1197,7 @@ msgstr ""
 msgid "Online Users on Canvas"
 msgstr ""
 
-#: src/components/windows/ReportForm.tsx:188
+#: src/components/windows/ReportForm.tsx:193
 msgid "Only registered users can send reports"
 msgstr ""
 
@@ -1192,7 +1209,7 @@ msgstr ""
 msgid "Opacity of Overlay in percent."
 msgstr ""
 
-#: src/db/shared.ts:30
+#: src/db/shared.ts:32
 msgid "Open"
 msgstr ""
 
@@ -1220,7 +1237,7 @@ msgstr ""
 msgid "OpenID Connect Client registration"
 msgstr ""
 
-#: src/db/shared.ts:23
+#: src/db/shared.ts:24
 msgid "Other"
 msgstr ""
 
@@ -1305,7 +1322,7 @@ msgstr ""
 msgid "Permission"
 msgstr ""
 
-#: src/store/actions/index.js:423
+#: src/store/actions/index.js:438
 msgid "Phish!"
 msgstr ""
 
@@ -1375,7 +1392,7 @@ msgstr ""
 msgid "Please prove that you are human"
 msgstr ""
 
-#: src/store/actions/index.js:21
+#: src/store/actions/index.js:36
 msgid "Please refresh the website"
 msgstr ""
 
@@ -1445,7 +1462,7 @@ msgstr ""
 msgid "Profile"
 msgstr ""
 
-#: src/db/shared.ts:22
+#: src/db/shared.ts:23
 msgid "Proxy"
 msgstr ""
 
@@ -1502,7 +1519,7 @@ msgstr ""
 msgid "Reject report"
 msgstr ""
 
-#: src/db/shared.ts:32
+#: src/db/shared.ts:34
 msgid "Rejected"
 msgstr ""
 
@@ -1542,11 +1559,11 @@ msgstr ""
 msgid "Remove banner"
 msgstr ""
 
-#: src/components/windows/ReportForm.tsx:125
+#: src/components/windows/ReportForm.tsx:130
 msgid "Report description"
 msgstr ""
 
-#: src/components/windows/ReportForm.tsx:163
+#: src/components/windows/ReportForm.tsx:168
 msgid "Report successfully sent!"
 msgstr ""
 
@@ -1656,7 +1673,7 @@ msgid "Selected Color"
 msgstr ""
 
 #: src/components/GlobalCaptcha.jsx:100
-#: src/components/windows/ReportForm.tsx:154
+#: src/components/windows/ReportForm.tsx:159
 msgid "Send"
 msgstr ""
 
@@ -1809,7 +1826,7 @@ msgstr ""
 
 #: src/components/Reports.tsx:310
 #: src/components/windows/Help.jsx:84
-#: src/components/windows/ReportForm.tsx:100
+#: src/components/windows/ReportForm.tsx:105
 msgid "Telegram"
 msgstr ""
 
@@ -1923,7 +1940,7 @@ msgstr ""
 msgid "Top-left corner"
 msgstr ""
 
-#: src/components/windows/ReportForm.tsx:80
+#: src/components/windows/ReportForm.tsx:85
 msgid "Topic"
 msgstr ""
 
@@ -2167,7 +2184,7 @@ msgstr ""
 msgid "You can now place more on pixeldays.fun :)"
 msgstr ""
 
-#: src/store/actions/index.js:425
+#: src/store/actions/index.js:440
 #, javascript-format
 msgid ""
 "You caught a Phish! It is a ${ FISH_TYPES[type].name } with ${ size }kg! As "

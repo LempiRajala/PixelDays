@@ -178,11 +178,12 @@ class PixelTransferController {
     }
 
     if (msg || errorTitle) {
-      store.dispatch(pAlert(
-        (errorTitle || t`Error ${retCode}`),
-        msg,
-        type,
-      ));
+      store.dispatch(pAlert({
+        title: (errorTitle || t`Error ${retCode}`),
+        message: msg,
+        alertType: type,
+        retcode: retCode,
+      }));
     }
 
     store.dispatch(receivePlacePixels(ret));

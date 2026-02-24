@@ -2,19 +2,34 @@ import { t } from 'ttag';
 
 import { FISH_TYPES } from '../../core/constants.ts';
 
-export function pAlert(
-  title,
-  message,
-  alertType,
-  btn = t`OK`,
-) {
-  return {
-    type: 'ALERT',
-    title,
-    message,
-    alertType,
-    btn,
-  };
+/**
+ * @param {{type: string, title: string, message: string, alertType: string, btn: string, retcode?: number }} args
+ */
+export function pAlert(args) {
+  if(typeof arguments[0] === 'object') {
+    // новая логика
+    return {
+      type: 'ALERT',
+      btn: t`OK`,
+      ...args,
+    }
+  } else {
+    // старая логика для обратной совместимости
+    const [
+      title,
+      message,
+      alertType,
+      btn = t`OK`,
+    ] = Array.from(arguments);
+
+    return {
+      type: 'ALERT',
+      title,
+      message,
+      alertType,
+      btn,
+    };
+  }
 }
 
 export function pRefresh() {

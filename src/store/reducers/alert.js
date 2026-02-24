@@ -13,7 +13,7 @@ export default function alert(
   switch (action.type) {
     case 'ALERT': {
       const {
-        title, message, alertType, btn,
+        title, message, alertType, btn
       } = action;
 
       return {
@@ -23,6 +23,7 @@ export default function alert(
         message,
         alertType,
         btn,
+        ...('retcode' in action ? { retcode: action.retcode } : undefined),
       };
     }
 

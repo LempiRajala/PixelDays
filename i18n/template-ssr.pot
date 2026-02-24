@@ -41,7 +41,11 @@ msgstr ""
 msgid "Add new application"
 msgstr ""
 
-#: src/db/shared.ts:20
+#: src/db/shared.ts:25
+msgid "Add to whitelist"
+msgstr ""
+
+#: src/db/shared.ts:21
 msgid "Admin abuse"
 msgstr ""
 
@@ -65,11 +69,11 @@ msgstr ""
 msgid "Black and White canvas"
 msgstr ""
 
-#: src/db/shared.ts:19
+#: src/db/shared.ts:20
 msgid "Bot"
 msgstr ""
 
-#: src/db/shared.ts:21
+#: src/db/shared.ts:22
 msgid "Bug"
 msgstr ""
 
@@ -82,7 +86,7 @@ msgstr ""
 msgid "Click here"
 msgstr ""
 
-#: src/core/MailProvider.js:74
+#: src/core/MailProvider.js:72
 msgid "Click to Verify"
 msgstr ""
 
@@ -91,7 +95,7 @@ msgstr ""
 msgid "Client Name"
 msgstr ""
 
-#: src/db/shared.ts:31
+#: src/db/shared.ts:33
 msgid "Closed"
 msgstr ""
 
@@ -122,7 +126,7 @@ msgstr ""
 msgid "Could not find this login method"
 msgstr ""
 
-#: src/core/MailProvider.js:165
+#: src/core/MailProvider.js:163
 msgid "Couldn't find this mail in our database"
 msgstr ""
 
@@ -200,11 +204,11 @@ msgstr ""
 msgid "Get the amount of Pixels placed and ranking"
 msgstr ""
 
-#: src/core/MailProvider.js:75
+#: src/core/MailProvider.js:73
 msgid "Have fun and don't hesitate to contact us if you encounter any problems :)"
 msgstr ""
 
-#: src/core/MailProvider.js:139
+#: src/core/MailProvider.js:137
 msgid "Hello"
 msgstr ""
 
@@ -213,13 +217,13 @@ msgstr ""
 msgid "Hello ${ email }, you can set your new password here:"
 msgstr ""
 
-#: src/core/MailProvider.js:73
-#: src/core/MailProvider.js:109
+#: src/core/MailProvider.js:71
+#: src/core/MailProvider.js:107
 #, javascript-format
 msgid "Hello ${ name }"
 msgstr ""
 
-#: src/core/MailProvider.js:111
+#: src/core/MailProvider.js:109
 msgid ""
 "If this was you, please ignore this email. If it wasn't you, please go to "
 "<a href=\"https://pixeldays.xyz\">pixeldays.xyz</a> and log-out any session "
@@ -227,7 +231,7 @@ msgid ""
 "your password."
 msgstr ""
 
-#: src/core/MailProvider.js:141
+#: src/core/MailProvider.js:139
 #, javascript-format
 msgid ""
 "If you did not request this mail, please just ignore it (the ip that "
@@ -262,7 +266,7 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: src/core/MailProvider.js:108
+#: src/core/MailProvider.js:106
 msgid "Login from new location on PixelDays"
 msgstr ""
 
@@ -275,7 +279,7 @@ msgstr ""
 msgid "Mail is already in use!"
 msgstr ""
 
-#: src/core/MailProvider.js:149
+#: src/core/MailProvider.js:147
 msgid "Mail is not configured on the server"
 msgstr ""
 
@@ -383,7 +387,7 @@ msgstr ""
 msgid "Only four colors. Same rules as moon!"
 msgstr ""
 
-#: src/db/shared.ts:30
+#: src/db/shared.ts:32
 msgid "Open"
 msgstr ""
 
@@ -393,12 +397,12 @@ msgstr ""
 msgid "OpenID Connect specs"
 msgstr ""
 
-#: src/core/MailProvider.js:74
-#: src/core/MailProvider.js:140
+#: src/core/MailProvider.js:72
+#: src/core/MailProvider.js:138
 msgid "Or by copying following url:"
 msgstr ""
 
-#: src/db/shared.ts:23
+#: src/db/shared.ts:24
 msgid "Other"
 msgstr ""
 
@@ -479,7 +483,7 @@ msgstr ""
 msgid "Please use int channel"
 msgstr ""
 
-#: src/db/shared.ts:22
+#: src/db/shared.ts:23
 msgid "Proxy"
 msgstr ""
 
@@ -500,7 +504,7 @@ msgstr ""
 msgid "Regularly update this data"
 msgstr ""
 
-#: src/db/shared.ts:32
+#: src/db/shared.ts:34
 msgid "Rejected"
 msgstr ""
 
@@ -509,7 +513,7 @@ msgstr ""
 msgid "Reroll client_secret"
 msgstr ""
 
-#: src/core/MailProvider.js:140
+#: src/core/MailProvider.js:138
 #: src/routes/reset_password.js:110
 #: src/routes/reset_password.js:112
 msgid "Reset Password"
@@ -525,7 +529,7 @@ msgstr ""
 msgid "Server error when deleting user."
 msgstr ""
 
-#: src/core/MailProvider.js:110
+#: src/core/MailProvider.js:108
 msgid "Someone logged into your account from a new location, with the IP:"
 msgstr ""
 
@@ -562,9 +566,9 @@ msgstr ""
 msgid "Submit"
 msgstr ""
 
-#: src/core/MailProvider.js:76
-#: src/core/MailProvider.js:112
-#: src/core/MailProvider.js:142
+#: src/core/MailProvider.js:74
+#: src/core/MailProvider.js:110
+#: src/core/MailProvider.js:140
 msgid "Thanks"
 msgstr ""
 
@@ -671,20 +675,20 @@ msgstr ""
 msgid "Username must be shorter than 26 characters"
 msgstr ""
 
-#: src/core/MailProvider.js:157
+#: src/core/MailProvider.js:155
 msgid ""
 "We already sent you a mail with instructions. Please wait before requesting "
 "another mail."
 msgstr ""
 
-#: src/core/MailProvider.js:93
+#: src/core/MailProvider.js:91
 #, javascript-format
 msgid ""
 "We already sent you a verification mail, you can request another one in ${ "
 "minLeft } minutes."
 msgstr ""
 
-#: src/core/MailProvider.js:72
+#: src/core/MailProvider.js:70
 #, javascript-format
 msgid "Welcome ${ name } to PixelDays, please verify your mail"
 msgstr ""
@@ -788,7 +792,7 @@ msgstr ""
 msgid "You failed your captcha"
 msgstr ""
 
-#: src/core/MailProvider.js:138
+#: src/core/MailProvider.js:136
 msgid "You forgot your password for PixelDays? Get a new one here"
 msgstr ""
 
@@ -809,7 +813,7 @@ msgstr ""
 msgid "You need to directly access this page in the browser :("
 msgstr ""
 
-#: src/core/MailProvider.js:140
+#: src/core/MailProvider.js:138
 msgid ""
 "You requested to get a new password. You can change your password within "
 "the next 30min here: "
@@ -863,7 +867,7 @@ msgstr ""
 msgid "to go back to pixeldays"
 msgstr ""
 
-#: src/core/MailProvider.js:74
+#: src/core/MailProvider.js:72
 msgid ""
 "welcome to our little community of pixelplacers, to use your account, you "
 "have to verify your mail. You can do that here: "

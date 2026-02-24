@@ -7,6 +7,7 @@ import { sleep } from '../../core/shared-utils.ts';
 import { shallowEqual, useSelector } from 'react-redux';
 import type { State } from '../../store/store.ts';
 import { ReportCategorySelect } from '../report-category-select.tsx';
+import { useWindow } from '../context/window.ts';
 
 type EditableFields = 
   Omit<CreateReportRequest, 'category'>
@@ -19,8 +20,12 @@ const emptyFields: EditableFields = {
 
 const ReportForm = () => {
   const user = useSelector<State>(state => state.user, shallowEqual) as State['user'];
-  // const { args: { userId } } = useWindow();
-  const [fields, setFields] = useState<EditableFields>(emptyFields);
+  const { args: windowArgs } = useWindow();
+  const [fields, setFields] = useState<EditableFields>({
+    ...emptyFields,
+    ...('title' in windowArgs ? { title: windowArgs.title } : undefined),
+    ...('category' in windowArgs ? { category: windowArgs.category } : undefined),
+  });
   const [sendInProcess, setSendInProcess] = useState(false);
   const [showSendDone, setShowSendDone] = useState(false);
   const [error, setError] = useState<string | null>(null);

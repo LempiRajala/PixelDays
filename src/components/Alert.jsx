@@ -11,9 +11,12 @@ import Overlay from './Overlay.jsx';
 import RefreshPrompt from './RefreshPrompt.jsx';
 import { closeAlert } from '../store/actions/index.js';
 import Markdown from './markdown/Markdown.jsx';
+import useLink from './hooks/link.js';
+import { t } from 'ttag';
 
 const Alert = () => {
   const [render, setRender] = useState(false);
+  const link = useLink();
 
   const {
     open,
@@ -21,7 +24,11 @@ const Alert = () => {
     title,
     message,
     btn,
+    ...restState
   } = useSelector((state) => state.alert);
+
+  const isProxyRetcode = 'retcode' in restState && restState.retcode === 11;
+  const isRussianDude = navigator.languages.includes('ru');
 
   const dispatch = useDispatch();
   const close = useCallback(() => {
@@ -57,6 +64,19 @@ const Alert = () => {
 
   const show = open && render;
 
+  const gotoReportForm = () => {
+    close();
+    link('REPORT_FORM', {
+      target: 'parent',
+      args: {
+        category: 'add-to-whitelist',
+        title: 'Добавьте меня в белый список',
+      },
+      width: 500,
+      height: 500,
+    });
+  }
+
   return (
     <>
       <Overlay
@@ -74,6 +94,23 @@ const Alert = () => {
         {(message) && (
           <Markdown text={message} parseLinks />
         )}
+        { isProxyRetcode && isRussianDude &&
+          <div style={{ marginBottom: '12px' }}>
+            <div>{t`Are you Russian and can't play without a VPN?`}</div>
+            <div style={{ display: 'flex', alignItems: 'center', marginTop: '4px' }}>
+              <span
+                style={{
+                  cursor: 'pointer',
+                  textDecoration: 'underline',
+                }}
+                onClick={gotoReportForm}
+              >
+                {t`Make repоrt`}
+              </span>
+              {t`, and we'll add you to our whitelist.`}
+            </div>
+          </div>
+        }
         {(Content) ? (
           <Content close={close} />
         ) : (
