@@ -202,8 +202,6 @@ function cleanUpBeforeBuild(doBuildServer, doBuildClient) {
       'AUTHORS',
       'README.md',
       path.join('src', 'canvases.json'),
-      path.join('deployment', 'ecosystem.yml'),
-      path.join('deployment', 'ecosystem-backup.yml'),
       path.join('deployment', '.env'),
     ].forEach((f) => {
       fs.copyFileSync(
@@ -313,22 +311,6 @@ function buildServer() {
   });
 }
 
-function getAllFolders(dirPath, folders = []) {
-  const items = fs.readdirSync(dirPath);
-  
-  items.forEach(item => {
-    const fullPath = path.join(dirPath, item);
-    const stat = fs.statSync(fullPath);
-    
-    if (stat.isDirectory()) {
-      folders.push(fullPath);
-      getAllFolders(fullPath, folders);
-    }
-  });
-  
-  return folders;
-}
-
 async function build() {
   const st = Date.now();
   // cleanup old files
@@ -410,7 +392,7 @@ async function build() {
 
     // console.log('build.js run buildLanguages with', avlangs.join(', '));
     await buildLanguages(avlangs, true, parallel && 5);
-    await minifyJs(avlangs, parallel && 5);
+    // await minifyJs(avlangs, parallel && 5);
   }
 
   cleanUpAfterBuild();

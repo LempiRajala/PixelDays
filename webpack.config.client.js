@@ -101,8 +101,8 @@ export default ({ development, analyze}) => {
     name: 'client',
     target: 'web',
 
-    mode: (development) ? 'development' : 'production',
-    devtool: (development) ? 'source-map' : false,
+    mode: development ? 'development' : 'production',
+    devtool: development ? 'source-map' : false,
 
     entry: {
       client:
@@ -200,74 +200,74 @@ export default ({ development, analyze}) => {
         //   treeShaking: true,
         //   // Можно добавить exclude для определенных чанков
         // }),
-        new JavaScriptObfuscator({
-          // Базовые настройки (безопасные)
-          compact: true,
-          controlFlowFlattening: true,
-          controlFlowFlatteningThreshold: 0.75, // 75% кода будет преобразовано
-          deadCodeInjection: true,
-          // deadCodeInjectionThreshold: 0.4, // Добавит мертвый код в 40% функций
-          debugProtection: false, // ОСТОРОЖНО: может вызывать проблемы с отладкой
-          // debugProtectionInterval: 0, // ОСТОРОЖНО: может вызывать проблемы с отладкой
-          disableConsoleOutput: false, // Не отключаем console.log для отладки
-          identifierNamesGenerator: 'hexadecimal', // Используем hex имена переменных
+      //   new JavaScriptObfuscator({
+      //     // Базовые настройки (безопасные)
+      //     compact: true,
+      //     controlFlowFlattening: true,
+      //     controlFlowFlatteningThreshold: 0.75,
+      //     deadCodeInjection: false,
+      //     // deadCodeInjectionThreshold: 0.4,
+      //     debugProtection: false,
+      //     // debugProtectionInterval: 0,
+      //     disableConsoleOutput: false, // Не отключаем console.log для отладки
+      //     identifierNamesGenerator: 'hexadecimal', // Используем hex имена переменных
           
-          // Настройки для строк (хорошо запутывают, но безопасны)
-          log: false,
-          numbersToExpressions: true, // Преобразует числа в выражения
-          simplify: true, // Упрощает некоторые выражения
-          stringArray: true,
-          stringArrayEncoding: ['base64'], // Кодирует строки в base64
-          stringArrayIndexShift: true, // Сдвигает индексы массива строк
-          stringArrayWrappersCount: 2, // Добавляет обертки для доступа к строкам
-          stringArrayWrappersChainedCalls: true,
-          stringArrayWrappersParametersMaxCount: 4,
-          stringArrayWrappersType: 'function',
-          stringArrayThreshold: 0.75, // 75% строк будут помещены в массив
+      //     // Настройки для строк (хорошо запутывают, но безопасны)
+      //     log: false,
+      //     numbersToExpressions: true, // Преобразует числа в выражения
+      //     simplify: true, // Упрощает некоторые выражения
+      //     stringArray: true,
+      //     stringArrayEncoding: ['base64'], // Кодирует строки в base64
+      //     stringArrayIndexShift: true, // Сдвигает индексы массива строк
+      //     stringArrayWrappersCount: 2, // Добавляет обертки для доступа к строкам
+      //     stringArrayWrappersChainedCalls: true,
+      //     stringArrayWrappersParametersMaxCount: 4,
+      //     stringArrayWrappersType: 'function',
+      //     stringArrayThreshold: 0.75, // 75% строк будут помещены в массив
           
-          // Другие преобразования
-          rotateStringArray: true, // Перемешивает массив строк
-          selfDefending: false, // ОСТОРОЖНО: может вызывать проблемы
-          shuffleStringArray: true, // Перемешивает массив строк
-          splitStrings: true,
-          splitStringsChunkLength: 10, // Разбивает длинные строки
-          unicodeEscapeSequence: false, // Лучше false для совместимости
+      //     // Другие преобразования
+      //     rotateStringArray: true, // Перемешивает массив строк
+      //     selfDefending: false, // ОСТОРОЖНО: может вызывать проблемы
+      //     shuffleStringArray: true, // Перемешивает массив строк
+      //     splitStrings: true,
+      //     splitStringsChunkLength: 10, // Разбивает длинные строки
+      //     unicodeEscapeSequence: false, // Лучше false для совместимости
           
-          // Безопасные настройки для переименования
-          renameGlobals: false, // ОПАСНО: может сломать интеграцию с другими скриптами
-          renameProperties: false, // ОПАСНО: может сломать доступ к свойствам объектов
-          transformObjectKeys: false, // ОПАСНО: может сломать доступ по ключам
+      //     // Безопасные настройки для переименования
+      //     renameGlobals: false, // ОПАСНО: может сломать интеграцию с другими скриптами
+      //     renameProperties: false, // ОПАСНО: может сломать доступ к свойствам объектов
+      //     transformObjectKeys: false, // ОПАСНО: может сломать доступ по ключам
 
-          // Настройки source map (если нужны для отладки)
-          sourceMap: false, // В production обычно false
-          sourceMapBaseUrl: '',
-          sourceMapFileName: '',
-          sourceMapMode: 'separate',
+      //     // Настройки source map (если нужны для отладки)
+      //     sourceMap: development,
+      //     sourceMapBaseUrl: '',
+      //     sourceMapFileName: '',
+      //     sourceMapMode: 'separate',
 
-          // Настройки для domain lock (если нужно)
-          domainLock: [], // Оставить пустым для всех доменов
+      //     // Настройки для domain lock (если нужно)
+      //     domainLock: [], // Оставить пустым для всех доменов
 
-          seed: 0,
+      //     seed: 0,
 
-          target: 'browser',
+      //     target: 'browser',
 
-          exclude: [
-            /node_modules/,
-            /\.map$/,
-            /\.css$/,
-            /\.svg$/,
-            /\.json$/,
-            /\.html$/,
-          ]
-        }, [
-          // Исключите определенные файлы из обфускации (опционально)
-          'vendor.js',
-          'pvendor.js', 
-          'three.js',
-          'vendor.*.js',
-          'pvendor.*.js', 
-          'three.*.js',
-        ])
+      //     exclude: [
+      //       /node_modules/,
+      //       /\.map$/,
+      //       /\.css$/,
+      //       /\.svg$/,
+      //       /\.json$/,
+      //       /\.html$/,
+      //     ]
+      //   }, [
+      //     // Исключите определенные файлы из обфускации (опционально)
+      //     'vendor.js',
+      //     'pvendor.js', 
+      //     'three.js',
+      //     'vendor.*.js',
+      //     'pvendor.*.js', 
+      //     'three.*.js',
+      //   ])
       ] : []),
 
       // Output license informations
