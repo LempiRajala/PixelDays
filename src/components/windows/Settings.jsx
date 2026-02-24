@@ -8,7 +8,7 @@ import { c, t } from 'ttag';
 
 import SettingsItem from '../SettingsItem.tsx';
 import SettingsItemSelect from '../SettingsItemSelect.jsx';
-import LanguageSelect from '../LanguageSelect.jsx';
+import LanguageSelect from '../LanguageSelect.tsx';
 import TemplateSettings from '../TemplateSettings.jsx';
 import {
   toggleGrid,

@@ -62,10 +62,24 @@ export async function fileToImage(file: File): Promise<{
 export const getFileUrl = (id: string) => `${process.env.FILE_STORAGE_ORIGIN}/${id}`;
 
 export function getLanguageNativeName(langCode: string) {
+  const missingCodes: Record<string, string> = {
+    cz: "čeština",
+    gr: "ελληνικά",
+    csb: "Kaszëbsczi",
+  }
+
+  if(langCode in missingCodes) {
+    return missingCodes[langCode];
+  }
+
   const displayNames = new Intl.DisplayNames([langCode], { 
     type: 'language',
     languageDisplay: 'standard',
   });
   
   return displayNames.of(langCode);
+}
+
+export function makeFirstLetterUppercase(text: string) {
+  return text[0].toUpperCase() + text.substring(1);
 }

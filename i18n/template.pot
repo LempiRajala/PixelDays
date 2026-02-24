@@ -1632,7 +1632,7 @@ msgstr ""
 #: src/components/ChangeName.jsx:68
 #: src/components/ChangePassword.jsx:118
 #: src/components/ChangeUsername.jsx:70
-#: src/components/LanguageSelect.jsx:75
+#: src/components/LanguageSelect.tsx:79
 #: src/components/TemplateItemEdit.jsx:206
 #: src/components/windows/OIDCConsent.jsx:314
 msgid "Save"

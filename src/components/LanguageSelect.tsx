@@ -10,6 +10,7 @@ import React, { useState, useEffect } from 'react';
 import { t } from 'ttag';
 import { MONTH } from '../core/constants.ts';
 import { cdn } from '../utils/utag.js';
+import { getLanguageNativeName, makeFirstLetterUppercase } from '../core/client-utils.ts';
 
 function LanguageSelect() {
   const [langSel, setLangSel] = useState(window.ssv.lang);
@@ -36,14 +37,17 @@ function LanguageSelect() {
           }}
         >
           {
-            window.ssv && Object.keys(window.ssv.langs).map((l) => (
-              <option
-                key={l}
-                value={l}
-              >
-                {l.toUpperCase()}
-              </option>
-            ))
+            window.ssv && Object.keys(window.ssv.langs).map((l) => {
+              const nativeName = getLanguageNativeName(l.toLowerCase());
+              return (
+                <option
+                  key={l}
+                  value={l}
+                >
+                  {nativeName ? makeFirstLetterUppercase(nativeName) : l}
+                </option>
+              )
+            })
           }
         </select>
       </span>&nbsp;&nbsp;
