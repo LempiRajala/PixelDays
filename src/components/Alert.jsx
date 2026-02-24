@@ -97,7 +97,7 @@ const Alert = () => {
         { isProxyRetcode && isRussianDude &&
           <div style={{ marginBottom: '12px' }}>
             <div>{t`Are you Russian and can't play without a VPN?`}</div>
-            <div style={{ display: 'flex', alignItems: 'center', marginTop: '4px' }}>
+            <div style={{ marginTop: '4px' }}>
               <span
                 style={{
                   cursor: 'pointer',
