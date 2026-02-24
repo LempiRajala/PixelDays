@@ -74,16 +74,16 @@ export function validatePassword(password) {
     return t`Password must be shorter than 60 characters.`;
   }
   if (!/[A-Z]/.test(password)) {
-    return t`Password must contain at least one uppercase letter`;
+    return t`Password must contain at least one uppercase letter.`;
   }
   if (!/[a-z]/.test(password)) {
-    return t`Password must contain at least one lowercase letter`;
+    return t`Password must contain at least one lowercase letter.`;
   }
   if (!/\d/.test(password)) {
-    return t`Password must contain at least one number`;
+    return t`Password must contain at least one number.`;
   }
   if (!/[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password)) {
-    return t`Password must contain at least one special character`;
+    return t`Password must contain at least one special character.`;
   }
   return false;
 }

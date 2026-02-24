@@ -48,7 +48,7 @@ function validateRegister(name, username, email, password, confirmPassword) {
   if (passworderror) errors.push(passworderror);
 
   if (password !== confirmPassword) {
-    errors.push('Passwords do not match');
+    errors.push(t`Passwords do not match.`);
   }
   return errors;
 }

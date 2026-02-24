@@ -2056,3 +2056,27 @@ msgid "Make repоrt"
 msgstr "Напиши нам"
 msgid ", and we'll add you to our whitelist."
 msgstr ", и мы добавим тебя в белый список."
+
+msgid "Passwords do not match."
+msgstr "Пароли не совпадают."
+
+msgid "No password given."
+msgstr "Не заполнено поле с паролем."
+
+msgid "Password must be at least 8 characters long."
+msgstr "Пароль должен содержать минимум 8 символов."
+
+msgid "Password must be shorter than 60 characters."
+msgstr "Пароль должен быть короче 60 символов."
+
+msgid "Password must contain at least one uppercase letter."
+msgstr "Пароль должен содержать минимум одну букву в верхнем регистре."
+
+msgid "Password must contain at least one lowercase letter."
+msgstr "Пароль должен содержать минимум одну букву в нижнем регистре."
+
+msgid "Password must contain at least one number."
+msgstr "Пароль должен содержать минимум одну цифру."
+
+msgid "Password must contain at least one special character."
+msgstr "Пароль должен содержать минимум один специальный символ."

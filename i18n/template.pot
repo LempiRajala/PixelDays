@@ -1286,19 +1286,19 @@ msgid "Password must be shorter than 60 characters."
 msgstr ""
 
 #: src/utils/validation.js:80
-msgid "Password must contain at least one lowercase letter"
+msgid "Password must contain at least one lowercase letter."
 msgstr ""
 
 #: src/utils/validation.js:83
-msgid "Password must contain at least one number"
+msgid "Password must contain at least one number."
 msgstr ""
 
 #: src/utils/validation.js:86
-msgid "Password must contain at least one special character"
+msgid "Password must contain at least one special character."
 msgstr ""
 
 #: src/utils/validation.js:77
-msgid "Password must contain at least one uppercase letter"
+msgid "Password must contain at least one uppercase letter."
 msgstr ""
 
 #: src/components/ChangePassword.jsx:44
@@ -1306,6 +1306,7 @@ msgid "Password successfully changed."
 msgstr ""
 
 #: src/components/ChangePassword.jsx:21
+#: src/components/LogInForm.jsx:51
 msgid "Passwords do not match."
 msgstr ""
 
