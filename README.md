@@ -3,10 +3,10 @@
 [![Website](https://img.shields.io/badge/Website-2496ED?style=for-the-badge&logo=google-chrome&logoColor=white)](https://pixeldays.xyz/)
 [![Telegram](https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/pixeldaysfun)
 [![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/7sYfg24Yyk)
-
+ 
 **PixelDays** is a high-load, real-time interactive canvas platform designed for massive global collaboration. This project is a comprehensive modernization of a classic pixel-battle engine, optimized for performance, scalability, and modern web standards.
 
----
+--- 
 
 ##  Project Status: Legacy Modernization (2026)
 *This repository contains a legacy codebase currently undergoing a major architectural overhaul. Our team is actively transforming the system to liquidate technical debt and implement modern engineering patterns:*
@@ -15,7 +15,7 @@
 - **Infrastructure:** Migrating from manual database management to a fully containerized **Docker** environment.
 - **Type Safety:** Executing a progressive migration from Vanilla JS to **TypeScript**.
 - **Security:** Implementing robust middleware layers for request validation and anti-bot protection.
-
+ 
 ---
 
 ##  Project Structure
@@ -42,9 +42,9 @@
 ├── tiles/               # Production Storage: Cached WebP canvas chunks
 └── world-map-drawer/    # Specialized map generation utilities
 ```
-
+ 
 ---
-
+ 
 ##  Quick Start
 #### Docker **(Recommended)**
 The fastest way to deploy the full stack (App, Redis, MariaDB):
