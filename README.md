@@ -1,8 +1,8 @@
 # 🌍 PixelDays | Global Real-Time PixelBattle
 
 [![Website](https://img.shields.io/badge/Website-2496ED?style=for-the-badge&logo=google-chrome&logoColor=white)](https://pixeldays.xyz/)
-[![Telegram](https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/pixeldaysfun)
-[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://discord.gg/7sYfg24Yyk)
+[![Telegram](https://img.shields.io/badge/Telegram-26A5E4?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/pixel_days)
+[![Discord](https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white)](https://dsc.gg/pixeldays)
  
 **PixelDays** is a high-load, real-time interactive canvas platform designed for massive global collaboration. This project is a comprehensive modernization of a classic pixel-battle engine, optimized for performance, scalability, and modern web standards.
 
